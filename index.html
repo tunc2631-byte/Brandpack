@@ -71,26 +71,27 @@
 
     /* ── Feature card ── */
     .feature-card {
-      background: #fff; border-radius: 20px; padding: 36px 32px;
-      border: 1.5px solid #efefef;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease;
+      background: rgba(255,255,255,0.06); border-radius: 20px; padding: 36px 32px;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease, border-color 0.2s ease;
     }
     .feature-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+      border-color: rgba(240,122,140,0.25);
     }
 
     /* ── Industry card ── */
     .industry-card {
-      background: #fff; border-radius: 16px; padding: 28px 24px; text-align: center;
-      border: 1.5px solid #efefef;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      background: rgba(255,255,255,0.06); border-radius: 16px; padding: 28px 24px; text-align: center;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
       transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease, border-color 0.2s ease;
     }
     .industry-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 32px rgba(240,122,140,0.1);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.25);
       border-color: rgba(240,122,140,0.3);
     }
 
@@ -312,7 +313,7 @@
       </div>
 
       <!-- CTA-Card -->
-      <div tabindex="0" style="border-radius: 20px; background: #111111; padding: 36px 32px; display: flex; flex-direction: column; justify-content: space-between; min-height: 300px; cursor: pointer; transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.18)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <div tabindex="0" style="border-radius: 20px; background: #1E1E26; padding: 36px 32px; display: flex; flex-direction: column; justify-content: space-between; min-height: 300px; cursor: pointer; transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.18)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
         <div>
           <div style="font-size: 13px; font-weight: 700; color: rgba(240,122,140,0.9); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px;">Dein Produkt dabei?</div>
           <h3 style="font-size: 22px; font-weight: 900; color: #fff; line-height: 1.3; margin-bottom: 12px;">Noch mehr<br>Produkte</h3>
@@ -329,13 +330,13 @@
 <!-- ═══════════════════════════════════════
      WARUM BRANDPACK  —  weiß
 ═══════════════════════════════════════ -->
-<section style="background: #ffffff; padding: 100px 28px;">
+<section style="background: #1E1E26; padding: 100px 28px;">
   <div style="max-width: 1200px; margin: 0 auto;">
 
     <div class="reveal" style="text-align: center; margin-bottom: 64px;">
       <p class="section-label">Warum BrandPack?</p>
-      <h2 style="font-size: clamp(30px, 4vw, 46px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 16px;">Qualität, die man sieht.</h2>
-      <p style="font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 520px; margin: 0 auto;">Wir liefern nicht nur Verpackungen — wir stärken deine Marke bei jedem Kontaktpunkt.</p>
+      <h2 style="font-size: clamp(30px, 4vw, 46px); font-weight: 900; color: #fff; letter-spacing: -0.02em; margin-bottom: 16px;">Qualität, die man sieht.</h2>
+      <p style="font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 520px; margin: 0 auto;">Wir liefern nicht nur Verpackungen — wir stärken deine Marke bei jedem Kontaktpunkt.</p>
     </div>
 
     <div class="features-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
@@ -346,8 +347,8 @@
             <path d="M13 3l2.5 7.5H23l-6.5 4.5 2.5 7.5L13 18l-6 4.5 2.5-7.5L3 10.5h7.5L13 3Z" stroke="#F07A8C" stroke-width="2" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 style="font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Premium-Qualität</h3>
-        <p style="font-size: 15px; color: var(--muted); line-height: 1.7;">Lebensmittelechte Materialien, satte Druckfarben und robuste Verarbeitung.</p>
+        <h3 style="font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px;">Premium-Qualität</h3>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;">Lebensmittelechte Materialien, satte Druckfarben und robuste Verarbeitung.</p>
       </div>
 
       <div class="feature-card reveal" data-delay="80">
@@ -357,8 +358,8 @@
             <path d="M13 7v6l4 4" stroke="#6B8FF4" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 style="font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Schnelle Lieferung</h3>
-        <p style="font-size: 15px; color: var(--muted); line-height: 1.7;">Produktion und Lieferung in nur 14 Tagen — Express-Service auf Anfrage möglich.</p>
+        <h3 style="font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px;">Schnelle Lieferung</h3>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;">Produktion und Lieferung in nur 14 Tagen — Express-Service auf Anfrage möglich.</p>
       </div>
 
       <div class="feature-card reveal" data-delay="160">
@@ -367,8 +368,8 @@
             <path d="M4 18l7-7 4 4 7-8" stroke="#4BC98A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 style="font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Individuelle Gestaltung</h3>
-        <p style="font-size: 15px; color: var(--muted); line-height: 1.7;">Dein Logo, deine Farben — unser Team begleitet dich vom Entwurf bis zum Druck.</p>
+        <h3 style="font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px;">Individuelle Gestaltung</h3>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;">Dein Logo, deine Farben — unser Team begleitet dich vom Entwurf bis zum Druck.</p>
       </div>
 
       <div class="feature-card reveal" data-delay="0">
@@ -378,8 +379,8 @@
             <path d="M9 13l3 3 5-5" stroke="#F0B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 style="font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Niedrige Mindestmengen</h3>
-        <p style="font-size: 15px; color: var(--muted); line-height: 1.7;">Schon ab kleinen Stückzahlen möglich — ideal für Start-ups, Foodtrucks und kleinere Betriebe.</p>
+        <h3 style="font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px;">Niedrige Mindestmengen</h3>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;">Schon ab kleinen Stückzahlen möglich — ideal für Start-ups, Foodtrucks und kleinere Betriebe.</p>
       </div>
 
       <div class="feature-card reveal" data-delay="80">
@@ -389,8 +390,8 @@
             <path d="M9 13h8M13 9v8" stroke="#C06BC9" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 style="font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Persönliche Beratung</h3>
-        <p style="font-size: 15px; color: var(--muted); line-height: 1.7;">Kein Bot — ein fester Ansprechpartner, der dein Konzept kennt und mitdenkt.</p>
+        <h3 style="font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px;">Persönliche Beratung</h3>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;">Kein Bot — ein fester Ansprechpartner, der dein Konzept kennt und mitdenkt.</p>
       </div>
 
       <div class="feature-card reveal" data-delay="160">
@@ -399,8 +400,8 @@
             <path d="M5 21l4-4m0 0l3-3m-3 3l-3 3m6-6l4-4m0 0c1.5-1.5 4-1.5 5.5 0s1.5 4 0 5.5l-4 4c-1.5 1.5-4 1.5-5.5 0s-1.5-4 0-5.5Z" stroke="#3CB87A" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 style="font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Nachhaltige Optionen</h3>
-        <p style="font-size: 15px; color: var(--muted); line-height: 1.7;">Kompostierbare und recycelbare Materialien für ein besseres Markenimage.</p>
+        <h3 style="font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px;">Nachhaltige Optionen</h3>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;">Kompostierbare und recycelbare Materialien für ein besseres Markenimage.</p>
       </div>
 
     </div>
@@ -469,24 +470,24 @@
 <!-- ═══════════════════════════════════════
      BRANCHEN  —  weiß
 ═══════════════════════════════════════ -->
-<section id="branchen" style="background: #ffffff; padding: 100px 28px;">
+<section id="branchen" style="background: #1E1E26; padding: 100px 28px;">
   <div style="max-width: 1200px; margin: 0 auto;">
 
     <div class="reveal" style="text-align: center; margin-bottom: 64px;">
       <p class="section-label">Für wen?</p>
-      <h2 style="font-size: clamp(30px, 4vw, 46px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 16px;">Wir kennen deine Branche</h2>
-      <p style="font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 500px; margin: 0 auto;">Ob Café, Systemgastronomie oder Ghost Kitchen — BrandPack passt sich an.</p>
+      <h2 style="font-size: clamp(30px, 4vw, 46px); font-weight: 900; color: #fff; letter-spacing: -0.02em; margin-bottom: 16px;">Wir kennen deine Branche</h2>
+      <p style="font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 500px; margin: 0 auto;">Ob Café, Systemgastronomie oder Ghost Kitchen — BrandPack passt sich an.</p>
     </div>
 
     <div class="industries-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">☕</div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Cafés & Bäckereien</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Becher, Beutel, Boxen im einheitlichen Look.</p></div>
-      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🍔</div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Restaurants & Fast Food</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Von der Burger-Box bis zur Pommes-Tüte.</p></div>
-      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🛵</div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Lieferdienste</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Sichere Verpackung für deinen Delivery-Service.</p></div>
-      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🌿</div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Ghost Kitchens</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Mehrere Marken, ein Lieferant.</p></div>
-      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🍜</div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Street Food & Foodtrucks</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Kleine Mengen, großer Auftritt.</p></div>
-      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🏨</div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Hotels & Catering</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Repräsentativ, hochwertig, individuell.</p></div>
-      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🧁</div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Bäcker & Konditoreien</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Tortenboxen, Kuchenverpackungen, Tüten.</p></div>
-      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🥗</div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Meal Prep & Abo-Kits</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Einheitliche Verpackung für wöchentliche Lieferkonzepte.</p></div>
+      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">☕</div><h3 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Cafés & Bäckereien</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Becher, Beutel, Boxen im einheitlichen Look.</p></div>
+      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🍔</div><h3 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Restaurants & Fast Food</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Von der Burger-Box bis zur Pommes-Tüte.</p></div>
+      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🛵</div><h3 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Lieferdienste</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Sichere Verpackung für deinen Delivery-Service.</p></div>
+      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🌿</div><h3 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Ghost Kitchens</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Mehrere Marken, ein Lieferant.</p></div>
+      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🍜</div><h3 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Street Food & Foodtrucks</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Kleine Mengen, großer Auftritt.</p></div>
+      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🏨</div><h3 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Hotels & Catering</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Repräsentativ, hochwertig, individuell.</p></div>
+      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🧁</div><h3 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Bäcker & Konditoreien</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Tortenboxen, Kuchenverpackungen, Tüten.</p></div>
+      <div class="industry-card"><div style="font-size: 38px; margin-bottom: 14px;">🥗</div><h3 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px;">Meal Prep & Abo-Kits</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Einheitliche Verpackung für wöchentliche Lieferkonzepte.</p></div>
     </div>
   </div>
 </section>
