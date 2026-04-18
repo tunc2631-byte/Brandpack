@@ -167,11 +167,7 @@
     ::-webkit-scrollbar-thumb:hover { background: var(--pink); }
 
     /* ── Nav logo ── */
-    .nav-logo      { height: 80px; }
-    .nav-logo-wrap {
-      position: absolute; left: 50%; transform: translateX(-50%);
-      display: flex; align-items: center; z-index: 1;
-    }
+    .nav-logo { height: 52px; }
 
     /* ── Large screens (1440p / 27") ── */
     .content-wrap { max-width: 1200px; margin: 0 auto; }
@@ -228,7 +224,7 @@
 
     @media (max-width: 768px) {
       /* Nav */
-      .nav-logo        { height: 72px !important; }
+      .nav-logo        { height: 48px !important; }
       .nav-links       { display: none !important; }
       .nav-cta         { display: none !important; }
       .hamburger       { display: flex !important; }
@@ -264,7 +260,7 @@
 
     @media (max-width: 480px) {
       /* Nav */
-      .nav-logo        { height: 44px !important; }
+      .nav-logo        { height: 40px !important; }
 
       /* Sections */
       section          { padding: 48px 16px !important; }
@@ -310,29 +306,22 @@
 <div style="position: sticky; top: 0; z-index: 200; padding: 12px 20px; pointer-events: none;">
   <nav class="nav-wrap" style="background: #F4F4F2; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04); pointer-events: all; max-width: 1200px; margin: 0 auto; overflow: visible;">
     <div style="padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: relative;">
-
-      <!-- Left: nav links -->
-      <div class="nav-links" style="display: flex; align-items: center; gap: 28px;">
+      <a href="#" style="display: flex; align-items: center; flex-shrink: 0;">
+        <img src="1.png" alt="PackFactory" class="nav-logo" style="width: auto;">
+      </a>
+      <div class="nav-links" style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 32px;">
         <a href="#produkte" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Produkte</a>
         <a href="#prozess"  style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Prozess</a>
         <a href="#branchen" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Branchen</a>
         <a href="#faq"      style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">FAQ</a>
         <a href="#kontakt"  style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Kontakt</a>
       </div>
-
-      <!-- Center: logo (absolutely centered) -->
-      <a href="#" class="nav-logo-wrap">
-        <img src="1.png" alt="PackFactory" class="nav-logo" style="height: 120px; width: auto;">
-      </a>
-
-      <!-- Right: CTA + hamburger -->
       <div style="display: flex; align-items: center; gap: 8px;">
         <a href="#kontakt" class="btn-pink nav-cta" style="padding: 10px 22px; font-size: 14px; border-radius: 10px;">Angebot anfragen</a>
         <button class="hamburger" onclick="toggleMenu()" aria-label="Menü">
           <span></span><span></span><span></span>
         </button>
       </div>
-
     </div>
   </nav>
 </div>
