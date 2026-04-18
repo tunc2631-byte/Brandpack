@@ -173,21 +173,44 @@
     .content-wrap { max-width: 1200px; margin: 0 auto; }
 
     @media (min-width: 1440px) {
-      .content-wrap  { max-width: 1440px !important; }
-      .nav-wrap      { max-width: 1440px !important; }
-      section        { padding-left: 48px !important; padding-right: 48px !important; }
-      .marquee-logo  { height: 96px !important; margin-right: 96px !important; }
+      .content-wrap    { max-width: 1440px !important; }
+      .nav-wrap        { max-width: 1440px !important; }
+      section          { padding-left: 48px !important; padding-right: 48px !important; }
+      .marquee-section { padding-left: 0 !important; padding-right: 0 !important; }
+      .marquee-logo    { height: 96px !important; margin-right: 96px !important; }
     }
 
     @media (min-width: 1920px) {
-      .content-wrap  { max-width: 1760px !important; }
-      .nav-wrap      { max-width: 1760px !important; }
-      section        { padding-left: 80px !important; padding-right: 80px !important; }
-      .marquee-logo  { height: 110px !important; margin-right: 110px !important; }
+      .content-wrap    { max-width: 1760px !important; }
+      .nav-wrap        { max-width: 1760px !important; }
+      section          { padding-left: 80px !important; padding-right: 80px !important; }
+      .marquee-section { padding-left: 0 !important; padding-right: 0 !important; }
+      .marquee-logo    { height: 110px !important; margin-right: 110px !important; }
       .industries-grid { grid-template-columns: repeat(4, 1fr) !important; }
       .products-grid   { grid-template-columns: repeat(3, 1fr) !important; }
       .features-grid   { grid-template-columns: repeat(3, 1fr) !important; }
     }
+
+    /* ── FAQ Accordion ── */
+    .faq-card          { cursor: pointer; user-select: none; }
+    .faq-answer        {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.42s cubic-bezier(.22,1,.36,1),
+                  opacity 0.3s ease;
+    }
+    .faq-card.open .faq-answer {
+      max-height: 400px;
+      opacity: 1;
+    }
+    .faq-chevron {
+      flex-shrink: 0;
+      margin-left: auto;
+      color: #bbb;
+      transition: transform 0.35s cubic-bezier(.22,1,.36,1), color 0.2s;
+    }
+    .faq-card.open .faq-chevron { transform: rotate(180deg); color: var(--pink); }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
@@ -222,7 +245,8 @@
 
       /* Hero */
       .hero-content    { text-align: center !important; }
-      .hero-p          { max-width: 100% !important; }
+      .hero-p          { max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; }
+      .hero-badge      { display: inline-flex !important; }
       .hero-btns       { justify-content: center !important; }
 
       /* Misc */
@@ -327,8 +351,10 @@
         <span style="color: var(--pink);">bestes Marketing</span>
       </h1>
 
-      <p class="hero-p" style="font-size: 17px; color: #5a5a5a; line-height: 1.75; max-width: 500px; margin-bottom: 40px; margin-left: auto; margin-right: auto;">
-        Jede Box, jede Tüte, jeder Becher ist ein direkter Kontakt mit deinem Kunden.<br><br>
+      <p class="hero-p" style="font-size: 17px; color: #5a5a5a; line-height: 1.8; max-width: 500px; margin-bottom: 16px;">
+        Jede Box, jede Tüte, jeder Becher ist ein direkter Kontakt mit deinem Kunden.
+      </p>
+      <p class="hero-p" style="font-size: 17px; color: #5a5a5a; line-height: 1.8; max-width: 500px; margin-bottom: 40px;">
         Während Social Media schnell verschwindet, bleibt deine Verpackung sichtbar – in der Hand, auf der Straße, im Alltag.
       </p>
 
@@ -946,6 +972,40 @@
     document.querySelector('.hamburger').classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  // FAQ accordion
+  document.querySelectorAll('#faq .feature-card').forEach(card => {
+    card.classList.add('faq-card');
+
+    // Find the divider that separates question from answer
+    const children = Array.from(card.children);
+    const divIdx = children.findIndex(el =>
+      el.style && el.style.borderTop && el.style.borderTop.includes('f0f0f0')
+    );
+    if (divIdx === -1) return;
+
+    // Wrap answer elements (divider + PF row + answer text) in faq-answer div
+    const answerWrap = document.createElement('div');
+    answerWrap.className = 'faq-answer';
+    card.appendChild(answerWrap);
+    children.slice(divIdx).forEach(el => answerWrap.appendChild(el));
+
+    // Add chevron to the customer header row
+    const headerRow = children[0];
+    headerRow.style.position = 'relative';
+    headerRow.insertAdjacentHTML('beforeend',
+      `<svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`
+    );
+
+    // Toggle on click
+    card.addEventListener('click', () => {
+      const isOpen = card.classList.contains('open');
+      document.querySelectorAll('#faq .faq-card.open').forEach(c => c.classList.remove('open'));
+      if (!isOpen) card.classList.add('open');
+    });
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
