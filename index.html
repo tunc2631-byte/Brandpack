@@ -974,32 +974,26 @@
   }
 
   // FAQ accordion
+  // Structure per card: [0] customerRow, [1] questionP, [2] divider, [3] pfRow, [4] answerP
   document.querySelectorAll('#faq .feature-card').forEach(card => {
     card.classList.add('faq-card');
 
-    // Find the divider that separates question from answer
     const children = Array.from(card.children);
-    const divIdx = children.findIndex(el =>
-      el.style && el.style.borderTop && el.style.borderTop.includes('f0f0f0')
-    );
-    if (divIdx === -1) return;
+    if (children.length < 5) return;
 
-    // Wrap answer elements (divider + PF row + answer text) in faq-answer div
+    // Wrap divider + PF row + answer (indices 2–4) in faq-answer div
     const answerWrap = document.createElement('div');
     answerWrap.className = 'faq-answer';
     card.appendChild(answerWrap);
-    children.slice(divIdx).forEach(el => answerWrap.appendChild(el));
+    children.slice(2).forEach(el => answerWrap.appendChild(el));
 
-    // Add chevron to the customer header row
-    const headerRow = children[0];
-    headerRow.style.position = 'relative';
-    headerRow.insertAdjacentHTML('beforeend',
+    // Chevron in customer header row
+    children[0].insertAdjacentHTML('beforeend',
       `<svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
         <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>`
     );
 
-    // Toggle on click
     card.addEventListener('click', () => {
       const isOpen = card.classList.contains('open');
       document.querySelectorAll('#faq .faq-card.open').forEach(c => c.classList.remove('open'));
