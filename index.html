@@ -494,162 +494,108 @@
 
 
 <!-- ═══════════════════════════════════════
-     FAQ  —  weiß
+     FAQ  —  hellgrau
 ═══════════════════════════════════════ -->
-<section id="faq" style="background: #ffffff; padding: 100px 28px;">
+<section id="faq" style="background: var(--gray); padding: 100px 28px;">
   <div style="max-width: 760px; margin: 0 auto;">
 
-    <div class="reveal" style="text-align: center; margin-bottom: 56px;">
+    <div class="reveal" style="text-align: center; margin-bottom: 48px;">
       <p class="section-label">Häufige Fragen</p>
       <h2 style="font-size: clamp(30px, 4vw, 46px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 16px;">Was unsere Kunden fragen</h2>
       <p style="font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 480px; margin: 0 auto;">Häufige Fragen die aufkommen — damit du weißt, was dich erwartet.</p>
     </div>
 
-    <!-- Chat window -->
-    <div class="reveal" style="background: #F4F4F2; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 6px;">
+    <!-- FAQ cards -->
+    <div style="display: flex; flex-direction: column; gap: 12px;">
 
-      <!-- Q1: Sarah -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 2px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FDE8D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #C1692A; flex-shrink: 0;">SM</div>
-        <div>
-          <div style="font-size: 11px; color: #999; margin-bottom: 4px; font-weight: 600;">Sarah M. · Café-Besitzerin</div>
-          <div style="background: #fff; border-radius: 18px 18px 18px 4px; padding: 11px 16px; font-size: 14px; color: #1a1a1a; line-height: 1.5; display: inline-block; max-width: 420px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">Wie lange dauert es bis ich meine Verpackungen bekomme?</div>
+      <!-- FAQ 1 -->
+      <div class="reveal feature-card" data-delay="0" style="padding: 20px 24px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FDE8D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #C1692A; flex-shrink: 0;">SM</div>
+          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Sarah M.</span> <span style="font-size: 12px; color: var(--muted);">· Café-Besitzerin</span></div>
         </div>
-      </div>
-      <!-- A1: BrandPack -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; justify-content: flex-end; margin-bottom: 20px; padding-left: 60px;">
-        <div style="background: var(--pink); border-radius: 18px 18px 4px 18px; padding: 11px 16px; font-size: 14px; color: #fff; line-height: 1.5; max-width: 420px;">Das hängt von Produkt und Menge ab — die Dauer ist <strong style="color:#fff;">individuell</strong>. Nach deiner Anfrage bekommst du direkt einen konkreten Zeitplan.</div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF0F2; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-          <img src="Bilder/Bozan%20(1).png" style="width: 28px; height: auto;">
-        </div>
+        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; padding-left: 48px;">"Wie lange dauert es bis ich meine Verpackungen bekomme?"</p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Das hängt von Produkt und Menge ab — die Dauer ist <strong>individuell</strong>. Nach deiner Anfrage geben wir dir direkt einen konkreten Zeitplan.</p>
       </div>
 
-      <!-- Q2: Kemal -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 2px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #D8EEF5; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #1A6F8A; flex-shrink: 0;">KA</div>
-        <div>
-          <div style="font-size: 11px; color: #999; margin-bottom: 4px; font-weight: 600;">Kemal A. · Foodtruck-Betreiber</div>
-          <div style="background: #fff; border-radius: 18px 18px 18px 4px; padding: 11px 16px; font-size: 14px; color: #1a1a1a; line-height: 1.5; display: inline-block; max-width: 420px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">Ich bin ein kleiner Betrieb — gibt es Mindestmengen?</div>
+      <!-- FAQ 2 -->
+      <div class="reveal feature-card" data-delay="40" style="padding: 20px 24px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #D8EEF5; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #1A6F8A; flex-shrink: 0;">KA</div>
+          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Kemal A.</span> <span style="font-size: 12px; color: var(--muted);">· Foodtruck-Betreiber</span></div>
         </div>
-      </div>
-      <!-- A2 -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; justify-content: flex-end; margin-bottom: 20px; padding-left: 60px;">
-        <div style="background: var(--pink); border-radius: 18px 18px 4px 18px; padding: 11px 16px; font-size: 14px; color: #fff; line-height: 1.5; max-width: 420px;">Wir haben bewusst <strong style="color:#fff;">niedrige Mindestmengen</strong> — ideal für Foodtrucks und Start-ups. Schreib uns, wir finden die passende Lösung.</div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF0F2; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-          <img src="Bilder/Bozan%20(1).png" style="width: 28px; height: auto;">
-        </div>
+        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; padding-left: 48px;">"Ich bin ein kleiner Betrieb — gibt es Mindestmengen?"</p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Wir haben bewusst <strong>niedrige Mindestmengen</strong> — ideal für Foodtrucks und Start-ups. Schreib uns, wir finden die passende Lösung.</p>
       </div>
 
-      <!-- Q3: Lisa -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 2px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #E8D8F5; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #6A2AC1; flex-shrink: 0;">LB</div>
-        <div>
-          <div style="font-size: 11px; color: #999; margin-bottom: 4px; font-weight: 600;">Lisa B. · Restaurantleiterin</div>
-          <div style="background: #fff; border-radius: 18px 18px 18px 4px; padding: 11px 16px; font-size: 14px; color: #1a1a1a; line-height: 1.5; display: inline-block; max-width: 420px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">Ich habe kein fertiges Logo — könnt ihr trotzdem helfen?</div>
+      <!-- FAQ 3 -->
+      <div class="reveal feature-card" data-delay="80" style="padding: 20px 24px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #E8D8F5; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #6A2AC1; flex-shrink: 0;">LB</div>
+          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Lisa B.</span> <span style="font-size: 12px; color: var(--muted);">· Restaurantleiterin</span></div>
         </div>
-      </div>
-      <!-- A3 -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; justify-content: flex-end; margin-bottom: 20px; padding-left: 60px;">
-        <div style="background: var(--pink); border-radius: 18px 18px 4px 18px; padding: 11px 16px; font-size: 14px; color: #fff; line-height: 1.5; max-width: 420px;">Kein Problem! Unser Design-Team begleitet dich vom ersten Entwurf bis zur Druckfreigabe. Du brauchst nur eine grobe Idee.</div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF0F2; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-          <img src="Bilder/Bozan%20(1).png" style="width: 28px; height: auto;">
-        </div>
+        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; padding-left: 48px;">"Ich habe kein fertiges Logo — könnt ihr trotzdem helfen?"</p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Kein Problem! Unser Design-Team begleitet dich vom ersten Entwurf bis zur Druckfreigabe. Du brauchst nur eine grobe Idee.</p>
       </div>
 
-      <!-- Q4: Marco -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 2px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #D8F5E8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #1A7A4A; flex-shrink: 0;">MT</div>
-        <div>
-          <div style="font-size: 11px; color: #999; margin-bottom: 4px; font-weight: 600;">Marco T. · Ghost Kitchen</div>
-          <div style="background: #fff; border-radius: 18px 18px 18px 4px; padding: 11px 16px; font-size: 14px; color: #1a1a1a; line-height: 1.5; display: inline-block; max-width: 420px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">Ich betreibe mehrere Marken — kann ich verschiedene Designs gleichzeitig bestellen?</div>
+      <!-- FAQ 4 -->
+      <div class="reveal feature-card" data-delay="120" style="padding: 20px 24px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #D8F5E8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #1A7A4A; flex-shrink: 0;">MT</div>
+          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Marco T.</span> <span style="font-size: 12px; color: var(--muted);">· Ghost Kitchen</span></div>
         </div>
-      </div>
-      <!-- A4 -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; justify-content: flex-end; margin-bottom: 20px; padding-left: 60px;">
-        <div style="background: var(--pink); border-radius: 18px 18px 4px 18px; padding: 11px 16px; font-size: 14px; color: #fff; line-height: 1.5; max-width: 420px;">Absolut. Du hast einen festen Ansprechpartner der alles koordiniert — egal wie viele Marken.</div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF0F2; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-          <img src="Bilder/Bozan%20(1).png" style="width: 28px; height: auto;">
-        </div>
+        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; padding-left: 48px;">"Ich betreibe mehrere Marken — kann ich verschiedene Designs gleichzeitig bestellen?"</p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Absolut. Du hast einen festen Ansprechpartner der alles koordiniert — egal wie viele Marken.</p>
       </div>
 
-      <!-- Q5: Nina -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 2px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF3D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #A07010; flex-shrink: 0;">NK</div>
-        <div>
-          <div style="font-size: 11px; color: #999; margin-bottom: 4px; font-weight: 600;">Nina K. · Bäckerin</div>
-          <div style="background: #fff; border-radius: 18px 18px 18px 4px; padding: 11px 16px; font-size: 14px; color: #1a1a1a; line-height: 1.5; display: inline-block; max-width: 420px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">Sind die Materialien lebensmittelecht und nachhaltig?</div>
+      <!-- FAQ 5 -->
+      <div class="reveal feature-card" data-delay="160" style="padding: 20px 24px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF3D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #A07010; flex-shrink: 0;">NK</div>
+          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Nina K.</span> <span style="font-size: 12px; color: var(--muted);">· Bäckerin</span></div>
         </div>
-      </div>
-      <!-- A5 -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; justify-content: flex-end; margin-bottom: 20px; padding-left: 60px;">
-        <div style="background: var(--pink); border-radius: 18px 18px 4px 18px; padding: 11px 16px; font-size: 14px; color: #fff; line-height: 1.5; max-width: 420px;">Ja — alle Materialien sind <strong style="color:#fff;">lebensmittelecht zertifiziert</strong>. Wir bieten auch kompostierbare und recycelbare Optionen an.</div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF0F2; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-          <img src="Bilder/Bozan%20(1).png" style="width: 28px; height: auto;">
-        </div>
+        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; padding-left: 48px;">"Sind die Materialien lebensmittelecht und nachhaltig?"</p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Ja — alle Materialien sind <strong>lebensmittelecht zertifiziert</strong>. Wir bieten auch kompostierbare und recycelbare Optionen an.</p>
       </div>
 
-      <!-- Q6: Toni -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 2px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #F5D8D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #A01A1A; flex-shrink: 0;">TR</div>
-        <div>
-          <div style="font-size: 11px; color: #999; margin-bottom: 4px; font-weight: 600;">Toni R. · Systemgastronomie</div>
-          <div style="background: #fff; border-radius: 18px 18px 18px 4px; padding: 11px 16px; font-size: 14px; color: #1a1a1a; line-height: 1.5; display: inline-block; max-width: 420px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">Was kostet eine individuelle Bestellung ungefähr?</div>
+      <!-- FAQ 6 -->
+      <div class="reveal feature-card" data-delay="200" style="padding: 20px 24px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #F5D8D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #A01A1A; flex-shrink: 0;">TR</div>
+          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Toni R.</span> <span style="font-size: 12px; color: var(--muted);">· Systemgastronomie</span></div>
         </div>
-      </div>
-      <!-- A6 -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; justify-content: flex-end; margin-bottom: 20px; padding-left: 60px;">
-        <div style="background: var(--pink); border-radius: 18px 18px 4px 18px; padding: 11px 16px; font-size: 14px; color: #fff; line-height: 1.5; max-width: 420px;">Je mehr, desto günstiger pro Stück. Schick uns deine Anfrage — wir erstellen ein kostenloses, unverbindliches Angebot.</div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF0F2; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-          <img src="Bilder/Bozan%20(1).png" style="width: 28px; height: auto;">
-        </div>
+        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; padding-left: 48px;">"Was kostet eine individuelle Bestellung ungefähr?"</p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Je mehr, desto günstiger pro Stück. Schick uns deine Anfrage — wir erstellen ein kostenloses, unverbindliches Angebot.</p>
       </div>
 
-      <!-- Q7: Jana -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 2px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #D8F0F5; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A6A7A; flex-shrink: 0;">JW</div>
-        <div>
-          <div style="font-size: 11px; color: #999; margin-bottom: 4px; font-weight: 600;">Jana W. · Catering-Service</div>
-          <div style="background: #fff; border-radius: 18px 18px 18px 4px; padding: 11px 16px; font-size: 14px; color: #1a1a1a; line-height: 1.5; display: inline-block; max-width: 420px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">In welchen Dateiformaten soll ich mein Design schicken?</div>
+      <!-- FAQ 7 -->
+      <div class="reveal feature-card" data-delay="240" style="padding: 20px 24px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #D8F0F5; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A6A7A; flex-shrink: 0;">JW</div>
+          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Jana W.</span> <span style="font-size: 12px; color: var(--muted);">· Catering-Service</span></div>
         </div>
-      </div>
-      <!-- A7 -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; justify-content: flex-end; margin-bottom: 20px; padding-left: 60px;">
-        <div style="background: var(--pink); border-radius: 18px 18px 4px 18px; padding: 11px 16px; font-size: 14px; color: #fff; line-height: 1.5; max-width: 420px;">Am besten <strong style="color:#fff;">PDF, AI oder EPS</strong> in hoher Auflösung. Nur JPG oder PNG? Kein Problem — wir bereiten die Datei druckfertig auf.</div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF0F2; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-          <img src="Bilder/Bozan%20(1).png" style="width: 28px; height: auto;">
-        </div>
+        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; padding-left: 48px;">"In welchen Dateiformaten soll ich mein Design schicken?"</p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Am besten <strong>PDF, AI oder EPS</strong> in hoher Auflösung. Nur JPG oder PNG? Kein Problem — wir bereiten die Datei druckfertig auf.</p>
       </div>
 
-      <!-- Q8: Philipp -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 2px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #EDF5D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #4A7A0A; flex-shrink: 0;">PG</div>
-        <div>
-          <div style="font-size: 11px; color: #999; margin-bottom: 4px; font-weight: 600;">Philipp G. · Lieferdienst</div>
-          <div style="background: #fff; border-radius: 18px 18px 18px 4px; padding: 11px 16px; font-size: 14px; color: #1a1a1a; line-height: 1.5; display: inline-block; max-width: 420px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">Kann ich vor der großen Bestellung eine Musterlieferung bekommen?</div>
+      <!-- FAQ 8 -->
+      <div class="reveal feature-card" data-delay="280" style="padding: 20px 24px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #EDF5D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #4A7A0A; flex-shrink: 0;">PG</div>
+          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Philipp G.</span> <span style="font-size: 12px; color: var(--muted);">· Lieferdienst</span></div>
         </div>
-      </div>
-      <!-- A8 -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; justify-content: flex-end; margin-bottom: 20px; padding-left: 60px;">
-        <div style="background: var(--pink); border-radius: 18px 18px 4px 18px; padding: 11px 16px; font-size: 14px; color: #fff; line-height: 1.5; max-width: 420px;">Ja, Mustermappen sind auf Anfrage möglich — wir empfehlen das sogar. So siehst du Material und Qualität vorab.</div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF0F2; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-          <img src="Bilder/Bozan%20(1).png" style="width: 28px; height: auto;">
-        </div>
+        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; padding-left: 48px;">"Kann ich vor der großen Bestellung eine Musterlieferung bekommen?"</p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Ja, Mustermappen sind auf Anfrage möglich — wir empfehlen das sogar. So siehst du Material und Qualität vorab.</p>
       </div>
 
-      <!-- Q9: Aylin -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 2px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #F5E8D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #8A4A0A; flex-shrink: 0;">AY</div>
-        <div>
-          <div style="font-size: 11px; color: #999; margin-bottom: 4px; font-weight: 600;">Aylin Y. · Bubble Tea Shop</div>
-          <div style="background: #fff; border-radius: 18px 18px 18px 4px; padding: 11px 16px; font-size: 14px; color: #1a1a1a; line-height: 1.5; display: inline-block; max-width: 420px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">Liefert ihr auch ins Ausland?</div>
+      <!-- FAQ 9 -->
+      <div class="reveal feature-card" data-delay="320" style="padding: 20px 24px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #F5E8D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #8A4A0A; flex-shrink: 0;">AY</div>
+          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Aylin Y.</span> <span style="font-size: 12px; color: var(--muted);">· Bubble Tea Shop</span></div>
         </div>
-      </div>
-      <!-- A9 -->
-      <div style="display: flex; align-items: flex-end; gap: 10px; justify-content: flex-end; padding-left: 60px;">
-        <div style="background: var(--pink); border-radius: 18px 18px 4px 18px; padding: 11px 16px; font-size: 14px; color: #fff; line-height: 1.5; max-width: 420px;">Ja, wir liefern deutschlandweit und auf Anfrage auch europaweit. Schreib uns wo du bist — wir klären die Details.</div>
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: #FFF0F2; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-          <img src="Bilder/Bozan%20(1).png" style="width: 28px; height: auto;">
-        </div>
+        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; padding-left: 48px;">"Liefert ihr auch ins Ausland?"</p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Ja, wir liefern deutschlandweit und auf Anfrage auch europaweit. Schreib uns wo du bist — wir klären die Details.</p>
       </div>
 
     </div>
