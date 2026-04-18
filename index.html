@@ -224,7 +224,8 @@
 
     @media (max-width: 768px) {
       /* Nav */
-      .nav-logo        { height: 48px !important; }
+      .nav-logo        { height: 70px !important; }
+      .nav-inner       { height: 72px !important; overflow: hidden; }
       .nav-links       { display: none !important; }
       .nav-cta         { display: none !important; }
       .hamburger       { display: flex !important; }
@@ -260,7 +261,8 @@
 
     @media (max-width: 480px) {
       /* Nav */
-      .nav-logo        { height: 40px !important; }
+      .nav-logo        { height: 60px !important; }
+      .nav-inner       { height: 64px !important; }
 
       /* Sections */
       section          { padding: 48px 16px !important; }
@@ -305,7 +307,7 @@
 ═══════════════════════════════════════ -->
 <div style="position: sticky; top: 0; z-index: 200; padding: 12px 20px; pointer-events: none;">
   <nav class="nav-wrap" style="background: #F4F4F2; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04); pointer-events: all; max-width: 1200px; margin: 0 auto; overflow: visible;">
-    <div style="padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: relative;">
+    <div class="nav-inner" style="padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: relative;">
       <a href="#" style="display: flex; align-items: center; flex-shrink: 0;">
         <img src="1.png" alt="PackFactory" class="nav-logo" style="width: auto;">
       </a>
