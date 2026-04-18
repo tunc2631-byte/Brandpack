@@ -162,12 +162,39 @@
     @media (max-width: 768px) {
       .products-grid   { grid-template-columns: repeat(2, 1fr) !important; }
       .features-grid   { grid-template-columns: 1fr !important; }
-      .steps-row       { flex-direction: column !important; }
+      .steps-row       { flex-direction: column !important; align-items: center !important; }
       .step-line       { display: none; }
       .industries-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .nav-links       { display: none !important; }
+      .nav-cta         { display: none !important; }
+      .hamburger       { display: flex !important; }
       .footer-grid     { grid-template-columns: 1fr 1fr !important; }
+      .form-grid       { grid-template-columns: 1fr !important; }
+      section          { padding: 64px 20px !important; }
+      .faq-max         { max-width: 100% !important; }
     }
+    @media (max-width: 480px) {
+      .products-grid   { grid-template-columns: 1fr !important; }
+      .industries-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .footer-grid     { grid-template-columns: 1fr !important; }
+      .hero-btns       { flex-direction: column !important; }
+      .hero-btns a     { text-align: center; }
+    }
+
+    /* Mobile menu */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all 0.25s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; background: #fff; z-index: 190;
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 22px; font-weight: 800; color: #1a1a1a; text-decoration: none; }
+    .mobile-menu a:hover { color: var(--pink); }
   </style>
 </head>
 <body>
@@ -188,11 +215,24 @@
         <a href="#faq"      style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">FAQ</a>
         <a href="#kontakt"  style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Kontakt</a>
       </div>
-      <a href="#kontakt" class="btn-pink" style="padding: 10px 22px; font-size: 14px; border-radius: 10px;">
+      <a href="#kontakt" class="btn-pink nav-cta" style="padding: 10px 22px; font-size: 14px; border-radius: 10px;">
         Angebot anfragen
       </a>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+</div>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#produkte" onclick="closeMenu()">Produkte</a>
+  <a href="#prozess"  onclick="closeMenu()">Prozess</a>
+  <a href="#branchen" onclick="closeMenu()">Branchen</a>
+  <a href="#faq"      onclick="closeMenu()">FAQ</a>
+  <a href="#kontakt"  onclick="closeMenu()">Kontakt</a>
+  <a href="#kontakt" class="btn-pink" style="margin-top: 8px;" onclick="closeMenu()">Angebot anfragen</a>
 </div>
 
 
@@ -663,7 +703,7 @@
 
     <form class="reveal" data-delay="240" style="background: #fff; border: 1.5px solid #e8e8e8; border-radius: 20px; padding: 40px; text-align: left;" onsubmit="handleSubmit(event)">
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+      <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
         <div>
           <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">Name *</label>
           <input type="text" placeholder="Max Mustermann" required
@@ -785,6 +825,19 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.querySelector('.hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
