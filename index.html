@@ -191,6 +191,9 @@
       .features-grid   { grid-template-columns: repeat(3, 1fr) !important; }
     }
 
+    /* ── FAQ cards on white bg ── */
+    #faq .feature-card { background: var(--gray) !important; }
+
     /* ── FAQ Accordion ── */
     .faq-card          { cursor: pointer; user-select: none; }
     .faq-answer        {
@@ -389,23 +392,23 @@
   <div style="position: relative; overflow: hidden;">
     <div class="marquee-track" style="display: flex; animation: marquee 18s linear infinite; width: max-content; align-items: center; transform: translate3d(0,0,0);">
       <!-- Logos 1. Durchlauf -->
-      <img src="7.png"  alt="Red Hen"            class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="8.png"  alt="Bull's Kitchen"     class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="9.png"  alt="Damn Dog"           class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="10.png" alt="Efendi Bey"         class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="11.png" alt="Express-Verpackung" class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="12.png" alt="Essen City"         class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="13.png" alt="TUAI Rooms"         class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="14.png" alt="KY & Son"           class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="7.png"  alt="Red Hen"            class="marquee-logo" style="object-fit: contain;">
+      <img src="8.png"  alt="Bull's Kitchen"     class="marquee-logo" style="object-fit: contain;">
+      <img src="9.png"  alt="Damn Dog"           class="marquee-logo" style="object-fit: contain;">
+      <img src="10.png" alt="Efendi Bey"         class="marquee-logo" style="object-fit: contain;">
+      <img src="11.png" alt="Express-Verpackung" class="marquee-logo" style="object-fit: contain;">
+      <img src="12.png" alt="Essen City"         class="marquee-logo" style="object-fit: contain;">
+      <img src="13.png" alt="TUAI Rooms"         class="marquee-logo" style="object-fit: contain;">
+      <img src="14.png" alt="KY & Son"           class="marquee-logo" style="object-fit: contain;">
       <!-- Logos 2. Durchlauf (nahtlose Schleife) -->
-      <img src="7.png"  alt="Red Hen"            class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="8.png"  alt="Bull's Kitchen"     class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="9.png"  alt="Damn Dog"           class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="10.png" alt="Efendi Bey"         class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="11.png" alt="Express-Verpackung" class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="12.png" alt="Essen City"         class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="13.png" alt="TUAI Rooms"         class="marquee-logo" style="width: 100%; object-fit: contain;">
-      <img src="14.png" alt="KY & Son"           class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="7.png"  alt="Red Hen"            class="marquee-logo" style="object-fit: contain;">
+      <img src="8.png"  alt="Bull's Kitchen"     class="marquee-logo" style="object-fit: contain;">
+      <img src="9.png"  alt="Damn Dog"           class="marquee-logo" style="object-fit: contain;">
+      <img src="10.png" alt="Efendi Bey"         class="marquee-logo" style="object-fit: contain;">
+      <img src="11.png" alt="Express-Verpackung" class="marquee-logo" style="object-fit: contain;">
+      <img src="12.png" alt="Essen City"         class="marquee-logo" style="object-fit: contain;">
+      <img src="13.png" alt="TUAI Rooms"         class="marquee-logo" style="object-fit: contain;">
+      <img src="14.png" alt="KY & Son"           class="marquee-logo" style="object-fit: contain;">
     </div>
     <!-- Fade-out links & rechts -->
     <div class="marquee-fade-l" style="position: absolute; left: 0; top: 0; bottom: 0; background: linear-gradient(to right, #F4F4F2, transparent); pointer-events: none;"></div>
@@ -417,7 +420,7 @@
 <!-- ═══════════════════════════════════════
      PRODUKTE  —  hellgrau
 ═══════════════════════════════════════ -->
-<section id="produkte" style="background: var(--gray); padding: 100px 28px;">
+<section id="produkte" style="background: #ffffff; padding: 100px 28px;">
   <div class="content-wrap" style="max-width: 1200px; margin: 0 auto;">
 
     <div class="reveal" style="text-align: center; margin-bottom: 64px;">
@@ -506,7 +509,7 @@
 <!-- ═══════════════════════════════════════
      WARUM BRANDPACK  —  weiß
 ═══════════════════════════════════════ -->
-<section style="background: #ffffff; padding: 100px 28px;">
+<section style="background: var(--gray); padding: 100px 28px;">
   <div class="content-wrap" style="max-width: 1200px; margin: 0 auto;">
 
     <div class="reveal" style="text-align: center; margin-bottom: 64px;">
@@ -588,7 +591,7 @@
 <!-- ═══════════════════════════════════════
      PROZESS  —  hellgrau
 ═══════════════════════════════════════ -->
-<section id="prozess" style="background: var(--gray); padding: 100px 28px;">
+<section id="prozess" style="background: #ffffff; padding: 100px 28px;">
   <div class="content-wrap" style="max-width: 1100px; margin: 0 auto;">
 
     <div class="reveal" style="text-align: center; margin-bottom: 72px;">
@@ -646,7 +649,7 @@
 <!-- ═══════════════════════════════════════
      BRANCHEN  —  weiß
 ═══════════════════════════════════════ -->
-<section id="branchen" style="background: #ffffff; padding: 100px 28px;">
+<section id="branchen" style="background: var(--gray); padding: 100px 28px;">
   <div class="content-wrap" style="max-width: 1200px; margin: 0 auto;">
 
     <div class="reveal" style="text-align: center; margin-bottom: 64px;">
@@ -672,7 +675,7 @@
 <!-- ═══════════════════════════════════════
      FAQ  —  hellgrau
 ═══════════════════════════════════════ -->
-<section id="faq" style="background: var(--gray); padding: 100px 28px;">
+<section id="faq" style="background: #ffffff; padding: 100px 28px;">
   <div style="max-width: 760px; margin: 0 auto;">
 
     <div class="reveal" style="text-align: center; margin-bottom: 48px;">
