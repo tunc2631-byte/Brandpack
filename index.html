@@ -116,8 +116,8 @@
 
     /* ── Marquee / References ── */
     .marquee-section { padding: 56px 0; }
-    .marquee-track   { gap: 0; will-change: transform; }
-    .marquee-logo    { height: 80px; margin-right: 44px; flex-shrink: 0; }
+    .marquee-track   { gap: 0; will-change: transform; backface-visibility: hidden; }
+    .marquee-logo    { height: 76px; width: 172px; padding: 0 20px; object-fit: contain; flex-shrink: 0; }
     .marquee-fade-l  { width: 100px; }
     .marquee-fade-r  { width: 100px; }
 
@@ -177,7 +177,7 @@
       .nav-wrap        { max-width: 1440px !important; }
       section          { padding-left: 48px !important; padding-right: 48px !important; }
       .marquee-section { padding-left: 0 !important; padding-right: 0 !important; }
-      .marquee-logo    { height: 96px !important; margin-right: 52px !important; }
+      .marquee-logo    { height: 88px !important; width: 200px !important; padding: 0 24px !important; }
     }
 
     @media (min-width: 1920px) {
@@ -185,7 +185,7 @@
       .nav-wrap        { max-width: 1760px !important; }
       section          { padding-left: 80px !important; padding-right: 80px !important; }
       .marquee-section { padding-left: 0 !important; padding-right: 0 !important; }
-      .marquee-logo    { height: 110px !important; margin-right: 60px !important; }
+      .marquee-logo    { height: 100px !important; width: 220px !important; padding: 0 28px !important; }
       .industries-grid { grid-template-columns: repeat(4, 1fr) !important; }
       .products-grid   { grid-template-columns: repeat(3, 1fr) !important; }
       .features-grid   { grid-template-columns: repeat(3, 1fr) !important; }
@@ -214,8 +214,9 @@
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr !important; }
-      .hero-img  { display: none !important; }
+      .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .hero-img  { display: flex !important; justify-content: center !important; }
+      .hero-img img { max-width: 320px !important; width: 80% !important; }
     }
 
     @media (max-width: 768px) {
@@ -228,7 +229,7 @@
       /* Layout */
       section          { padding: 56px 20px !important; }
       .marquee-section { padding: 36px 0 !important; }
-      .marquee-logo    { height: 56px !important; margin-right: 28px !important; }
+      .marquee-logo    { height: 52px !important; width: 110px !important; padding: 0 12px !important; }
       .marquee-fade-l  { width: 40px !important; }
       .marquee-fade-r  { width: 40px !important; }
 
@@ -386,25 +387,25 @@
     <p style="font-size: 12px; font-weight: 700; color: #bbb; letter-spacing: 0.12em; text-transform: uppercase;">Vertrauen von über 50 Gastronomen</p>
   </div>
   <div style="position: relative; overflow: hidden;">
-    <div class="marquee-track" style="display: flex; animation: marquee 18s linear infinite; width: max-content; align-items: center; transform: translateZ(0);">
+    <div class="marquee-track" style="display: flex; animation: marquee 18s linear infinite; width: max-content; align-items: center; transform: translate3d(0,0,0);">
       <!-- Logos 1. Durchlauf -->
-      <img src="7.png"  alt="Red Hen"            class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="8.png"  alt="Bull's Kitchen"     class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="9.png"  alt="Damn Dog"           class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="10.png" alt="Efendi Bey"         class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="11.png" alt="Express-Verpackung" class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="12.png" alt="Essen City"         class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="13.png" alt="TUAI Rooms"         class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="14.png" alt="KY & Son"           class="marquee-logo" style="width: auto; object-fit: contain;">
+      <img src="7.png"  alt="Red Hen"            class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="8.png"  alt="Bull's Kitchen"     class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="9.png"  alt="Damn Dog"           class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="10.png" alt="Efendi Bey"         class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="11.png" alt="Express-Verpackung" class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="12.png" alt="Essen City"         class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="13.png" alt="TUAI Rooms"         class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="14.png" alt="KY & Son"           class="marquee-logo" style="width: 100%; object-fit: contain;">
       <!-- Logos 2. Durchlauf (nahtlose Schleife) -->
-      <img src="7.png"  alt="Red Hen"            class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="8.png"  alt="Bull's Kitchen"     class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="9.png"  alt="Damn Dog"           class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="10.png" alt="Efendi Bey"         class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="11.png" alt="Express-Verpackung" class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="12.png" alt="Essen City"         class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="13.png" alt="TUAI Rooms"         class="marquee-logo" style="width: auto; object-fit: contain;">
-      <img src="14.png" alt="KY & Son"           class="marquee-logo" style="width: auto; object-fit: contain;">
+      <img src="7.png"  alt="Red Hen"            class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="8.png"  alt="Bull's Kitchen"     class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="9.png"  alt="Damn Dog"           class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="10.png" alt="Efendi Bey"         class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="11.png" alt="Express-Verpackung" class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="12.png" alt="Essen City"         class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="13.png" alt="TUAI Rooms"         class="marquee-logo" style="width: 100%; object-fit: contain;">
+      <img src="14.png" alt="KY & Son"           class="marquee-logo" style="width: 100%; object-fit: contain;">
     </div>
     <!-- Fade-out links & rechts -->
     <div class="marquee-fade-l" style="position: absolute; left: 0; top: 0; bottom: 0; background: linear-gradient(to right, #fff, transparent); pointer-events: none;"></div>
