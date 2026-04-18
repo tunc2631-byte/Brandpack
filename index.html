@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
     body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1a1a1a; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
     :root {
@@ -159,6 +159,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ── Performance ── */
+    nav                          { transform: translateZ(0); }
+    .marquee-track               { transform: translate3d(0,0,0); will-change: transform; }
+    .reveal                      { will-change: opacity, transform; }
+    .product-card,
+    .feature-card,
+    .industry-card               { will-change: transform; }
+    .hero-img img                { will-change: transform; }
 
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; }
@@ -963,6 +972,11 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Free GPU memory after reveal animations finish
+  document.querySelectorAll('.reveal').forEach(el => {
+    el.addEventListener('transitionend', () => { el.style.willChange = 'auto'; }, { once: true });
+  });
 
   function toggleMenu() {
     const menu = document.getElementById('mobileMenu');
