@@ -116,18 +116,10 @@
 
     /* ── Marquee / References ── */
     .marquee-section { padding: 56px 0; }
-    .marquee-track   { gap: 72px; }
-    .marquee-logo    { height: 64px; }
+    .marquee-track   { gap: 0; }
+    .marquee-logo    { height: 64px; margin-right: 72px; flex-shrink: 0; }
     .marquee-fade-l  { width: 100px; }
     .marquee-fade-r  { width: 100px; }
-
-    @media (max-width: 768px) {
-      .marquee-section { padding: 36px 0; }
-      .marquee-track   { gap: 40px; }
-      .marquee-logo    { height: 42px; }
-      .marquee-fade-l  { width: 40px; }
-      .marquee-fade-r  { width: 40px; }
-    }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(32px); }
@@ -174,31 +166,72 @@
     ::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--pink); }
 
+    /* ── Nav logo ── */
+    .nav-logo { height: 80px; }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr !important; }
-      .hero-img  { display: none; }
+      .hero-img  { display: none !important; }
     }
+
     @media (max-width: 768px) {
-      .products-grid   { grid-template-columns: repeat(2, 1fr) !important; }
-      .features-grid   { grid-template-columns: 1fr !important; }
-      .steps-row       { flex-direction: column !important; align-items: center !important; }
-      .step-line       { display: none; }
-      .industries-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      /* Nav */
+      .nav-logo        { height: 52px !important; }
       .nav-links       { display: none !important; }
       .nav-cta         { display: none !important; }
       .hamburger       { display: flex !important; }
+
+      /* Layout */
+      section          { padding: 56px 20px !important; }
+      .marquee-section { padding: 36px 0 !important; }
+      .marquee-logo    { height: 42px !important; margin-right: 40px !important; }
+      .marquee-fade-l  { width: 40px !important; }
+      .marquee-fade-r  { width: 40px !important; }
+
+      /* Grids */
+      .products-grid   { grid-template-columns: repeat(2, 1fr) !important; }
+      .features-grid   { grid-template-columns: 1fr !important; }
+      .industries-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .footer-grid     { grid-template-columns: 1fr 1fr !important; }
       .form-grid       { grid-template-columns: 1fr !important; }
-      section          { padding: 64px 20px !important; }
+
+      /* Process */
+      .steps-row       { flex-direction: column !important; align-items: center !important; }
+      .step-line       { display: none !important; }
+
+      /* Hero */
+      .hero-content    { text-align: center !important; }
+      .hero-p          { max-width: 100% !important; }
+      .hero-btns       { justify-content: center !important; }
+
+      /* Misc */
       .faq-max         { max-width: 100% !important; }
+      .feature-card    { padding: 28px 24px !important; }
     }
+
     @media (max-width: 480px) {
+      /* Nav */
+      .nav-logo        { height: 44px !important; }
+
+      /* Sections */
+      section          { padding: 48px 16px !important; }
+      .marquee-section { padding: 28px 0 !important; }
+
+      /* Grids */
       .products-grid   { grid-template-columns: 1fr !important; }
       .industries-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .footer-grid     { grid-template-columns: 1fr !important; }
+
+      /* Hero */
       .hero-btns       { flex-direction: column !important; }
-      .hero-btns a     { text-align: center; }
+      .hero-btns a     { text-align: center !important; width: 100%; }
+
+      /* Feature card */
+      .feature-card    { padding: 20px 16px !important; }
+
+      /* Footer bottom */
+      .footer-bottom   { flex-direction: column !important; text-align: center !important; }
     }
 
     /* Mobile menu */
@@ -226,7 +259,7 @@
   <nav style="background: #F4F4F2; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04); pointer-events: all; max-width: 1200px; margin: 0 auto; overflow: visible;">
     <div style="padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: relative;">
       <a href="#" style="display: flex; align-items: center; flex-shrink: 0;">
-        <img src="Bilder/Bozan%20(1).png" alt="PackFactory" style="height: 120px; width: auto;">
+        <img src="Bilder/Bozan%20(1).png" alt="PackFactory" class="nav-logo" style="height: 120px; width: auto;">
       </a>
       <div class="nav-links" style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 32px;">
         <a href="#produkte" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Produkte</a>
@@ -263,7 +296,7 @@
   <div class="hero-grid" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;">
 
     <!-- Text -->
-    <div>
+    <div class="hero-content">
       <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 8px; background: #FFF0F2; border: 1px solid rgba(240,122,140,0.25); border-radius: 100px; padding: 6px 16px; margin-bottom: 32px;">
         <span style="width: 6px; height: 6px; background: var(--pink); border-radius: 50%; flex-shrink: 0;"></span>
         <span style="font-size: 13px; color: var(--pink); font-weight: 700; letter-spacing: 0.01em;">Individuelle Gastronomie-Verpackungen</span>
@@ -274,7 +307,7 @@
         <span style="color: var(--pink);">bestes Marketing</span>
       </h1>
 
-      <p class="hero-p" style="font-size: 17px; color: #5a5a5a; line-height: 1.75; max-width: 500px; margin-bottom: 40px;">
+      <p class="hero-p" style="font-size: 17px; color: #5a5a5a; line-height: 1.75; max-width: 500px; margin-bottom: 40px; margin-left: auto; margin-right: auto;">
         Jede Box, jede Tüte, jeder Becher ist ein direkter Kontakt mit deinem Kunden.<br><br>
         Während Social Media schnell verschwindet, bleibt deine Verpackung sichtbar – in der Hand, auf der Straße, im Alltag.
       </p>
@@ -860,7 +893,7 @@
       </div>
     </div>
 
-    <div style="border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
       <p style="font-size: 13px; color: rgba(255,255,255,0.22);">© 2026 PackFactory. Alle Rechte vorbehalten.</p>
       <p style="font-size: 13px; color: rgba(255,255,255,0.18);">Verpackung ist dein bestes Marketing.</p>
     </div>
