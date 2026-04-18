@@ -109,6 +109,11 @@
     }
 
     /* ── Animations ── */
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(32px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -275,6 +280,41 @@
       >
     </div>
 
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     REFERENZEN  —  weiß
+═══════════════════════════════════════ -->
+<section style="background: #fff; padding: 48px 0; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; overflow: hidden;">
+  <div style="text-align: center; margin-bottom: 28px;">
+    <p style="font-size: 12px; font-weight: 700; color: #bbb; letter-spacing: 0.12em; text-transform: uppercase;">Vertrauen von über 50 Gastronomen</p>
+  </div>
+  <div style="position: relative; overflow: hidden;">
+    <div style="display: flex; animation: marquee 28s linear infinite; width: max-content; align-items: center; gap: 64px;">
+      <!-- Logos 1. Durchlauf -->
+      <img src="7.png"  alt="Red Hen"              style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="8.png"  alt="Bull's Kitchen"       style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="9.png"  alt="Damn Dog"             style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="10.png" alt="Efendi Bey"           style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="11.png" alt="Express-Verpackung"   style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="12.png" alt="Essen City"           style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="13.png" alt="TUAI Rooms"           style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="14.png" alt="KY & Son"             style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <!-- Logos 2. Durchlauf (nahtlose Schleife) -->
+      <img src="7.png"  alt="Red Hen"              style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="8.png"  alt="Bull's Kitchen"       style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="9.png"  alt="Damn Dog"             style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="10.png" alt="Efendi Bey"           style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="11.png" alt="Express-Verpackung"   style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="12.png" alt="Essen City"           style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="13.png" alt="TUAI Rooms"           style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+      <img src="14.png" alt="KY & Son"             style="height: 52px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.45); transition: filter 0.2s;" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(0.45)'">
+    </div>
+    <!-- Fade-out links & rechts -->
+    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 80px; background: linear-gradient(to right, #fff, transparent); pointer-events: none;"></div>
+    <div style="position: absolute; right: 0; top: 0; bottom: 0; width: 80px; background: linear-gradient(to left, #fff, transparent); pointer-events: none;"></div>
   </div>
 </section>
 
