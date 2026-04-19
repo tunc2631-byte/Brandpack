@@ -172,8 +172,19 @@
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #F0EDE6; }
-    ::-webkit-scrollbar-thumb { background: #D4CFC6; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--pink); }
+    ::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--pink-d); }
+
+    /* ── Scroll progress bar ── */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(to right, var(--pink), var(--pink-d));
+      z-index: 9999; border-radius: 0 2px 2px 0;
+      transition: width 0.08s linear;
+    }
+
+    /* ── 3D Tilt ── */
+    .tilt-card { transform-style: preserve-3d; }
 
     /* ── Nav logo ── */
     .nav-logo { height: 120px; }
@@ -306,6 +317,8 @@
 </head>
 <body>
 
+<div id="scroll-progress"></div>
+
 <!-- ═══════════════════════════════════════
      NAVIGATION
 ═══════════════════════════════════════ -->
@@ -378,15 +391,15 @@
     <!-- Stats row -->
     <div class="hero-stats" style="display: flex; justify-content: center; gap: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 44px;">
       <div style="flex: 1; text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.1);">
-        <div style="font-size: clamp(32px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1;">5</div>
+        <div class="hero-counter" data-target="5" data-suffix="" style="font-size: clamp(32px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1;">0</div>
         <div style="font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 600; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em;">Produkte</div>
       </div>
       <div style="flex: 1; text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.1);">
-        <div style="font-size: clamp(32px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1;">100%</div>
+        <div class="hero-counter" data-target="100" data-suffix="%" style="font-size: clamp(32px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1;">0%</div>
         <div style="font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 600; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em;">Individuell</div>
       </div>
       <div style="flex: 1; text-align: center; padding: 0 24px;">
-        <div style="font-size: clamp(32px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1;">24h</div>
+        <div class="hero-counter" data-target="24" data-suffix="h" style="font-size: clamp(32px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1;">0h</div>
         <div style="font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 600; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em;">Antwortzeit</div>
       </div>
     </div>
@@ -942,6 +955,51 @@
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── Scroll progress bar ──
+  const progressBar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrolled / total * 100) + '%';
+  }, { passive: true });
+
+  // ── Hero counter animation ──
+  function animateCounter(el, target, suffix, duration) {
+    const start = performance.now();
+    const update = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        animateCounter(el, +el.dataset.target, el.dataset.suffix, 1400);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.hero-counter').forEach(el => counterObserver.observe(el));
+
+  // ── 3D Card Tilt ──
+  document.querySelectorAll('.product-card, .feature-card, .industry-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transition = 'transform 0.08s ease, box-shadow 0.08s ease';
+      card.style.transform = `perspective(700px) rotateY(${x * 12}deg) rotateX(${-y * 10}deg) translateY(-6px) scale(1.01)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform 0.5s cubic-bezier(.34,1.56,.64,1), box-shadow 0.5s ease';
+      card.style.transform = '';
     });
   });
 
