@@ -200,29 +200,24 @@
       .features-grid   { grid-template-columns: repeat(3, 1fr) !important; }
     }
 
-    /* ── FAQ cards ── */
-    #faq .feature-card { background: var(--gray) !important; }
-
-    /* ── FAQ Accordion ── */
-    .faq-card          { cursor: pointer; user-select: none; }
-    .faq-answer        {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.42s cubic-bezier(.22,1,.36,1),
-                  opacity 0.3s ease;
+    /* ── FAQ ── */
+    .faq-item { border-bottom: 1px solid #E0DBD2; }
+    .faq-item:first-child { border-top: 1px solid #E0DBD2; }
+    .faq-btn {
+      width: 100%; background: none; border: none; padding: 22px 0;
+      display: flex; align-items: center; gap: 18px; cursor: pointer;
+      text-align: left; font-family: inherit;
     }
-    .faq-card.open .faq-answer {
-      max-height: 400px;
-      opacity: 1;
+    .faq-num { font-size: 11px; font-weight: 800; color: var(--pink); letter-spacing: 0.08em; flex-shrink: 0; min-width: 22px; }
+    .faq-q { flex: 1; font-size: 16px; font-weight: 700; color: #1a1a1a; line-height: 1.4; }
+    .faq-icon { flex-shrink: 0; color: #C4BEB5; transition: transform 0.32s cubic-bezier(.22,1,.36,1), color 0.2s; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); color: var(--pink); }
+    .faq-body {
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.4s cubic-bezier(.22,1,.36,1), opacity 0.28s ease;
     }
-    .faq-chevron {
-      flex-shrink: 0;
-      margin-left: auto;
-      color: #bbb;
-      transition: transform 0.35s cubic-bezier(.22,1,.36,1), color 0.2s;
-    }
-    .faq-card.open .faq-chevron { transform: rotate(180deg); color: var(--pink); }
+    .faq-item.open .faq-body { max-height: 300px; opacity: 1; }
+    .faq-body p { font-size: 15px; color: var(--muted); line-height: 1.75; padding: 0 0 22px 40px; }
 
     /* ── Responsive ── */
     @media (max-width: 600px) {
@@ -231,6 +226,10 @@
     }
 
     @media (max-width: 768px) {
+      /* FAQ split layout */
+      .faq-grid  { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .faq-sticky { position: static !important; top: auto !important; }
+
       /* Nav */
       .nav-logo        { height: 70px !important; }
       .nav-inner       { height: 72px !important; overflow: hidden; }
@@ -689,157 +688,96 @@
 
 
 <!-- ═══════════════════════════════════════
-     FAQ  —  hellgrau
+     FAQ
 ═══════════════════════════════════════ -->
 <section id="faq" style="background: #FAF9F7; padding: 100px 28px;">
-  <div style="max-width: 760px; margin: 0 auto;">
+  <div class="content-wrap" style="max-width: 1100px; margin: 0 auto;">
+    <div class="faq-grid" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start;">
 
-    <div class="reveal" style="text-align: center; margin-bottom: 48px;">
-      <p class="section-label">Häufige Fragen</p>
-      <h2 style="font-size: clamp(30px, 4vw, 46px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 16px;">Was unsere Kunden fragen</h2>
-      <p style="font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 480px; margin: 0 auto;">Häufige Fragen die aufkommen — damit du weißt, was dich erwartet.</p>
-    </div>
-
-    <!-- FAQ cards -->
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-
-      <!-- Reusable structure: customer row → question → divider → BP row → answer -->
-
-      <!-- FAQ 1 -->
-      <div class="reveal feature-card" data-delay="0" style="padding: 20px 24px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FDE8D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #C1692A; flex-shrink: 0;">SM</div>
-          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Sarah M.</span> <span style="font-size: 12px; color: var(--muted);">· Café-Besitzerin</span></div>
-        </div>
-        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; padding-left: 48px; margin-bottom: 12px;">"Wie lange dauert es bis ich meine Verpackungen bekomme?"</p>
-        <div style="border-top: 1px solid #E8E3DA; margin-bottom: 12px;"></div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF0F2; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="1.png" style="width: 30px; height: auto;"></div>
-          <span style="font-size: 13px; font-weight: 700; color: var(--pink);">PackFactory</span>
-        </div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Das hängt von Produkt und Menge ab — die Dauer ist <strong>individuell</strong>. Nach deiner Anfrage geben wir dir direkt einen konkreten Zeitplan.</p>
+      <!-- Left: sticky header -->
+      <div class="faq-sticky reveal" style="position: sticky; top: 120px;">
+        <p class="section-label">FAQ</p>
+        <h2 style="font-size: clamp(34px, 4vw, 54px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 20px;">Alles was du<br><span style="color: var(--pink);">wissen musst.</span></h2>
+        <p style="font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 36px;">Noch eine Frage offen?<br>Wir antworten innerhalb von 24&nbsp;Stunden.</p>
+        <a href="#kontakt" class="btn-pink" style="padding: 14px 28px; font-size: 15px;">Frage stellen →</a>
       </div>
 
-      <!-- FAQ 2 -->
-      <div class="reveal feature-card" data-delay="40" style="padding: 20px 24px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #D8EEF5; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #1A6F8A; flex-shrink: 0;">KA</div>
-          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Kemal A.</span> <span style="font-size: 12px; color: var(--muted);">· Foodtruck-Betreiber</span></div>
-        </div>
-        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; padding-left: 48px; margin-bottom: 12px;">"Ich bin ein kleiner Betrieb — gibt es Mindestmengen?"</p>
-        <div style="border-top: 1px solid #E8E3DA; margin-bottom: 12px;"></div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF0F2; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="1.png" style="width: 30px; height: auto;"></div>
-          <span style="font-size: 13px; font-weight: 700; color: var(--pink);">PackFactory</span>
-        </div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Wir haben bewusst <strong>niedrige Mindestmengen</strong> — ideal für Foodtrucks und Start-ups. Schreib uns, wir finden die passende Lösung.</p>
-      </div>
+      <!-- Right: accordion -->
+      <div class="reveal" data-delay="80">
 
-      <!-- FAQ 3 -->
-      <div class="reveal feature-card" data-delay="80" style="padding: 20px 24px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #E8D8F5; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #6A2AC1; flex-shrink: 0;">LB</div>
-          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Lisa B.</span> <span style="font-size: 12px; color: var(--muted);">· Restaurantleiterin</span></div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span class="faq-num">01</span>
+            <span class="faq-q">Wie lange dauert es bis ich meine Verpackungen bekomme?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body"><p>Das hängt von Produkt und Menge ab — die Dauer ist <strong>individuell</strong>. Nach deiner Anfrage geben wir dir direkt einen konkreten Zeitplan.</p></div>
         </div>
-        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; padding-left: 48px; margin-bottom: 12px;">"Ich habe kein fertiges Logo — könnt ihr trotzdem helfen?"</p>
-        <div style="border-top: 1px solid #E8E3DA; margin-bottom: 12px;"></div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF0F2; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="1.png" style="width: 30px; height: auto;"></div>
-          <span style="font-size: 13px; font-weight: 700; color: var(--pink);">PackFactory</span>
-        </div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Kein Problem! Unser Design-Team begleitet dich vom ersten Entwurf bis zur Druckfreigabe. Du brauchst nur eine grobe Idee.</p>
-      </div>
 
-      <!-- FAQ 4 -->
-      <div class="reveal feature-card" data-delay="120" style="padding: 20px 24px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #D8F5E8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #1A7A4A; flex-shrink: 0;">MT</div>
-          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Marco T.</span> <span style="font-size: 12px; color: var(--muted);">· Ghost Kitchen</span></div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span class="faq-num">02</span>
+            <span class="faq-q">Gibt es Mindestmengen?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body"><p>Wir haben bewusst <strong>niedrige Mindestmengen</strong> — ideal für Foodtrucks, Start-ups und kleinere Betriebe. Schreib uns, wir finden die passende Lösung.</p></div>
         </div>
-        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; padding-left: 48px; margin-bottom: 12px;">"Ich betreibe mehrere Marken — kann ich verschiedene Designs gleichzeitig bestellen?"</p>
-        <div style="border-top: 1px solid #E8E3DA; margin-bottom: 12px;"></div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF0F2; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="1.png" style="width: 30px; height: auto;"></div>
-          <span style="font-size: 13px; font-weight: 700; color: var(--pink);">PackFactory</span>
-        </div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Absolut. Du hast einen festen Ansprechpartner der alles koordiniert — egal wie viele Marken.</p>
-      </div>
 
-      <!-- FAQ 5 -->
-      <div class="reveal feature-card" data-delay="160" style="padding: 20px 24px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF3D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #A07010; flex-shrink: 0;">NK</div>
-          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Nina K.</span> <span style="font-size: 12px; color: var(--muted);">· Bäckerin</span></div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span class="faq-num">03</span>
+            <span class="faq-q">Ich habe kein fertiges Logo — könnt ihr trotzdem helfen?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body"><p>Kein Problem! Unser Design-Team begleitet dich vom ersten Entwurf bis zur Druckfreigabe. Du brauchst nur eine grobe Idee.</p></div>
         </div>
-        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; padding-left: 48px; margin-bottom: 12px;">"Sind die Materialien lebensmittelecht und nachhaltig?"</p>
-        <div style="border-top: 1px solid #E8E3DA; margin-bottom: 12px;"></div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF0F2; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="1.png" style="width: 30px; height: auto;"></div>
-          <span style="font-size: 13px; font-weight: 700; color: var(--pink);">PackFactory</span>
-        </div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Ja — alle Materialien sind <strong>lebensmittelecht zertifiziert</strong>. Wir bieten auch kompostierbare und recycelbare Optionen an.</p>
-      </div>
 
-      <!-- FAQ 6 -->
-      <div class="reveal feature-card" data-delay="200" style="padding: 20px 24px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #F5D8D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #A01A1A; flex-shrink: 0;">TR</div>
-          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Toni R.</span> <span style="font-size: 12px; color: var(--muted);">· Systemgastronomie</span></div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span class="faq-num">04</span>
+            <span class="faq-q">Ich betreibe mehrere Marken — kann ich verschiedene Designs bestellen?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body"><p>Absolut. Du hast einen festen Ansprechpartner der alles koordiniert — egal wie viele Marken oder Produkte.</p></div>
         </div>
-        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; padding-left: 48px; margin-bottom: 12px;">"Was kostet eine individuelle Bestellung ungefähr?"</p>
-        <div style="border-top: 1px solid #E8E3DA; margin-bottom: 12px;"></div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF0F2; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="1.png" style="width: 30px; height: auto;"></div>
-          <span style="font-size: 13px; font-weight: 700; color: var(--pink);">PackFactory</span>
-        </div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Je mehr, desto günstiger pro Stück. Schick uns deine Anfrage — wir erstellen ein kostenloses, unverbindliches Angebot.</p>
-      </div>
 
-      <!-- FAQ 7 -->
-      <div class="reveal feature-card" data-delay="240" style="padding: 20px 24px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #D8F0F5; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A6A7A; flex-shrink: 0;">JW</div>
-          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Jana W.</span> <span style="font-size: 12px; color: var(--muted);">· Catering-Service</span></div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span class="faq-num">05</span>
+            <span class="faq-q">Sind die Materialien lebensmittelecht und nachhaltig?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body"><p>Ja — alle Materialien sind <strong>lebensmittelecht zertifiziert</strong>. Wir bieten auch kompostierbare und recycelbare Optionen an.</p></div>
         </div>
-        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; padding-left: 48px; margin-bottom: 12px;">"In welchen Dateiformaten soll ich mein Design schicken?"</p>
-        <div style="border-top: 1px solid #E8E3DA; margin-bottom: 12px;"></div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF0F2; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="1.png" style="width: 30px; height: auto;"></div>
-          <span style="font-size: 13px; font-weight: 700; color: var(--pink);">PackFactory</span>
-        </div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Am besten <strong>PDF, AI oder EPS</strong> in hoher Auflösung. Nur JPG oder PNG? Kein Problem — wir bereiten die Datei druckfertig auf.</p>
-      </div>
 
-      <!-- FAQ 8 -->
-      <div class="reveal feature-card" data-delay="280" style="padding: 20px 24px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #EDF5D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #4A7A0A; flex-shrink: 0;">PG</div>
-          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Philipp G.</span> <span style="font-size: 12px; color: var(--muted);">· Lieferdienst</span></div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span class="faq-num">06</span>
+            <span class="faq-q">Was kostet eine individuelle Bestellung ungefähr?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body"><p>Je mehr, desto günstiger pro Stück. Schick uns deine Anfrage — wir erstellen ein kostenloses, unverbindliches Angebot.</p></div>
         </div>
-        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; padding-left: 48px; margin-bottom: 12px;">"Kann ich vor der großen Bestellung eine Musterlieferung bekommen?"</p>
-        <div style="border-top: 1px solid #E8E3DA; margin-bottom: 12px;"></div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF0F2; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="1.png" style="width: 30px; height: auto;"></div>
-          <span style="font-size: 13px; font-weight: 700; color: var(--pink);">PackFactory</span>
-        </div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Ja, Mustermappen sind auf Anfrage möglich — wir empfehlen das sogar. So siehst du Material und Qualität vorab.</p>
-      </div>
 
-      <!-- FAQ 9 -->
-      <div class="reveal feature-card" data-delay="320" style="padding: 20px 24px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #F5E8D8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #8A4A0A; flex-shrink: 0;">AY</div>
-          <div><span style="font-size: 13px; font-weight: 700; color: #1a1a1a;">Aylin Y.</span> <span style="font-size: 12px; color: var(--muted);">· Bubble Tea Shop</span></div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span class="faq-num">07</span>
+            <span class="faq-q">In welchen Dateiformaten soll ich mein Design schicken?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body"><p>Am besten <strong>PDF, AI oder EPS</strong> in hoher Auflösung. Nur JPG oder PNG? Kein Problem — wir bereiten die Datei druckfertig auf.</p></div>
         </div>
-        <p style="font-size: 14px; font-weight: 600; color: #1a1a1a; padding-left: 48px; margin-bottom: 12px;">"Liefert ihr auch ins Ausland?"</p>
-        <div style="border-top: 1px solid #E8E3DA; margin-bottom: 12px;"></div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF0F2; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="1.png" style="width: 30px; height: auto;"></div>
-          <span style="font-size: 13px; font-weight: 700; color: var(--pink);">PackFactory</span>
-        </div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6; padding-left: 48px;">Ja, wir liefern deutschlandweit und auf Anfrage auch europaweit. Schreib uns wo du bist — wir klären die Details.</p>
-      </div>
 
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span class="faq-num">08</span>
+            <span class="faq-q">Kann ich vor der großen Bestellung eine Musterlieferung bekommen?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body"><p>Ja, Mustermappen sind auf Anfrage möglich — wir empfehlen das sogar. So siehst du Material und Qualität vorab.</p></div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
@@ -999,30 +937,11 @@
   }
 
   // FAQ accordion
-  // Structure per card: [0] customerRow, [1] questionP, [2] divider, [3] pfRow, [4] answerP
-  document.querySelectorAll('#faq .feature-card').forEach(card => {
-    card.classList.add('faq-card');
-
-    const children = Array.from(card.children);
-    if (children.length < 5) return;
-
-    // Wrap divider + PF row + answer (indices 2–4) in faq-answer div
-    const answerWrap = document.createElement('div');
-    answerWrap.className = 'faq-answer';
-    card.appendChild(answerWrap);
-    children.slice(2).forEach(el => answerWrap.appendChild(el));
-
-    // Chevron in customer header row
-    children[0].insertAdjacentHTML('beforeend',
-      `<svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>`
-    );
-
-    card.addEventListener('click', () => {
-      const isOpen = card.classList.contains('open');
-      document.querySelectorAll('#faq .faq-card.open').forEach(c => c.classList.remove('open'));
-      if (!isOpen) card.classList.add('open');
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-btn').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
     });
   });
 
