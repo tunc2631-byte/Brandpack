@@ -459,75 +459,54 @@
       <p style="font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 520px; margin: 0 auto;">Von der Bechermanschette bis zur Faltschachtel — individuell bedruckt mit deinem Logo und Design.</p>
     </div>
 
-    <!-- Shopify Buy Button -->
-    <style>
-      #collection-component-1778603877086 .shopify-buy__product { font-family: inherit !important; }
-      #collection-component-1778603877086 .shopify-buy__btn { background: #F07A8C !important; border-radius: 10px !important; font-family: inherit !important; font-weight: 700 !important; border: none !important; }
-      #collection-component-1778603877086 .shopify-buy__btn:hover { background: #e0607a !important; }
-      #collection-component-1778603877086 .shopify-buy__product__title { font-weight: 800 !important; color: #1a1a1a !important; font-family: inherit !important; }
-      #collection-component-1778603877086 .shopify-buy__product__price { color: #F07A8C !important; font-weight: 700 !important; font-family: inherit !important; }
-    </style>
-    <div id='collection-component-1778603877086'></div>
-    <script type="text/javascript">
-    (function () {
-      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-      if (window.ShopifyBuy) {
-        if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); }
-      } else { loadScript(); }
-      function loadScript() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = scriptURL;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-        script.onload = ShopifyBuyInit;
-      }
-      function ShopifyBuyInit() {
-        var client = ShopifyBuy.buildClient({
-          domain: 'rufvva-ug.myshopify.com',
-          storefrontAccessToken: 'b4105051f35bb57511c8b7493375b19c',
-        });
-        ShopifyBuy.UI.onReady(client).then(function (ui) {
-          ui.createComponent('collection', {
-            id: '680239759692',
-            node: document.getElementById('collection-component-1778603877086'),
-            moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
-            options: {
-              "product": {
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "calc(25% - 20px)",
-                      "margin-left": "20px",
-                      "margin-bottom": "50px",
-                      "width": "calc(25% - 20px)"
-                    },
-                    "img": { "height": "calc(100% - 15px)", "position": "absolute", "left": "0", "right": "0", "top": "0" },
-                    "imgWrapper": { "padding-top": "calc(75% + 15px)", "position": "relative", "height": "0" }
-                  },
-                  "button": { "background-color": "#F07A8C", "border-radius": "10px", "font-weight": "700" }
-                },
-                "text": { "button": "In den Warenkorb" }
-              },
-              "productSet": {
-                "styles": {
-                  "products": { "@media (min-width: 601px)": { "margin-left": "-20px" } }
-                }
-              },
-              "modalProduct": {
-                "contents": { "img": false, "imgWithCarousel": true, "button": false, "buttonWithQuantity": true },
-                "styles": { "product": { "@media (min-width: 601px)": { "max-width": "100%", "margin-left": "0px", "margin-bottom": "0px" } } },
-                "text": { "button": "In den Warenkorb" }
-              },
-              "cart": {
-                "text": { "total": "Zwischensumme", "button": "Zur Kasse" },
-                "styles": { "button": { "background-color": "#F07A8C", "border-radius": "10px" } }
-              },
-              "toggle": { "styles": { "toggle": { "background-color": "#F07A8C" }, "count": { "color": "#fff" } } }
+    <div id="shopify-products-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;"></div>
+    <script>
+    fetch('https://rufvva-ug.myshopify.com/api/2024-01/graphql.json', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': 'b4105051f35bb57511c8b7493375b19c'
+      },
+      body: JSON.stringify({ query: `{
+        collection(id: "gid://shopify/Collection/680239759692") {
+          products(first: 12) {
+            edges {
+              node {
+                title handle
+                priceRange { minVariantPrice { amount currencyCode } }
+                images(first: 1) { edges { node { url altText } } }
+              }
             }
-          });
-        });
-      }
-    })();
+          }
+        }
+      }`})
+    })
+    .then(r => r.json())
+    .then(data => {
+      const products = data.data.collection.products.edges;
+      const grid = document.getElementById('shopify-products-grid');
+      grid.innerHTML = products.map(({node: p}) => {
+        const img = p.images.edges[0]?.node;
+        const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
+        const url = 'https://rufvva-ug.myshopify.com/products/' + p.handle;
+        return `
+          <a href="${url}" target="_blank" rel="noopener" class="product-card" style="text-decoration: none; display: flex; flex-direction: column; border-radius: 20px; overflow: hidden; background: #F5F2EC; border: 1.5px solid #E8E3DA; transition: transform 0.28s cubic-bezier(.34,1.56,.64,1), box-shadow 0.28s ease;"
+            onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'"
+            onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <div style="aspect-ratio: 4/3; overflow: hidden; background: #EDE9E1;">
+              ${img ? `<img src="${img.url}" alt="${img.altText || p.title}" style="width:100%;height:100%;object-fit:cover;">` : ''}
+            </div>
+            <div style="padding: 20px 24px 24px; flex: 1; display: flex; flex-direction: column;">
+              <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">${p.title}</h3>
+              <div style="font-size: 15px; font-weight: 700; color: #F07A8C; margin-bottom: auto;">ab €${price}</div>
+              <div style="margin-top: 16px; display: inline-flex; align-items: center; gap: 5px; color: #F07A8C; font-size: 13px; font-weight: 700;">Jetzt kaufen →</div>
+            </div>
+          </a>`;
+      }).join('');
+    })
+    .catch(() => {
+      document.getElementById('shopify-products-grid').innerHTML = '<p style="color:#aaa;">Produkte konnten nicht geladen werden.</p>';
+    });
     </script>
   </div>
 </section>
