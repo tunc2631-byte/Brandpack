@@ -13,8 +13,8 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #FAF9F7; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
     :root { --pink: #F07A8C; --pink-d: #d9697a; }
-    .btn-pink { display: inline-block; text-decoration: none; font-weight: 700; border-radius: 12px; background: var(--pink); color: #fff; padding: 14px 28px; font-size: 15px; font-family: inherit; transition: background 0.18s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1); border: none; cursor: pointer; }
-    .btn-pink:hover { background: var(--pink-d); transform: translateY(-2px); }
+    .btn-pink { display: inline-block; text-decoration: none; font-weight: 700; border-radius: 12px; background: var(--pink); color: #fff; padding: 14px 28px; font-size: 15px; font-family: inherit; transition: background 0.18s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s; box-shadow: 0 2px 10px rgba(240,122,140,0.3); border: none; cursor: pointer; }
+    .btn-pink:hover { background: var(--pink-d); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(240,122,140,0.4); }
     nav a { color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s; }
     nav a:hover { color: #F07A8C; }
   </style>
@@ -23,7 +23,7 @@
 
 <!-- BANNER -->
 <div style="background: #1E1E26; color: #fff; text-align: center; padding: 10px 20px; font-size: 14px; font-weight: 700;">
-  ✦ Neu: Professioneller Designservice — <a href="/designservice/" style="color: #F07A8C; text-decoration: underline;">Jetzt entdecken →</a>
+  ✦ Neu bei PackFactory? Spare bis zu 100 € auf deine erste Bestellung — <a href="/#produkte" style="color: #F07A8C; text-decoration: underline;">Jetzt bestellen →</a>
 </div>
 
 <!-- NAV -->
@@ -46,73 +46,107 @@
 </div>
 
 <!-- HERO -->
-<section style="background: linear-gradient(135deg, #1E1E26 0%, #2d2d3a 100%); padding: 100px 28px 80px; text-align: center;">
-  <div style="max-width: 720px; margin: 0 auto;">
+<section style="background: linear-gradient(135deg, #1E1E26 0%, #2d2d3a 100%); padding: 110px 28px 90px; text-align: center;">
+  <div style="max-width: 760px; margin: 0 auto;">
     <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(240,122,140,0.15); border: 1px solid rgba(240,122,140,0.3); border-radius: 100px; padding: 6px 16px; margin-bottom: 28px;">
       <span style="width: 6px; height: 6px; background: #F07A8C; border-radius: 50%;"></span>
-      <span style="font-size: 13px; color: #F07A8C; font-weight: 700;">Über uns</span>
+      <span style="font-size: 13px; color: #F07A8C; font-weight: 700;">Unsere Geschichte</span>
     </div>
-    <h1 style="font-size: clamp(36px, 5vw, 60px); font-weight: 900; color: #fff; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px;">
-      Wir sind <span style="color: #F07A8C;">PackFactory</span>
+    <h1 style="font-size: clamp(38px, 5vw, 64px); font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 24px;">
+      Zwei Unternehmer.<br><span style="color: #F07A8C;">Eine Mission.</span>
     </h1>
-    <p style="font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.7;">
-      Dein Partner für individuelle Verpackungslösungen — für Gastronomie, Foodservice und alle die auffallen wollen.
+    <p style="font-size: 18px; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 580px; margin: 0 auto;">
+      Wir wissen wie es ist, eine Marke aufzubauen — von der Pike auf. Genau deshalb machen wir das, was wir tun.
     </p>
   </div>
 </section>
 
-<!-- UNSERE MISSION -->
+<!-- UNSERE GESCHICHTE -->
 <section style="padding: 100px 28px; background: #FAF9F7;">
-  <div style="max-width: 900px; margin: 0 auto; display: flex; gap: 64px; align-items: center; flex-wrap: wrap;">
-    <div style="flex: 1; min-width: 280px;">
-      <p style="font-size: 13px; font-weight: 700; color: #F07A8C; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px;">Unsere Mission</p>
-      <h2 style="font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: #1a1a1a; line-height: 1.15; margin-bottom: 20px;">Verpackungen die deine Marke erzählen</h2>
-      <p style="font-size: 16px; color: #7a7570; line-height: 1.8; margin-bottom: 16px;">Bei PackFactory glauben wir, dass jede Verpackung eine Chance ist — eine Chance, deine Marke zu stärken, Kunden zu begeistern und einen bleibenden Eindruck zu hinterlassen.</p>
-      <p style="font-size: 16px; color: #7a7570; line-height: 1.8;">Wir liefern nicht einfach nur Papierprodukte. Wir liefern Markenerlebnisse — individuell gestaltet, hochwertig produziert und schnell geliefert.</p>
+  <div style="max-width: 960px; margin: 0 auto;">
+
+    <!-- Intro -->
+    <div style="display: flex; gap: 64px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 80px;">
+      <div style="flex: 1; min-width: 280px;">
+        <p style="font-size: 13px; font-weight: 700; color: #F07A8C; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px;">Wer wir sind</p>
+        <h2 style="font-size: clamp(26px, 3.5vw, 40px); font-weight: 900; color: #1a1a1a; line-height: 1.15; margin-bottom: 20px;">Nicht Theorie — echte Erfahrung aus dem Business</h2>
+        <p style="font-size: 16px; color: #7a7570; line-height: 1.85; margin-bottom: 16px;">
+          Hinter PackFactory stecken zwei Selbstständige, die den Markt von innen kennen. Einer von uns hat jahrelang eine eigene Modemarke geführt — mit Pop-up-Stores, eigenem Branding und allem was dazugehört. Der andere hat früh gemerkt, wie wichtig Wiedererkennung im Außenauftritt ist.
+        </p>
+        <p style="font-size: 16px; color: #7a7570; line-height: 1.85;">
+          Irgendwann haben wir uns zusammengetan — und festgestellt: der Verpackungsmarkt für Gastronomen ist unübersichtlich, teuer und wenig persönlich. Genau da wollten wir ansetzen.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 260px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <div style="background: #1E1E26; border-radius: 20px; padding: 28px 24px; text-align: center;">
+          <div style="font-size: 36px; font-weight: 900; color: #F07A8C; margin-bottom: 6px; letter-spacing: -0.02em;">4+</div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 600;">Jahre Erfahrung</div>
+        </div>
+        <div style="background: #1E1E26; border-radius: 20px; padding: 28px 24px; text-align: center;">
+          <div style="font-size: 36px; font-weight: 900; color: #F07A8C; margin-bottom: 6px; letter-spacing: -0.02em;">24h</div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 600;">Antwortzeit</div>
+        </div>
+        <div style="background: #1E1E26; border-radius: 20px; padding: 28px 24px; text-align: center;">
+          <div style="font-size: 36px; font-weight: 900; color: #F07A8C; margin-bottom: 6px; letter-spacing: -0.02em;">EU</div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 600;">Produktion</div>
+        </div>
+        <div style="background: #1E1E26; border-radius: 20px; padding: 28px 24px; text-align: center;">
+          <div style="font-size: 36px; font-weight: 900; color: #F07A8C; margin-bottom: 6px; letter-spacing: -0.02em;">100%</div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 600;">Individuell</div>
+        </div>
+      </div>
     </div>
-    <div style="flex: 1; min-width: 260px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-      <div style="background: #F5F2EC; border-radius: 16px; padding: 24px; border: 1.5px solid #E8E3DA; text-align: center;">
-        <div style="font-size: 32px; font-weight: 900; color: #F07A8C; margin-bottom: 6px;">100%</div>
-        <div style="font-size: 13px; color: #7a7570; font-weight: 600;">Individuell</div>
+
+    <!-- Timeline Story -->
+    <div style="position: relative; padding-left: 32px; border-left: 2px solid #E8E3DA;">
+
+      <div style="margin-bottom: 48px; position: relative;">
+        <div style="position: absolute; left: -41px; top: 4px; width: 18px; height: 18px; background: #F07A8C; border-radius: 50%; border: 3px solid #FAF9F7; box-shadow: 0 0 0 2px #F07A8C;"></div>
+        <p style="font-size: 12px; font-weight: 800; color: #F07A8C; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Der Anfang</p>
+        <h3 style="font-size: 20px; font-weight: 900; color: #1a1a1a; margin-bottom: 10px;">Eine Modemarke. Pop-up-Stores. Echtes Branding.</h3>
+        <p style="font-size: 15px; color: #7a7570; line-height: 1.8;">Einer von uns hat jahrelang eine Modemarke aufgebaut — vom ersten Produkt bis zum Pop-up-Store. Was er dabei gelernt hat: Marke ist alles. Nicht nur das Produkt, sondern wie es präsentiert wird, wie es sich anfühlt, was es über dich aussagt.</p>
       </div>
-      <div style="background: #F5F2EC; border-radius: 16px; padding: 24px; border: 1.5px solid #E8E3DA; text-align: center;">
-        <div style="font-size: 32px; font-weight: 900; color: #F07A8C; margin-bottom: 6px;">24h</div>
-        <div style="font-size: 13px; color: #7a7570; font-weight: 600;">Antwortzeit</div>
+
+      <div style="margin-bottom: 48px; position: relative;">
+        <div style="position: absolute; left: -41px; top: 4px; width: 18px; height: 18px; background: #F07A8C; border-radius: 50%; border: 3px solid #FAF9F7; box-shadow: 0 0 0 2px #F07A8C;"></div>
+        <p style="font-size: 12px; font-weight: 800; color: #F07A8C; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Die Erkenntnis</p>
+        <h3 style="font-size: 20px; font-weight: 900; color: #1a1a1a; margin-bottom: 10px;">Der Markt braucht uns — nicht umgekehrt.</h3>
+        <p style="font-size: 15px; color: #7a7570; line-height: 1.8;">Wir haben gesehen, wie viele Gastronomen mit 08/15-Verpackungen arbeiten — nicht weil sie es wollen, sondern weil es keine einfache Alternative gab. Kein persönlicher Ansprechpartner, keine kleinen Mengen, kein echtes Design-Know-how. Das wollten wir ändern.</p>
       </div>
-      <div style="background: #F5F2EC; border-radius: 16px; padding: 24px; border: 1.5px solid #E8E3DA; text-align: center;">
-        <div style="font-size: 32px; font-weight: 900; color: #F07A8C; margin-bottom: 6px;">EU</div>
-        <div style="font-size: 13px; color: #7a7570; font-weight: 600;">Produktion</div>
+
+      <div style="position: relative;">
+        <div style="position: absolute; left: -41px; top: 4px; width: 18px; height: 18px; background: #F07A8C; border-radius: 50%; border: 3px solid #FAF9F7; box-shadow: 0 0 0 2px #F07A8C;"></div>
+        <p style="font-size: 12px; font-weight: 800; color: #F07A8C; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Heute</p>
+        <h3 style="font-size: 20px; font-weight: 900; color: #1a1a1a; margin-bottom: 10px;">PackFactory — dein Partner für Verpackungen mit Charakter.</h3>
+        <p style="font-size: 15px; color: #7a7570; line-height: 1.8;">Wir haben zusammengefunden und PackFactory gegründet. Unser Versprechen: Verpackungen, die deine Marke wirklich widerspiegeln — zu fairen Preisen, mit echtem Service und einem Team, dem dein Business genauso wichtig ist wie dir.</p>
       </div>
-      <div style="background: #F5F2EC; border-radius: 16px; padding: 24px; border: 1.5px solid #E8E3DA; text-align: center;">
-        <div style="font-size: 32px; font-weight: 900; color: #F07A8C; margin-bottom: 6px;">4+</div>
-        <div style="font-size: 13px; color: #7a7570; font-weight: 600;">Jahre Erfahrung</div>
-      </div>
+
     </div>
   </div>
 </section>
 
 <!-- WERTE -->
 <section style="padding: 80px 28px; background: #F0EDE6;">
-  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-    <p style="font-size: 13px; font-weight: 700; color: #F07A8C; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px;">Unsere Werte</p>
-    <h2 style="font-size: clamp(26px, 3.5vw, 40px); font-weight: 900; color: #1a1a1a; margin-bottom: 48px;">Was uns antreibt</h2>
+  <div style="max-width: 960px; margin: 0 auto; text-align: center;">
+    <p style="font-size: 13px; font-weight: 700; color: #F07A8C; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px;">Was uns antreibt</p>
+    <h2 style="font-size: clamp(26px, 3.5vw, 40px); font-weight: 900; color: #1a1a1a; margin-bottom: 48px;">Unsere Werte</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; text-align: left;">
-      <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1.5px solid #E8E3DA;">
+      <div style="background: #fff; border-radius: 18px; padding: 28px; border: 1.5px solid #E8E3DA;">
         <div style="font-size: 28px; margin-bottom: 14px;">🎯</div>
         <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px;">Qualität</h3>
-        <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Jede Verpackung wird mit höchsten Qualitätsstandards produziert — kein Kompromiss.</p>
+        <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Jede Verpackung wird mit höchsten Standards produziert — kein Kompromiss.</p>
       </div>
-      <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1.5px solid #E8E3DA;">
+      <div style="background: #fff; border-radius: 18px; padding: 28px; border: 1.5px solid #E8E3DA;">
         <div style="font-size: 28px; margin-bottom: 14px;">🤝</div>
         <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px;">Partnerschaft</h3>
         <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Wir denken mit — von der ersten Anfrage bis zur Lieferung bist du nie allein.</p>
       </div>
-      <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1.5px solid #E8E3DA;">
+      <div style="background: #fff; border-radius: 18px; padding: 28px; border: 1.5px solid #E8E3DA;">
         <div style="font-size: 28px; margin-bottom: 14px;">⚡</div>
         <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px;">Schnelligkeit</h3>
         <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Schnelle Antworten, schnelle Produktion — dein Business wartet nicht.</p>
       </div>
-      <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1.5px solid #E8E3DA;">
+      <div style="background: #fff; border-radius: 18px; padding: 28px; border: 1.5px solid #E8E3DA;">
         <div style="font-size: 28px; margin-bottom: 14px;">✨</div>
         <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px;">Individualität</h3>
         <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Keine Massenware — jede Bestellung wird speziell für dich und deine Marke gefertigt.</p>
@@ -124,8 +158,8 @@
 <!-- CTA -->
 <section style="padding: 100px 28px; background: #1E1E26; text-align: center;">
   <div style="max-width: 600px; margin: 0 auto;">
-    <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight: 900; color: #fff; margin-bottom: 20px;">Bereit loszulegen?</h2>
-    <p style="font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 40px;">Entdecke unsere Produkte oder schreib uns direkt — wir freuen uns auf dein Projekt.</p>
+    <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight: 900; color: #fff; margin-bottom: 20px;">Lass uns loslegen.</h2>
+    <p style="font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 40px;">Entdecke unsere Produkte oder schreib uns direkt — wir freuen uns auf dein Projekt.</p>
     <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
       <a href="/#produkte" class="btn-pink" style="padding: 16px 36px; font-size: 16px;">Produkte ansehen →</a>
       <a href="/#kontakt" style="display: inline-flex; align-items: center; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 14px 28px; color: #fff; font-size: 15px; font-weight: 700; text-decoration: none;">Kontakt aufnehmen</a>
