@@ -476,44 +476,57 @@
     </div>
 
     <!-- Filter -->
-    <div style="margin-bottom: 40px;">
-      <!-- Kategorien -->
-      <div style="margin-bottom: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
-        <span style="font-size: 12px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 4px;">Kategorie</span>
-        <button onclick="setFilter('kat','alle')" class="filter-btn filter-kat active" data-group="kat" data-val="alle">Alle</button>
-        <button onclick="setFilter('kat','papiertüten')" class="filter-btn filter-kat" data-group="kat" data-val="papiertüten">Papiertüten</button>
-        <button onclick="setFilter('kat','papierboxen')" class="filter-btn filter-kat" data-group="kat" data-val="papierboxen">Papierboxen</button>
-        <button onclick="setFilter('kat','pappbecher')" class="filter-btn filter-kat" data-group="kat" data-val="pappbecher">Pappbecher</button>
-        <button onclick="setFilter('kat','pappschalen')" class="filter-btn filter-kat" data-group="kat" data-val="pappschalen">Pappschalen</button>
-        <button onclick="setFilter('kat','papier')" class="filter-btn filter-kat" data-group="kat" data-val="papier">Papier</button>
-        <button onclick="setFilter('kat','zubehör')" class="filter-btn filter-kat" data-group="kat" data-val="zubehör">Zubehör</button>
+    <style>
+      .filter-wrap {
+        background: #F5F2EC; border: 1.5px solid #E8E3DA; border-radius: 20px;
+        padding: 24px 28px; margin-bottom: 48px; display: flex; flex-direction: column; gap: 18px;
+      }
+      .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+      .filter-label {
+        font-size: 11px; font-weight: 800; color: #B5AFA8; text-transform: uppercase;
+        letter-spacing: 0.1em; min-width: 76px; flex-shrink: 0;
+      }
+      .filter-divider {
+        height: 1px; background: #E8E3DA; margin: 0;
+      }
+      .filter-btn {
+        background: #fff; border: 1.5px solid #E8E3DA; border-radius: 100px;
+        padding: 8px 18px; font-size: 13px; font-weight: 700; color: #7a7570;
+        cursor: pointer; font-family: inherit;
+        transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      }
+      .filter-btn:hover { border-color: #F07A8C; color: #F07A8C; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(240,122,140,0.15); }
+      .filter-btn.active { background: #F07A8C; border-color: #F07A8C; color: #fff; box-shadow: 0 4px 14px rgba(240,122,140,0.35); }
+    </style>
+
+    <div class="filter-wrap">
+      <div class="filter-row">
+        <span class="filter-label">Kategorie</span>
+        <button onclick="setFilter('kat','alle')" class="filter-btn filter-kat active" data-val="alle">Alle</button>
+        <button onclick="setFilter('kat','papiertüten')" class="filter-btn filter-kat" data-val="papiertüten">Papiertüten</button>
+        <button onclick="setFilter('kat','papierboxen')" class="filter-btn filter-kat" data-val="papierboxen">Papierboxen</button>
+        <button onclick="setFilter('kat','pappbecher')" class="filter-btn filter-kat" data-val="pappbecher">Pappbecher</button>
+        <button onclick="setFilter('kat','pappschalen')" class="filter-btn filter-kat" data-val="pappschalen">Pappschalen</button>
+        <button onclick="setFilter('kat','papier')" class="filter-btn filter-kat" data-val="papier">Papier</button>
+        <button onclick="setFilter('kat','zubehör')" class="filter-btn filter-kat" data-val="zubehör">Zubehör</button>
       </div>
-      <!-- Branchen -->
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
-        <span style="font-size: 12px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 4px;">Branche</span>
-        <button onclick="setFilter('bra','alle')" class="filter-btn filter-bra active" data-group="bra" data-val="alle">Alle</button>
-        <button onclick="setFilter('bra','burger')" class="filter-btn filter-bra" data-group="bra" data-val="burger">Burger</button>
-        <button onclick="setFilter('bra','döner')" class="filter-btn filter-bra" data-group="bra" data-val="döner">Döner</button>
-        <button onclick="setFilter('bra','café')" class="filter-btn filter-bra" data-group="bra" data-val="café">Café</button>
-        <button onclick="setFilter('bra','bäckerei')" class="filter-btn filter-bra" data-group="bra" data-val="bäckerei">Bäckerei</button>
-        <button onclick="setFilter('bra','pizza')" class="filter-btn filter-bra" data-group="bra" data-val="pizza">Pizzeria</button>
-        <button onclick="setFilter('bra','restaurant')" class="filter-btn filter-bra" data-group="bra" data-val="restaurant">Restaurant</button>
-        <button onclick="setFilter('bra','chicken')" class="filter-btn filter-bra" data-group="bra" data-val="chicken">Chicken</button>
+      <div class="filter-divider"></div>
+      <div class="filter-row">
+        <span class="filter-label">Branche</span>
+        <button onclick="setFilter('bra','alle')" class="filter-btn filter-bra active" data-val="alle">Alle</button>
+        <button onclick="setFilter('bra','burger')" class="filter-btn filter-bra" data-val="burger">🍔 Burger</button>
+        <button onclick="setFilter('bra','döner')" class="filter-btn filter-bra" data-val="döner">🥙 Döner</button>
+        <button onclick="setFilter('bra','café')" class="filter-btn filter-bra" data-val="café">☕ Café</button>
+        <button onclick="setFilter('bra','bäckerei')" class="filter-btn filter-bra" data-val="bäckerei">🥐 Bäckerei</button>
+        <button onclick="setFilter('bra','pizza')" class="filter-btn filter-bra" data-val="pizza">🍕 Pizzeria</button>
+        <button onclick="setFilter('bra','restaurant')" class="filter-btn filter-bra" data-val="restaurant">🍽️ Restaurant</button>
+        <button onclick="setFilter('bra','chicken')" class="filter-btn filter-bra" data-val="chicken">🍗 Chicken</button>
       </div>
     </div>
 
     <div id="shopify-products-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;"></div>
     <p id="no-products-msg" style="display:none; text-align:center; color:#aaa; padding: 40px 0; font-size:15px;">Keine Produkte für diese Auswahl gefunden.</p>
-
-    <style>
-      .filter-btn {
-        background: #F0EDE6; border: 1.5px solid #E8E3DA; border-radius: 100px;
-        padding: 7px 16px; font-size: 13px; font-weight: 700; color: #7a7570;
-        cursor: pointer; font-family: inherit; transition: all 0.15s ease;
-      }
-      .filter-btn:hover { border-color: #F07A8C; color: #F07A8C; }
-      .filter-btn.active { background: #F07A8C; border-color: #F07A8C; color: #fff; }
-    </style>
 
     <script>
     let allProducts = [];
