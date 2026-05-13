@@ -469,14 +469,97 @@
 <section id="produkte" style="background: #FAF9F7; padding: 100px 28px;">
   <div class="content-wrap" style="max-width: 1200px; margin: 0 auto;">
 
-    <div class="reveal" style="text-align: center; margin-bottom: 64px;">
+    <div class="reveal" style="text-align: center; margin-bottom: 48px;">
       <p class="section-label">Produktkatalog</p>
       <h2 style="font-size: clamp(30px, 4vw, 46px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 16px;">Alles aus einer Hand</h2>
       <p style="font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 520px; margin: 0 auto;">Von der Bechermanschette bis zur Faltschachtel — individuell bedruckt mit deinem Logo und Design.</p>
     </div>
 
+    <!-- Filter -->
+    <div style="margin-bottom: 40px;">
+      <!-- Kategorien -->
+      <div style="margin-bottom: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+        <span style="font-size: 12px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 4px;">Kategorie</span>
+        <button onclick="setFilter('kat','alle')" class="filter-btn filter-kat active" data-group="kat" data-val="alle">Alle</button>
+        <button onclick="setFilter('kat','papiertüten')" class="filter-btn filter-kat" data-group="kat" data-val="papiertüten">Papiertüten</button>
+        <button onclick="setFilter('kat','papierboxen')" class="filter-btn filter-kat" data-group="kat" data-val="papierboxen">Papierboxen</button>
+        <button onclick="setFilter('kat','pappbecher')" class="filter-btn filter-kat" data-group="kat" data-val="pappbecher">Pappbecher</button>
+        <button onclick="setFilter('kat','pappschalen')" class="filter-btn filter-kat" data-group="kat" data-val="pappschalen">Pappschalen</button>
+        <button onclick="setFilter('kat','papier')" class="filter-btn filter-kat" data-group="kat" data-val="papier">Papier</button>
+        <button onclick="setFilter('kat','zubehör')" class="filter-btn filter-kat" data-group="kat" data-val="zubehör">Zubehör</button>
+      </div>
+      <!-- Branchen -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+        <span style="font-size: 12px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 4px;">Branche</span>
+        <button onclick="setFilter('bra','alle')" class="filter-btn filter-bra active" data-group="bra" data-val="alle">Alle</button>
+        <button onclick="setFilter('bra','burger')" class="filter-btn filter-bra" data-group="bra" data-val="burger">Burger</button>
+        <button onclick="setFilter('bra','döner')" class="filter-btn filter-bra" data-group="bra" data-val="döner">Döner</button>
+        <button onclick="setFilter('bra','café')" class="filter-btn filter-bra" data-group="bra" data-val="café">Café</button>
+        <button onclick="setFilter('bra','bäckerei')" class="filter-btn filter-bra" data-group="bra" data-val="bäckerei">Bäckerei</button>
+        <button onclick="setFilter('bra','pizza')" class="filter-btn filter-bra" data-group="bra" data-val="pizza">Pizzeria</button>
+        <button onclick="setFilter('bra','restaurant')" class="filter-btn filter-bra" data-group="bra" data-val="restaurant">Restaurant</button>
+        <button onclick="setFilter('bra','chicken')" class="filter-btn filter-bra" data-group="bra" data-val="chicken">Chicken</button>
+      </div>
+    </div>
+
     <div id="shopify-products-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;"></div>
+    <p id="no-products-msg" style="display:none; text-align:center; color:#aaa; padding: 40px 0; font-size:15px;">Keine Produkte für diese Auswahl gefunden.</p>
+
+    <style>
+      .filter-btn {
+        background: #F0EDE6; border: 1.5px solid #E8E3DA; border-radius: 100px;
+        padding: 7px 16px; font-size: 13px; font-weight: 700; color: #7a7570;
+        cursor: pointer; font-family: inherit; transition: all 0.15s ease;
+      }
+      .filter-btn:hover { border-color: #F07A8C; color: #F07A8C; }
+      .filter-btn.active { background: #F07A8C; border-color: #F07A8C; color: #fff; }
+    </style>
+
     <script>
+    let allProducts = [];
+    let activeKat = 'alle';
+    let activeBra = 'alle';
+
+    function setFilter(group, val) {
+      if (group === 'kat') {
+        activeKat = val;
+        document.querySelectorAll('.filter-kat').forEach(b => b.classList.toggle('active', b.dataset.val === val));
+      } else {
+        activeBra = val;
+        document.querySelectorAll('.filter-bra').forEach(b => b.classList.toggle('active', b.dataset.val === val));
+      }
+      renderProducts();
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('shopify-products-grid');
+      const msg  = document.getElementById('no-products-msg');
+      const filtered = allProducts.filter(p => {
+        const tags = p.tags.map(t => t.toLowerCase());
+        const katOk = activeKat === 'alle' || tags.includes(activeKat);
+        const braOk = activeBra === 'alle' || tags.includes(activeBra);
+        return katOk && braOk;
+      });
+      if (filtered.length === 0) { grid.innerHTML = ''; msg.style.display = 'block'; return; }
+      msg.style.display = 'none';
+      grid.innerHTML = filtered.map(p => {
+        const img   = p.images.edges[0]?.node;
+        const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
+        const url   = 'https://shop.pack-factory.de/products/' + p.handle;
+        return `
+          <a href="${url}" target="_blank" rel="noopener" class="product-card" style="text-decoration:none;">
+            <div style="aspect-ratio:4/3;overflow:hidden;background:#EDE9E1;">
+              ${img ? `<img src="${img.url}" alt="${img.altText || p.title}" style="width:100%;height:100%;object-fit:cover;">` : ''}
+            </div>
+            <div style="padding:20px 24px 24px;flex:1;display:flex;flex-direction:column;">
+              <h3 style="font-size:16px;font-weight:800;color:#1a1a1a;margin-bottom:6px;">${p.title}</h3>
+              <div style="font-size:15px;font-weight:700;color:#F07A8C;margin-bottom:auto;">ab €${price}</div>
+              <div style="margin-top:16px;display:inline-flex;align-items:center;gap:5px;color:#F07A8C;font-size:13px;font-weight:700;">Jetzt kaufen →</div>
+            </div>
+          </a>`;
+      }).join('');
+    }
+
     fetch('https://rufvva-ug.myshopify.com/api/2024-01/graphql.json', {
       method: 'POST',
       headers: {
@@ -487,7 +570,7 @@
         products(first: 50) {
           edges {
             node {
-              title handle
+              title handle tags
               priceRange { minVariantPrice { amount currencyCode } }
               images(first: 1) { edges { node { url altText } } }
             }
@@ -497,26 +580,8 @@
     })
     .then(r => r.json())
     .then(data => {
-      const products = data.data.products.edges;
-      const grid = document.getElementById('shopify-products-grid');
-      grid.innerHTML = products.map(({node: p}) => {
-        const img = p.images.edges[0]?.node;
-        const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
-        const url = 'https://shop.pack-factory.de/products/' + p.handle;
-        return `
-          <a href="${url}" target="_blank" rel="noopener" class="product-card" style="text-decoration: none; display: flex; flex-direction: column; border-radius: 20px; overflow: hidden; background: #F5F2EC; border: 1.5px solid #E8E3DA; transition: transform 0.28s cubic-bezier(.34,1.56,.64,1), box-shadow 0.28s ease;"
-            onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'"
-            onmouseout="this.style.transform='';this.style.boxShadow=''">
-            <div style="aspect-ratio: 4/3; overflow: hidden; background: #EDE9E1;">
-              ${img ? `<img src="${img.url}" alt="${img.altText || p.title}" style="width:100%;height:100%;object-fit:cover;">` : ''}
-            </div>
-            <div style="padding: 20px 24px 24px; flex: 1; display: flex; flex-direction: column;">
-              <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">${p.title}</h3>
-              <div style="font-size: 15px; font-weight: 700; color: #F07A8C; margin-bottom: auto;">ab €${price}</div>
-              <div style="margin-top: 16px; display: inline-flex; align-items: center; gap: 5px; color: #F07A8C; font-size: 13px; font-weight: 700;">Jetzt kaufen →</div>
-            </div>
-          </a>`;
-      }).join('');
+      allProducts = data.data.products.edges.map(e => e.node);
+      renderProducts();
     })
     .catch(() => {
       document.getElementById('shopify-products-grid').innerHTML = '<p style="color:#aaa;">Produkte konnten nicht geladen werden.</p>';
