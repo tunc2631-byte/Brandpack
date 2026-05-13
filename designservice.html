@@ -63,26 +63,37 @@
       <p style="font-size: 13px; font-weight: 700; color: #F07A8C; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px;">So läuft es ab</p>
       <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em;">In 4 Schritten zur perfekten Verpackung</h2>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
-      <div class="step-card">
-        <div style="width: 52px; height: 52px; background: rgba(240,122,140,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 22px; font-weight: 900; color: #F07A8C;">1</div>
-        <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Anfrage stellen</h3>
-        <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Du kontaktierst uns und schilderst deine Ideen, Wünsche und dein Branding.</p>
-      </div>
-      <div class="step-card">
-        <div style="width: 52px; height: 52px; background: rgba(240,122,140,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 22px; font-weight: 900; color: #F07A8C;">2</div>
-        <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Design-Entwurf</h3>
-        <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Wir erstellen einen professionellen Entwurf — individuell auf dich zugeschnitten.</p>
-      </div>
-      <div class="step-card">
-        <div style="width: 52px; height: 52px; background: rgba(240,122,140,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 22px; font-weight: 900; color: #F07A8C;">3</div>
-        <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Freigabe & Produktion</h3>
-        <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Du gibst das Design frei und wir starten sofort mit der Produktion.</p>
-      </div>
-      <div style="text-align: center; padding: 32px 24px; background: #F07A8C; border-radius: 20px;">
-        <div style="width: 52px; height: 52px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 22px; font-weight: 900; color: #fff;">4</div>
-        <h3 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 10px;">Lieferung</h3>
-        <p style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6;">Deine fertigen Verpackungen werden direkt zu dir geliefert — pünktlich und in Top-Qualität.</p>
+    <!-- Timeline -->
+    <div style="position: relative;">
+      <!-- Verbindungslinie -->
+      <div style="position: absolute; top: 36px; left: calc(12.5% + 8px); right: calc(12.5% + 8px); height: 3px; background: linear-gradient(to right, #F07A8C, #f5a5b2); border-radius: 2px; z-index: 0;"></div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; z-index: 1;">
+
+        <div style="text-align: center;">
+          <div style="width: 72px; height: 72px; background: #F07A8C; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 26px; font-weight: 900; color: #fff; box-shadow: 0 4px 20px rgba(240,122,140,0.4);">1</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Anfrage stellen</h3>
+          <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Du kontaktierst uns und schilderst deine Ideen und dein Branding.</p>
+        </div>
+
+        <div style="text-align: center;">
+          <div style="width: 72px; height: 72px; background: #F07A8C; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 26px; font-weight: 900; color: #fff; box-shadow: 0 4px 20px rgba(240,122,140,0.4);">2</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Design-Entwurf</h3>
+          <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Wir erstellen einen professionellen Entwurf — individuell auf dich zugeschnitten.</p>
+        </div>
+
+        <div style="text-align: center;">
+          <div style="width: 72px; height: 72px; background: #F07A8C; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 26px; font-weight: 900; color: #fff; box-shadow: 0 4px 20px rgba(240,122,140,0.4);">3</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Freigabe & Produktion</h3>
+          <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Du gibst das Design frei und wir starten sofort mit der Produktion.</p>
+        </div>
+
+        <div style="text-align: center;">
+          <div style="width: 72px; height: 72px; background: #1E1E26; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 22px; color: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">✓</div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Fertig!</h3>
+          <p style="font-size: 14px; color: #7a7570; line-height: 1.6;">Deine Verpackungen werden direkt zu dir geliefert — pünktlich und in Top-Qualität.</p>
+        </div>
+
       </div>
     </div>
   </div>
