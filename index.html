@@ -504,7 +504,7 @@
       grid.innerHTML = products.map(({node: p}) => {
         const img = p.images.edges[0]?.node;
         const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
-        const url = 'https://rufvva-ug.myshopify.com/products/' + p.handle;
+        const url = 'https://shop.pack-factory.de/products/' + p.handle;
         return `
           <a href="${url}" target="_blank" rel="noopener" class="product-card" style="text-decoration: none; display: flex; flex-direction: column; border-radius: 20px; overflow: hidden; background: #F5F2EC; border: 1.5px solid #E8E3DA; transition: transform 0.28s cubic-bezier(.34,1.56,.64,1), box-shadow 0.28s ease;"
             onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'"
