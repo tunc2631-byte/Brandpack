@@ -15,7 +15,7 @@
     body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #FAF9F7; color: #1a1a1a; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
     :root {
-      --pink:   #0071E3;
+      --pink:   #F07A8C;
       --pink-d: #d9697a;
       --dark:   #1E1E26;
       --text:   #1a1a1a;
@@ -65,7 +65,7 @@
     }
     .product-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 36px rgba(0,113,227,0.13), 0 4px 12px rgba(0,0,0,0.06);
+      box-shadow: 0 12px 36px rgba(240,122,140,0.13), 0 4px 12px rgba(0,0,0,0.06);
       border-color: rgba(240,122,140,0.3);
     }
     .product-card:focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
@@ -321,11 +321,11 @@
       </a>
       <!-- Links center -->
       <div class="nav-links" style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap;">
-        <a href="/" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#0071E3'" onmouseout="this.style.color='#3a3a3a'">Home</a>
-        <a href="#produkte" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#0071E3'" onmouseout="this.style.color='#3a3a3a'">Produkte</a>
-        <a href="/designservice/" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#0071E3'" onmouseout="this.style.color='#3a3a3a'">Designservice</a>
-        <a href="/ueber-uns/" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#0071E3'" onmouseout="this.style.color='#3a3a3a'">Über uns</a>
-        <a href="#kontakt" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#0071E3'" onmouseout="this.style.color='#3a3a3a'">Kontakt</a>
+        <a href="/" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Home</a>
+        <a href="#produkte" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Produkte</a>
+        <a href="/designservice/" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Designservice</a>
+        <a href="/ueber-uns/" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Über uns</a>
+        <a href="#kontakt" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Kontakt</a>
       </div>
       <!-- CTA + hamburger right -->
       <div style="flex-shrink: 0; display: flex; align-items: center; gap: 8px;">
@@ -350,10 +350,49 @@
 
 
 <!-- ═══════════════════════════════════════
-     HERO  —  weiß
+     HERO
 ═══════════════════════════════════════ -->
-<section style="background: #1a1a1a; padding: 72px 28px 64px;">
-  <div class="content-wrap" style="max-width: 860px; margin: 0 auto; text-align: center;">
+<style>
+  @keyframes floatA { 0%,100%{transform:translateY(0) rotate(0deg) scale(1)} 50%{transform:translateY(-18px) rotate(6deg) scale(1.04)} }
+  @keyframes floatB { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(14px) rotate(-5deg)} }
+  @keyframes floatC { 0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-22px) rotate(4deg)} }
+  @keyframes floatD { 0%,100%{transform:translateY(0) rotate(5deg)} 50%{transform:translateY(16px) rotate(-2deg) scale(0.96)} }
+  .pkg { position:absolute; opacity:0.07; will-change:transform; }
+</style>
+
+<section style="background:#1a1a1a; padding:72px 28px 64px; position:relative; overflow:hidden;">
+
+  <!-- Floating packaging icons -->
+  <div style="position:absolute;inset:0;pointer-events:none;">
+
+    <!-- Papiertüten -->
+    <svg class="pkg" style="width:64px;top:8%;left:5%;animation:floatA 7s ease-in-out infinite;" viewBox="0 0 40 52" fill="none"><path d="M7 18L4 48H36L33 18Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 18C15 11 25 11 25 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="7" y1="25" x2="33" y2="25" stroke="white" stroke-width="1.5"/><circle cx="20" cy="14" r="2" fill="white"/></svg>
+    <svg class="pkg" style="width:44px;top:60%;left:2%;animation:floatC 9s ease-in-out infinite 1s;" viewBox="0 0 40 52" fill="none"><path d="M7 18L4 48H36L33 18Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 18C15 11 25 11 25 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="7" y1="25" x2="33" y2="25" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg" style="width:52px;top:20%;right:6%;animation:floatB 8s ease-in-out infinite 2s;" viewBox="0 0 40 52" fill="none"><path d="M7 18L4 48H36L33 18Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 18C15 11 25 11 25 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="7" y1="25" x2="33" y2="25" stroke="white" stroke-width="1.5"/></svg>
+
+    <!-- Kartons/Boxen -->
+    <svg class="pkg" style="width:70px;top:12%;left:18%;animation:floatB 10s ease-in-out infinite 0.5s;" viewBox="0 0 48 42" fill="none"><rect x="4" y="16" width="40" height="22" rx="2" stroke="white" stroke-width="2.5"/><path d="M4 16L13 6H35L44 16" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="6" x2="24" y2="16" stroke="white" stroke-width="2"/><line x1="14" y1="27" x2="34" y2="27" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg" style="width:48px;top:70%;right:8%;animation:floatA 11s ease-in-out infinite 3s;" viewBox="0 0 48 42" fill="none"><rect x="4" y="16" width="40" height="22" rx="2" stroke="white" stroke-width="2.5"/><path d="M4 16L13 6H35L44 16" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="6" x2="24" y2="16" stroke="white" stroke-width="2"/></svg>
+    <svg class="pkg" style="width:80px;bottom:5%;left:30%;animation:floatC 12s ease-in-out infinite 1.5s;" viewBox="0 0 48 42" fill="none"><rect x="4" y="16" width="40" height="22" rx="2" stroke="white" stroke-width="2.5"/><path d="M4 16L13 6H35L44 16" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="6" x2="24" y2="16" stroke="white" stroke-width="2"/><line x1="14" y1="27" x2="34" y2="27" stroke="white" stroke-width="1.5"/></svg>
+
+    <!-- Becher -->
+    <svg class="pkg" style="width:44px;top:5%;right:20%;animation:floatD 8.5s ease-in-out infinite 0.8s;" viewBox="0 0 36 46" fill="none"><path d="M7 10L11 42H25L29 10Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="18" cy="10" rx="11" ry="3.5" stroke="white" stroke-width="2"/><path d="M9 17H27" stroke="white" stroke-width="1.5"/><path d="M29 20C34 20 34 28 29 28" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    <svg class="pkg" style="width:36px;top:45%;left:10%;animation:floatA 9.5s ease-in-out infinite 2.5s;" viewBox="0 0 36 46" fill="none"><path d="M7 10L11 42H25L29 10Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="18" cy="10" rx="11" ry="3.5" stroke="white" stroke-width="2"/><path d="M9 17H27" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg" style="width:56px;bottom:12%;right:18%;animation:floatB 7.5s ease-in-out infinite 4s;" viewBox="0 0 36 46" fill="none"><path d="M7 10L11 42H25L29 10Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="18" cy="10" rx="11" ry="3.5" stroke="white" stroke-width="2"/><path d="M9 17H27" stroke="white" stroke-width="1.5"/><path d="M29 20C34 20 34 28 29 28" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+
+    <!-- Food-Boxen -->
+    <svg class="pkg" style="width:60px;top:55%;right:3%;animation:floatC 10.5s ease-in-out infinite 2s;" viewBox="0 0 48 36" fill="none"><rect x="3" y="14" width="42" height="19" rx="3" stroke="white" stroke-width="2.5"/><path d="M3 14L10 5H38L45 14" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="5" x2="24" y2="14" stroke="white" stroke-width="2"/><line x1="12" y1="23" x2="36" y2="23" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg" style="width:42px;top:30%;left:3%;animation:floatD 13s ease-in-out infinite 3.5s;" viewBox="0 0 48 36" fill="none"><rect x="3" y="14" width="42" height="19" rx="3" stroke="white" stroke-width="2.5"/><path d="M3 14L10 5H38L45 14" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="5" x2="24" y2="14" stroke="white" stroke-width="2"/></svg>
+
+    <!-- Versandtaschen -->
+    <svg class="pkg" style="width:66px;bottom:18%;left:12%;animation:floatA 11.5s ease-in-out infinite 1s;" viewBox="0 0 50 38" fill="none"><rect x="3" y="5" width="44" height="28" rx="4" stroke="white" stroke-width="2.5"/><path d="M3 5L25 22L47 5" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="33" x2="47" y2="33" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg" style="width:46px;top:8%;right:38%;animation:floatB 9s ease-in-out infinite 4.5s;" viewBox="0 0 50 38" fill="none"><rect x="3" y="5" width="44" height="28" rx="4" stroke="white" stroke-width="2.5"/><path d="M3 5L25 22L47 5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    <svg class="pkg" style="width:38px;top:78%;right:30%;animation:floatC 8s ease-in-out infinite 0.3s;" viewBox="0 0 50 38" fill="none"><rect x="3" y="5" width="44" height="28" rx="4" stroke="white" stroke-width="2.5"/><path d="M3 5L25 22L47 5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrap" style="max-width: 860px; margin: 0 auto; text-align: center; position:relative; z-index:1;">
     <h1 class="hero-h1" style="font-size: clamp(36px, 5.5vw, 68px); font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 16px;">
       Verpackungen mit<br><span style="color: var(--pink);">Wiedererkennungswert</span>
     </h1>
@@ -413,7 +452,7 @@
     <div style="display:grid; grid-template-columns:1fr 1fr; min-height:560px;">
       <div id="spotlight-img" style="overflow:hidden; background:#F5F2EC;"></div>
       <div style="display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,6vw,100px); background:#1a1a1a;">
-        <p style="font-size:12px; font-weight:800; color:#0071E3; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">✦ Bestseller</p>
+        <p style="font-size:12px; font-weight:800; color:#F07A8C; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">✦ Bestseller</p>
         <h2 id="spotlight-title" style="font-size:clamp(32px,4vw,54px); font-weight:900; color:#fff; line-height:1.08; letter-spacing:-0.02em; margin-bottom:16px;"></h2>
         <p style="font-size:15px; color:rgba(255,255,255,0.45); margin-bottom:32px;">Individuell bedruckt mit deinem Logo — für jeden Einsatz.</p>
         <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
@@ -458,8 +497,8 @@
         transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
         box-shadow: 0 1px 3px rgba(0,0,0,0.04);
       }
-      .filter-btn:hover { border-color: #0071E3; color: #0071E3; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,113,227,0.15); }
-      .filter-btn.active { background: #0071E3; border-color: #0071E3; color: #fff; box-shadow: 0 4px 14px rgba(240,122,140,0.35); }
+      .filter-btn:hover { border-color: #F07A8C; color: #F07A8C; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(240,122,140,0.15); }
+      .filter-btn.active { background: #F07A8C; border-color: #F07A8C; color: #fff; box-shadow: 0 4px 14px rgba(240,122,140,0.35); }
     </style>
 
     <div class="filter-wrap">
@@ -530,7 +569,7 @@
               <h3 style="font-size:15px;font-weight:800;color:#1a1a1a;margin-bottom:8px;line-height:1.3;">${p.title}</h3>
               <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
                 <span style="font-size:17px;font-weight:900;color:#0071E3;">ab €${price}</span>
-                <span style="background:#1a1a1a;color:#fff;font-size:13px;font-weight:700;padding:8px 18px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#0071E3'" onmouseout="this.style.background='#1a1a1a'">Kaufen →</span>
+                <span style="background:#1a1a1a;color:#fff;font-size:13px;font-weight:700;padding:8px 18px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#F07A8C'" onmouseout="this.style.background='#1a1a1a'">Kaufen →</span>
               </div>
             </div>
           </a>`;
@@ -600,7 +639,7 @@
       <div class="feature-card reveal" data-delay="0">
         <div style="width: 52px; height: 52px; background: #FFF0F2; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <path d="M13 3l2.5 7.5H23l-6.5 4.5 2.5 7.5L13 18l-6 4.5 2.5-7.5L3 10.5h7.5L13 3Z" stroke="#0071E3" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M13 3l2.5 7.5H23l-6.5 4.5 2.5 7.5L13 18l-6 4.5 2.5-7.5L3 10.5h7.5L13 3Z" stroke="#F07A8C" stroke-width="2" stroke-linejoin="round"/>
           </svg>
         </div>
         <h3 style="font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px;">Premium-Qualität</h3>
@@ -671,12 +710,12 @@
 <section style="background: #F0EDE6; padding: 80px 28px; border-top: 1.5px solid #E8E3DA; border-bottom: 1.5px solid #E8E3DA;">
   <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
     <div style="flex: 1; min-width: 280px;">
-      <p style="font-size: 13px; font-weight: 700; color: #0071E3; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px;">Designservice</p>
+      <p style="font-size: 13px; font-weight: 700; color: #F07A8C; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px;">Designservice</p>
       <h2 style="font-size: clamp(26px, 3.5vw, 40px); font-weight: 900; color: #1a1a1a; line-height: 1.15; margin-bottom: 16px;">Du hast noch kein Design?<br>Wir gestalten es für dich.</h2>
       <p style="font-size: 16px; color: #7a7570; line-height: 1.7; max-width: 480px;">Von der Idee bis zur druckfertigen Datei — unser Team gestaltet deine Verpackung professionell, schnell und passend zu deiner Marke.</p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 16px; flex-shrink: 0;">
-      <a href="/designservice/" style="display: inline-flex; align-items: center; gap: 10px; background: #0071E3; color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 12px; transition: background 0.15s, transform 0.2s;" onmouseover="this.style.background='#0064CC';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#0071E3';this.style.transform=''">Designservice entdecken →</a>
+      <a href="/designservice/" style="display: inline-flex; align-items: center; gap: 10px; background: #F07A8C; color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 12px; transition: background 0.15s, transform 0.2s;" onmouseover="this.style.background='#d9697a';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#F07A8C';this.style.transform=''">Designservice entdecken →</a>
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <span style="font-size: 13px; color: #7a7570; display: flex; align-items: center; gap: 8px;">✓ Erster Entwurf in 48h</span>
         <span style="font-size: 13px; color: #7a7570; display: flex; align-items: center; gap: 8px;">✓ Korrekturen inklusive</span>
@@ -703,8 +742,8 @@
       <div style="flex: 1; text-align: center; padding: 0 12px;">
         <div style="width: 64px; height: 64px; background: #1E1E26; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 4px 16px rgba(30,30,38,0.2);">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <path d="M14 4a10 10 0 100 20A10 10 0 0014 4Z" stroke="#0071E3" stroke-width="2"/>
-            <path d="M14 9v5l3 3" stroke="#0071E3" stroke-width="2" stroke-linecap="round"/>
+            <path d="M14 4a10 10 0 100 20A10 10 0 0014 4Z" stroke="#F07A8C" stroke-width="2"/>
+            <path d="M14 9v5l3 3" stroke="#F07A8C" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
         <div style="font-size: 12px; font-weight: 800; color: var(--pink); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 10px;">Schritt 01</div>
@@ -757,12 +796,12 @@
     </div>
 
     <div class="industries-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-      <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(0,113,227,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17 8h1a3 3 0 010 6h-1" stroke="#0071E3" stroke-width="1.8" stroke-linecap="round"/><path d="M3 8h14v8a4 4 0 01-4 4H7a4 4 0 01-4-4V8z" stroke="#0071E3" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.5 4.5c0-1 1-1 1-2M11.5 4.5c0-1 1-1 1-2" stroke="#0071E3" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Cafés & Bäckereien</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Becher, Beutel, Boxen im einheitlichen Look.</p></div>
+      <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(240,122,140,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17 8h1a3 3 0 010 6h-1" stroke="#F07A8C" stroke-width="1.8" stroke-linecap="round"/><path d="M3 8h14v8a4 4 0 01-4 4H7a4 4 0 01-4-4V8z" stroke="#F07A8C" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.5 4.5c0-1 1-1 1-2M11.5 4.5c0-1 1-1 1-2" stroke="#F07A8C" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Cafés & Bäckereien</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Becher, Beutel, Boxen im einheitlichen Look.</p></div>
       <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(240,184,75,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 11h18M3 6c0 0 2-2 9-2s9 2 9 2" stroke="#F0B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="11" width="18" height="6" rx="1" stroke="#F0B84B" stroke-width="1.8"/><path d="M5 17v3M19 17v3" stroke="#F0B84B" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Restaurants & Fast Food</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Von der Burger-Box bis zur Pommes-Tüte.</p></div>
       <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(107,143,244,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="1" y="4" width="14" height="12" rx="2" stroke="#6B8FF4" stroke-width="1.8"/><path d="M15 8l4 2v6h-4" stroke="#6B8FF4" stroke-width="1.8" stroke-linejoin="round"/><circle cx="5.5" cy="18.5" r="2" stroke="#6B8FF4" stroke-width="1.8"/><circle cx="18.5" cy="18.5" r="2" stroke="#6B8FF4" stroke-width="1.8"/><path d="M7.5 18.5h9" stroke="#6B8FF4" stroke-width="1.8"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Lieferdienste</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Sichere Verpackung für deinen Delivery-Service.</p></div>
       <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(192,107,201,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="18" height="10" rx="2" stroke="#C06BC9" stroke-width="1.8"/><path d="M3 13h18" stroke="#C06BC9" stroke-width="1.8" stroke-linecap="round"/><path d="M7 10V7a5 5 0 0110 0v3" stroke="#C06BC9" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16" r="1.5" fill="#C06BC9"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Ghost Kitchens</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Mehrere Marken, ein Lieferant.</p></div>
       <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(75,201,138,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 17h20M2 17l2-8h16l2 8" stroke="#4BC98A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 17v2M18 17v2" stroke="#4BC98A" stroke-width="1.8" stroke-linecap="round"/><path d="M8 9V6M12 9V5M16 9V6" stroke="#4BC98A" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Street Food & Foodtrucks</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Kleine Mengen, großer Auftritt.</p></div>
-      <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(0,113,227,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21V5a2 2 0 012-2h14a2 2 0 012 2v16" stroke="#0071E3" stroke-width="1.8" stroke-linecap="round"/><path d="M3 21h18" stroke="#0071E3" stroke-width="1.8" stroke-linecap="round"/><rect x="7" y="10" width="3" height="3" rx="0.5" stroke="#0071E3" stroke-width="1.6"/><rect x="14" y="10" width="3" height="3" rx="0.5" stroke="#0071E3" stroke-width="1.6"/><path d="M10 21v-5a2 2 0 014 0v5" stroke="#0071E3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Hotels & Catering</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Repräsentativ, hochwertig, individuell.</p></div>
+      <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(240,122,140,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21V5a2 2 0 012-2h14a2 2 0 012 2v16" stroke="#F07A8C" stroke-width="1.8" stroke-linecap="round"/><path d="M3 21h18" stroke="#F07A8C" stroke-width="1.8" stroke-linecap="round"/><rect x="7" y="10" width="3" height="3" rx="0.5" stroke="#F07A8C" stroke-width="1.6"/><rect x="14" y="10" width="3" height="3" rx="0.5" stroke="#F07A8C" stroke-width="1.6"/><path d="M10 21v-5a2 2 0 014 0v5" stroke="#F07A8C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Hotels & Catering</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Repräsentativ, hochwertig, individuell.</p></div>
       <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(240,184,75,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4c-2 0-3 1-3 2s1 2 3 2 3-1 3-2-1-2-3-2z" stroke="#F0B84B" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 10h16l-1.5 9a2 2 0 01-2 1.5H7.5a2 2 0 01-2-1.5L4 10z" stroke="#F0B84B" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 10h16" stroke="#F0B84B" stroke-width="1.8" stroke-linecap="round"/><path d="M9 14c0 1.1.9 2 3 2s3-.9 3-2" stroke="#F0B84B" stroke-width="1.6" stroke-linecap="round"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Bäcker & Konditoreien</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Tortenboxen, Kuchenverpackungen, Tüten.</p></div>
       <div class="industry-card"><div style="width: 48px; height: 48px; background: rgba(60,184,122,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#3CB87A" stroke-width="1.8"/><path d="M3 9h18" stroke="#3CB87A" stroke-width="1.8" stroke-linecap="round"/><path d="M8 2v4M16 2v4" stroke="#3CB87A" stroke-width="1.8" stroke-linecap="round"/><path d="M8 14l2.5 2.5L16 12" stroke="#3CB87A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Meal Prep & Abo-Kits</h3><p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Einheitliche Verpackung für wöchentliche Lieferkonzepte.</p></div>
     </div>
@@ -883,13 +922,13 @@
           <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">Name *</label>
           <input type="text" placeholder="Max Mustermann" required
             style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; transition: border-color 0.15s ease;"
-            onfocus="this.style.borderColor='rgba(0,113,227,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
+            onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
         </div>
         <div>
           <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">Unternehmen</label>
           <input type="text" placeholder="Mein Restaurant GmbH"
             style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; transition: border-color 0.15s ease;"
-            onfocus="this.style.borderColor='rgba(0,113,227,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
+            onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
         </div>
       </div>
 
@@ -897,13 +936,13 @@
         <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">E-Mail *</label>
         <input type="email" placeholder="info@meinrestaurant.de" required
           style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; transition: border-color 0.15s ease;"
-          onfocus="this.style.borderColor='rgba(0,113,227,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
+          onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
       </div>
 
       <div style="margin-bottom: 16px;">
         <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">Welches Produkt?</label>
         <select style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; cursor: pointer; transition: border-color 0.15s ease; appearance: none;"
-          onfocus="this.style.borderColor='rgba(0,113,227,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
+          onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
           <option value="">Bitte wählen…</option>
           <option>Bechermanschetten</option>
           <option>Tüten</option>
@@ -918,7 +957,7 @@
         <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">Nachricht</label>
         <textarea rows="4" placeholder="Beschreib kurz dein Konzept und ungefähre Mengen…"
           style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; resize: vertical; transition: border-color 0.15s ease;"
-          onfocus="this.style.borderColor='rgba(0,113,227,0.6)'" onblur="this.style.borderColor='#DDD8CE'"></textarea>
+          onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'"></textarea>
       </div>
 
       <button type="submit" class="btn-pink" style="width: 100%; padding: 15px; font-size: 16px; border-radius: 10px;">Kostenlos anfragen →</button>
@@ -1076,7 +1115,7 @@
     btn.disabled = true;
     setTimeout(() => {
       btn.textContent = 'Kostenlos anfragen →';
-      btn.style.background = '#0071E3';
+      btn.style.background = '#F07A8C';
       btn.disabled = false;
       e.target.reset();
     }, 3000);
