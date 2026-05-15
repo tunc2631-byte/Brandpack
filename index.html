@@ -364,12 +364,12 @@
   .hero-tile-img {
     background: #F5F2EC; overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    height: 210px;
+    height: 240px;
   }
   .hero-tile-img img { width:100%; height:100%; object-fit:contain; display:block;
     transition:transform 0.6s cubic-bezier(.25,1,.5,1); padding: 10px; }
   .hero-tile:hover .hero-tile-img img { transform:scale(1.05); }
-  .hero-tile-body { padding:14px 18px 18px; background:#fff; }
+  .hero-tile-body { padding:10px 14px 12px; background:#fff; }
   @media (max-width:900px) {
     #hero-tiles { grid-template-columns:1fr 1fr !important; }
   }
@@ -386,8 +386,8 @@
     <!-- Apple-style headline block -->
     <div style="text-align:center; padding:12px 0 20px;">
       <p style="font-size:13px; font-weight:700; color:var(--pink); letter-spacing:0.07em; text-transform:uppercase; margin-bottom:12px;">PackFactory</p>
-      <h1 style="font-size:clamp(28px,3.8vw,52px); font-weight:900; color:#1a1a1a; letter-spacing:-0.03em; line-height:1.1; margin-bottom:12px;">Verpackungen mit<br>Wiedererkennungswert.</h1>
-      <p style="font-size:17px; color:#6e6e73; line-height:1.6; max-width:460px; margin:0 auto;">Individuell bedruckt mit deinem Logo — für Restaurants, Cafés und Foodservice.</p>
+      <h1 style="font-size:clamp(22px,2.6vw,36px); font-weight:900; color:#1a1a1a; letter-spacing:-0.02em; line-height:1.15; margin-bottom:8px;">Verpackungen mit Wiedererkennungswert.</h1>
+      <p style="font-size:15px; color:#6e6e73; line-height:1.5; max-width:460px; margin:0 auto;">Individuell bedruckt mit deinem Logo — für Restaurants, Cafés und Foodservice.</p>
     </div>
 
     <!-- Apple-style full-image product tiles -->
@@ -396,11 +396,11 @@
       <a id="hero-card-0" href="#" target="_blank" rel="noopener" class="hero-tile">
         <div id="hero-img-0" class="hero-tile-img"></div>
         <div class="hero-tile-body">
-          <p style="font-size:11px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 6px;">✦ Bestseller</p>
-          <h2 id="hero-title-0" style="font-size:clamp(14px,1.4vw,18px);font-weight:900;color:#1a1a1a;margin:0 0 12px;line-height:1.2;"></h2>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span id="hero-price-0" style="font-size:clamp(15px,1.4vw,19px);font-weight:900;color:#1a1a1a;"></span>
-            <span style="background:var(--pink);color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
+          <p style="font-size:10px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 3px;">✦ Bestseller</p>
+          <h2 id="hero-title-0" style="font-size:13px;font-weight:800;color:#1a1a1a;margin:0 0 8px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></h2>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <span id="hero-price-0" style="font-size:14px;font-weight:900;color:#1a1a1a;"></span>
+            <span style="background:var(--pink);color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
           </div>
         </div>
       </a>
@@ -408,11 +408,11 @@
       <a id="hero-card-1" href="#" target="_blank" rel="noopener" class="hero-tile">
         <div id="hero-img-1" class="hero-tile-img"></div>
         <div class="hero-tile-body">
-          <p style="font-size:11px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 6px;">✦ Bestseller</p>
-          <h2 id="hero-title-1" style="font-size:clamp(14px,1.4vw,18px);font-weight:900;color:#1a1a1a;margin:0 0 12px;line-height:1.2;"></h2>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span id="hero-price-1" style="font-size:clamp(15px,1.4vw,19px);font-weight:900;color:#1a1a1a;"></span>
-            <span style="background:var(--pink);color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
+          <p style="font-size:10px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 3px;">✦ Bestseller</p>
+          <h2 id="hero-title-1" style="font-size:13px;font-weight:800;color:#1a1a1a;margin:0 0 8px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></h2>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <span id="hero-price-1" style="font-size:14px;font-weight:900;color:#1a1a1a;"></span>
+            <span style="background:var(--pink);color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
           </div>
         </div>
       </a>
@@ -420,11 +420,11 @@
       <a id="hero-card-2" href="#" target="_blank" rel="noopener" class="hero-tile">
         <div id="hero-img-2" class="hero-tile-img"></div>
         <div class="hero-tile-body">
-          <p style="font-size:11px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 6px;">✦ Bestseller</p>
-          <h2 id="hero-title-2" style="font-size:clamp(14px,1.4vw,18px);font-weight:900;color:#1a1a1a;margin:0 0 12px;line-height:1.2;"></h2>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span id="hero-price-2" style="font-size:clamp(15px,1.4vw,19px);font-weight:900;color:#1a1a1a;"></span>
-            <span style="background:var(--pink);color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
+          <p style="font-size:10px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 3px;">✦ Bestseller</p>
+          <h2 id="hero-title-2" style="font-size:13px;font-weight:800;color:#1a1a1a;margin:0 0 8px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></h2>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <span id="hero-price-2" style="font-size:14px;font-weight:900;color:#1a1a1a;"></span>
+            <span style="background:var(--pink);color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
           </div>
         </div>
       </a>
