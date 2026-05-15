@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #FAF9F7; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #FAF9F7; color: #1a1a1a; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     :root { --pink: #F07A8C; --pink-d: #d9697a; }
     .btn-pink { display: inline-block; text-decoration: none; font-weight: 700; border-radius: 100px; background: var(--pink); color: #fff; padding: 14px 32px; font-size: 15px; font-family: inherit; transition: background 0.18s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s; box-shadow: 0 2px 10px rgba(240,122,140,0.3); border: none; cursor: pointer; }
     .btn-pink:hover { background: var(--pink-d); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(240,122,140,0.4); }
@@ -19,27 +19,75 @@
     nav a:hover { color: #F07A8C; }
     .card { background: #fff; border-radius: 20px; border: 1.5px solid #E8E3DA; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
     .tag { background: #f2f2f7; border-radius: 100px; padding: 5px 14px; font-size: 12px; font-weight: 700; color: #6e6e73; }
+
+    /* Nav */
+    .nav-logo { height: 150px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all 0.25s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: #FAF9F7; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 22px; font-weight: 800; color: #1a1a1a; text-decoration: none; }
+    .mobile-menu a:hover { color: var(--pink); }
+
+    @media (max-width: 768px) {
+      .nav-logo     { height: 90px !important; }
+      .nav-inner    { height: 72px !important; overflow: hidden; }
+      .nav-links    { display: none !important; }
+      .nav-cta      { display: none !important; }
+      .hamburger    { display: flex !important; }
+      section       { padding: 56px 20px !important; }
+      .stats-grid   { grid-template-columns: 1fr 1fr !important; }
+      .founder-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 480px) {
+      .nav-logo        { height: 75px !important; }
+      .nav-inner       { height: 64px !important; }
+      section          { padding: 44px 16px !important; }
+      .founder-tiles   { grid-template-columns: 1fr !important; }
+      .stats-grid      { grid-template-columns: 1fr 1fr !important; }
+      .values-grid     { grid-template-columns: 1fr 1fr !important; }
+      .cta-btns        { flex-direction: column !important; align-items: stretch !important; }
+      .cta-btns a      { text-align: center !important; }
+    }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <div style="position: sticky; top: 0; z-index: 200; padding: 12px 20px; pointer-events: none;">
-  <nav style="background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); pointer-events: all; max-width: 1200px; margin: 0 auto; border: 1px solid #E8E3DA;">
-    <div style="padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px;">
-      <a href="/" style="flex-shrink: 0;">
-        <img src="/Bilder/neues%20logo.png" alt="PackFactory" style="height: 150px; width: auto;">
+  <nav style="background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); pointer-events: all; max-width: 1200px; margin: 0 auto; border: 1px solid #E8E3DA; overflow: visible;">
+    <div class="nav-inner" style="padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px;">
+      <a href="/" style="flex-shrink: 0; display: flex; align-items: center;">
+        <img src="/Bilder/neues%20logo.png" alt="PackFactory" class="nav-logo" style="width: auto;">
       </a>
-      <div style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px;">
+      <div class="nav-links" style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px;">
         <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
         <a href="/designservice/">Designservice</a>
         <a href="/ueber-uns/" style="color: #F07A8C;">Über uns</a>
         <a href="/#kontakt">Kontakt</a>
       </div>
-      <a href="/#produkte" class="btn-pink" style="padding: 10px 22px; font-size: 14px; flex-shrink: 0;">Jetzt bestellen</a>
+      <div style="flex-shrink: 0; display: flex; align-items: center; gap: 8px;">
+        <a href="/#produkte" class="btn-pink nav-cta" style="padding: 10px 22px; font-size: 14px; border-radius: 10px;">Jetzt bestellen</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
+</div>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#produkte" onclick="closeMenu()">Produkte</a>
+  <a href="/designservice/" onclick="closeMenu()">Designservice</a>
+  <a href="/ueber-uns/" onclick="closeMenu()" style="color: var(--pink);">Über uns</a>
+  <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="/#produkte" class="btn-pink" style="margin-top: 8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
 
 <!-- HERO -->
@@ -55,7 +103,7 @@
     </div>
 
     <!-- Founder tiles -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:580px; margin:0 auto;">
+    <div class="founder-tiles" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:580px; margin:0 auto;">
 
       <div style="background:#fff; border-radius:20px; padding:24px 22px; border:1.5px solid #E8E3DA; text-align:left; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:transform 0.3s cubic-bezier(.34,1.56,.64,1),box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.10)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.06)'">
         <div style="width:46px;height:46px;background:var(--pink);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:#fff;margin-bottom:14px;">T</div>
@@ -79,7 +127,7 @@
 <section style="padding: 80px 28px; background: #fff;">
   <div style="max-width: 960px; margin: 0 auto;">
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 72px;">
+    <div class="founder-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 72px;">
 
       <!-- Tunc -->
       <div class="card" style="padding: 36px 32px;">
@@ -139,7 +187,7 @@
     </div>
 
     <!-- Stats -->
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 72px;">
+    <div class="stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 72px;">
       <div class="card" style="padding: 28px 20px; text-align: center;">
         <div style="font-size: 34px; font-weight: 900; color: var(--pink); margin-bottom: 4px; letter-spacing: -0.02em;">4+</div>
         <div style="font-size: 13px; color: #6e6e73; font-weight: 600;">Jahre Erfahrung</div>
@@ -166,7 +214,7 @@
   <div style="max-width: 960px; margin: 0 auto; text-align: center;">
     <p style="font-size: 12px; font-weight: 700; color: var(--pink); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 12px;">Was uns antreibt</p>
     <h2 style="font-size: clamp(24px, 3vw, 38px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 44px;">Unsere Werte</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; text-align: left;">
+    <div class="values-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; text-align: left;">
       <div class="card" style="padding: 28px;">
         <div style="font-size: 26px; margin-bottom: 12px;">🎯</div>
         <h3 style="font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 6px;">Qualität</h3>
@@ -197,9 +245,9 @@
     <p style="font-size: 12px; font-weight: 700; color: var(--pink); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 12px;">Kontakt</p>
     <h2 style="font-size: clamp(26px, 3.5vw, 42px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 14px;">Schreib uns einfach.</h2>
     <p style="font-size: 16px; color: #6e6e73; line-height: 1.7; margin-bottom: 32px;">Kein Formular-Ping-Pong — du schreibst uns, wir antworten. So einfach ist das.</p>
-    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+    <div class="cta-btns" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
       <a href="/#produkte" class="btn-pink">Produkte ansehen →</a>
-      <a href="/#kontakt" style="display:inline-flex;align-items:center;padding:14px 28px;font-size:15px;font-weight:700;color:#3a3a3a;text-decoration:none;border-radius:100px;border:1.5px solid #E8E3DA;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--pink)';this.style.color='var(--pink)'" onmouseout="this.style.borderColor='#E8E3DA';this.style.color='#3a3a3a'">Kontakt aufnehmen</a>
+      <a href="/#kontakt" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;font-size:15px;font-weight:700;color:#3a3a3a;text-decoration:none;border-radius:100px;border:1.5px solid #E8E3DA;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--pink)';this.style.color='var(--pink)'" onmouseout="this.style.borderColor='#E8E3DA';this.style.color='#3a3a3a'">Kontakt aufnehmen</a>
     </div>
   </div>
 </section>
@@ -212,5 +260,19 @@
   <p style="font-size: 14px; color: #aeaeb2;">© 2026 PackFactory · <a href="/" style="color: #aeaeb2; text-decoration: none;">Zurück zur Startseite</a></p>
 </footer>
 
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.querySelector('.hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
 </body>
 </html>
