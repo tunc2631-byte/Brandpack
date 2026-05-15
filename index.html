@@ -396,16 +396,57 @@
   </div>
 
   <!-- Content -->
-  <div class="content-wrap" style="max-width: 860px; margin: 0 auto; text-align: center; position:relative; z-index:1;">
-    <h1 class="hero-h1" style="font-size: clamp(36px, 5.5vw, 68px); font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 16px;">
-      Verpackungen mit<br><span style="color: var(--pink);">Wiedererkennungswert</span>
-    </h1>
-    <p class="hero-p" style="font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 500px; margin: 0 auto 36px;">
-      Individuell bedruckt mit deinem Logo — für Restaurants, Cafés und Foodservice.
-    </p>
-    <div class="hero-btns" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-      <a href="#produkte" class="btn-pink" style="padding: 16px 40px; font-size: 16px; border-radius: 100px;">Jetzt bestellen →</a>
-      <a href="#kontakt" style="display:inline-flex;align-items:center;padding:16px 32px;font-size:16px;font-weight:700;color:rgba(255,255,255,0.7);text-decoration:none;border-radius:100px;border:1.5px solid rgba(255,255,255,0.2);transition:color 0.15s,border-color 0.15s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.7)';this.style.borderColor='rgba(255,255,255,0.2)'">Kontaktiere uns</a>
+  <div style="max-width:1100px; margin:0 auto; position:relative; z-index:1;">
+
+    <!-- Headline -->
+    <div style="text-align:center; margin-bottom:48px;">
+      <h1 class="hero-h1" style="font-size:clamp(32px,5vw,62px); font-weight:900; color:#fff; line-height:1.08; letter-spacing:-0.03em; margin-bottom:14px;">
+        Verpackungen mit<br><span style="color:var(--pink);">Wiedererkennungswert</span>
+      </h1>
+      <p style="font-size:16px; color:rgba(255,255,255,0.45); max-width:460px; margin:0 auto 28px; line-height:1.7;">
+        Individuell bedruckt mit deinem Logo — für Restaurants, Cafés und Foodservice.
+      </p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="#produkte" class="btn-pink" style="padding:14px 36px; font-size:15px; border-radius:100px;">Jetzt bestellen →</a>
+        <a href="#kontakt" style="display:inline-flex;align-items:center;padding:14px 28px;font-size:15px;font-weight:700;color:rgba(255,255,255,0.65);text-decoration:none;border-radius:100px;border:1.5px solid rgba(255,255,255,0.18);transition:color 0.15s,border-color 0.15s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.45)'" onmouseout="this.style.color='rgba(255,255,255,0.65)';this.style.borderColor='rgba(255,255,255,0.18)'">Kontaktiere uns</a>
+      </div>
+    </div>
+
+    <!-- Bestseller Cards -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+
+      <a id="hero-card-0" href="#" target="_blank" rel="noopener" style="text-decoration:none; border-radius:20px; overflow:hidden; background:#fff; display:flex; flex-direction:column; transition:transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div id="hero-img-0" style="aspect-ratio:3/2; overflow:hidden; background:#F5F2EC;"></div>
+        <div style="padding:18px 22px 20px; background:#fff;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <div>
+              <p style="font-size:11px; font-weight:800; color:var(--pink); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">✦ Bestseller</p>
+              <h3 id="hero-title-0" style="font-size:16px; font-weight:900; color:#1a1a1a; margin:0;"></h3>
+            </div>
+            <div style="text-align:right; flex-shrink:0;">
+              <div id="hero-price-0" style="font-size:15px; font-weight:900; color:#1a1a1a; margin-bottom:6px;"></div>
+              <span style="background:var(--pink); color:#fff; font-size:12px; font-weight:700; padding:6px 14px; border-radius:100px; white-space:nowrap;">Kaufen →</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a id="hero-card-1" href="#" target="_blank" rel="noopener" style="text-decoration:none; border-radius:20px; overflow:hidden; background:#fff; display:flex; flex-direction:column; transition:transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div id="hero-img-1" style="aspect-ratio:3/2; overflow:hidden; background:#F5F2EC;"></div>
+        <div style="padding:18px 22px 20px; background:#fff;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <div>
+              <p style="font-size:11px; font-weight:800; color:var(--pink); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">✦ Bestseller</p>
+              <h3 id="hero-title-1" style="font-size:16px; font-weight:900; color:#1a1a1a; margin:0;"></h3>
+            </div>
+            <div style="text-align:right; flex-shrink:0;">
+              <div id="hero-price-1" style="font-size:15px; font-weight:900; color:#1a1a1a; margin-bottom:6px;"></div>
+              <span style="background:var(--pink); color:#fff; font-size:12px; font-weight:700; padding:6px 14px; border-radius:100px; white-space:nowrap;">Kaufen →</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -449,28 +490,9 @@
 
 
 <!-- ═══════════════════════════════════════
-     SPOTLIGHT
-═══════════════════════════════════════ -->
-<section id="produkte" style="background: #fff;">
-  <div id="spotlight-section" style="display:none; border-bottom:1px solid #F0EDE6;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; min-height:520px;">
-      <div id="spotlight-img" style="overflow:hidden; background:#F5F2EC;"></div>
-      <div style="display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,6vw,90px); background:#FAF9F7;">
-        <p style="font-size:12px; font-weight:800; color:#F07A8C; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:20px;">✦ Bestseller</p>
-        <h2 id="spotlight-title" style="font-size:clamp(28px,3.5vw,48px); font-weight:900; color:#1a1a1a; line-height:1.1; letter-spacing:-0.02em; margin-bottom:14px;"></h2>
-        <p style="font-size:16px; color:#7a7570; line-height:1.75; margin-bottom:32px; max-width:380px;">Individuell bedruckt mit deinem Logo — für jeden Einsatz. Hochwertig, schnell, persönlich.</p>
-        <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
-          <span id="spotlight-price" style="font-size:24px; font-weight:900; color:#1a1a1a;"></span>
-          <a id="spotlight-link" href="#" target="_blank" rel="noopener" style="background:#F07A8C; color:#fff; padding:14px 30px; border-radius:100px; font-size:15px; font-weight:800; text-decoration:none; transition:background 0.15s; box-shadow:0 4px 16px rgba(240,122,140,0.35);" onmouseover="this.style.background='#d9697a'" onmouseout="this.style.background='#F07A8C'">Jetzt kaufen →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
      PRODUKTE GRID
 ═══════════════════════════════════════ -->
+<section id="produkte">
 <section style="background: #fff; padding: 80px 28px 100px;">
   <div class="content-wrap" style="max-width: 1200px; margin: 0 auto;">
 
@@ -602,19 +624,24 @@
     .then(data => {
       allProducts = data.data.products.edges.map(e => e.node);
 
-      // Spotlight: first product
-      const sp = allProducts[0];
-      if (sp) {
-        const spImg = sp.images.edges[0]?.node;
-        const spPrice = parseFloat(sp.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
-        document.getElementById('spotlight-title').textContent = sp.title;
-        document.getElementById('spotlight-price').textContent = 'ab €' + spPrice;
-        document.getElementById('spotlight-link').href = 'https://shop.pack-factory.de/products/' + sp.handle;
-        if (spImg) {
-          document.getElementById('spotlight-img').innerHTML = `<img src="${spImg.url}" alt="${spImg.altText || sp.title}" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(.25,1,.5,1);" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">`;
-        }
-        document.getElementById('spotlight-section').style.display = 'block';
+      // Hero bestseller cards: find Tüten + Sleeves by title keyword
+      const tuete  = allProducts.find(p => /tüt|tüte|bag/i.test(p.title));
+      const sleeve = allProducts.find(p => /sleeve|manschett|hülle/i.test(p.title));
+      const heroProducts = [tuete, sleeve].filter(Boolean);
+      // fallback: use first two products if not found
+      if (heroProducts.length < 2) {
+        allProducts.slice(0, 2 - heroProducts.length).forEach(p => heroProducts.push(p));
       }
+      heroProducts.slice(0,2).forEach((p, i) => {
+        const img   = p.images.edges[0]?.node;
+        const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
+        const url   = 'https://shop.pack-factory.de/products/' + p.handle;
+        document.getElementById('hero-card-' + i).href = url;
+        document.getElementById('hero-title-' + i).textContent = p.title;
+        document.getElementById('hero-price-' + i).textContent = 'ab €' + price;
+        if (img) document.getElementById('hero-img-' + i).innerHTML =
+          `<img src="${img.url}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(.25,1,.5,1);" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">`;
+      });
 
       renderProducts();
     })
