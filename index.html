@@ -366,10 +366,13 @@
   .hero-tile-overlay { position:absolute; inset:0; z-index:1; pointer-events:none;
     background: linear-gradient(to top, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.22) 42%, rgba(0,0,0,0) 65%); }
   .hero-tile-body { position:absolute; bottom:0; left:0; right:0; padding:28px 32px; z-index:2; }
-  @media (max-width:640px) {
+  @media (max-width:900px) {
+    #hero-tiles { grid-template-columns:1fr 1fr !important; }
+  }
+  @media (max-width:600px) {
     #hero-tiles { grid-template-columns:1fr !important; }
-    .hero-tile { min-height:400px !important; }
-    .hero-tile-body { padding:20px 22px; }
+    .hero-tile { min-height:360px !important; }
+    .hero-tile-body { padding:18px 20px; }
   }
 </style>
 
@@ -385,30 +388,43 @@
     </div>
 
     <!-- Apple-style full-image product tiles -->
-    <div id="hero-tiles" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+    <div id="hero-tiles" style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px;">
 
-      <a id="hero-card-0" href="#" target="_blank" rel="noopener" class="hero-tile" style="min-height:540px; background:#d8d8dc;">
+      <a id="hero-card-0" href="#" target="_blank" rel="noopener" class="hero-tile" style="min-height:460px; background:#d8d8dc;">
         <div id="hero-img-0" class="hero-tile-img"></div>
         <div class="hero-tile-overlay"></div>
         <div class="hero-tile-body">
-          <p style="font-size:11px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 9px;">✦ Bestseller</p>
-          <h2 id="hero-title-0" style="font-size:clamp(18px,2vw,24px);font-weight:900;color:#fff;margin:0 0 18px;line-height:1.18;"></h2>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
-            <span id="hero-price-0" style="font-size:clamp(17px,1.6vw,21px);font-weight:900;color:#fff;"></span>
-            <span style="background:var(--pink);color:#fff;font-size:13px;font-weight:700;padding:11px 26px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
+          <p style="font-size:11px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">✦ Bestseller</p>
+          <h2 id="hero-title-0" style="font-size:clamp(15px,1.6vw,21px);font-weight:900;color:#fff;margin:0 0 14px;line-height:1.18;"></h2>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <span id="hero-price-0" style="font-size:clamp(15px,1.4vw,19px);font-weight:900;color:#fff;"></span>
+            <span style="background:var(--pink);color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
           </div>
         </div>
       </a>
 
-      <a id="hero-card-1" href="#" target="_blank" rel="noopener" class="hero-tile" style="min-height:540px; background:#d8d8dc;">
+      <a id="hero-card-1" href="#" target="_blank" rel="noopener" class="hero-tile" style="min-height:460px; background:#d8d8dc;">
         <div id="hero-img-1" class="hero-tile-img"></div>
         <div class="hero-tile-overlay"></div>
         <div class="hero-tile-body">
-          <p style="font-size:11px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 9px;">✦ Bestseller</p>
-          <h2 id="hero-title-1" style="font-size:clamp(18px,2vw,24px);font-weight:900;color:#fff;margin:0 0 18px;line-height:1.18;"></h2>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
-            <span id="hero-price-1" style="font-size:clamp(17px,1.6vw,21px);font-weight:900;color:#fff;"></span>
-            <span style="background:var(--pink);color:#fff;font-size:13px;font-weight:700;padding:11px 26px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
+          <p style="font-size:11px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">✦ Bestseller</p>
+          <h2 id="hero-title-1" style="font-size:clamp(15px,1.6vw,21px);font-weight:900;color:#fff;margin:0 0 14px;line-height:1.18;"></h2>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <span id="hero-price-1" style="font-size:clamp(15px,1.4vw,19px);font-weight:900;color:#fff;"></span>
+            <span style="background:var(--pink);color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
+          </div>
+        </div>
+      </a>
+
+      <a id="hero-card-2" href="#" target="_blank" rel="noopener" class="hero-tile" style="min-height:460px; background:#d8d8dc;">
+        <div id="hero-img-2" class="hero-tile-img"></div>
+        <div class="hero-tile-overlay"></div>
+        <div class="hero-tile-body">
+          <p style="font-size:11px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">✦ Bestseller</p>
+          <h2 id="hero-title-2" style="font-size:clamp(15px,1.6vw,21px);font-weight:900;color:#fff;margin:0 0 14px;line-height:1.18;"></h2>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <span id="hero-price-2" style="font-size:clamp(15px,1.4vw,19px);font-weight:900;color:#fff;"></span>
+            <span style="background:var(--pink);color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='var(--pink-d)'" onmouseout="this.style.background='var(--pink)'">Kaufen →</span>
           </div>
         </div>
       </a>
@@ -596,15 +612,18 @@
     .then(data => {
       allProducts = data.data.products.edges.map(e => e.node);
 
-      // Hero bestseller cards: find Tüten + Sleeves by title keyword
+      // Hero bestseller cards: find Tüten, Sleeves, Burgerbox by title keyword
       const tuete  = allProducts.find(p => /tüt|tüte|bag/i.test(p.title));
       const sleeve = allProducts.find(p => /sleeve|manschett|hülle/i.test(p.title));
-      const heroProducts = [tuete, sleeve].filter(Boolean);
-      // fallback: use first two products if not found
-      if (heroProducts.length < 2) {
-        allProducts.slice(0, 2 - heroProducts.length).forEach(p => heroProducts.push(p));
+      const burger = allProducts.find(p => /burger|burgerbox/i.test(p.title));
+      const heroProducts = [tuete, sleeve, burger].filter(Boolean);
+      // fallback: fill up to 3 with unused products
+      const usedHandles = new Set(heroProducts.map(p => p.handle));
+      for (const p of allProducts) {
+        if (heroProducts.length >= 3) break;
+        if (!usedHandles.has(p.handle)) { heroProducts.push(p); usedHandles.add(p.handle); }
       }
-      heroProducts.slice(0,2).forEach((p, i) => {
+      heroProducts.slice(0,3).forEach((p, i) => {
         const img   = p.images.edges[0]?.node;
         const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
         const url   = 'https://shop.pack-factory.de/products/' + p.handle;
