@@ -357,7 +357,11 @@
   @keyframes floatB { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(14px) rotate(-5deg)} }
   @keyframes floatC { 0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-22px) rotate(4deg)} }
   @keyframes floatD { 0%,100%{transform:translateY(0) rotate(5deg)} 50%{transform:translateY(16px) rotate(-2deg) scale(0.96)} }
-  .pkg { position:absolute; opacity:0.07; will-change:transform; }
+  .pkg { position:absolute; opacity:0.10; will-change:transform; }
+  .pkg.a {  }
+  .pkg.b {  }
+  .pkg.c {  }
+  .pkg.d {  }
 </style>
 
 <section style="background:#1a1a1a; padding:72px 28px 64px; position:relative; overflow:hidden;">
@@ -366,28 +370,28 @@
   <div style="position:absolute;inset:0;pointer-events:none;">
 
     <!-- Papiertüten -->
-    <svg class="pkg" style="width:64px;top:8%;left:5%;animation:floatA 7s ease-in-out infinite;" viewBox="0 0 40 52" fill="none"><path d="M7 18L4 48H36L33 18Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 18C15 11 25 11 25 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="7" y1="25" x2="33" y2="25" stroke="white" stroke-width="1.5"/><circle cx="20" cy="14" r="2" fill="white"/></svg>
-    <svg class="pkg" style="width:44px;top:60%;left:2%;animation:floatC 9s ease-in-out infinite 1s;" viewBox="0 0 40 52" fill="none"><path d="M7 18L4 48H36L33 18Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 18C15 11 25 11 25 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="7" y1="25" x2="33" y2="25" stroke="white" stroke-width="1.5"/></svg>
-    <svg class="pkg" style="width:52px;top:20%;right:6%;animation:floatB 8s ease-in-out infinite 2s;" viewBox="0 0 40 52" fill="none"><path d="M7 18L4 48H36L33 18Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 18C15 11 25 11 25 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="7" y1="25" x2="33" y2="25" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg a" style="width:64px;top:8%;left:5%;" viewBox="0 0 40 52" fill="none"><path d="M7 18L4 48H36L33 18Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 18C15 11 25 11 25 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="7" y1="25" x2="33" y2="25" stroke="white" stroke-width="1.5"/><circle cx="20" cy="14" r="2" fill="white"/></svg>
+    <svg class="pkg b" style="width:44px;top:60%;left:2%;" viewBox="0 0 40 52" fill="none"><path d="M7 18L4 48H36L33 18Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 18C15 11 25 11 25 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="7" y1="25" x2="33" y2="25" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg c" style="width:52px;top:20%;right:6%;" viewBox="0 0 40 52" fill="none"><path d="M7 18L4 48H36L33 18Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 18C15 11 25 11 25 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="7" y1="25" x2="33" y2="25" stroke="white" stroke-width="1.5"/></svg>
 
     <!-- Kartons/Boxen -->
-    <svg class="pkg" style="width:70px;top:12%;left:18%;animation:floatB 10s ease-in-out infinite 0.5s;" viewBox="0 0 48 42" fill="none"><rect x="4" y="16" width="40" height="22" rx="2" stroke="white" stroke-width="2.5"/><path d="M4 16L13 6H35L44 16" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="6" x2="24" y2="16" stroke="white" stroke-width="2"/><line x1="14" y1="27" x2="34" y2="27" stroke="white" stroke-width="1.5"/></svg>
-    <svg class="pkg" style="width:48px;top:70%;right:8%;animation:floatA 11s ease-in-out infinite 3s;" viewBox="0 0 48 42" fill="none"><rect x="4" y="16" width="40" height="22" rx="2" stroke="white" stroke-width="2.5"/><path d="M4 16L13 6H35L44 16" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="6" x2="24" y2="16" stroke="white" stroke-width="2"/></svg>
-    <svg class="pkg" style="width:80px;bottom:5%;left:30%;animation:floatC 12s ease-in-out infinite 1.5s;" viewBox="0 0 48 42" fill="none"><rect x="4" y="16" width="40" height="22" rx="2" stroke="white" stroke-width="2.5"/><path d="M4 16L13 6H35L44 16" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="6" x2="24" y2="16" stroke="white" stroke-width="2"/><line x1="14" y1="27" x2="34" y2="27" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg d" style="width:70px;top:12%;left:18%;" viewBox="0 0 48 42" fill="none"><rect x="4" y="16" width="40" height="22" rx="2" stroke="white" stroke-width="2.5"/><path d="M4 16L13 6H35L44 16" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="6" x2="24" y2="16" stroke="white" stroke-width="2"/><line x1="14" y1="27" x2="34" y2="27" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg a" style="width:48px;top:70%;right:8%;" viewBox="0 0 48 42" fill="none"><rect x="4" y="16" width="40" height="22" rx="2" stroke="white" stroke-width="2.5"/><path d="M4 16L13 6H35L44 16" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="6" x2="24" y2="16" stroke="white" stroke-width="2"/></svg>
+    <svg class="pkg b" style="width:80px;bottom:5%;left:30%;" viewBox="0 0 48 42" fill="none"><rect x="4" y="16" width="40" height="22" rx="2" stroke="white" stroke-width="2.5"/><path d="M4 16L13 6H35L44 16" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="6" x2="24" y2="16" stroke="white" stroke-width="2"/><line x1="14" y1="27" x2="34" y2="27" stroke="white" stroke-width="1.5"/></svg>
 
     <!-- Becher -->
-    <svg class="pkg" style="width:44px;top:5%;right:20%;animation:floatD 8.5s ease-in-out infinite 0.8s;" viewBox="0 0 36 46" fill="none"><path d="M7 10L11 42H25L29 10Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="18" cy="10" rx="11" ry="3.5" stroke="white" stroke-width="2"/><path d="M9 17H27" stroke="white" stroke-width="1.5"/><path d="M29 20C34 20 34 28 29 28" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-    <svg class="pkg" style="width:36px;top:45%;left:10%;animation:floatA 9.5s ease-in-out infinite 2.5s;" viewBox="0 0 36 46" fill="none"><path d="M7 10L11 42H25L29 10Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="18" cy="10" rx="11" ry="3.5" stroke="white" stroke-width="2"/><path d="M9 17H27" stroke="white" stroke-width="1.5"/></svg>
-    <svg class="pkg" style="width:56px;bottom:12%;right:18%;animation:floatB 7.5s ease-in-out infinite 4s;" viewBox="0 0 36 46" fill="none"><path d="M7 10L11 42H25L29 10Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="18" cy="10" rx="11" ry="3.5" stroke="white" stroke-width="2"/><path d="M9 17H27" stroke="white" stroke-width="1.5"/><path d="M29 20C34 20 34 28 29 28" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    <svg class="pkg c" style="width:44px;top:5%;right:20%;" viewBox="0 0 36 46" fill="none"><path d="M7 10L11 42H25L29 10Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="18" cy="10" rx="11" ry="3.5" stroke="white" stroke-width="2"/><path d="M9 17H27" stroke="white" stroke-width="1.5"/><path d="M29 20C34 20 34 28 29 28" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    <svg class="pkg d" style="width:36px;top:45%;left:10%;" viewBox="0 0 36 46" fill="none"><path d="M7 10L11 42H25L29 10Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="18" cy="10" rx="11" ry="3.5" stroke="white" stroke-width="2"/><path d="M9 17H27" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg a" style="width:56px;bottom:12%;right:18%;" viewBox="0 0 36 46" fill="none"><path d="M7 10L11 42H25L29 10Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="18" cy="10" rx="11" ry="3.5" stroke="white" stroke-width="2"/><path d="M9 17H27" stroke="white" stroke-width="1.5"/><path d="M29 20C34 20 34 28 29 28" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
 
     <!-- Food-Boxen -->
-    <svg class="pkg" style="width:60px;top:55%;right:3%;animation:floatC 10.5s ease-in-out infinite 2s;" viewBox="0 0 48 36" fill="none"><rect x="3" y="14" width="42" height="19" rx="3" stroke="white" stroke-width="2.5"/><path d="M3 14L10 5H38L45 14" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="5" x2="24" y2="14" stroke="white" stroke-width="2"/><line x1="12" y1="23" x2="36" y2="23" stroke="white" stroke-width="1.5"/></svg>
-    <svg class="pkg" style="width:42px;top:30%;left:3%;animation:floatD 13s ease-in-out infinite 3.5s;" viewBox="0 0 48 36" fill="none"><rect x="3" y="14" width="42" height="19" rx="3" stroke="white" stroke-width="2.5"/><path d="M3 14L10 5H38L45 14" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="5" x2="24" y2="14" stroke="white" stroke-width="2"/></svg>
+    <svg class="pkg b" style="width:60px;top:55%;right:3%;" viewBox="0 0 48 36" fill="none"><rect x="3" y="14" width="42" height="19" rx="3" stroke="white" stroke-width="2.5"/><path d="M3 14L10 5H38L45 14" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="5" x2="24" y2="14" stroke="white" stroke-width="2"/><line x1="12" y1="23" x2="36" y2="23" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg c" style="width:42px;top:30%;left:3%;" viewBox="0 0 48 36" fill="none"><rect x="3" y="14" width="42" height="19" rx="3" stroke="white" stroke-width="2.5"/><path d="M3 14L10 5H38L45 14" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="24" y1="5" x2="24" y2="14" stroke="white" stroke-width="2"/></svg>
 
     <!-- Versandtaschen -->
-    <svg class="pkg" style="width:66px;bottom:18%;left:12%;animation:floatA 11.5s ease-in-out infinite 1s;" viewBox="0 0 50 38" fill="none"><rect x="3" y="5" width="44" height="28" rx="4" stroke="white" stroke-width="2.5"/><path d="M3 5L25 22L47 5" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="33" x2="47" y2="33" stroke="white" stroke-width="1.5"/></svg>
-    <svg class="pkg" style="width:46px;top:8%;right:38%;animation:floatB 9s ease-in-out infinite 4.5s;" viewBox="0 0 50 38" fill="none"><rect x="3" y="5" width="44" height="28" rx="4" stroke="white" stroke-width="2.5"/><path d="M3 5L25 22L47 5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-    <svg class="pkg" style="width:38px;top:78%;right:30%;animation:floatC 8s ease-in-out infinite 0.3s;" viewBox="0 0 50 38" fill="none"><rect x="3" y="5" width="44" height="28" rx="4" stroke="white" stroke-width="2.5"/><path d="M3 5L25 22L47 5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    <svg class="pkg d" style="width:66px;bottom:18%;left:12%;" viewBox="0 0 50 38" fill="none"><rect x="3" y="5" width="44" height="28" rx="4" stroke="white" stroke-width="2.5"/><path d="M3 5L25 22L47 5" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="33" x2="47" y2="33" stroke="white" stroke-width="1.5"/></svg>
+    <svg class="pkg a" style="width:46px;top:8%;right:38%;" viewBox="0 0 50 38" fill="none"><rect x="3" y="5" width="44" height="28" rx="4" stroke="white" stroke-width="2.5"/><path d="M3 5L25 22L47 5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    <svg class="pkg b" style="width:38px;top:78%;right:30%;" viewBox="0 0 50 38" fill="none"><rect x="3" y="5" width="44" height="28" rx="4" stroke="white" stroke-width="2.5"/><path d="M3 5L25 22L47 5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
 
   </div>
 
@@ -448,16 +452,16 @@
      SPOTLIGHT
 ═══════════════════════════════════════ -->
 <section id="produkte" style="background: #fff;">
-  <div id="spotlight-section" style="display:none;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; min-height:560px;">
+  <div id="spotlight-section" style="display:none; border-bottom:1px solid #F0EDE6;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; min-height:520px;">
       <div id="spotlight-img" style="overflow:hidden; background:#F5F2EC;"></div>
-      <div style="display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,6vw,100px); background:#1a1a1a;">
-        <p style="font-size:12px; font-weight:800; color:#F07A8C; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">✦ Bestseller</p>
-        <h2 id="spotlight-title" style="font-size:clamp(32px,4vw,54px); font-weight:900; color:#fff; line-height:1.08; letter-spacing:-0.02em; margin-bottom:16px;"></h2>
-        <p style="font-size:15px; color:rgba(255,255,255,0.45); margin-bottom:32px;">Individuell bedruckt mit deinem Logo — für jeden Einsatz.</p>
-        <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
-          <span id="spotlight-price" style="font-size:22px; font-weight:900; color:#0071E3;"></span>
-          <a id="spotlight-link" href="#" target="_blank" rel="noopener" style="background:#F07A8C; color:#fff; padding:14px 32px; border-radius:100px; font-size:15px; font-weight:800; text-decoration:none; transition:background 0.15s;" onmouseover="this.style.background='#d9697a'" onmouseout="this.style.background='#F07A8C'">Jetzt kaufen →</a>
+      <div style="display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,6vw,90px); background:#FAF9F7;">
+        <p style="font-size:12px; font-weight:800; color:#F07A8C; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:20px;">✦ Bestseller</p>
+        <h2 id="spotlight-title" style="font-size:clamp(28px,3.5vw,48px); font-weight:900; color:#1a1a1a; line-height:1.1; letter-spacing:-0.02em; margin-bottom:14px;"></h2>
+        <p style="font-size:16px; color:#7a7570; line-height:1.75; margin-bottom:32px; max-width:380px;">Individuell bedruckt mit deinem Logo — für jeden Einsatz. Hochwertig, schnell, persönlich.</p>
+        <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+          <span id="spotlight-price" style="font-size:24px; font-weight:900; color:#0071E3;"></span>
+          <a id="spotlight-link" href="#" target="_blank" rel="noopener" style="background:#F07A8C; color:#fff; padding:14px 30px; border-radius:100px; font-size:15px; font-weight:800; text-decoration:none; transition:background 0.15s; box-shadow:0 4px 16px rgba(240,122,140,0.35);" onmouseover="this.style.background='#d9697a'" onmouseout="this.style.background='#F07A8C'">Jetzt kaufen →</a>
         </div>
       </div>
     </div>
