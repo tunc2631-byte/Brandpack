@@ -496,54 +496,31 @@
 
     <!-- Filter -->
     <style>
-      .filter-section { margin-bottom: 40px; }
-      .filter-group { margin-bottom: 16px; }
-      .filter-group-label {
-        font-size: 11px; font-weight: 700; color: #aeaeb2;
-        text-transform: uppercase; letter-spacing: 0.08em;
-        margin-bottom: 10px; display: block;
-      }
-      .filter-row {
-        display: flex; flex-wrap: wrap; gap: 6px;
+      .filter-bar {
+        display: flex; flex-wrap: wrap; justify-content: center;
+        gap: 8px; margin-bottom: 44px;
       }
       .filter-btn {
         background: #f2f2f7; border: none; border-radius: 100px;
-        padding: 8px 16px; font-size: 13px; font-weight: 600; color: #3a3a3c;
+        padding: 10px 20px; font-size: 14px; font-weight: 600; color: #3a3a3c;
         cursor: pointer; font-family: inherit;
-        transition: background 0.18s, color 0.18s, transform 0.15s;
+        transition: background 0.2s, color 0.2s, transform 0.18s, box-shadow 0.2s;
       }
-      .filter-btn:hover { background: #e5e5ea; transform: scale(1.03); }
-      .filter-btn.active { background: #1a1a1a; color: #fff; }
-      .filter-divider { height: 1px; background: #e5e5ea; margin: 16px 0; }
+      .filter-btn:hover { background: #e5e5ea; transform: scale(1.04); }
+      .filter-btn.active {
+        background: #1a1a1a; color: #fff;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      }
     </style>
 
-    <div class="filter-section">
-      <div class="filter-group">
-        <span class="filter-group-label">Kategorie</span>
-        <div class="filter-row">
-          <button onclick="setFilter('kat','alle')" class="filter-btn filter-kat active" data-val="alle">Alle</button>
-          <button onclick="setFilter('kat','papiertüten')" class="filter-btn filter-kat" data-val="papiertüten">Papiertüten</button>
-          <button onclick="setFilter('kat','papierboxen')" class="filter-btn filter-kat" data-val="papierboxen">Papierboxen</button>
-          <button onclick="setFilter('kat','pappbecher')" class="filter-btn filter-kat" data-val="pappbecher">Pappbecher</button>
-          <button onclick="setFilter('kat','pappschalen')" class="filter-btn filter-kat" data-val="pappschalen">Pappschalen</button>
-          <button onclick="setFilter('kat','papier')" class="filter-btn filter-kat" data-val="papier">Papier</button>
-          <button onclick="setFilter('kat','zubehör')" class="filter-btn filter-kat" data-val="zubehör">Zubehör</button>
-        </div>
-      </div>
-      <div class="filter-divider"></div>
-      <div class="filter-group" style="margin-bottom:0;">
-        <span class="filter-group-label">Branche</span>
-        <div class="filter-row">
-          <button onclick="setFilter('bra','alle')" class="filter-btn filter-bra active" data-val="alle">Alle</button>
-          <button onclick="setFilter('bra','burger')" class="filter-btn filter-bra" data-val="burger">🍔 Burger</button>
-          <button onclick="setFilter('bra','döner')" class="filter-btn filter-bra" data-val="döner">🥙 Döner</button>
-          <button onclick="setFilter('bra','café')" class="filter-btn filter-bra" data-val="café">☕ Café</button>
-          <button onclick="setFilter('bra','bäckerei')" class="filter-btn filter-bra" data-val="bäckerei">🥐 Bäckerei</button>
-          <button onclick="setFilter('bra','pizza')" class="filter-btn filter-bra" data-val="pizza">🍕 Pizzeria</button>
-          <button onclick="setFilter('bra','restaurant')" class="filter-btn filter-bra" data-val="restaurant">🍽️ Restaurant</button>
-          <button onclick="setFilter('bra','chicken')" class="filter-btn filter-bra" data-val="chicken">🍗 Chicken</button>
-        </div>
-      </div>
+    <div class="filter-bar">
+      <button onclick="setFilter('kat','alle')" class="filter-btn filter-kat active" data-val="alle">Alle</button>
+      <button onclick="setFilter('kat','papiertüten')" class="filter-btn filter-kat" data-val="papiertüten">Papiertüten</button>
+      <button onclick="setFilter('kat','papierboxen')" class="filter-btn filter-kat" data-val="papierboxen">Papierboxen</button>
+      <button onclick="setFilter('kat','pappbecher')" class="filter-btn filter-kat" data-val="pappbecher">Pappbecher</button>
+      <button onclick="setFilter('kat','pappschalen')" class="filter-btn filter-kat" data-val="pappschalen">Pappschalen</button>
+      <button onclick="setFilter('kat','papier')" class="filter-btn filter-kat" data-val="papier">Papier</button>
+      <button onclick="setFilter('kat','zubehör')" class="filter-btn filter-kat" data-val="zubehör">Zubehör</button>
     </div>
 
     <div id="shopify-products-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;"></div>
@@ -552,16 +529,10 @@
     <script>
     let allProducts = [];
     let activeKat = 'alle';
-    let activeBra = 'alle';
 
     function setFilter(group, val) {
-      if (group === 'kat') {
-        activeKat = val;
-        document.querySelectorAll('.filter-kat').forEach(b => b.classList.toggle('active', b.dataset.val === val));
-      } else {
-        activeBra = val;
-        document.querySelectorAll('.filter-bra').forEach(b => b.classList.toggle('active', b.dataset.val === val));
-      }
+      activeKat = val;
+      document.querySelectorAll('.filter-kat').forEach(b => b.classList.toggle('active', b.dataset.val === val));
       renderProducts();
     }
 
@@ -570,9 +541,7 @@
       const msg  = document.getElementById('no-products-msg');
       const filtered = allProducts.filter(p => {
         const tags = p.tags.map(t => t.toLowerCase());
-        const katOk = activeKat === 'alle' || tags.includes(activeKat);
-        const braOk = activeBra === 'alle' || tags.includes(activeBra);
-        return katOk && braOk;
+        return activeKat === 'alle' || tags.includes(activeKat);
       });
       if (filtered.length === 0) { grid.innerHTML = ''; msg.style.display = 'block'; return; }
       msg.style.display = 'none';
