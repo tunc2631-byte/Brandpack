@@ -175,14 +175,6 @@
     ::-webkit-scrollbar-thumb { background: #D4CFC6; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--pink); }
 
-    /* ── Scroll progress bar ── */
-    #scroll-progress {
-      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-      background: linear-gradient(to right, var(--pink), var(--pink-d));
-      z-index: 9999; border-radius: 0 2px 2px 0;
-      transition: width 0.08s linear;
-    }
-
     /* ── 3D Tilt ── */
     .tilt-card { transform-style: preserve-3d; }
 
@@ -317,18 +309,6 @@
 </head>
 <body>
 
-<div id="scroll-progress"></div>
-
-<!-- ═══════════════════════════════════════
-     DRINGLICHKEITS-BANNER
-═══════════════════════════════════════ -->
-<!-- ═══════════════════════════════════════
-     TOP BANNER
-═══════════════════════════════════════ -->
-<div style="background: #1E1E26; color: #fff; text-align: center; padding: 10px 20px; font-size: 14px; font-weight: 700; letter-spacing: 0.01em;">
-  ✦ Neu bei PackFactory? Spare bis zu 100 € auf deine erste Bestellung — <a href="#produkte" style="color: #F07A8C; text-decoration: underline;">Jetzt bestellen →</a>
-</div>
-
 <!-- ═══════════════════════════════════════
      NAVIGATION
 ═══════════════════════════════════════ -->
@@ -393,17 +373,8 @@
     </p>
 
     <!-- CTAs -->
-    <div class="hero-btns" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
-      <a href="#produkte" class="btn-pink" style="padding: 16px 36px; font-size: 16px;">Jetzt bestellen →</a>
-      <a href="#kontakt" class="btn-outline" style="padding: 16px 36px; font-size: 16px; border-color: rgba(255,255,255,0.25); color: #fff;">Kontaktiere uns</a>
-    </div>
-
-    <!-- Trust-Badges -->
-    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 48px;">
-      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 16px; font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 600;">✓ EU-Produktion</span>
-      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 16px; font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 600;">✓ Antwort in 24h</span>
-      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 16px; font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 600;">✓ Kostenlose Druckprüfung</span>
-      <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 16px; font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 600;">✓ 100% Individuell</span>
+    <div class="hero-btns" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px;">
+      <a href="#produkte" class="btn-pink" style="padding: 20px 52px; font-size: 18px; border-radius: 14px; box-shadow: 0 4px 24px rgba(240,122,140,0.45);">Jetzt bestellen →</a>
     </div>
 
     <!-- Stats row -->
@@ -1051,13 +1022,6 @@
     });
   });
 
-  // ── Scroll progress bar ──
-  const progressBar = document.getElementById('scroll-progress');
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    progressBar.style.width = (scrolled / total * 100) + '%';
-  }, { passive: true });
 
   // ── Hero counter animation ──
   function animateCounter(el, target, suffix, duration) {
