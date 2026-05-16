@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung — PackFactory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="/Bilder/neues%20logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #FAF9F7; color: #1a1a1a; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    :root {
+      --pink:   #F07A8C;
+      --pink-d: #d9697a;
+      --dark:   #1E1E26;
+      --text:   #1a1a1a;
+      --muted:  #7a7060;
+      --gray:   #F0EDE6;
+    }
+
+    .btn-pink {
+      display: inline-block; text-decoration: none; font-weight: 700;
+      border-radius: 12px; background: var(--pink); color: #fff;
+      padding: 14px 28px; font-size: 15px; font-family: inherit;
+      transition: background 0.18s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1);
+      border: none; cursor: pointer;
+    }
+    .btn-pink:hover { background: var(--pink-d); transform: translateY(-2px); }
+
+    /* Nav */
+    .nav-logo { height: 150px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all 0.25s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; background: #FAF9F7; z-index: 190;
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 22px; font-weight: 800; color: #1a1a1a; text-decoration: none; }
+    .mobile-menu a:hover { color: var(--pink); }
+
+    /* Legal content */
+    .legal-wrap { max-width: 760px; margin: 0 auto; padding: 80px 28px 120px; }
+    .legal-wrap h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .legal-wrap .subtitle { font-size: 16px; color: var(--muted); margin-bottom: 60px; }
+    .legal-wrap h2 { font-size: 20px; font-weight: 800; color: #1a1a1a; margin: 48px 0 12px; }
+    .legal-wrap h3 { font-size: 16px; font-weight: 700; color: #1a1a1a; margin: 28px 0 8px; }
+    .legal-wrap p { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 12px; }
+    .legal-wrap ul { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin: 0 0 12px 20px; }
+    .legal-wrap ul li { margin-bottom: 6px; }
+    .legal-wrap a { color: var(--pink); text-decoration: none; }
+    .legal-wrap a:hover { text-decoration: underline; }
+    .legal-wrap .divider { border: none; border-top: 1px solid #E0DBD2; margin: 48px 0; }
+    .legal-wrap .info-box {
+      background: #F5F2EC; border-left: 3px solid var(--pink); border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin: 16px 0;
+    }
+    .legal-wrap .info-box p { margin: 0; color: #4a4a4a; }
+
+    /* Footer */
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+    @media (max-width: 768px) {
+      .nav-wrapper { padding: 0 !important; }
+      .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,0.08) !important; }
+      .nav-logo { height: 90px !important; }
+      .nav-inner { height: 72px !important; overflow: hidden; justify-content: space-between !important; padding: 0 20px !important; }
+      .nav-links { display: none !important; }
+      .nav-cta { display: none !important; }
+      .hamburger { display: flex !important; }
+      .legal-wrap { padding: 48px 20px 80px; }
+      .footer-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr !important; }
+      .footer-bottom { flex-direction: column !important; text-align: center !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav-wrapper" style="position: sticky; top: 0; z-index: 200; padding: 12px 20px; pointer-events: none;">
+  <nav style="background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04); pointer-events: all; max-width: 1200px; margin: 0 auto; overflow: visible; border: 1px solid #E8E3DA;">
+    <div class="nav-inner" style="padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px;">
+      <a href="/" style="display: flex; align-items: center; flex-shrink: 0;">
+        <img src="/Bilder/neues%20logo.png" alt="PackFactory" class="nav-logo" style="width: auto;">
+      </a>
+      <div class="nav-links" style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap;">
+        <a href="/" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Home</a>
+        <a href="/#produkte" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Produkte</a>
+        <a href="/designservice/" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Designservice</a>
+        <a href="/ueber-uns/" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Über uns</a>
+        <a href="/#kontakt" style="color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.15s;" onmouseover="this.style.color='#F07A8C'" onmouseout="this.style.color='#3a3a3a'">Kontakt</a>
+      </div>
+      <div style="flex-shrink: 0; display: flex; align-items: center; gap: 8px;">
+        <a href="/#produkte" class="btn-pink nav-cta" style="padding: 10px 22px; font-size: 14px; border-radius: 10px;">Jetzt bestellen</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#produkte" onclick="closeMenu()">Produkte</a>
+  <a href="/designservice/" onclick="closeMenu()">Designservice</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">Über uns</a>
+  <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="/#produkte" class="btn-pink" style="margin-top: 8px;" onclick="closeMenu()">Jetzt bestellen</a>
+</div>
+
+<!-- CONTENT -->
+<div class="legal-wrap">
+
+  <p style="font-size: 13px; font-weight: 700; color: var(--pink); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px;">Rechtliches</p>
+  <h1>Datenschutz&shy;erklärung</h1>
+  <p class="subtitle">Stand: Mai 2026</p>
+
+  <h2>1. Verantwortlicher</h2>
+  <p>
+    <strong>PackFactory GbR</strong><br>
+    Tunc Kaya &amp; Serhat Çakmak<br>
+    Industrieweg 1, 30419 Hannover<br>
+    E-Mail: <a href="mailto:info@pack-factory.de">info@pack-factory.de</a><br>
+    Telefon: <a href="tel:+4917673216419">0176 73216419</a>
+  </p>
+
+  <hr class="divider">
+
+  <h2>2. Allgemeine Hinweise</h2>
+  <p>Der Schutz deiner persönlichen Daten ist uns wichtig. Diese Datenschutzerklärung informiert dich darüber, welche Daten wir erheben, wie wir sie verwenden und welche Rechte du als betroffene Person hast.</p>
+  <p>Rechtsgrundlagen für die Datenverarbeitung sind die Datenschutz-Grundverordnung (DSGVO) sowie das Bundesdatenschutzgesetz (BDSG).</p>
+
+  <hr class="divider">
+
+  <h2>3. Datenerhebung auf dieser Website</h2>
+
+  <h3>Server-Log-Dateien (Hosting)</h3>
+  <p>Diese Website wird über <strong>GitHub Pages</strong> (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet. Beim Aufruf unserer Seiten übermittelt dein Browser automatisch folgende Daten, die GitHub in Server-Log-Dateien speichert:</p>
+  <ul>
+    <li>IP-Adresse des anfragenden Geräts</li>
+    <li>Datum und Uhrzeit der Anfrage</li>
+    <li>Aufgerufene URL und übertragene Datenmenge</li>
+    <li>Browsertyp und Betriebssystem</li>
+    <li>Referrer-URL (zuvor besuchte Seite)</li>
+  </ul>
+  <p>Die Verarbeitung erfolgt auf Basis von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bereitstellung und Sicherheit der Website). GitHub kann die Daten in die USA übertragen; GitHub ist nach dem EU-US Data Privacy Framework zertifiziert.</p>
+  <p>Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a></p>
+
+  <h3>Kontakt per E-Mail</h3>
+  <p>Wenn du uns per E-Mail kontaktierst, werden die von dir übermittelten Daten (Name, E-Mail-Adresse, Nachricht) bei uns gespeichert, um deine Anfrage zu bearbeiten. Die Daten werden nicht ohne deine Einwilligung weitergegeben.</p>
+  <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</p>
+
+  <h3>Cookies</h3>
+  <p>Diese Website setzt keine eigenen Tracking- oder Marketing-Cookies ein. Es werden ausschließlich technisch notwendige Daten übertragen, die für den Betrieb der Website erforderlich sind.</p>
+
+  <hr class="divider">
+
+  <h2>4. Externe Dienste</h2>
+
+  <h3>Google Fonts</h3>
+  <p>Wir nutzen Google Fonts (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA) zur einheitlichen Darstellung von Schriftarten. Beim Laden der Seite verbindet sich dein Browser mit den Servern von Google, wobei deine IP-Adresse übertragen wird.</p>
+  <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Google ist nach dem EU-US Data Privacy Framework zertifiziert.</p>
+  <p>Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></p>
+
+  <h3>Shopify (Produktanzeige)</h3>
+  <p>Für die Anzeige unserer Produkte nutzen wir die <strong>Shopify Storefront API</strong> (Shopify Inc., 151 O'Connor Street, Ottawa, ON K2P 2L8, Kanada). Beim Laden der Produktübersicht wird eine Anfrage an Shopify-Server gestellt. Es werden keine personenbezogenen Daten von Besuchern an Shopify übermittelt.</p>
+  <p>Weitere Informationen: <a href="https://www.shopify.com/legal/privacy" target="_blank" rel="noopener">Shopify Privacy Policy</a></p>
+
+  <hr class="divider">
+
+  <h2>5. Deine Rechte</h2>
+  <p>Du hast gegenüber uns folgende Rechte bezüglich der dich betreffenden personenbezogenen Daten:</p>
+  <ul>
+    <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO)</li>
+    <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
+    <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+    <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+    <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+    <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO)</li>
+  </ul>
+  <p>Zur Ausübung dieser Rechte wende dich an: <a href="mailto:info@pack-factory.de">info@pack-factory.de</a></p>
+  <p>Darüber hinaus hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist die Landesbeauftragte für Datenschutz Niedersachsen.</p>
+
+  <div class="info-box">
+    <p>Landesbeauftragte für den Datenschutz Niedersachsen<br>
+    Prinzenstraße 5, 30159 Hannover<br>
+    <a href="https://www.lfd.niedersachsen.de" target="_blank" rel="noopener">www.lfd.niedersachsen.de</a></p>
+  </div>
+
+  <hr class="divider">
+
+  <h2>6. Datensicherheit</h2>
+  <p>Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du daran, dass die Adresszeile deines Browsers von „http://" auf „https://" wechselt.</p>
+
+  <hr class="divider">
+
+  <h2>7. Aktualität und Änderungen</h2>
+  <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026. Durch die Weiterentwicklung unserer Website kann eine Anpassung dieser Datenschutzerklärung notwendig werden. Wir behalten uns das Recht vor, die Datenschutzerklärung jederzeit zu ändern.</p>
+
+</div>
+
+<!-- FOOTER -->
+<footer style="background: #16161C; padding: 60px 28px 32px; border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="content-wrap" style="max-width: 1200px; margin: 0 auto;">
+    <div class="footer-grid">
+      <div>
+        <img src="/Bilder/neues%20logo.png" alt="PackFactory" style="height: 44px; margin-bottom: 16px;">
+        <p style="font-size: 14px; color: rgba(255,255,255,0.38); line-height: 1.7; max-width: 280px;">Individuelle Verpackungslösungen für Gastronomie und Foodservice.</p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; font-weight: 800; color: rgba(255,255,255,0.8); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px;">Produkte</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+          <li><a href="/#produkte" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Bechermanschetten</a></li>
+          <li><a href="/#produkte" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Tüten</a></li>
+          <li><a href="/#produkte" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Verpackungsboxen</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; font-weight: 800; color: rgba(255,255,255,0.8); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px;">Unternehmen</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+          <li><a href="/ueber-uns/" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Über uns</a></li>
+          <li><a href="/designservice/" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Designservice</a></li>
+          <li><a href="/#kontakt" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; font-weight: 800; color: rgba(255,255,255,0.8); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px;">Rechtliches</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+          <li><a href="/impressum/" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Impressum</a></li>
+          <li><a href="/datenschutz/" style="font-size: 14px; color: #fff; text-decoration: none;">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="font-size: 13px; color: rgba(255,255,255,0.22);">© 2026 PackFactory GbR. Alle Rechte vorbehalten.</p>
+      <p style="font-size: 13px; color: rgba(255,255,255,0.18);">Verpackung ist dein bestes Marketing.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.querySelector('.hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+  }
+</script>
+</body>
+</html>
