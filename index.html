@@ -959,18 +959,18 @@
     <h2 class="reveal" data-delay="80" style="font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px;">Starte jetzt dein Projekt</h2>
     <p class="reveal" data-delay="160" style="font-size: 18px; color: var(--muted); line-height: 1.7; margin-bottom: 48px;">Kein langer Prozess — schreib uns kurz, was du brauchst, und wir melden uns innerhalb von 24 Stunden.</p>
 
-    <form class="reveal" data-delay="240" style="background: #FFFDF9; border: 1.5px solid #E8E3DA; border-radius: 20px; padding: 40px; text-align: left;" onsubmit="handleSubmit(event)">
+    <form id="kontakt-form" class="reveal" data-delay="240" style="background: #FFFDF9; border: 1.5px solid #E8E3DA; border-radius: 20px; padding: 40px; text-align: left;" onsubmit="handleSubmit(event)">
 
       <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
         <div>
           <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">Name *</label>
-          <input type="text" placeholder="Max Mustermann" required
+          <input type="text" name="name" placeholder="Max Mustermann" required
             style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; transition: border-color 0.15s ease;"
             onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
         </div>
         <div>
           <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">Unternehmen</label>
-          <input type="text" placeholder="Mein Restaurant GmbH"
+          <input type="text" name="unternehmen" placeholder="Mein Restaurant GmbH"
             style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; transition: border-color 0.15s ease;"
             onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
         </div>
@@ -978,14 +978,14 @@
 
       <div style="margin-bottom: 16px;">
         <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">E-Mail *</label>
-        <input type="email" placeholder="info@meinrestaurant.de" required
+        <input type="email" name="email" placeholder="info@meinrestaurant.de" required
           style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; transition: border-color 0.15s ease;"
           onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
       </div>
 
       <div style="margin-bottom: 16px;">
         <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">Welches Produkt?</label>
-        <select style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; cursor: pointer; transition: border-color 0.15s ease; appearance: none;"
+        <select name="produkt" style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; cursor: pointer; transition: border-color 0.15s ease; appearance: none;"
           onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'">
           <option value="">Bitte wählen…</option>
           <option>Bechermanschetten</option>
@@ -999,13 +999,13 @@
 
       <div style="margin-bottom: 28px;">
         <label style="display: block; font-size: 13px; font-weight: 700; color: #5a5a5a; margin-bottom: 8px;">Nachricht</label>
-        <textarea rows="4" placeholder="Beschreib kurz dein Konzept und ungefähre Mengen…"
+        <textarea rows="4" name="nachricht" placeholder="Beschreib kurz dein Konzept und ungefähre Mengen…"
           style="width: 100%; background: #F5F2EC; border: 1.5px solid #DDD8CE; border-radius: 10px; padding: 12px 16px; font-size: 15px; color: #1a1a1a; outline: none; font-family: inherit; resize: vertical; transition: border-color 0.15s ease;"
           onfocus="this.style.borderColor='rgba(240,122,140,0.6)'" onblur="this.style.borderColor='#DDD8CE'"></textarea>
       </div>
 
-      <button type="submit" class="btn-pink" style="width: 100%; padding: 15px; font-size: 16px; border-radius: 10px;">Kostenlos anfragen →</button>
-      <p style="text-align: center; font-size: 13px; color: #aaa; margin-top: 14px;">Keine Verpflichtung · Kostenlose Erstberatung · Antwort in 24h</p>
+      <button type="submit" id="submit-btn" class="btn-pink" style="width: 100%; padding: 15px; font-size: 16px; border-radius: 10px;">Kostenlos anfragen →</button>
+      <p id="form-status" style="text-align: center; font-size: 13px; color: #aaa; margin-top: 14px;">Keine Verpflichtung · Kostenlose Erstberatung · Antwort in 24h</p>
     </form>
 
     <div style="margin-top: 28px; display: flex; align-items: center; justify-content: center; gap: 16px;">
@@ -1150,18 +1150,56 @@
     });
   });
 
-  function handleSubmit(e) {
+  const FORMSPREE_ID = 'DEIN_FORM_ID'; // ← hier deine Formspree-ID eintragen (z.B. xyzabcde)
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button[type=submit]');
-    btn.textContent = '✓ Nachricht gesendet!';
-    btn.style.background = '#4BC98A';
+    const btn    = document.getElementById('submit-btn');
+    const status = document.getElementById('form-status');
+    const form   = document.getElementById('kontakt-form');
+
+    btn.textContent = 'Wird gesendet…';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Kostenlos anfragen →';
-      btn.style.background = '#F07A8C';
-      btn.disabled = false;
-      e.target.reset();
-    }, 3000);
+    btn.style.opacity = '0.7';
+
+    try {
+      const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (res.ok) {
+        btn.textContent = '✓ Nachricht gesendet!';
+        btn.style.background = '#4BC98A';
+        btn.style.opacity = '1';
+        status.textContent = 'Wir melden uns innerhalb von 24 Stunden bei dir.';
+        status.style.color = '#4BC98A';
+        form.reset();
+        setTimeout(() => {
+          btn.textContent = 'Kostenlos anfragen →';
+          btn.style.background = '#F07A8C';
+          btn.disabled = false;
+          status.textContent = 'Keine Verpflichtung · Kostenlose Erstberatung · Antwort in 24h';
+          status.style.color = '#aaa';
+        }, 5000);
+      } else {
+        throw new Error('Fehler');
+      }
+    } catch {
+      btn.textContent = 'Fehler — bitte erneut versuchen';
+      btn.style.background = '#e05c6a';
+      btn.style.opacity = '1';
+      status.textContent = 'Oder direkt schreiben: info@pack-factory.de';
+      status.style.color = '#e05c6a';
+      setTimeout(() => {
+        btn.textContent = 'Kostenlos anfragen →';
+        btn.style.background = '#F07A8C';
+        btn.disabled = false;
+        status.textContent = 'Keine Verpflichtung · Kostenlose Erstberatung · Antwort in 24h';
+        status.style.color = '#aaa';
+      }, 4000);
+    }
   }
 </script>
 
