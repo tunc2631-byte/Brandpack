@@ -10,8 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; -webkit-text-size-adjust: 100%; }
     body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #FAF9F7; color: #1a1a1a; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    * { -webkit-tap-highlight-color: transparent; }
+    a, button { touch-action: manipulation; }
+    .btn-pink:active { transform: scale(0.97) !important; opacity: 0.92; }
     :root { --pink: #F07A8C; --pink-d: #d9697a; }
     .btn-pink { display: inline-block; text-decoration: none; font-weight: 700; border-radius: 100px; background: var(--pink); color: #fff; padding: 14px 32px; font-size: 15px; font-family: inherit; transition: background 0.18s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s; box-shadow: 0 2px 10px rgba(240,122,140,0.3); border: none; cursor: pointer; }
     .btn-pink:hover { background: var(--pink-d); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(240,122,140,0.4); }
@@ -22,14 +25,21 @@
     /* Nav */
     .nav-logo { height: 150px; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all 0.25s ease; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all 0.28s cubic-bezier(.22,1,.36,1); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: none; position: fixed; inset: 0; background: #FAF9F7; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 22px; font-weight: 800; color: #1a1a1a; text-decoration: none; }
+    .mobile-menu { display: flex; position: fixed; inset: 0; background: #FAF9F7; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity 0.28s cubic-bezier(.22,1,.36,1); }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: 24px; font-weight: 800; color: #1a1a1a; text-decoration: none; opacity: 0; transform: translateY(18px); transition: color 0.15s, opacity 0.32s cubic-bezier(.22,1,.36,1), transform 0.32s cubic-bezier(.22,1,.36,1); }
+    .mobile-menu.open a:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+    .mobile-menu.open a:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.09s; }
+    .mobile-menu.open a:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.13s; }
+    .mobile-menu.open a:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.17s; }
+    .mobile-menu.open a:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.21s; }
+    .mobile-menu.open a:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.25s; }
     .mobile-menu a:hover { color: var(--pink); }
+    @media (min-width: 769px) { .nav-wrapper { transition: padding 0.35s cubic-bezier(.22,1,.36,1); } .nav-wrapper.scrolled { padding: 6px 20px !important; } .nav-wrapper.scrolled nav { box-shadow: 0 10px 44px rgba(0,0,0,0.11), 0 1px 4px rgba(0,0,0,0.05) !important; } }
 
     @media (max-width: 768px) {
       .nav-wrapper     { padding: 0 !important; }
@@ -244,6 +254,11 @@
 </footer>
 
 <script>
+  const navWrapper = document.querySelector('.nav-wrapper');
+  window.addEventListener('scroll', () => {
+    navWrapper.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
   function toggleMenu() {
     const menu = document.getElementById('mobileMenu');
     const btn = document.querySelector('.hamburger');
