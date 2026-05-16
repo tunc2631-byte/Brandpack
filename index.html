@@ -235,12 +235,22 @@
       .faq-grid  { grid-template-columns: 1fr !important; gap: 40px !important; }
       .faq-sticky { position: static !important; top: auto !important; }
 
-      /* Nav */
+      /* Nav — full-width, no side gap */
+      .nav-wrapper     { padding: 0 !important; }
+      .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,0.08) !important; }
       .nav-logo        { height: 90px !important; }
-      .nav-inner       { height: 72px !important; overflow: hidden; }
+      .nav-inner       { height: 72px !important; overflow: hidden; justify-content: space-between !important; padding: 0 20px !important; }
       .nav-links       { display: none !important; }
       .nav-cta         { display: none !important; }
       .hamburger       { display: flex !important; }
+
+      /* Product images fill the card frame */
+      .products-grid a > div:first-child img { padding: 0 !important; object-fit: cover !important; }
+
+      /* Für wen — equal columns */
+      .industries-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+      .industries-grid > * { min-width: 0; }
+      .industry-card   { padding: 18px 12px !important; }
 
       /* Layout */
       section          { padding: 56px 20px !important; }
@@ -319,7 +329,7 @@
 <!-- ═══════════════════════════════════════
      NAVIGATION
 ═══════════════════════════════════════ -->
-<div style="position: sticky; top: 0; z-index: 200; padding: 12px 20px; pointer-events: none;">
+<div class="nav-wrapper" style="position: sticky; top: 0; z-index: 200; padding: 12px 20px; pointer-events: none;">
   <nav class="nav-wrap" style="background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04); pointer-events: all; max-width: 1200px; margin: 0 auto; overflow: visible; border: 1px solid #E8E3DA;">
     <div class="nav-inner" style="padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px;">
       <!-- Logo left -->
