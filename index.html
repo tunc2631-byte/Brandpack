@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scroll-padding-top: 100px; }
-    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #FAF9F7; color: #1a1a1a; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; overflow-x: hidden; }
+    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #FAF9F7; color: #1a1a1a; -webkit-font-smoothing: antialiased; overflow-x: hidden; max-width: 100vw; }
 
     :root {
       --pink:   #F07A8C;
@@ -245,6 +245,7 @@
     }
 
     @media (max-width: 768px) {
+      section { max-width: 100vw; box-sizing: border-box; }
       .hero-section { padding: 16px 16px 12px !important; }
 
       /* FAQ split layout */
