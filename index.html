@@ -152,6 +152,8 @@
     .hero-h1      { animation: fadeUp   0.65s cubic-bezier(.22,1,.36,1) 0.15s both; }
     .hero-p       { animation: fadeUp   0.65s cubic-bezier(.22,1,.36,1) 0.28s both; }
     .hero-btns    { animation: fadeUp   0.65s cubic-bezier(.22,1,.36,1) 0.38s both; }
+    .logo-word { display: inline-block; transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), color 0.2s; cursor: default; }
+    .logo-word:hover { transform: scale(1.15) rotate(-4deg); color: #F07A8C; }
     .hero-img img { animation: scaleIn  0.8s  cubic-bezier(.22,1,.36,1) 0.2s  both,
                                floatY   6s    ease-in-out               1s    infinite; }
 
@@ -468,7 +470,7 @@
     <!-- Apple-style headline block -->
     <div style="text-align:center; padding:12px 0 20px;">
       <p style="font-size:13px; font-weight:700; color:var(--pink); letter-spacing:0.07em; text-transform:uppercase; margin-bottom:12px;">PackFactory</p>
-      <h1 style="font-size:clamp(22px,2.6vw,36px); font-weight:900; color:#1a1a1a; letter-spacing:-0.02em; line-height:1.15; margin-bottom:8px;">Dein Logo auf deiner Verpackung</h1>
+      <h1 style="font-size:clamp(22px,2.6vw,36px); font-weight:900; color:#1a1a1a; letter-spacing:-0.02em; line-height:1.15; margin-bottom:8px;">Dein <span class="logo-word">Logo</span> auf deiner Verpackung</h1>
       <p style="font-size:15px; color:#6e6e73; line-height:1.5; max-width:460px; margin:0 auto;">Individuell bedruckt mit deinem Logo, für Restaurants, Cafés und Foodservice.</p>
     </div>
 
