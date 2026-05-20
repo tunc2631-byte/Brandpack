@@ -1111,6 +1111,14 @@
 </footer>
 
 <script>
+  // Scroll to hash after page load (fixes Shopify layout shift)
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if (target) {
+      setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 800);
+    }
+  }
+
   // Nav scroll shrink
   const navWrapper = document.querySelector('.nav-wrapper');
   window.addEventListener('scroll', () => {
