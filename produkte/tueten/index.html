@@ -278,8 +278,13 @@
           <button class="variant-btn" onclick="selectOpt('menge',20000,this)">20.000</button>
           <button class="variant-btn" onclick="selectOpt('menge',30000,this)">30.000</button>
           <button class="variant-btn" onclick="selectOpt('menge',50000,this)">50.000</button>
-          <button class="variant-btn" onclick="selectOpt('menge',75000,this)">75.000</button>
         </div>
+      </div>
+
+      <!-- Ausgewählte Optionen -->
+      <div style="background:#F5F2EC;border-radius:10px;padding:10px 16px;margin-bottom:16px;font-size:13px;font-weight:700;color:#1a1a1a;">
+        <span style="color:var(--muted);font-weight:600;">Auswahl: </span>
+        <span id="selected-summary">XS · 180x80x240 mm · Whitekraft · 10.000 Stück</span>
       </div>
 
       <!-- Preis -->
@@ -364,7 +369,7 @@
   <div class="section-inner">
     <span class="section-label">Preisübersicht</span>
     <h2 class="section-title">Alle Größen & Mengen auf einen Blick</h2>
-    <p style="font-size:14px;color:var(--muted);margin-bottom:24px;">Preise inkl. MwSt. · inkl. individuellem Druck (2 Druckfarben) · Weiß & Braun zum gleichen Preis. ~ = Richtwert (extrapoliert)</p>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:24px;">Preise pro Stück · inkl. MwSt. · inkl. individuellem Druck (2 Druckfarben) · Weiß & Braun zum gleichen Preis</p>
     <div style="overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;font-size:14px;">
         <thead>
@@ -374,9 +379,7 @@
             <th style="padding:12px 16px;text-align:right;">10.000</th>
             <th style="padding:12px 16px;text-align:right;">20.000</th>
             <th style="padding:12px 16px;text-align:right;">30.000</th>
-            <th style="padding:12px 16px;text-align:right;">50.000</th>
-            <th style="padding:12px 16px;text-align:right;">75.000</th>
-            <th style="padding:12px 16px;text-align:right;border-radius:0 10px 0 0;">75.000</th>
+            <th style="padding:12px 16px;text-align:right;border-radius:0 10px 0 0;">50.000</th>
           </tr>
         </thead>
         <tbody>
@@ -386,8 +389,7 @@
             <td style="padding:12px 16px;text-align:right;">0,1391 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1268 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1138 €</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,1057 € ~</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,1014 € ~</td>
+            <td style="padding:12px 16px;text-align:right;">0,1057 €</td>
           </tr>
           <tr style="background:#FAF9F7;border-bottom:1px solid #F0EDE6;">
             <td style="padding:12px 16px;font-weight:800;">S</td>
@@ -395,8 +397,7 @@
             <td style="padding:12px 16px;text-align:right;">0,1450 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1323 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1138 €</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,1034 € ~</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,0993 € ~</td>
+            <td style="padding:12px 16px;text-align:right;">0,1034 €</td>
           </tr>
           <tr style="background:#fff;border-bottom:1px solid #F0EDE6;">
             <td style="padding:12px 16px;font-weight:800;">M</td>
@@ -404,8 +405,7 @@
             <td style="padding:12px 16px;text-align:right;">0,1522 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1366 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1329 €</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,1113 € ~</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,1068 € ~</td>
+            <td style="padding:12px 16px;text-align:right;">0,1113 €</td>
           </tr>
           <tr style="background:#FAF9F7;border-bottom:1px solid #F0EDE6;">
             <td style="padding:12px 16px;font-weight:800;">L</td>
@@ -413,8 +413,7 @@
             <td style="padding:12px 16px;text-align:right;">0,1922 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1599 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1580 €</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,1364 € ~</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,1309 € ~</td>
+            <td style="padding:12px 16px;text-align:right;">0,1364 €</td>
           </tr>
           <tr style="background:#fff;border-bottom:1px solid #F0EDE6;">
             <td style="padding:12px 16px;font-weight:800;">XL</td>
@@ -422,8 +421,7 @@
             <td style="padding:12px 16px;text-align:right;">0,1922 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1522 €</td>
             <td style="padding:12px 16px;text-align:right;">0,1473 €</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,1383 € ~</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,1328 € ~</td>
+            <td style="padding:12px 16px;text-align:right;">0,1383 €</td>
           </tr>
           <tr style="background:#FAF9F7;">
             <td style="padding:12px 16px;font-weight:800;">XXL</td>
@@ -431,13 +429,12 @@
             <td style="padding:12px 16px;text-align:right;">0,3009 €</td>
             <td style="padding:12px 16px;text-align:right;">0,2982 €</td>
             <td style="padding:12px 16px;text-align:right;">0,2940 €</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,2767 € ~</td>
-            <td style="padding:12px 16px;text-align:right;color:var(--muted);">0,2656 € ~</td>
+            <td style="padding:12px 16px;text-align:right;">0,2767 €</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:12px;color:var(--muted);margin-top:12px;">Alle Preise pro Stück · inkl. MwSt. · Weiß und Braun zum gleichen Preis · ~ = extrapoliert nach Produzenten-Rabattkurve</p>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px;">Alle Preise pro Stück · inkl. MwSt. · Weiß und Braun zum gleichen Preis</p>
   </div>
 </section>
 
@@ -575,21 +572,18 @@
 <script>
   // Preis pro Stück in EUR (aus Preistabelle, inkl. MwSt., 2 Druckfarben)
   const pricePerPiece = {
-    'XS':  { 10000:0.1391, 20000:0.1268, 30000:0.1138, 50000:0.1057, 75000:0.1014 },
-    'S':   { 10000:0.1450, 20000:0.1323, 30000:0.1138, 50000:0.1034, 75000:0.0993 },
-    'M':   { 10000:0.1522, 20000:0.1366, 30000:0.1329, 50000:0.1113, 75000:0.1068 },
-    'L':   { 10000:0.1922, 20000:0.1599, 30000:0.1580, 50000:0.1364, 75000:0.1309 },
-    'XL':  { 10000:0.1922, 20000:0.1522, 30000:0.1473, 50000:0.1383, 75000:0.1328 },
-    'XXL': { 10000:0.3009, 20000:0.2982, 30000:0.2940, 50000:0.2767, 75000:0.2656 }
+    'XS':  { 10000:0.1391, 20000:0.1268, 30000:0.1138, 50000:0.1057 },
+    'S':   { 10000:0.1450, 20000:0.1323, 30000:0.1138, 50000:0.1034 },
+    'M':   { 10000:0.1522, 20000:0.1366, 30000:0.1329, 50000:0.1113 },
+    'L':   { 10000:0.1922, 20000:0.1599, 30000:0.1580, 50000:0.1364 },
+    'XL':  { 10000:0.1922, 20000:0.1522, 30000:0.1473, 50000:0.1383 },
+    'XXL': { 10000:0.3009, 20000:0.2982, 30000:0.2940, 50000:0.2767 }
   };
 
   const dimensions = {
     'XS': '180x80x240 mm', 'S': '220x100x285 mm', 'M': '260x160x280 mm',
     'L': '320x170x270 mm', 'XL': '320x220x250 mm', 'XXL': '460x220x460 mm'
   };
-
-  // Ab 50k = extrapoliert (~)
-  const approxQty = [50000, 75000, 100000];
 
   const sel = { size: 'XS', material: 'Whitekraft', menge: 10000 };
 
@@ -607,10 +601,10 @@
   function updatePrice() {
     const pp   = pricePerPiece[sel.size][sel.menge];
     const total = Math.round(pp * sel.menge * 100) / 100;
-    const isApprox = approxQty.includes(sel.menge);
-    document.getElementById('price-display').textContent = '€ ' + fmt(total) + (isApprox ? ' ~' : '');
-    document.getElementById('price-per').textContent = '= ' + fmtPp(pp) + ' €/Stück' + (isApprox ? ' ~' : '');
-    document.getElementById('price-note').textContent = 'Inkl. individuellem Druck · inkl. MwSt. · 2 Druckfarben' + (isApprox ? ' · ~ = Richtwert (extrapoliert)' : '');
+    document.getElementById('price-display').textContent = '€ ' + fmt(total);
+    document.getElementById('price-per').textContent = '= ' + fmtPp(pp) + ' €/Stück';
+    document.getElementById('price-note').textContent = 'Inkl. individuellem Druck · inkl. MwSt. · 2 Druckfarben';
+    document.getElementById('selected-summary').textContent = sel.size + ' · ' + dimensions[sel.size] + ' · ' + sel.material + ' · ' + sel.menge.toLocaleString('de-DE') + ' Stück';
     const msg = encodeURIComponent(`Hallo, ich interessiere mich für Papiertüten (Größe: ${sel.size} ${dimensions[sel.size]}, Material: ${sel.material}, Menge: ${sel.menge.toLocaleString('de-DE')} Stück, ca. €${fmt(total)}) und möchte ein Angebot anfragen.`);
     document.getElementById('wa-link').href = 'https://wa.me/4917673216419?text=' + msg;
     document.getElementById('email-link').href = `mailto:info@pack-factory.de?subject=Anfrage Papiertüten&body=Hallo,%0A%0Aich interessiere mich für:%0AGröße: ${sel.size} (${dimensions[sel.size]})%0AMaterial: ${sel.material}%0AMenge: ${sel.menge.toLocaleString('de-DE')} Stück%0AGesamtpreis: ca. €${fmt(total)}%0APreis pro Stück: ${fmtPp(pp)} €%0A%0ABitte senden Sie mir ein Angebot.`;
