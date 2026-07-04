@@ -264,6 +264,25 @@
     }
 
     /* ---------------------------------------
+       SPECS TABLE
+    --------------------------------------- */
+    .specs-section { background: var(--bg); padding: 80px 24px; }
+    .specs-inner { max-width: 1000px; margin: 0 auto; }
+    .specs-title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 900; color: var(--dark); letter-spacing: -.02em; margin-bottom: 6px; }
+    .specs-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+    .specs-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .specs-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 14px; overflow: hidden; min-width: 640px; }
+    .specs-table thead tr { background: var(--dark); color: #fff; }
+    .specs-table th { padding: 12px 14px; font-size: 12px; font-weight: 700; text-align: center; }
+    .specs-table th:first-child { text-align: left; }
+    .specs-table td { padding: 11px 14px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+    .specs-table td:first-child { text-align: left; font-weight: 700; color: var(--dark); white-space: nowrap; }
+    .specs-table tr:last-child td { border-bottom: none; }
+    .specs-table tr:nth-child(even) td { background: #fafafa; }
+    .specs-table tr:nth-child(even) td:first-child { background: #fafafa; }
+    .specs-footnote { font-size: 12px; color: var(--muted); margin-top: 14px; }
+
+    /* ---------------------------------------
        SEO / PRODUCT INFO SECTION
     --------------------------------------- */
     .seo-section { background: var(--bg); padding: 80px 24px; }
@@ -470,6 +489,122 @@
         <span class="service-card-tag">Auf Anfrage verfügbar</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- -- SPECS TABLE -- -->
+<section class="specs-section">
+  <div class="specs-inner">
+    <h2 class="specs-title">Technische Spezifikationen</h2>
+    <p class="specs-sub">Alle Angaben pro Größenvariante</p>
+    <div class="specs-wrap">
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Eigenschaft</th>
+            <th>XS</th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
+            <th>XXL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Abmessungen (mm)</td>
+            <td>180&times;80&times;240</td>
+            <td>220&times;100&times;285</td>
+            <td>260&times;160&times;280</td>
+            <td>320&times;170&times;270</td>
+            <td>320&times;220&times;250</td>
+            <td>460&times;220&times;460</td>
+          </tr>
+          <tr>
+            <td>Farbe</td>
+            <td>Wei&szlig; / Braun</td>
+            <td>Wei&szlig; / Braun</td>
+            <td>Wei&szlig; / Braun</td>
+            <td>Wei&szlig; / Braun</td>
+            <td>Wei&szlig; / Braun</td>
+            <td>Wei&szlig; / Braun</td>
+          </tr>
+          <tr>
+            <td>Material</td>
+            <td>Weißes Papier / Kraft</td>
+            <td>Weißes Papier / Kraft</td>
+            <td>Weißes Papier / Kraft</td>
+            <td>Weißes Papier / Kraft</td>
+            <td>Weißes Papier / Kraft</td>
+            <td>Weißes Papier / Kraft</td>
+          </tr>
+          <tr>
+            <td>Papierstärke</td>
+            <td>70 g/m&sup2;</td>
+            <td>70 g/m&sup2;</td>
+            <td>70 g/m&sup2;</td>
+            <td>80 g/m&sup2;</td>
+            <td>80 g/m&sup2;</td>
+            <td>100 g/m&sup2;</td>
+          </tr>
+          <tr>
+            <td>Druckmethode</td>
+            <td>Flexodruck</td>
+            <td>Flexodruck</td>
+            <td>Flexodruck</td>
+            <td>Flexodruck</td>
+            <td>Flexodruck</td>
+            <td>Flexodruck</td>
+          </tr>
+          <tr>
+            <td>Anzahl Farben</td>
+            <td>1&ndash;4 Farben</td>
+            <td>1&ndash;4 Farben</td>
+            <td>1&ndash;4 Farben</td>
+            <td>1&ndash;4 Farben</td>
+            <td>1&ndash;4 Farben</td>
+            <td>1&ndash;4 Farben</td>
+          </tr>
+          <tr>
+            <td>Druckbereich</td>
+            <td>30 % *</td>
+            <td>30 % *</td>
+            <td>30 % *</td>
+            <td>30 % *</td>
+            <td>30 % *</td>
+            <td>30 % *</td>
+          </tr>
+          <tr>
+            <td>Mindestbestellmenge</td>
+            <td>10.000</td>
+            <td>10.000</td>
+            <td>10.000</td>
+            <td>10.000</td>
+            <td>10.000</td>
+            <td>10.000</td>
+          </tr>
+          <tr>
+            <td>Stück pro Karton</td>
+            <td>250</td>
+            <td>250</td>
+            <td>250</td>
+            <td>250</td>
+            <td>250</td>
+            <td>200</td>
+          </tr>
+          <tr>
+            <td>Max. pro Palette</td>
+            <td>15.000</td>
+            <td>15.000</td>
+            <td>10.000</td>
+            <td>7.500</td>
+            <td>7.500</td>
+            <td>5.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="specs-footnote">* Der Druckbereich bezieht sich auf den bedruckbaren Anteil der Tütenoberfläche. Bei höheren Deckungsgraden ist eine individuelle Abstimmung erforderlich.</p>
   </div>
 </section>
 
