@@ -245,54 +245,54 @@
       </p>
 
       <!-- Größe -->
-      <div class="variant-group">
+      <div class="variant-group" id="vg-size">
         <span class="variant-label">Größe</span>
         <div class="variant-options">
-          <button class="variant-btn active" onclick="selectSize('S', this)">S</button>
-          <button class="variant-btn" onclick="selectSize('M', this)">M</button>
-          <button class="variant-btn" onclick="selectSize('L', this)">L</button>
-          <button class="variant-btn" onclick="selectSize('XL', this)">XL</button>
+          <button class="variant-btn active" onclick="selectOpt('size','S',this)">S</button>
+          <button class="variant-btn" onclick="selectOpt('size','M',this)">M</button>
+          <button class="variant-btn" onclick="selectOpt('size','L',this)">L</button>
+          <button class="variant-btn" onclick="selectOpt('size','XL',this)">XL</button>
         </div>
       </div>
 
       <!-- Material -->
-      <div class="variant-group">
+      <div class="variant-group" id="vg-material">
         <span class="variant-label">Material</span>
         <div class="variant-options">
-          <button class="variant-btn active" onclick="selectMaterial('Whitekraft', this)">Whitekraft (Weiß)</button>
-          <button class="variant-btn" onclick="selectMaterial('Brownkraft', this)">Brownkraft (Braun)</button>
+          <button class="variant-btn active" onclick="selectOpt('material','Whitekraft',this)">Whitekraft (Weiß)</button>
+          <button class="variant-btn" onclick="selectOpt('material','Brownkraft',this)">Brownkraft (Braun)</button>
         </div>
       </div>
 
-      <!-- Preistabelle -->
+      <!-- Menge -->
+      <div class="variant-group" id="vg-menge">
+        <span class="variant-label">Menge (Stück)</span>
+        <div class="variant-options">
+          <button class="variant-btn active" onclick="selectOpt('menge',10000,this)">10.000</button>
+          <button class="variant-btn" onclick="selectOpt('menge',15000,this)">15.000</button>
+          <button class="variant-btn" onclick="selectOpt('menge',25000,this)">25.000</button>
+          <button class="variant-btn" onclick="selectOpt('menge',30000,this)">30.000</button>
+        </div>
+      </div>
+
+      <!-- Preis -->
       <div class="price-box">
-        <div style="font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Preisübersicht</div>
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th>Menge (Stück)</th>
-              <th>Gesamtpreis</th>
-              <th>Preis / Stück</th>
-            </tr>
-          </thead>
-          <tbody id="price-tbody"></tbody>
-        </table>
-        <p style="font-size: 12px; color: var(--muted); margin-top: 12px;">* Alle Preise inkl. individuellem Druck. Zzgl. MwSt.</p>
+        <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+          <span id="price-display" style="font-size:40px;font-weight:900;color:#1a1a1a;">€ 1.490,00</span>
+          <span id="price-per" style="font-size:14px;color:var(--muted);">= 14,9 ct/Stück</span>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;">Inkl. individuellem Druck · zzgl. MwSt.</p>
       </div>
 
       <!-- CTAs -->
       <div style="display: flex; flex-direction: column; gap: 12px;">
-        <a href="https://wa.me/4917673216419?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Papiert%C3%BCten%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" class="btn-green" style="justify-content: center; font-size: 16px; padding: 16px 28px;">
+        <a id="wa-link" href="https://wa.me/4917673216419?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Papiert%C3%BCten%20(S%2C%20Whitekraft%2C%2010.000%20St%C3%BCck)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" class="btn-green" style="justify-content: center; font-size: 16px; padding: 16px 28px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span>WhatsApp — Angebot anfragen</span>
+          <span>Jetzt anfragen via WhatsApp</span>
         </a>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <a href="tel:+4917673216419" class="btn-outline-dark" style="justify-content: center;">
-            📞 Anrufen
-          </a>
-          <a href="mailto:info@pack-factory.de?subject=Anfrage%20Papiertüten" class="btn-outline-dark" style="justify-content: center;">
-            ✉️ Email
-          </a>
+          <a href="tel:+4917673216419" class="btn-outline-dark" style="justify-content: center;">📞 Anrufen</a>
+          <a id="email-link" href="mailto:info@pack-factory.de?subject=Anfrage%20Papiert%C3%BCten" class="btn-outline-dark" style="justify-content: center;">✉️ Email</a>
         </div>
       </div>
 
@@ -440,59 +440,32 @@
 </a>
 
 <script>
-  // ── Price data ──
   const prices = {
-    'S': {
-      'Whitekraft': { 10000: 1490, 15000: 2025, 25000: 2875, 30000: 3450 },
-      'Brownkraft': { 10000: 1490, 15000: 2025, 25000: 2875, 30000: 3450 }
-    },
-    'M': {
-      'Whitekraft': { 10000: 1550, 15000: 2100, 25000: 3400, 30000: 4080 },
-      'Brownkraft': { 10000: 1550, 15000: 2100, 25000: 3400, 30000: 4080 }
-    },
-    'L': {
-      'Whitekraft': { 10000: 1980, 15000: 2475, 25000: 4050, 30000: 4860 },
-      'Brownkraft': { 10000: 1980, 15000: 2475, 25000: 4050, 30000: 4860 }
-    },
-    'XL': {
-      'Whitekraft': { 10000: 2050, 15000: 2385, 25000: 4000, 30000: 4800 },
-      'Brownkraft': { 10000: 2050, 15000: 2385, 25000: 4000, 30000: 4800 }
-    }
+    'S':  { 'Whitekraft': { 10000:1490, 15000:2025, 25000:2875, 30000:3450 }, 'Brownkraft': { 10000:1490, 15000:2025, 25000:2875, 30000:3450 } },
+    'M':  { 'Whitekraft': { 10000:1550, 15000:2100, 25000:3400, 30000:4080 }, 'Brownkraft': { 10000:1550, 15000:2100, 25000:3400, 30000:4080 } },
+    'L':  { 'Whitekraft': { 10000:1980, 15000:2475, 25000:4050, 30000:4860 }, 'Brownkraft': { 10000:1980, 15000:2475, 25000:4050, 30000:4860 } },
+    'XL': { 'Whitekraft': { 10000:2050, 15000:2385, 25000:4000, 30000:4800 }, 'Brownkraft': { 10000:2050, 15000:2385, 25000:4000, 30000:4800 } }
   };
 
-  let selectedSize = 'S';
-  let selectedMaterial = 'Whitekraft';
+  const sel = { size: 'S', material: 'Whitekraft', menge: 10000 };
 
-  function selectSize(size, btn) {
-    selectedSize = size;
-    document.querySelectorAll('.variant-group:nth-child(1) .variant-btn').forEach(b => b.classList.remove('active'));
+  function selectOpt(key, val, btn) {
+    sel[key] = val;
+    btn.closest('.variant-options').querySelectorAll('.variant-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    updatePrices();
+    updatePrice();
   }
 
-  function selectMaterial(material, btn) {
-    selectedMaterial = material;
-    document.querySelectorAll('.variant-group:nth-child(2) .variant-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    updatePrices();
-  }
+  function fmt(n) { return n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
 
-  function fmt(n) {
-    return n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-
-  function updatePrices() {
-    const data = prices[selectedSize][selectedMaterial];
-    const tbody = document.getElementById('price-tbody');
-    const rows = Object.entries(data).map(([qty, price], i) => {
-      const perPiece = (price / qty * 100).toFixed(4);
-      return `<tr${i === 0 ? ' class="highlight"' : ''}>
-        <td>${parseInt(qty).toLocaleString('de-DE')} Stück</td>
-        <td class="price-amount">€ ${fmt(price)}</td>
-        <td class="per-piece">${perPiece.replace('.', ',')} ct/Stück</td>
-      </tr>`;
-    });
-    tbody.innerHTML = rows.join('');
+  function updatePrice() {
+    const price = prices[sel.size][sel.material][sel.menge];
+    const perPiece = (price / sel.menge * 100).toFixed(2).replace('.', ',');
+    document.getElementById('price-display').textContent = '€ ' + fmt(price);
+    document.getElementById('price-per').textContent = '= ' + perPiece + ' ct/Stück';
+    const msg = encodeURIComponent(`Hallo, ich interessiere mich für Papiertüten (Größe: ${sel.size}, Material: ${sel.material}, Menge: ${sel.menge.toLocaleString('de-DE')} Stück, Preis: €${fmt(price)}) und möchte ein Angebot anfragen.`);
+    document.getElementById('wa-link').href = 'https://wa.me/4917673216419?text=' + msg;
+    document.getElementById('email-link').href = `mailto:info@pack-factory.de?subject=Anfrage Papiertüten&body=Hallo,%0A%0Aich interessiere mich für:%0AGröße: ${sel.size}%0AMaterial: ${sel.material}%0AMenge: ${sel.menge.toLocaleString('de-DE')} Stück%0APreis: €${fmt(price)}%0A%0ABitte senden Sie mir ein Angebot.`;
   }
 
   // ── Nav ──
@@ -510,7 +483,7 @@
   }
 
   // Init
-  updatePrices();
+  updatePrice();
 </script>
 </body>
 </html>
