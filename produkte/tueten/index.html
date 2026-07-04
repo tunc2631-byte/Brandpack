@@ -21,37 +21,74 @@
       --dark: #1d1d1f;
       --muted: #6e6e73;
       --bg: #f5f5f7;
-      --nav-h: 52px;
+      --nav-h: 92px;
     }
 
-    /* ── NAV ── */
-    .nav {
+    /* ── NAV (matching main site) ── */
+    .nav-wrapper {
       position: sticky; top: 0; z-index: 200;
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      height: var(--nav-h);
+      padding: 12px 20px; pointer-events: none;
+    }
+    .nav-wrapper nav {
+      background: #F5F2EC; border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+      pointer-events: all;
+      max-width: 1200px; margin: 0 auto;
+      border: 1px solid #E8E3DA;
     }
     .nav-inner {
-      max-width: 1400px; margin: 0 auto;
-      padding: 0 24px; height: 100%;
-      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px;
     }
-    .nav-logo { height: 40px; }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; transition: color .15s; }
-    .nav-links a:hover { color: var(--dark); }
-    .nav-cta { background: var(--pink) !important; color: #fff !important; padding: 8px 18px; border-radius: 100px; font-size: 13px !important; }
-    .nav-cta:hover { background: var(--pink-d) !important; }
+    .nav-logo { height: 150px; width: auto; }
+    .nav-links { flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap; }
+    .nav-links a { color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color .15s; }
+    .nav-links a:hover { color: var(--pink); }
+    .nav-right { flex-shrink: 0; display: flex; align-items: center; gap: 8px; }
+    .btn-pink {
+      display: inline-block; text-decoration: none; font-weight: 700;
+      border-radius: 10px; background: var(--pink); color: #fff;
+      padding: 10px 22px; font-size: 14px; font-family: inherit;
+      transition: background 0.18s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1);
+      border: none; cursor: pointer;
+    }
+    .btn-pink:hover { background: var(--pink-d); transform: translateY(-1px); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #1d1d1f; border-radius: 2px; transition: all .25s; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all 0.28s cubic-bezier(.22,1,.36,1); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: none; position: fixed; inset: 0; background: #fff; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 22px; font-weight: 800; color: #1d1d1f; text-decoration: none; }
-    @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
+    .mobile-menu {
+      display: flex; position: fixed; inset: 0; background: #FAF9F7; z-index: 190;
+      flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.28s cubic-bezier(.22,1,.36,1);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: 24px; font-weight: 800; color: #1a1a1a; text-decoration: none; opacity: 0; transform: translateY(18px); transition: color 0.15s, opacity 0.32s cubic-bezier(.22,1,.36,1), transform 0.32s cubic-bezier(.22,1,.36,1); }
+    .mobile-menu.open a:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+    .mobile-menu.open a:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.09s; }
+    .mobile-menu.open a:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.13s; }
+    .mobile-menu.open a:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.17s; }
+    .mobile-menu.open a:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.21s; }
+    .mobile-menu a:hover { color: var(--pink); }
+    @media (min-width: 769px) {
+      .nav-wrapper { transition: padding 0.35s cubic-bezier(.22,1,.36,1); }
+      .nav-wrapper.scrolled { padding: 6px 20px; }
+      .nav-wrapper.scrolled nav { box-shadow: 0 10px 44px rgba(0,0,0,0.11), 0 1px 4px rgba(0,0,0,0.05) !important; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .btn-pink.nav-cta { display: none; }
+      .hamburger { display: flex !important; }
+      .nav-wrapper { padding: 0 !important; }
+      .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,0.08) !important; }
+      .nav-logo { height: 90px !important; }
+      .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; }
+    }
+    @media (max-width: 480px) {
+      .nav-logo { height: 75px !important; }
+      .nav-inner { height: 64px !important; }
+    }
 
     /* ── PRODUCT HERO (above fold, 2-col) ── */
     .product-hero {
@@ -269,25 +306,33 @@
 <body>
 
 <!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/"><img src="/Bilder/neues%20logo.png" alt="PackFactory" class="nav-logo"></a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/#produkte">Produkte</a>
-      <a href="/designservice/">Design</a>
-      <a href="/ueber-uns/">Über uns</a>
-      <a href="tel:+4917673216419" class="nav-cta">Anrufen</a>
+<div class="nav-wrapper" id="navWrapper">
+  <nav>
+    <div class="nav-inner">
+      <a href="/" style="display:flex;align-items:center;flex-shrink:0;">
+        <img src="/Bilder/neues%20logo.png" alt="PackFactory" class="nav-logo">
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#produkte">Produkte</a>
+        <a href="/designservice/">Designservice</a>
+        <a href="/ueber-uns/">Über uns</a>
+        <a href="/#kontakt">Kontakt</a>
+      </div>
+      <div class="nav-right">
+        <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü"><span></span><span></span><span></span></button>
+      </div>
     </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
+  </nav>
+</div>
 <div class="mobile-menu" id="mobileMenu">
   <a href="/" onclick="closeMenu()">Home</a>
   <a href="/#produkte" onclick="closeMenu()">Produkte</a>
-  <a href="/designservice/" onclick="closeMenu()">Design</a>
+  <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/ueber-uns/" onclick="closeMenu()">Über uns</a>
-  <a href="tel:+4917673216419" onclick="closeMenu()" style="color:var(--pink)">Anrufen</a>
+  <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
 
 <!-- PRODUCT HERO -->
@@ -515,11 +560,18 @@
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
     document.querySelector('.hamburger').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
   }
   function closeMenu() {
     document.getElementById('mobileMenu').classList.remove('open');
     document.querySelector('.hamburger').classList.remove('open');
+    document.body.style.overflow = '';
   }
+
+  const navWrapper = document.getElementById('navWrapper');
+  window.addEventListener('scroll', () => {
+    navWrapper.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
 
   updateVisuals();
 </script>
