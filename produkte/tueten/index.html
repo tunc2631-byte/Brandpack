@@ -176,6 +176,10 @@
     .info-card h3 { font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; }
     .info-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
+    /* ── Steps grid ── */
+    @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr 1fr !important; } }
+    @media (max-width: 480px) { .steps-grid { grid-template-columns: 1fr !important; } }
+
     /* ── Industry tags ── */
     .industry-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
     .industry-tag { background: #F5F2EC; border: 1.5px solid #E8E3DA; border-radius: 100px; padding: 8px 16px; font-size: 13px; font-weight: 600; color: #1a1a1a; }
@@ -392,6 +396,43 @@
         <span class="industry-tag">🍱 Take-Away</span>
         <span class="industry-tag">🥗 Bowl-Restaurant</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Designprozess ── -->
+<section style="background: #FAF9F7; padding: 60px 28px;">
+  <div class="section-inner">
+    <span class="section-label">Sicherer Designprozess</span>
+    <h2 class="section-title">Wir produzieren erst nach deiner Freigabe.</h2>
+    <p class="section-text">Lade deine PDF mit Logos, Designs, Platzierungswünschen oder Skizzen hoch. Unser Team prüft alles persönlich und stimmt die Gestaltung vor Produktionsstart mit dir ab.</p>
+    <div style="display:inline-block;background:rgba(240,122,140,0.1);border:1.5px solid rgba(240,122,140,0.3);border-radius:12px;padding:10px 20px;margin:20px 0 40px;font-size:14px;font-weight:700;color:var(--pink);">
+      Keine Produktion ohne Go
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="steps-grid">
+      <div style="background:#fff;border:1.5px solid #E8E3DA;border-radius:18px;padding:28px 24px;">
+        <div style="width:36px;height:36px;background:var(--pink);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;margin-bottom:16px;">1</div>
+        <h3 style="font-size:16px;font-weight:800;color:#1a1a1a;margin-bottom:8px;">PDF hochladen</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;">Logos, Designs, Farben, Skizzen und Wünsche einfach gesammelt als PDF bereitstellen.</p>
+      </div>
+      <div style="background:#fff;border:1.5px solid #E8E3DA;border-radius:18px;padding:28px 24px;">
+        <div style="width:36px;height:36px;background:var(--pink);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;margin-bottom:16px;">2</div>
+        <h3 style="font-size:16px;font-weight:800;color:#1a1a1a;margin-bottom:8px;">Wir prüfen alles</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;">Unser Team kontrolliert deine Daten und meldet sich bei Fragen oder Unklarheiten.</p>
+      </div>
+      <div style="background:#fff;border:1.5px solid #E8E3DA;border-radius:18px;padding:28px 24px;">
+        <div style="width:36px;height:36px;background:var(--pink);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;margin-bottom:16px;">3</div>
+        <h3 style="font-size:16px;font-weight:800;color:#1a1a1a;margin-bottom:8px;">Entwurf erhalten</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;">Du bekommst eine digitale Vorschau deiner Verpackung zur finalen Prüfung.</p>
+      </div>
+      <div style="background:#fff;border:1.5px solid #E8E3DA;border-radius:18px;padding:28px 24px;">
+        <div style="width:36px;height:36px;background:var(--pink);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;margin-bottom:16px;">4</div>
+        <h3 style="font-size:16px;font-weight:800;color:#1a1a1a;margin-bottom:8px;">Freigeben & produzieren</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;">Erst nach deiner Bestätigung geben wir das Design verbindlich in die Produktion.</p>
+      </div>
+    </div>
+    <div style="background:var(--gray);border-radius:14px;padding:16px 24px;margin-top:24px;font-size:14px;color:var(--muted);line-height:1.7;border-left:4px solid var(--pink);">
+      <strong style="color:#1a1a1a;">Wichtig:</strong> Falls etwas nicht passt, korrigieren wir es gemeinsam mit dir. Dein Design wird nicht einfach ungeprüft gedruckt.
     </div>
   </div>
 </section>
