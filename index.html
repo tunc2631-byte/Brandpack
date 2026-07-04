@@ -613,6 +613,9 @@
 
     <script>
     let allProducts = [];
+    const localPages = {
+      'tuten': '/produkte/tueten/'
+    };
     let activeKat = 'alle';
 
     function setFilter(group, val) {
@@ -633,7 +636,7 @@
       grid.innerHTML = filtered.map(p => {
         const img   = p.images.edges[0]?.node;
         const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
-        const url   = 'https://shop.pack-factory.de/products/' + p.handle;
+        const url   = localPages[p.handle] || 'https://shop.pack-factory.de/products/' + p.handle;
         return `
           <a href="${url}" target="_blank" rel="noopener" style="text-decoration:none; display:block; background:#f2f2f7; border-radius:18px; overflow:hidden; transition:transform 0.3s cubic-bezier(.34,1.56,.64,1),box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.10)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
             <div style="aspect-ratio:1/1; overflow:hidden; background:#f2f2f7;">
@@ -686,7 +689,7 @@
       heroProducts.slice(0,3).forEach((p, i) => {
         const img   = p.images.edges[0]?.node;
         const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
-        const url   = 'https://shop.pack-factory.de/products/' + p.handle;
+        const url   = localPages[p.handle] || 'https://shop.pack-factory.de/products/' + p.handle;
         document.getElementById('hero-card-' + i).href = url;
         document.getElementById('hero-title-' + i).textContent = p.title;
         document.getElementById('hero-price-' + i).textContent = 'ab €' + price;

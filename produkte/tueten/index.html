@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Individuelle Papiertüten mit Logo bedrucken | PackFactory</title>
+  <meta name="description" content="Individuelle Papiertüten mit Ihrem Logo bedrucken lassen. Größen S–XL, Whitekraft & Brownkraft, ab 10.000 Stück. Jetzt kostenloses Angebot anfragen.">
+  <link rel="icon" type="image/png" href="/Bilder/neues%20logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #FAF9F7; color: #1a1a1a; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    * { -webkit-tap-highlight-color: transparent; }
+    a, button { touch-action: manipulation; }
+
+    :root {
+      --pink:   #F07A8C;
+      --pink-d: #d9697a;
+      --dark:   #1E1E26;
+      --text:   #1a1a1a;
+      --muted:  #7a7060;
+      --white:  #ffffff;
+      --gray:   #F0EDE6;
+    }
+
+    /* ── Buttons ── */
+    .btn-pink {
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none; font-weight: 700; border-radius: 12px;
+      background: var(--pink); color: #fff; padding: 14px 28px;
+      font-size: 15px; font-family: inherit;
+      transition: background 0.18s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease;
+      box-shadow: 0 2px 10px rgba(240,122,140,0.3); border: none; cursor: pointer;
+    }
+    .btn-pink:hover { background: var(--pink-d); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(240,122,140,0.4); }
+    .btn-green {
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none; font-weight: 700; border-radius: 12px;
+      background: #25D366; color: #fff; padding: 14px 28px;
+      font-size: 15px; font-family: inherit;
+      transition: background 0.18s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1);
+      border: none; cursor: pointer;
+    }
+    .btn-green:hover { background: #1ebe5a; transform: translateY(-2px); }
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none; font-weight: 700; border-radius: 12px;
+      background: transparent; color: #1a1a1a; padding: 14px 28px;
+      font-size: 15px; font-family: inherit;
+      border: 2px solid #ddd;
+      transition: border-color 0.15s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1);
+      cursor: pointer;
+    }
+    .btn-outline-dark:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-2px); }
+
+    /* ── Nav ── */
+    .nav-logo { height: 150px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all 0.28s cubic-bezier(.22,1,.36,1); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: flex; position: fixed; inset: 0; background: #FAF9F7; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity 0.28s cubic-bezier(.22,1,.36,1); }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: 24px; font-weight: 800; color: #1a1a1a; text-decoration: none; }
+    .mobile-menu a:hover { color: var(--pink); }
+
+    @media (max-width: 768px) {
+      .nav-wrapper     { padding: 0 !important; }
+      .nav-wrapper nav { border-radius: 0 !important; }
+      .nav-logo        { height: 90px !important; }
+      .nav-inner       { height: 72px !important; overflow: hidden; justify-content: space-between !important; padding: 0 20px !important; }
+      .nav-links       { display: none !important; }
+      .nav-cta         { display: none !important; }
+      .hamburger       { display: flex !important; }
+    }
+
+    /* ── Product hero ── */
+    .product-hero {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      max-width: 1200px; margin: 0 auto; padding: 60px 28px 80px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .product-hero { grid-template-columns: 1fr; gap: 32px; padding: 32px 20px 48px; }
+    }
+
+    /* ── Image gallery ── */
+    .img-main {
+      background: #F5F2EC; border-radius: 24px; overflow: hidden;
+      border: 1.5px solid #E8E3DA; aspect-ratio: 1/1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .img-main img { width: 100%; height: 100%; object-fit: contain; padding: 32px; }
+
+    /* ── Variant selector ── */
+    .variant-group { margin-bottom: 20px; }
+    .variant-label { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; display: block; }
+    .variant-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .variant-btn {
+      padding: 9px 18px; border-radius: 10px; border: 2px solid #E8E3DA;
+      background: #fff; font-family: inherit; font-size: 14px; font-weight: 600;
+      color: #1a1a1a; cursor: pointer; transition: all 0.15s ease;
+    }
+    .variant-btn:hover { border-color: var(--pink); color: var(--pink); }
+    .variant-btn.active { border-color: var(--pink); background: var(--pink); color: #fff; }
+
+    /* ── Price display ── */
+    .price-box {
+      background: #fff; border: 1.5px solid #E8E3DA; border-radius: 16px;
+      padding: 20px 24px; margin: 24px 0;
+    }
+    .price-main { font-size: 36px; font-weight: 900; color: #1a1a1a; }
+    .price-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Price table ── */
+    .price-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .price-table th { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 12px; text-align: left; border-bottom: 1.5px solid #E8E3DA; }
+    .price-table td { padding: 10px 12px; font-size: 14px; border-bottom: 1px solid #F0EDE6; }
+    .price-table tr:last-child td { border-bottom: none; }
+    .price-table tr.highlight td { background: rgba(240,122,140,0.06); font-weight: 700; }
+    .price-table .price-amount { font-weight: 800; color: #1a1a1a; }
+    .price-table .per-piece { color: var(--muted); font-size: 12px; }
+
+    /* ── Specs ── */
+    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+    @media (max-width: 600px) { .spec-grid { grid-template-columns: 1fr; } }
+    .spec-item { background: #F5F2EC; border-radius: 12px; padding: 14px 16px; }
+    .spec-item-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .spec-item-value { font-size: 14px; font-weight: 700; color: #1a1a1a; }
+
+    /* ── Contact strip ── */
+    .contact-strip {
+      background: var(--dark); border-radius: 20px; padding: 36px 40px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 700px) { .contact-strip { flex-direction: column; text-align: center; padding: 28px 24px; } }
+
+    /* ── Sections ── */
+    section { padding: 80px 28px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label { font-size: 13px; font-weight: 700; color: var(--pink); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+    .section-title { font-size: clamp(26px, 3.5vw, 40px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .section-text { font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 680px; }
+
+    /* ── Floating WhatsApp ── */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: #25D366; color: #fff; border-radius: 50px;
+      padding: 14px 22px; display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 14px; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s ease;
+    }
+    .wa-float:hover { transform: scale(1.05); box-shadow: 0 8px 32px rgba(37,211,102,0.5); }
+    @media (max-width: 768px) { .wa-float span.wa-text { display: none; } .wa-float { padding: 16px; border-radius: 50%; } }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--pink); }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* ── Badge ── */
+    .badge { display: inline-block; background: rgba(240,122,140,0.1); color: var(--pink); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px; margin-bottom: 12px; }
+
+    /* ── Info cards ── */
+    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    @media (max-width: 768px) { .info-grid { grid-template-columns: 1fr; } }
+    .info-card { background: #fff; border: 1.5px solid #E8E3DA; border-radius: 18px; padding: 28px 24px; }
+    .info-card-icon { font-size: 28px; margin-bottom: 12px; }
+    .info-card h3 { font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; }
+    .info-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* ── Industry tags ── */
+    .industry-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .industry-tag { background: #F5F2EC; border: 1.5px solid #E8E3DA; border-radius: 100px; padding: 8px 16px; font-size: 13px; font-weight: 600; color: #1a1a1a; }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<div class="nav-wrapper" style="position: sticky; top: 0; z-index: 200; padding: 12px 20px;">
+  <nav style="background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid #E8E3DA; max-width: 1200px; margin: 0 auto;">
+    <div class="nav-inner" style="padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px;">
+      <a href="/" style="flex-shrink:0; display:flex; align-items:center;">
+        <img src="/Bilder/neues%20logo.png" alt="PackFactory" class="nav-logo" style="width: auto;">
+      </a>
+      <div class="nav-links" style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px;">
+        <a href="/" style="color:#3a3a3a;text-decoration:none;font-size:15px;font-weight:600;">Home</a>
+        <a href="/#produkte" style="color:#3a3a3a;text-decoration:none;font-size:15px;font-weight:600;">Produkte</a>
+        <a href="/designservice/" style="color:#3a3a3a;text-decoration:none;font-size:15px;font-weight:600;">Designservice</a>
+        <a href="/ueber-uns/" style="color:#3a3a3a;text-decoration:none;font-size:15px;font-weight:600;">Über uns</a>
+        <a href="/#kontakt" style="color:#3a3a3a;text-decoration:none;font-size:15px;font-weight:600;">Kontakt</a>
+      </div>
+      <div style="flex-shrink:0; display:flex; align-items:center; gap:8px;">
+        <a href="tel:+4917673216419" class="btn-pink nav-cta" style="padding:10px 22px;font-size:14px;border-radius:10px;">📞 Jetzt anrufen</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#produkte" onclick="closeMenu()">Produkte</a>
+  <a href="/designservice/" onclick="closeMenu()">Designservice</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">Über uns</a>
+  <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="tel:+4917673216419" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">📞 Jetzt anrufen</a>
+</div>
+
+<!-- ── Breadcrumb + Product Hero ── -->
+<div style="background: #FAF9F7; padding-top: 20px;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 28px;">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#produkte">Produkte</a><span>›</span>
+      Papiertüten
+    </div>
+  </div>
+
+  <div class="product-hero">
+    <!-- Left: Image -->
+    <div>
+      <div class="img-main">
+        <img src="https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0346.png?v=1781526153" alt="Individuelle Papiertüten mit Logo — PackFactory">
+      </div>
+    </div>
+
+    <!-- Right: Info + Configurator -->
+    <div>
+      <div class="badge">Bestseller</div>
+      <h1 style="font-size: clamp(28px, 4vw, 44px); font-weight: 900; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.15;">
+        Individuelle Papiertüten mit Logo
+      </h1>
+      <p style="font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 28px;">
+        Hochwertige Papiertüten mit Ihrem individuellen Branding — in 4 Größen und 2 Materialvarianten. Ideal für Restaurants, Take-Away, Bäckereien und Einzelhandel.
+      </p>
+
+      <!-- Größe -->
+      <div class="variant-group">
+        <span class="variant-label">Größe</span>
+        <div class="variant-options">
+          <button class="variant-btn active" onclick="selectSize('S', this)">S</button>
+          <button class="variant-btn" onclick="selectSize('M', this)">M</button>
+          <button class="variant-btn" onclick="selectSize('L', this)">L</button>
+          <button class="variant-btn" onclick="selectSize('XL', this)">XL</button>
+        </div>
+      </div>
+
+      <!-- Material -->
+      <div class="variant-group">
+        <span class="variant-label">Material</span>
+        <div class="variant-options">
+          <button class="variant-btn active" onclick="selectMaterial('Whitekraft', this)">Whitekraft (Weiß)</button>
+          <button class="variant-btn" onclick="selectMaterial('Brownkraft', this)">Brownkraft (Braun)</button>
+        </div>
+      </div>
+
+      <!-- Preistabelle -->
+      <div class="price-box">
+        <div style="font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Preisübersicht</div>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Menge (Stück)</th>
+              <th>Gesamtpreis</th>
+              <th>Preis / Stück</th>
+            </tr>
+          </thead>
+          <tbody id="price-tbody"></tbody>
+        </table>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 12px;">* Alle Preise inkl. individuellem Druck. Zzgl. MwSt.</p>
+      </div>
+
+      <!-- CTAs -->
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="https://wa.me/4917673216419?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Papiert%C3%BCten%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" class="btn-green" style="justify-content: center; font-size: 16px; padding: 16px 28px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>WhatsApp — Angebot anfragen</span>
+        </a>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <a href="tel:+4917673216419" class="btn-outline-dark" style="justify-content: center;">
+            📞 Anrufen
+          </a>
+          <a href="mailto:info@pack-factory.de?subject=Anfrage%20Papiertüten" class="btn-outline-dark" style="justify-content: center;">
+            ✉️ Email
+          </a>
+        </div>
+      </div>
+
+      <p style="font-size: 13px; color: var(--muted); margin-top: 16px; text-align: center;">
+        Kein Shop-Account nötig — einfach anfragen, wir melden uns innerhalb von 24h.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Specs ── -->
+<section style="background: var(--gray); padding: 60px 28px;">
+  <div class="section-inner">
+    <span class="section-label">Spezifikationen</span>
+    <h2 class="section-title">Technische Details</h2>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="spec-item-label">Material</div>
+        <div class="spec-item-value">Whitekraft oder Brownkraft Papier</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-item-label">Druck</div>
+        <div class="spec-item-value">4-Farben-Offsetdruck, individuell</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-item-label">Größen</div>
+        <div class="spec-item-value">S, M, L, XL</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-item-label">Mindestmenge</div>
+        <div class="spec-item-value">10.000 Stück</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-item-label">Griffe</div>
+        <div class="spec-item-value">Gedrehte Papierkordel</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-item-label">Lieferzeit</div>
+        <div class="spec-item-value">Ca. 4–6 Wochen nach Druckfreigabe</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-item-label">Veredelung</div>
+        <div class="spec-item-value">Glanz- oder Mattlaminierung möglich</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-item-label">Nachhaltigkeit</div>
+        <div class="spec-item-value">FSC-zertifiziertes Papier</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Info Cards ── -->
+<section style="background: #FAF9F7; padding: 60px 28px;">
+  <div class="section-inner">
+    <span class="section-label">Warum PackFactory?</span>
+    <h2 class="section-title">Alles aus einer Hand</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-icon">🎨</div>
+        <h3>Kostenloses Design</h3>
+        <p>Unser Designteam erstellt Ihre Druckvorlage kostenlos — Sie müssen nur Ihr Logo und Ihre Wunschfarben mitbringen.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🏭</div>
+        <h3>Produktion & Lagerung</h3>
+        <p>Wir produzieren, lagern und liefern direkt zu Ihnen. Kein Aufwand für Sie — wir kümmern uns um alles.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🚚</div>
+        <h3>Zuverlässige Lieferung</h3>
+        <p>Pünktliche Lieferung direkt an Ihre Adresse oder Ihr Lager. Express-Service auf Anfrage möglich.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SEO Text / Beschreibung ── -->
+<section style="background: var(--gray); padding: 60px 28px;">
+  <div class="section-inner" style="max-width: 800px;">
+    <span class="section-label">Über das Produkt</span>
+    <h2 class="section-title">Individuelle Papiertüten — Ihr Markenauftritt bei jedem Einkauf</h2>
+    <div style="font-size: 16px; color: var(--muted); line-height: 1.85; display: flex; flex-direction: column; gap: 16px;">
+      <p>Individuelle Papiertüten sind weit mehr als nur Verpackungen — sie sind ein mobiles Marketinginstrument, das Ihre Marke bei jedem Kunden in Erinnerung bleibt. Ob im Restaurant, im Café oder im Einzelhandel: Eine hochwertige, mit Ihrem Logo bedruckte Papiertüte hinterlässt einen professionellen Eindruck und stärkt die Kundenbindung.</p>
+      <p>Bei PackFactory bieten wir individuell bedruckte Papiertüten in vier Größen (S, M, L und XL) sowie zwei Materialvarianten an: klassisches <strong>Brownkraft</strong> für ein natürliches, nachhaltiges Erscheinungsbild oder <strong>Whitekraft</strong> für ein modernes, sauberes Design mit optimaler Farbbrillanz beim Druck.</p>
+      <p>Alle unsere Papiertüten werden aus <strong>FSC-zertifiziertem Papier</strong> hergestellt und mit stabilen, gedrehten Papierkordeln ausgestattet. Der 4-Farben-Offsetdruck sorgt für leuchtende, detailgenaue Ergebnisse — Ihr Logo, Ihre Farben, Ihr Design.</p>
+      <p>Sie müssen sich um nichts kümmern: Unser Designteam unterstützt Sie kostenlos bei der Erstellung der Druckvorlage. Nach Freigabe übernehmen wir Produktion, Qualitätskontrolle und Lieferung direkt zu Ihnen.</p>
+      <h3 style="font-size: 20px; font-weight: 800; color: #1a1a1a; margin-top: 8px;">Für wen sind individuelle Papiertüten geeignet?</h3>
+      <p>Unsere bedruckten Papiertüten eignen sich für alle Branchen, in denen Verpackungen direkt zum Kunden gelangen:</p>
+      <div class="industry-tags">
+        <span class="industry-tag">🥙 Dönerladen</span>
+        <span class="industry-tag">🍔 Burger-Restaurant</span>
+        <span class="industry-tag">🥐 Bäckerei</span>
+        <span class="industry-tag">☕ Café</span>
+        <span class="industry-tag">🍕 Pizzeria</span>
+        <span class="industry-tag">🛍️ Einzelhandel</span>
+        <span class="industry-tag">🍱 Take-Away</span>
+        <span class="industry-tag">🥗 Bowl-Restaurant</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact Strip ── -->
+<section id="kontakt" style="background: #FAF9F7; padding: 60px 28px 80px;">
+  <div class="section-inner">
+    <div class="contact-strip">
+      <div>
+        <h2 style="font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 8px;">Bereit für Ihre eigenen Tüten?</h2>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.65);">Kostenloses Angebot — kein Shop-Account nötig. Einfach melden!</p>
+      </div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="https://wa.me/4917673216419?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Papiert%C3%BCten%20und%20m%C3%B6chte%20ein%20Angebot." target="_blank" class="btn-green">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="tel:+4917673216419" style="background:#fff;color:#1a1a1a;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;border-radius:12px;padding:14px 24px;font-size:15px;font-family:inherit;">
+          📞 Anrufen
+        </a>
+        <a href="mailto:info@pack-factory.de?subject=Anfrage%20Papiertüten" style="background:rgba(255,255,255,0.1);color:#fff;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;border-radius:12px;padding:14px 24px;font-size:15px;font-family:inherit;border:2px solid rgba(255,255,255,0.2);">
+          ✉️ Email
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer style="background: #1E1E26; padding: 40px 28px; text-align: center;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <img src="/Bilder/neues%20logo.png" alt="PackFactory" style="height: 80px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+    <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px;">
+      <a href="/impressum/" style="color: rgba(255,255,255,0.4); font-size: 13px; text-decoration: none;">Impressum</a>
+      <a href="/datenschutz/" style="color: rgba(255,255,255,0.4); font-size: 13px; text-decoration: none;">Datenschutz</a>
+      <a href="/#kontakt" style="color: rgba(255,255,255,0.4); font-size: 13px; text-decoration: none;">Kontakt</a>
+    </div>
+    <p style="color: rgba(255,255,255,0.25); font-size: 12px;">© 2025 PackFactory. Alle Rechte vorbehalten.</p>
+  </div>
+</footer>
+
+<!-- ── Floating WhatsApp ── -->
+<a href="https://wa.me/4917673216419?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Papiert%C3%BCten." target="_blank" rel="noopener" class="wa-float">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-text">WhatsApp schreiben</span>
+</a>
+
+<script>
+  // ── Price data ──
+  const prices = {
+    'S': {
+      'Whitekraft': { 10000: 1490, 15000: 2025, 25000: 2875, 30000: 3450 },
+      'Brownkraft': { 10000: 1490, 15000: 2025, 25000: 2875, 30000: 3450 }
+    },
+    'M': {
+      'Whitekraft': { 10000: 1550, 15000: 2100, 25000: 3400, 30000: 4080 },
+      'Brownkraft': { 10000: 1550, 15000: 2100, 25000: 3400, 30000: 4080 }
+    },
+    'L': {
+      'Whitekraft': { 10000: 1980, 15000: 2475, 25000: 4050, 30000: 4860 },
+      'Brownkraft': { 10000: 1980, 15000: 2475, 25000: 4050, 30000: 4860 }
+    },
+    'XL': {
+      'Whitekraft': { 10000: 2050, 15000: 2385, 25000: 4000, 30000: 4800 },
+      'Brownkraft': { 10000: 2050, 15000: 2385, 25000: 4000, 30000: 4800 }
+    }
+  };
+
+  let selectedSize = 'S';
+  let selectedMaterial = 'Whitekraft';
+
+  function selectSize(size, btn) {
+    selectedSize = size;
+    document.querySelectorAll('.variant-group:nth-child(1) .variant-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updatePrices();
+  }
+
+  function selectMaterial(material, btn) {
+    selectedMaterial = material;
+    document.querySelectorAll('.variant-group:nth-child(2) .variant-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updatePrices();
+  }
+
+  function fmt(n) {
+    return n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function updatePrices() {
+    const data = prices[selectedSize][selectedMaterial];
+    const tbody = document.getElementById('price-tbody');
+    const rows = Object.entries(data).map(([qty, price], i) => {
+      const perPiece = (price / qty * 100).toFixed(4);
+      return `<tr${i === 0 ? ' class="highlight"' : ''}>
+        <td>${parseInt(qty).toLocaleString('de-DE')} Stück</td>
+        <td class="price-amount">€ ${fmt(price)}</td>
+        <td class="per-piece">${perPiece.replace('.', ',')} ct/Stück</td>
+      </tr>`;
+    });
+    tbody.innerHTML = rows.join('');
+  }
+
+  // ── Nav ──
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn  = document.querySelector('.hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Init
+  updatePrices();
+</script>
+</body>
+</html>
