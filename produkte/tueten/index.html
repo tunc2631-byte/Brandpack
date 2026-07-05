@@ -187,12 +187,12 @@
       cursor: pointer; transition: border-color .12s, background .12s, color .12s;
       white-space: nowrap;
     }
-    .opt:hover { border-color: #8e8e93; }
-    .opt.active { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .opt:hover { border-color: var(--pink); }
+    .opt.active { background: var(--pink); color: #fff; border-color: var(--pink); }
 
     /* Sondermaß button variant */
     .opt-custom { border-style: dashed; color: var(--muted); }
-    .opt-custom.active { background: var(--dark); color: #fff; border-style: solid; }
+    .opt-custom.active { background: var(--pink); color: #fff; border-style: solid; }
 
     /* Inline dimension hint */
     .dim-hint { font-size: 11px; color: var(--muted); font-weight: 600; margin-top: 5px; }
@@ -283,18 +283,14 @@
       box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05);
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
     }
-    .specs-table thead tr { background: var(--pink); color: #fff; }
+    .specs-table thead tr { background: var(--dark); color: #fff; }
+    .specs-table thead tr th:first-child { border-left: 3px solid var(--pink); }
     .specs-table th { padding: 13px 16px; font-size: 12px; font-weight: 600; text-align: center; letter-spacing: .02em; }
     .specs-table th:first-child { text-align: left; }
-    .specs-table td { padding: 12px 16px; text-align: center; border-bottom: 1px solid #f5f5f5; font-size: 13px; color: #3a3a3a; }
-    .specs-table td:first-child {
-      text-align: left; font-weight: 600; color: var(--dark);
-      white-space: nowrap; background: #fdf4f5;
-      border-right: 2px solid rgba(240,122,140,.15);
-    }
+    .specs-table td { padding: 12px 16px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 13px; color: #3a3a3a; }
+    .specs-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); white-space: nowrap; border-left: 3px solid transparent; }
     .specs-table tr:last-child td { border-bottom: none; }
-    .specs-table tr:hover td { background: #fff8f9; }
-    .specs-table tr:hover td:first-child { background: #fceef0; }
+    .specs-table tr:nth-child(even) td { background: #fafafa; }
     .specs-footnote { font-size: 12px; color: var(--muted); margin-top: 14px; margin-left: 2px; }
 
     /* ---------------------------------------
