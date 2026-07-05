@@ -257,9 +257,9 @@
     <div class="opt-group">
       <div class="opt-group-label">Papierart</div>
       <div class="opt-btns">
-        <button class="opt active" onclick="selectMat('standard',this)">Standardpapier</button>
-        <button class="opt" onclick="selectMat('fettabweisend',this)">Fettabweisendes Papier</button>
-        <button class="opt" onclick="selectMat('pe',this)">PE-coated Papier</button>
+        <button class="opt active" onclick="selectMat('standard',this)">Standard</button>
+        <button class="opt" onclick="selectMat('premium',this)">Premium</button>
+        <button class="opt" onclick="selectMat('eco',this)">ECO Premium</button>
       </div>
     </div>
 
@@ -356,66 +356,83 @@
       <div class="specs-pink-bar"></div>
       <h2 class="specs-title">Technische Spezifikationen</h2>
     </div>
-    <p class="specs-sub">Preise pro kg &mdash; netto zzgl. MwSt.</p>
+    <p class="specs-sub">Alle Angaben pro Papiertyp</p>
     <div class="specs-wrap">
       <table class="specs-table">
         <thead>
           <tr>
-            <th>Menge</th>
-            <th>Standardpapier</th>
-            <th>Fettabweisendes Papier</th>
-            <th>PE-coated Papier</th>
+            <th>Eigenschaft</th>
+            <th>Standard</th>
+            <th>Premium</th>
+            <th>ECO Premium</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>200 kg</td>
-            <td>7,00 &euro;/kg</td>
-            <td>7,50 &euro;/kg</td>
-            <td>7,60 &euro;/kg</td>
+            <td>L&auml;nge &times; Breite</td>
+            <td>400&times;300 mm (S)<br>400&times;500 mm (M)</td>
+            <td>400&times;300 mm (S)<br>400&times;500 mm (M)</td>
+            <td>400&times;300 mm (S)<br>400&times;500 mm (M)</td>
           </tr>
           <tr>
-            <td>400 kg</td>
-            <td>6,00 &euro;/kg</td>
-            <td>6,43 &euro;/kg</td>
-            <td>6,51 &euro;/kg</td>
+            <td>Farbe</td>
+            <td>Wei&szlig; / Braun</td>
+            <td>Wei&szlig; / Braun</td>
+            <td>Wei&szlig; / Braun</td>
           </tr>
           <tr>
-            <td>600 kg</td>
-            <td>5,50 &euro;/kg</td>
-            <td>5,89 &euro;/kg</td>
-            <td>5,97 &euro;/kg</td>
+            <td>Material</td>
+            <td>Kraftpapier</td>
+            <td>Papier + PE-Beschichtung</td>
+            <td>Pergamentpapier</td>
           </tr>
           <tr>
-            <td>800 kg</td>
-            <td>5,20 &euro;/kg</td>
-            <td>5,57 &euro;/kg</td>
-            <td>5,65 &euro;/kg</td>
+            <td>Papiersst&auml;rke</td>
+            <td>40 g/m&sup2;</td>
+            <td>35 g/m&sup2; + 6 PE</td>
+            <td>40 g/m&sup2;</td>
           </tr>
           <tr>
-            <td>Verf&uuml;gbare Formate</td>
-            <td colspan="3">S (400&times;300 mm) &nbsp;&middot;&nbsp; M (400&times;500 mm) &nbsp;&middot;&nbsp; Sondergr&ouml;&szlig;e auf Anfrage</td>
+            <td>Druckmethode</td>
+            <td>Flexodruck</td>
+            <td>Flexodruck</td>
+            <td>Flexodruck</td>
           </tr>
           <tr>
-            <td>Blatt / 200 kg</td>
-            <td colspan="3">S: ca. 41.700 Blatt &nbsp;&middot;&nbsp; M: ca. 25.000 Blatt &nbsp;&middot;&nbsp; Sondergr&ouml;&szlig;e: je nach Ma&szlig;</td>
+            <td>Anzahl Farben</td>
+            <td>1 &ndash; 3 Farben</td>
+            <td>1 &ndash; 3 Farben</td>
+            <td>1 &ndash; 3 Farben</td>
           </tr>
           <tr>
-            <td>Grammatur</td>
-            <td colspan="3">ca. 40 g/m&sup2;</td>
+            <td>Druckbereich</td>
+            <td>30 % des Druckbereichs*</td>
+            <td>30 % des Druckbereichs*</td>
+            <td>30 % des Druckbereichs*</td>
           </tr>
           <tr>
             <td>Mindestbestellmenge</td>
-            <td colspan="3">200 kg</td>
+            <td>200 kg</td>
+            <td>200 kg</td>
+            <td>200 kg</td>
           </tr>
           <tr>
-            <td>Einrichtungskosten</td>
-            <td colspan="3">200 EUR einmalig (entf&auml;llt bei Nachbestellungen)</td>
+            <td>Anzahl pro Box</td>
+            <td>10 kg</td>
+            <td>10 kg</td>
+            <td>10 kg</td>
+          </tr>
+          <tr>
+            <td>Max. pro Palette</td>
+            <td>500 kg</td>
+            <td>500 kg</td>
+            <td>500 kg</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="specs-footnote">* Alle Preise netto zzgl. MwSt. &middot; Gr&ouml;&szlig;ere Mengen (ab 600 kg) auf Anfrage.</p>
+    <p class="specs-footnote">* Kalkulation basiert auf einer 30&nbsp;% Druckfl&auml;che. 100&nbsp;% Druckfl&auml;che (Volldruck) auf Anfrage m&ouml;glich.</p>
+    <p class="specs-footnote" style="margin-top:6px;">** Einrichtungskosten: 200 EUR einmalig &mdash; entfallen bei Nachbestellungen.</p>
   </div>
 </section>
 
@@ -424,12 +441,12 @@
   <div class="seo-inner">
     <h2>Einschlagpapier mit individuellem Logo</h2>
     <p class="seo-lead">Einschlagpapier, Wrappapier und Tablettpapier geh&ouml;ren zu den vielseitigsten Verpackungsl&ouml;sungen f&uuml;r die Gastronomie, den Lebensmittelhandel und viele weitere Branchen. Mit individuellem Druck wird jede Einwicklung zum Markenbotschafter.</p>
-    <p>Bei PackFactory erhalten Sie hochwertiges Einschlagpapier in drei Ausf&uuml;hrungen: als klassisches Standardpapier, als fettabweisendes Papier f&uuml;r fettige Speisen sowie als PE-coated Papier f&uuml;r erh&ouml;hte Feuchtigkeitsbest&auml;ndigkeit. Alle Varianten sind individuell mit Ihrem Logo oder Motiv bedruckbar.</p>
+    <p>Bei PackFactory erhalten Sie hochwertiges Einschlagpapier in drei Ausf&uuml;hrungen: Standard (Kraftpapier), Premium (PE-Beschichtung) und ECO Premium (Pergamentpapier). Alle Varianten sind individuell mit Ihrem Logo oder Motiv im Flexodruck bedruckbar.</p>
 
-    <h3>Drei Papierarten &mdash; eine l&ouml;sung f&uuml;r jeden Bedarf</h3>
-    <p><strong>Standardpapier</strong> eignet sich hervorragend f&uuml;r trockene Speisen, Br&ouml;tchen, Geb&auml;ck und allgemeine Verpackungsanwendungen. Es bietet ein ausgewogenes Verh&auml;ltnis aus Qualit&auml;t und Preis.</p>
-    <p><strong>Fettabweisendes Papier</strong> ist die ideale Wahl f&uuml;r Burger, Pommes, D&ouml;ner und andere fettreiche Speisen. Die spezielle Beschichtung verhindert, dass Fett durch das Papier dringt &mdash; f&uuml;r ein sauberes Erscheinungsbild bis zum letzten Happen.</p>
-    <p><strong>PE-coated Papier</strong> bietet maximale Feuchtigkeitsbest&auml;ndigkeit und ist besonders f&uuml;r feuchte oder saftige Speisen geeignet. Die Polyethylen-Beschichtung sch&uuml;tzt zus&auml;tzlich vor Durchn&auml;ssen.</p>
+    <h3>Drei Papierarten &mdash; eine L&ouml;sung f&uuml;r jeden Bedarf</h3>
+    <p><strong>Standard &ndash; Kraftpapier</strong> eignet sich hervorragend f&uuml;r trockene Speisen, Br&ouml;tchen, Geb&auml;ck und allgemeine Verpackungsanwendungen. Es bietet ein ausgewogenes Verh&auml;ltnis aus Qualit&auml;t und Preis.</p>
+    <p><strong>Premium &ndash; PE-Beschichtung</strong> bietet maximale Feuchtigkeitsbest&auml;ndigkeit durch eine Polyethylen-Schicht (35 g/m&sup2; + 6 PE). Ideal f&uuml;r feuchte oder saftige Speisen.</p>
+    <p><strong>ECO Premium &ndash; Pergamentpapier</strong> ist die nat&uuml;rliche, nachhaltige Alternative f&uuml;r fettreiche Speisen. Pergamentpapier ist von Natur aus fettabweisend &mdash; ohne zus&auml;tzliche Beschichtung, 40 g/m&sup2;.</p>
 
     <h3>Sonderformate und individuelle Ma&szlig;e</h3>
     <p>Individuelle Formate und Sondergr&ouml;&szlig;en sind jederzeit m&ouml;glich. Geben Sie einfach Ihre gew&uuml;nschte Breite und H&ouml;he ein &mdash; unser Konfigurator berechnet automatisch Blattanzahl und Preis f&uuml;r Sie. Keine versteckten Aufschl&auml;ge f&uuml;r Sonderma&szlig;e.</p>
@@ -472,9 +489,9 @@
 
 <script>
   const PRICES = {
-    standard:      {200: 7.00, 400: 6.00, 600: 5.50, 800: 5.20},
-    fettabweisend: {200: 7.50, 400: 6.43, 600: 5.89, 800: 5.57},
-    pe:            {200: 7.60, 400: 6.51, 600: 5.97, 800: 5.65}
+    standard: {200: 7.00, 400: 6.00, 600: 5.50, 800: 5.20},
+    premium:  {200: 7.60, 400: 6.51, 600: 5.97, 800: 5.65},
+    eco:      {200: 7.50, 400: 6.43, 600: 5.89, 800: 5.57}
   };
 
   const sel = {size: 's', mat: 'standard', kg: 200, breite: 0, hoehe: 0};
@@ -556,7 +573,7 @@
     img.classList.add('pulse');
 
     // WhatsApp
-    var matLabel = {standard: 'Standardpapier', fettabweisend: 'Fettabweisendes Papier', pe: 'PE-coated Papier'}[sel.mat];
+    var matLabel = {standard: 'Standard (Kraftpapier)', premium: 'Premium (PE-Beschichtung)', eco: 'ECO Premium (Pergamentpapier)'}[sel.mat];
     var sizeLabel = sel.size === 'custom'
       ? 'Sondergr\u00F6\u00DFe ' + (sel.breite || '?') + '\u00D7' + (sel.hoehe || '?') + ' mm'
       : sel.size.toUpperCase() + ' (' + dimMap[sel.size] + ')';
