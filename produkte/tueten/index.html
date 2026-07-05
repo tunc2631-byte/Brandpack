@@ -233,13 +233,12 @@
     --------------------------------------- */
     .delivery-strip {
       background: var(--card); border-bottom: 1px solid #E8E3DA;
-      padding: 12px 24px;
-      display: flex; align-items: center; justify-content: center; gap: 32px;
-      flex-wrap: wrap;
+      display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap;
     }
-    .delivery-item { display: flex; align-items: center; gap: 8px; }
-    .delivery-icon { font-size: 17px; }
-    .delivery-label { font-size: 11px; color: var(--muted); font-weight: 600; }
+    .delivery-item { display: flex; flex-direction: column; justify-content: center; padding: 12px 28px; border-right: 1px solid #E8E3DA; }
+    .delivery-item:last-child { border-right: none; }
+    @media (max-width: 640px) { .delivery-item { border-right: none; border-bottom: 1px solid #E8E3DA; padding: 10px 20px; } .delivery-item:last-child { border-bottom: none; } }
+    .delivery-label { font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
     .delivery-value { font-size: 13px; font-weight: 800; color: var(--dark); }
 
     /* ---------------------------------------
@@ -460,28 +459,20 @@
 <!-- -- DELIVERY STRIP -- -->
 <div class="delivery-strip">
   <div class="delivery-item">
-    <div>
-      <div class="delivery-label">Voraussichtliche Lieferung</div>
-      <div class="delivery-value" id="delivery-date">wird berechnet...</div>
-    </div>
+    <div class="delivery-label">Voraussichtliche Lieferung</div>
+    <div class="delivery-value" id="delivery-date">wird berechnet...</div>
   </div>
   <div class="delivery-item">
-    <div>
-      <div class="delivery-label">Produktion</div>
-      <div class="delivery-value">Erst nach deiner Freigabe</div>
-    </div>
+    <div class="delivery-label">Produktion</div>
+    <div class="delivery-value">Erst nach deiner Freigabe</div>
   </div>
   <div class="delivery-item">
-    <div>
-      <div class="delivery-label">Designservice</div>
-      <div class="delivery-value">Kostenlos inklusive</div>
-    </div>
+    <div class="delivery-label">Designservice</div>
+    <div class="delivery-value">Kostenlos inklusive</div>
   </div>
   <div class="delivery-item">
-    <div>
-      <div class="delivery-label">Lagerung &amp; Logistik</div>
-      <div class="delivery-value">Auf Wunsch verf&uuml;gbar</div>
-    </div>
+    <div class="delivery-label">Lagerung &amp; Logistik</div>
+    <div class="delivery-value">Auf Wunsch verf&uuml;gbar</div>
   </div>
 </div>
 
