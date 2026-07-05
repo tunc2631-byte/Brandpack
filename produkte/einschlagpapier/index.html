@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einschlagpapier | PackFactory</title>
+  <meta name="description" content="Individuell bedrucktes Einschlagpapier mit Ihrem Logo. 3 Papierarten, Sonderma&szlig;e m&ouml;glich, ab 200 kg. Jetzt anfragen.">
+  <link rel="icon" type="image/png" href="/Bilder/neues%20logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 92px; }
+    * { -webkit-tap-highlight-color: transparent; }
+    a, button { touch-action: manipulation; }
+    :root {
+      --pink:   #F07A8C;
+      --pink-d: #d9697a;
+      --dark:   #1d1d1f;
+      --muted:  #6e6e73;
+      --bg:     #f5f5f7;
+      --card:   #F5F2EC;
+    }
+
+    /* NAV */
+    .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 12px 20px; pointer-events: none; }
+    .nav-wrapper nav { background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04); pointer-events: all; max-width: 1200px; margin: 0 auto; border: 1px solid #E8E3DA; }
+    .nav-inner { padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px; }
+    .nav-logo { height: 150px; width: auto; }
+    .nav-links { flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap; }
+    .nav-links a { color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color .15s; }
+    .nav-links a:hover { color: var(--pink); }
+    .nav-right { flex-shrink: 0; display: flex; align-items: center; gap: 8px; }
+    .btn-pink { display: inline-block; text-decoration: none; font-weight: 700; border-radius: 10px; background: var(--pink); color: #fff; padding: 10px 22px; font-size: 14px; font-family: inherit; border: none; cursor: pointer; transition: background .18s, transform .2s cubic-bezier(.34,1.56,.64,1); }
+    .btn-pink:hover { background: var(--pink-d); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all .28s cubic-bezier(.22,1,.36,1); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: flex; position: fixed; inset: 0; background: #FAF9F7; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity .28s cubic-bezier(.22,1,.36,1); }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: 24px; font-weight: 800; color: #1a1a1a; text-decoration: none; opacity: 0; transform: translateY(18px); transition: color .15s, opacity .32s cubic-bezier(.22,1,.36,1), transform .32s cubic-bezier(.22,1,.36,1); }
+    .mobile-menu.open a:nth-child(1) { opacity: 1; transform: none; transition-delay: .05s; }
+    .mobile-menu.open a:nth-child(2) { opacity: 1; transform: none; transition-delay: .09s; }
+    .mobile-menu.open a:nth-child(3) { opacity: 1; transform: none; transition-delay: .13s; }
+    .mobile-menu.open a:nth-child(4) { opacity: 1; transform: none; transition-delay: .17s; }
+    .mobile-menu.open a:nth-child(5) { opacity: 1; transform: none; transition-delay: .21s; }
+    .mobile-menu a:hover { color: var(--pink); }
+    @media (min-width: 769px) { .nav-wrapper { transition: padding .35s cubic-bezier(.22,1,.36,1); } .nav-wrapper.scrolled { padding: 6px 20px; } }
+    @media (max-width: 768px) { .nav-links, .btn-pink.nav-cta { display: none !important; } .hamburger { display: flex !important; } .nav-wrapper { padding: 0 !important; } .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,.08) !important; } .nav-logo { height: 90px !important; } .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; } body { padding-top: 72px; } }
+    @media (max-width: 480px) { .nav-logo { height: 75px !important; } .nav-inner { height: 64px !important; } body { padding-top: 64px; } }
+
+    /* PRODUCT HERO */
+    .product-hero { display: grid; grid-template-columns: 55% 45%; min-height: calc(100vh - 92px); }
+    @media (max-width: 960px) { .product-hero { grid-template-columns: 1fr; height: auto; } }
+
+    /* Image panel */
+    .img-panel { position: relative; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .img-panel img { width: 82%; max-width: 480px; object-fit: contain; user-select: none; pointer-events: none; display: block; }
+    .img-panel img.pulse { animation: imgPulse .28s ease; }
+    @keyframes imgPulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
+    .size-badge { position: absolute; bottom: 24px; left: 24px; background: rgba(29,29,31,.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: #fff; border-radius: 12px; padding: 10px 14px; }
+    .size-badge-s { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .06em; }
+    .size-badge-v { font-size: 20px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
+    .size-badge-d { font-size: 11px; color: rgba(255,255,255,.6); }
+    @media (max-width: 960px) { .img-panel { height: 44vw; min-height: 220px; } .img-panel img { width: 60%; } .size-badge { bottom: 14px; left: 14px; padding: 7px 11px; } .size-badge-v { font-size: 16px; } }
+
+    /* Configurator panel */
+    .config-panel { display: flex; flex-direction: column; justify-content: center; padding: 20px 36px 16px; overflow: visible; background: #fff; border-left: 1px solid #f0f0f0; }
+    @media (max-width: 1100px) { .config-panel { padding: 16px 24px 14px; } }
+    @media (max-width: 960px) { .config-panel { padding: 20px 20px; border-left: none; border-top: 1px solid #f0f0f0; } }
+    .breadcrumb { font-size: 12px; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--dark); }
+    .breadcrumb span { color: #c7c7cc; }
+    h1.product-title { font-size: clamp(26px, 3vw, 38px); font-weight: 900; letter-spacing: -.03em; color: var(--dark); line-height: 1.05; margin-bottom: 14px; }
+    .opt-group { margin-bottom: 14px; }
+    .opt-group-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
+    .opt-btns { display: flex; flex-wrap: wrap; gap: 7px; }
+    .opt { padding: 9px 18px; border-radius: 100px; border: 1.5px solid #d2d2d7; background: #fff; font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark); cursor: pointer; transition: border-color .12s, background .12s, color .12s; white-space: nowrap; }
+    .opt:hover { border-color: #8e8e93; }
+    .opt.active { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .opt-custom { border-style: dashed; }
+    .opt-custom.active { background: var(--dark); color: #fff; border-style: solid; }
+
+    /* Custom size inputs */
+    .custom-size-wrap { display: none; margin-top: 8px; }
+    .custom-size-wrap.visible { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
+    .custom-size-field { display: flex; flex-direction: column; gap: 3px; }
+    .custom-size-field label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+    .custom-size-field input { width: 110px; padding: 8px 12px; border: 1.5px solid #d2d2d7; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark); background: #fff; outline: none; transition: border-color .12s; }
+    .custom-size-field input:focus { border-color: var(--dark); }
+
+    .dim-hint { font-size: 11px; color: var(--pink); font-weight: 700; margin-top: 5px; }
+    .blatt-hint { font-size: 11px; color: var(--muted); font-weight: 700; margin-top: 5px; }
+    .price-row { display: flex; align-items: baseline; gap: 8px; margin: 10px 0 2px; flex-wrap: wrap; }
+    .price-total { font-size: clamp(22px, 2.5vw, 30px); font-weight: 900; color: var(--dark); letter-spacing: -.03em; line-height: 1; }
+    .price-per { font-size: 13px; color: var(--pink); font-weight: 700; }
+    .price-vat { font-size: 11px; color: #aeaeb2; margin-bottom: 10px; }
+    .btn-wa { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; background: #25D366; color: #fff; border: none; border-radius: 12px; padding: 13px 20px; font-family: inherit; font-size: 14px; font-weight: 800; cursor: pointer; text-decoration: none; transition: opacity .15s, transform .15s; margin-bottom: 7px; }
+    .btn-wa:hover { opacity: .88; transform: scale(1.01); }
+    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .btn-sec { display: flex; align-items: center; justify-content: center; gap: 6px; background: #fff; border-radius: 12px; padding: 10px 16px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .15s, color .15s; }
+    .btn-phone { border: 2px solid var(--dark); color: var(--dark); }
+    .btn-phone:hover { background: var(--dark); color: #fff; }
+    .btn-email { border: 2px solid var(--pink); color: var(--pink); }
+    .btn-email:hover { background: var(--pink); color: #fff; }
+
+    /* Delivery strip */
+    .delivery-strip { background: var(--card); border-bottom: 1px solid #E8E3DA; display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; }
+    .delivery-item { display: flex; flex-direction: column; justify-content: center; padding: 12px 28px; border-right: 1px solid #E8E3DA; }
+    .delivery-item:last-child { border-right: none; }
+    @media (max-width: 640px) { .delivery-item { border-right: none; border-bottom: 1px solid #E8E3DA; padding: 10px 20px; } .delivery-item:last-child { border-bottom: none; } }
+    .delivery-label { font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+    .delivery-value { font-size: 13px; font-weight: 800; color: var(--dark); }
+
+    /* Service section */
+    .service-section { background: #fff; padding: 80px 24px; }
+    .service-inner { max-width: 1000px; margin: 0 auto; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; color: var(--pink); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+    .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 900; color: var(--dark); letter-spacing: -.025em; line-height: 1.1; margin-bottom: 12px; }
+    .section-sub { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.65; margin-bottom: 52px; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 700px) { .service-grid { grid-template-columns: 1fr; gap: 16px; } }
+    .service-card { background: var(--bg); border-radius: 20px; padding: 28px 24px; }
+    .service-card-title { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+    .service-card-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .service-card-tag { display: inline-flex; align-items: center; background: #e8f5e9; color: #2e7d32; border-radius: 100px; padding: 4px 12px; font-size: 11px; font-weight: 700; margin-top: 12px; }
+
+    /* Specs table */
+    .specs-section { background: #fff; padding: 80px 24px; }
+    .specs-inner { max-width: 1000px; margin: 0 auto; }
+    .specs-header { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+    .specs-pink-bar { width: 4px; height: 32px; background: var(--pink); border-radius: 4px; flex-shrink: 0; }
+    .specs-title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--dark); letter-spacing: -.025em; }
+    .specs-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; margin-left: 18px; }
+    .specs-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .specs-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; font-family: inherit; }
+    .specs-table thead tr { background: var(--dark); color: #fff; }
+    .specs-table th { padding: 13px 16px; font-size: 12px; font-weight: 600; text-align: center; letter-spacing: .02em; }
+    .specs-table th:first-child { text-align: left; }
+    .specs-table td { padding: 12px 16px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 13px; color: #3a3a3a; }
+    .specs-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); white-space: nowrap; }
+    .specs-table tr:last-child td { border-bottom: none; }
+    .specs-table tr:nth-child(even) td { background: #fafafa; }
+    .specs-footnote { font-size: 12px; color: var(--muted); margin-top: 14px; margin-left: 2px; }
+
+    /* SEO section */
+    .seo-section { background: var(--bg); padding: 80px 24px; }
+    .seo-inner { max-width: 800px; margin: 0 auto; }
+    .seo-section h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 900; color: var(--dark); letter-spacing: -.025em; margin-bottom: 16px; }
+    .seo-section h3 { font-size: 18px; font-weight: 800; color: var(--pink); margin: 32px 0 10px; }
+    .seo-lead { font-size: 17px; color: var(--dark); line-height: 1.7; margin-bottom: 16px; }
+    .seo-section p { font-size: 15px; color: #3a3a3a; line-height: 1.75; margin-bottom: 14px; }
+    .seo-section ul { padding-left: 20px; margin-bottom: 14px; }
+    .seo-section li { font-size: 15px; color: #3a3a3a; line-height: 1.75; }
+
+    /* Contact */
+    .contact { background: var(--dark); padding: 80px 24px; text-align: center; }
+    .contact-title { font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -.03em; margin-bottom: 12px; }
+    .contact-sub { font-size: 16px; color: rgba(255,255,255,.6); max-width: 480px; margin: 0 auto 36px; line-height: 1.6; }
+    .contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cbtn-wa { display: flex; align-items: center; gap: 8px; background: #25D366; color: #fff; border-radius: 12px; padding: 14px 28px; font-family: inherit; font-size: 15px; font-weight: 800; text-decoration: none; transition: opacity .15s; }
+    .cbtn-wa:hover { opacity: .88; }
+    .cbtn { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); color: #fff; border-radius: 12px; padding: 14px 28px; font-family: inherit; font-size: 15px; font-weight: 800; text-decoration: none; border: 1.5px solid rgba(255,255,255,.2); transition: background .15s; }
+    .cbtn:hover { background: rgba(255,255,255,.18); }
+
+    /* Footer */
+    footer { background: #f5f5f7; border-top: 1px solid #e5e5ea; padding: 40px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+    footer img { height: 48px; width: auto; opacity: .7; }
+    .foot-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+    .foot-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 600; }
+    .foot-links a:hover { color: var(--dark); }
+    footer p { font-size: 12px; color: #aeaeb2; }
+  </style>
+</head>
+<body>
+
+<div class="nav-wrapper" id="navWrapper">
+  <nav>
+    <div class="nav-inner">
+      <a href="/" style="display:flex;align-items:center;flex-shrink:0;">
+        <img src="/Bilder/neues%20logo.png" alt="PackFactory" class="nav-logo">
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#produkte">Produkte</a>
+        <a href="/designservice/">Designservice</a>
+        <a href="/ueber-uns/">&Uuml;ber uns</a>
+        <a href="/#kontakt">Kontakt</a>
+      </div>
+      <div class="nav-right">
+        <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#produkte" onclick="closeMenu()">Produkte</a>
+  <a href="/designservice/" onclick="closeMenu()">Designservice</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
+  <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
+</div>
+
+<!-- PRODUCT HERO -->
+<section class="product-hero">
+
+  <!-- LEFT: Image -->
+  <div class="img-panel">
+    <img id="product-img" src="/Bilder/einschlagpapier.png" alt="Einschlagpapier mit Logo bedruckt">
+    <div class="size-badge">
+      <div class="size-badge-s">Format</div>
+      <div class="size-badge-v" id="badge-size">S</div>
+      <div class="size-badge-d" id="badge-dim">400 &times; 300 mm</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Configurator -->
+  <div class="config-panel">
+
+    <div class="breadcrumb">
+      <a href="/">PackFactory</a><span>&rsaquo;</span>
+      <a href="/#produkte">Produkte</a><span>&rsaquo;</span>
+      Einschlagpapier
+    </div>
+
+    <h1 class="product-title">Einschlagpapier</h1>
+
+    <!-- Format -->
+    <div class="opt-group">
+      <div class="opt-group-label">Format</div>
+      <div class="opt-btns">
+        <button class="opt active" onclick="selectSize('s',this)">S &mdash; 400&times;300 mm</button>
+        <button class="opt" onclick="selectSize('m',this)">M &mdash; 400&times;500 mm</button>
+        <button class="opt opt-custom" onclick="selectSize('custom',this)">Sondergr&ouml;&szlig;e</button>
+      </div>
+      <div class="custom-size-wrap" id="custom-size-wrap">
+        <div class="custom-size-field">
+          <label>Breite (mm)</label>
+          <input type="number" id="input-breite" min="50" max="1000" placeholder="z.B. 500" oninput="onCustomInput()">
+        </div>
+        <div class="custom-size-field">
+          <label>H&ouml;he (mm)</label>
+          <input type="number" id="input-hoehe" min="50" max="1000" placeholder="z.B. 400" oninput="onCustomInput()">
+        </div>
+      </div>
+      <div class="dim-hint" id="dim-hint">ca. 41.700 Blatt / 200 kg</div>
+    </div>
+
+    <!-- Papierart -->
+    <div class="opt-group">
+      <div class="opt-group-label">Papierart</div>
+      <div class="opt-btns">
+        <button class="opt active" onclick="selectMat('standard',this)">Standardpapier</button>
+        <button class="opt" onclick="selectMat('fettabweisend',this)">Fettabweisendes Papier</button>
+        <button class="opt" onclick="selectMat('pe',this)">PE-coated Papier</button>
+      </div>
+    </div>
+
+    <!-- Menge -->
+    <div class="opt-group">
+      <div class="opt-group-label">Menge (kg)</div>
+      <div class="opt-btns">
+        <button class="opt active" onclick="selectKg(200,this)">200 kg</button>
+        <button class="opt" onclick="selectKg(400,this)">400 kg</button>
+        <button class="opt" onclick="selectKg(600,this)">600 kg</button>
+        <button class="opt" onclick="selectKg(800,this)">800 kg</button>
+      </div>
+      <div class="blatt-hint" id="blatt-hint">ca. 41.700 Blatt</div>
+      <div class="dim-hint" style="margin-top:2px;">Gr&ouml;&szlig;ere Mengen auf Anfrage m&ouml;glich</div>
+    </div>
+
+    <!-- Price -->
+    <div class="price-row">
+      <span class="price-total" id="price-display">EUR 1.400,00</span>
+      <span class="price-per" id="price-per">7,00 &euro; / kg</span>
+    </div>
+    <p class="price-vat">Zzgl. MwSt. &middot; Zzgl. 200 EUR einmaliger Einrichtungskosten &middot; Inkl. individuellem Druck</p>
+
+    <!-- CTAs -->
+    <a id="wa-link" href="#" target="_blank" class="btn-wa">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Angebot via WhatsApp anfragen
+    </a>
+    <div class="btn-row">
+      <a href="tel:+4917673216419" class="btn-sec btn-phone">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Anrufen
+      </a>
+      <a id="email-link" href="mailto:info@pack-factory.de" class="btn-sec btn-email">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        E-Mail
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- DELIVERY STRIP -->
+<div class="delivery-strip">
+  <div class="delivery-item">
+    <div class="delivery-label">Voraussichtliche Lieferung</div>
+    <div class="delivery-value" id="delivery-date">wird berechnet...</div>
+  </div>
+  <div class="delivery-item">
+    <div class="delivery-label">Produktion</div>
+    <div class="delivery-value">Erst nach deiner Freigabe</div>
+  </div>
+  <div class="delivery-item">
+    <div class="delivery-label">Designservice</div>
+    <div class="delivery-value">Kostenlos inklusive</div>
+  </div>
+  <div class="delivery-item">
+    <div class="delivery-label">Lagerung &amp; Logistik</div>
+    <div class="delivery-value">Auf Wunsch verf&uuml;gbar</div>
+  </div>
+</div>
+
+<!-- SERVICE SECTION -->
+<section class="service-section">
+  <div class="service-inner">
+    <p class="section-eyebrow">Dein Verpackungspartner</p>
+    <h2 class="section-title">Wir k&uuml;mmern uns um alles.</h2>
+    <p class="section-sub">Du bestellst nicht einfach Papier &mdash; du bekommst einen kompletten Service. Von der Idee bis zur Lieferung &uuml;bernehmen wir jeden Schritt f&uuml;r dich.</p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-card-title">Design aus einer Hand</div>
+        <div class="service-card-desc">Kein eigenes Design n&ouml;tig. Schick uns dein Logo &mdash; wir gestalten das gesamte Druckbild professionell f&uuml;r dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand.</div>
+        <span class="service-card-tag">Kostenlos inklusive</span>
+      </div>
+      <div class="service-card">
+        <div class="service-card-title">Sonderformate jederzeit m&ouml;glich</div>
+        <div class="service-card-desc">Individuelle Formate und Sondergr&ouml;&szlig;en sind kein Problem. Gib einfach deine Wunschma&szlig;e ein &mdash; wir berechnen Preis und Blattmenge automatisch f&uuml;r dich.</div>
+        <span class="service-card-tag">Auf Anfrage</span>
+      </div>
+      <div class="service-card">
+        <div class="service-card-title">Lagerung &amp; Logistik</div>
+        <div class="service-card-desc">Auf Wunsch lagern wir dein Einschlagpapier ein und liefern es nach Bedarf aus. Kein eigener Lagerplatz n&ouml;tig &mdash; wir &uuml;bernehmen die Logistik f&uuml;r dich.</div>
+        <span class="service-card-tag">Auf Anfrage verf&uuml;gbar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS TABLE -->
+<section class="specs-section">
+  <div class="specs-inner">
+    <div class="specs-header">
+      <div class="specs-pink-bar"></div>
+      <h2 class="specs-title">Technische Spezifikationen</h2>
+    </div>
+    <p class="specs-sub">Preise pro kg &mdash; netto zzgl. MwSt.</p>
+    <div class="specs-wrap">
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Menge</th>
+            <th>Standardpapier</th>
+            <th>Fettabweisendes Papier</th>
+            <th>PE-coated Papier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>200 kg</td>
+            <td>7,00 &euro;/kg</td>
+            <td>7,50 &euro;/kg</td>
+            <td>7,60 &euro;/kg</td>
+          </tr>
+          <tr>
+            <td>400 kg</td>
+            <td>6,00 &euro;/kg</td>
+            <td>6,43 &euro;/kg</td>
+            <td>6,51 &euro;/kg</td>
+          </tr>
+          <tr>
+            <td>600 kg</td>
+            <td>5,50 &euro;/kg</td>
+            <td>5,89 &euro;/kg</td>
+            <td>5,97 &euro;/kg</td>
+          </tr>
+          <tr>
+            <td>800 kg</td>
+            <td>5,20 &euro;/kg</td>
+            <td>5,57 &euro;/kg</td>
+            <td>5,65 &euro;/kg</td>
+          </tr>
+          <tr>
+            <td>Verf&uuml;gbare Formate</td>
+            <td colspan="3">S (400&times;300 mm) &nbsp;&middot;&nbsp; M (400&times;500 mm) &nbsp;&middot;&nbsp; Sondergr&ouml;&szlig;e auf Anfrage</td>
+          </tr>
+          <tr>
+            <td>Blatt / 200 kg</td>
+            <td colspan="3">S: ca. 41.700 Blatt &nbsp;&middot;&nbsp; M: ca. 25.000 Blatt &nbsp;&middot;&nbsp; Sondergr&ouml;&szlig;e: je nach Ma&szlig;</td>
+          </tr>
+          <tr>
+            <td>Grammatur</td>
+            <td colspan="3">ca. 40 g/m&sup2;</td>
+          </tr>
+          <tr>
+            <td>Mindestbestellmenge</td>
+            <td colspan="3">200 kg</td>
+          </tr>
+          <tr>
+            <td>Einrichtungskosten</td>
+            <td colspan="3">200 EUR einmalig (entf&auml;llt bei Nachbestellungen)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="specs-footnote">* Alle Preise netto zzgl. MwSt. &middot; Gr&ouml;&szlig;ere Mengen (ab 600 kg) auf Anfrage.</p>
+  </div>
+</section>
+
+<!-- SEO SECTION -->
+<section class="seo-section">
+  <div class="seo-inner">
+    <h2>Einschlagpapier mit individuellem Logo</h2>
+    <p class="seo-lead">Einschlagpapier, Wrappapier und Tablettpapier geh&ouml;ren zu den vielseitigsten Verpackungsl&ouml;sungen f&uuml;r die Gastronomie, den Lebensmittelhandel und viele weitere Branchen. Mit individuellem Druck wird jede Einwicklung zum Markenbotschafter.</p>
+    <p>Bei PackFactory erhalten Sie hochwertiges Einschlagpapier in drei Ausf&uuml;hrungen: als klassisches Standardpapier, als fettabweisendes Papier f&uuml;r fettige Speisen sowie als PE-coated Papier f&uuml;r erh&ouml;hte Feuchtigkeitsbest&auml;ndigkeit. Alle Varianten sind individuell mit Ihrem Logo oder Motiv bedruckbar.</p>
+
+    <h3>Drei Papierarten &mdash; eine l&ouml;sung f&uuml;r jeden Bedarf</h3>
+    <p><strong>Standardpapier</strong> eignet sich hervorragend f&uuml;r trockene Speisen, Br&ouml;tchen, Geb&auml;ck und allgemeine Verpackungsanwendungen. Es bietet ein ausgewogenes Verh&auml;ltnis aus Qualit&auml;t und Preis.</p>
+    <p><strong>Fettabweisendes Papier</strong> ist die ideale Wahl f&uuml;r Burger, Pommes, D&ouml;ner und andere fettreiche Speisen. Die spezielle Beschichtung verhindert, dass Fett durch das Papier dringt &mdash; f&uuml;r ein sauberes Erscheinungsbild bis zum letzten Happen.</p>
+    <p><strong>PE-coated Papier</strong> bietet maximale Feuchtigkeitsbest&auml;ndigkeit und ist besonders f&uuml;r feuchte oder saftige Speisen geeignet. Die Polyethylen-Beschichtung sch&uuml;tzt zus&auml;tzlich vor Durchn&auml;ssen.</p>
+
+    <h3>Sonderformate und individuelle Ma&szlig;e</h3>
+    <p>Individuelle Formate und Sondergr&ouml;&szlig;en sind jederzeit m&ouml;glich. Geben Sie einfach Ihre gew&uuml;nschte Breite und H&ouml;he ein &mdash; unser Konfigurator berechnet automatisch Blattanzahl und Preis f&uuml;r Sie. Keine versteckten Aufschl&auml;ge f&uuml;r Sonderma&szlig;e.</p>
+
+    <h3>F&uuml;r welche Branchen eignet sich Einschlagpapier?</h3>
+    <ul>
+      <li>Burger-Restaurants, Fast-Food-Ketten, Imbisse</li>
+      <li>D&ouml;nerl&auml;den, Pizzerien, Kebab-Shops</li>
+      <li>B&auml;ckereien, Konditoreien, Caf&eacute;s</li>
+      <li>Lebensmittelhandel, Delikatessenl&auml;den, Marktst&auml;nde</li>
+      <li>Catering und Eventgastronomie</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2 class="contact-title">Bereit loszulegen?</h2>
+  <p class="contact-sub">Frag jetzt an &mdash; wir antworten innerhalb von 24 Stunden und k&uuml;mmern uns um alles Weitere.</p>
+  <div class="contact-btns">
+    <a id="contact-wa" href="https://wa.me/4917673216419?text=Hallo%2C%20ich%20m%C3%B6chte%20Einschlagpapier%20anfragen." target="_blank" class="cbtn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="tel:+4917673216419" class="cbtn">Anrufen</a>
+    <a href="mailto:info@pack-factory.de" class="cbtn">E-Mail</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/Bilder/neues%20logo.png" alt="PackFactory">
+  <div class="foot-links">
+    <a href="/impressum/">Impressum</a>
+    <a href="/datenschutz/">Datenschutz</a>
+    <a href="/#kontakt">Kontakt</a>
+  </div>
+  <p>2025 PackFactory. Alle Rechte vorbehalten.</p>
+</footer>
+
+<script>
+  const PRICES = {
+    standard:      {200: 7.00, 400: 6.00, 600: 5.50, 800: 5.20},
+    fettabweisend: {200: 7.50, 400: 6.43, 600: 5.89, 800: 5.57},
+    pe:            {200: 7.60, 400: 6.51, 600: 5.97, 800: 5.65}
+  };
+
+  const sel = {size: 's', mat: 'standard', kg: 200, breite: 0, hoehe: 0};
+
+  function selectSize(val, btn) {
+    sel.size = val;
+    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('custom-size-wrap').classList.toggle('visible', val === 'custom');
+    updateAll();
+  }
+
+  function selectMat(val, btn) {
+    sel.mat = val;
+    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    updateAll();
+  }
+
+  function selectKg(val, btn) {
+    sel.kg = val;
+    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    updateAll();
+  }
+
+  function onCustomInput() {
+    sel.breite = parseInt(document.getElementById('input-breite').value) || 0;
+    sel.hoehe  = parseInt(document.getElementById('input-hoehe').value)  || 0;
+    updateAll();
+  }
+
+  function getBlattProKg() {
+    if (sel.size === 's') return 208.5;
+    if (sel.size === 'm') return 125;
+    if (sel.breite > 0 && sel.hoehe > 0) return 25000000 / (sel.breite * sel.hoehe);
+    return 0;
+  }
+
+  function updateAll() {
+    var priceKg  = PRICES[sel.mat][sel.kg];
+    var total    = sel.kg * priceKg;
+    var bpk      = getBlattProKg();
+    var blatt    = bpk > 0 ? Math.round(sel.kg * bpk) : 0;
+
+    // Badge
+    var dimMap = {s: '400 \u00D7 300 mm', m: '400 \u00D7 500 mm'};
+    var badgeSize = sel.size === 'custom' ? 'Sonder' : sel.size.toUpperCase();
+    var badgeDim  = sel.size === 'custom'
+      ? (sel.breite && sel.hoehe ? sel.breite + ' \u00D7 ' + sel.hoehe + ' mm' : 'Individuell')
+      : dimMap[sel.size];
+    document.getElementById('badge-size').textContent = badgeSize;
+    document.getElementById('badge-dim').textContent  = badgeDim;
+
+    // Dim hint
+    if (sel.size !== 'custom') {
+      document.getElementById('dim-hint').textContent = 'ca. ' + (sel.size === 's' ? '41.700' : '25.000') + ' Blatt / 200 kg';
+    } else {
+      document.getElementById('dim-hint').textContent = 'Individuelle Ma\u00DFe \u2014 Sondergr\u00F6\u00DFen jederzeit m\u00F6glich';
+    }
+
+    // Blatt hint
+    if (blatt > 0) {
+      document.getElementById('blatt-hint').textContent = 'ca. ' + blatt.toLocaleString('de-DE') + ' Blatt';
+    } else if (sel.size === 'custom') {
+      document.getElementById('blatt-hint').textContent = 'Bitte Breite und H\u00F6he eingeben';
+    } else {
+      document.getElementById('blatt-hint').textContent = '';
+    }
+
+    // Price
+    document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
+    document.getElementById('price-per').textContent = priceKg.toFixed(2).replace('.', ',') + ' \u20AC / kg';
+
+    // Image pulse
+    var img = document.getElementById('product-img');
+    img.classList.remove('pulse');
+    void img.offsetWidth;
+    img.classList.add('pulse');
+
+    // WhatsApp
+    var matLabel = {standard: 'Standardpapier', fettabweisend: 'Fettabweisendes Papier', pe: 'PE-coated Papier'}[sel.mat];
+    var sizeLabel = sel.size === 'custom'
+      ? 'Sondergr\u00F6\u00DFe ' + (sel.breite || '?') + '\u00D7' + (sel.hoehe || '?') + ' mm'
+      : sel.size.toUpperCase() + ' (' + dimMap[sel.size] + ')';
+    var msg = 'Hallo, ich interessiere mich f\u00FCr Einschlagpapier (' + sizeLabel + ', ' + matLabel + ', ' + sel.kg + ' kg) und m\u00F6chte ein Angebot anfragen.';
+    document.getElementById('wa-link').href = 'https://wa.me/4917673216419?text=' + encodeURIComponent(msg);
+    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Einschlagpapier&body=' + encodeURIComponent('Format: ' + sizeLabel + '\nPapier: ' + matLabel + '\nMenge: ' + sel.kg + ' kg');
+  }
+
+  function fmt(n) {
+    return n.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  }
+
+  // Nav scroll shrink
+  var navWrapper = document.getElementById('navWrapper');
+  window.addEventListener('scroll', function() {
+    navWrapper.classList.toggle('scrolled', window.scrollY > 50);
+  }, {passive: true});
+
+  // Mobile menu
+  function toggleMenu() {
+    var m = document.getElementById('mobileMenu');
+    var h = document.querySelector('.hamburger');
+    m.classList.toggle('open'); h.classList.toggle('open');
+    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Delivery date (~8 weeks)
+  (function() {
+    var d = new Date();
+    d.setDate(d.getDate() + 56);
+    if (d.getDay() === 6) d.setDate(d.getDate() + 2);
+    if (d.getDay() === 0) d.setDate(d.getDate() + 1);
+    document.getElementById('delivery-date').textContent = 'ca. ' + d.toLocaleDateString('de-DE', {day:'2-digit', month:'2-digit', year:'numeric'});
+  })();
+
+  updateAll();
+</script>
+</body>
+</html>
