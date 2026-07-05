@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Papiertüten | PackFactory</title>
-  <meta name="description" content="Individuelle Papiertüten mit deinem Logo. 6 Größen, inkl. Designservice. Jetzt anfragen.">
+  <title>Papiert&uuml;ten | PackFactory</title>
+  <meta name="description" content="Individuelle Papiert&uuml;ten mit deinem Logo. 6 Gr&ouml;&szlig;en, inkl. Designservice. Jetzt anfragen.">
   <link rel="icon" type="image/png" href="/Bilder/neues%20logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -190,7 +190,7 @@
     .opt:hover { border-color: #8e8e93; }
     .opt.active { background: var(--dark); color: #fff; border-color: var(--dark); }
 
-    /* Sondermaß button variant */
+    /* Sonderma\u00DF button variant */
     .opt-custom { border-style: dashed; color: var(--muted); }
     .opt-custom.active { background: var(--dark); color: #fff; border-style: solid; }
 
@@ -240,7 +240,7 @@
     .delivery-value { font-size: 13px; font-weight: 800; color: var(--dark); }
 
     /* ---------------------------------------
-       SERVICE SECTION  — "Wir kümmern uns um alles"
+       SERVICE SECTION  \u2014 "Wir k\u00FCmmern uns um alles"
     --------------------------------------- */
     .service-section { background: #fff; padding: 80px 24px; }
     .service-inner { max-width: 1000px; margin: 0 auto; }
@@ -349,12 +349,12 @@
         <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
         <a href="/designservice/">Designservice</a>
-        <a href="/ueber-uns/">Über uns</a>
+        <a href="/ueber-uns/">&Uuml;ber uns</a>
         <a href="/#kontakt">Kontakt</a>
       </div>
       <div class="nav-right">
         <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü"><span></span><span></span><span></span></button>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -363,7 +363,7 @@
   <a href="/" onclick="closeMenu()">Home</a>
   <a href="/#produkte" onclick="closeMenu()">Produkte</a>
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
-  <a href="/ueber-uns/" onclick="closeMenu()">Über uns</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
   <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
@@ -375,7 +375,7 @@
   <div class="img-panel">
     <img id="product-img"
       src="https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0346.png?v=1781526153"
-      alt="Papiertüten mit Logo bedruckt">
+      alt="Papiert&uuml;ten mit Logo bedruckt">
     <div class="size-badge">
       <div class="size-badge-s">Auswahl</div>
       <div class="size-badge-v" id="badge-size">XS</div>
@@ -387,16 +387,16 @@
   <div class="config-panel">
 
     <div class="breadcrumb">
-      <a href="/">PackFactory</a><span>›</span>
-      <a href="/#produkte">Produkte</a><span>›</span>
-      Papiertüten
+      <a href="/">PackFactory</a><span>&rsaquo;</span>
+      <a href="/#produkte">Produkte</a><span>&rsaquo;</span>
+      Papiert&uuml;ten
     </div>
 
-    <h1 class="product-title">Papiertüten</h1>
+    <h1 class="product-title">Papiert&uuml;ten</h1>
 
-    <!-- Größe -->
+    <!-- Gr&ouml;&szlig;e -->
     <div class="opt-group">
-      <div class="opt-group-label">Größe</div>
+      <div class="opt-group-label">Gr&ouml;&szlig;e</div>
       <div class="opt-btns">
         <button class="opt active" onclick="selectOpt('size','XS',this)">XS</button>
         <button class="opt" onclick="selectOpt('size','S',this)">S</button>
@@ -404,7 +404,7 @@
         <button class="opt" onclick="selectOpt('size','L',this)">L</button>
         <button class="opt" onclick="selectOpt('size','XL',this)">XL</button>
         <button class="opt" onclick="selectOpt('size','XXL',this)">XXL</button>
-        <button class="opt opt-custom" onclick="selectOpt('size','Sondermaß',this)">Sondermaß</button>
+        <button class="opt opt-custom" onclick="selectOpt('size','Sonderma&szlig;',this)">Sonderma&szlig;</button>
       </div>
       <div class="dim-hint" id="dim-hint">180 x 80 x 240 mm</div>
     </div>
@@ -413,8 +413,8 @@
     <div class="opt-group">
       <div class="opt-group-label">Material</div>
       <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('material','Whitekraft',this)">Whitekraft — Weiß</button>
-        <button class="opt" onclick="selectOpt('material','Brownkraft',this)">Brownkraft — Braun</button>
+        <button class="opt active" onclick="selectOpt('material','Whitekraft',this)">Whitekraft &mdash; Wei&szlig;</button>
+        <button class="opt" onclick="selectOpt('material','Brownkraft',this)">Brownkraft &mdash; Braun</button>
       </div>
     </div>
 
@@ -422,20 +422,20 @@
     <div class="opt-group">
       <div class="opt-group-label">Menge</div>
       <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('menge',10000,this)">10.000 Stück</button>
-        <button class="opt" onclick="selectOpt('menge',20000,this)">20.000 Stück</button>
-        <button class="opt" onclick="selectOpt('menge',30000,this)">30.000 Stück</button>
-        <button class="opt" onclick="selectOpt('menge',50000,this)">50.000 Stück</button>
+        <button class="opt active" onclick="selectOpt('menge',10000,this)">10.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',20000,this)">20.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',30000,this)">30.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',50000,this)">50.000 St&uuml;ck</button>
       </div>
-      <div class="dim-hint">Größere Mengen auf Anfrage möglich</div>
+      <div class="dim-hint">Gr&ouml;&szlig;ere Mengen auf Anfrage m&ouml;glich</div>
     </div>
 
     <!-- Price -->
     <div class="price-row">
       <span class="price-total" id="price-display">EUR 1.391,00</span>
-      <span class="price-per" id="price-per">0,1391 € / Stück</span>
+      <span class="price-per" id="price-per">0,1391 &euro; / St&uuml;ck</span>
     </div>
-    <p class="price-vat">Inkl. MwSt. · Inkl. individuellem Druck &amp; Design</p>
+    <p class="price-vat">Inkl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
 
     <!-- CTAs -->
     <a id="wa-link" href="#" target="_blank" class="btn-wa">
@@ -473,7 +473,7 @@
   <div class="delivery-item">
     <div>
       <div class="delivery-label">Lagerung &amp; Logistik</div>
-      <div class="delivery-value">Auf Wunsch verfügbar</div>
+      <div class="delivery-value">Auf Wunsch verf&uuml;gbar</div>
     </div>
   </div>
 </div>
@@ -482,24 +482,24 @@
 <section class="service-section">
   <div class="service-inner">
     <p class="section-eyebrow">Dein Verpackungspartner</p>
-    <h2 class="section-title">Wir kümmern uns um alles.</h2>
-    <p class="section-sub">Du bestellst nicht einfach eine Tüte — du bekommst einen kompletten Service. Von der Idee bis zur Lieferung übernehmen wir jeden Schritt für dich.</p>
+    <h2 class="section-title">Wir k&uuml;mmern uns um alles.</h2>
+    <p class="section-sub">Du bestellst nicht einfach eine T&uuml;te &mdash; du bekommst einen kompletten Service. Von der Idee bis zur Lieferung &uuml;bernehmen wir jeden Schritt f&uuml;r dich.</p>
 
     <div class="service-grid">
       <div class="service-card">
         <div class="service-card-title">Design aus einer Hand</div>
-        <div class="service-card-desc">Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die gesamte Verpackung professionell für dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand.</div>
+        <div class="service-card-desc">Kein eigenes Design n&ouml;tig. Schick uns dein Logo &mdash; wir gestalten die gesamte Verpackung professionell f&uuml;r dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand.</div>
         <span class="service-card-tag">Kostenlos inklusive</span>
       </div>
       <div class="service-card">
-        <div class="service-card-title">Persönliche Beratung</div>
-        <div class="service-card-desc">Unsicher welche Größe, welches Material oder welche Menge? Wir beraten dich persönlich — per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner.</div>
+        <div class="service-card-title">Pers&ouml;nliche Beratung</div>
+        <div class="service-card-desc">Unsicher welche Gr&ouml;&szlig;e, welches Material oder welche Menge? Wir beraten dich pers&ouml;nlich &mdash; per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner.</div>
         <span class="service-card-tag">Kostenlos &amp; unverbindlich</span>
       </div>
       <div class="service-card">
         <div class="service-card-title">Lagerung &amp; Logistik</div>
-        <div class="service-card-desc">Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine großen Lagermengen, kein eigener Lagerplatz — wir übernehmen die Logistik für dich.</div>
-        <span class="service-card-tag">Auf Anfrage verfügbar</span>
+        <div class="service-card-desc">Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine gro&szlig;en Lagermengen, kein eigener Lagerplatz &mdash; wir &uuml;bernehmen die Logistik f&uuml;r dich.</div>
+        <span class="service-card-tag">Auf Anfrage verf&uuml;gbar</span>
       </div>
     </div>
   </div>
@@ -512,7 +512,7 @@
       <div class="specs-pink-bar"></div>
       <h2 class="specs-title">Technische Spezifikationen</h2>
     </div>
-    <p class="specs-sub">Alle Angaben pro Größenvariante</p>
+    <p class="specs-sub">Alle Angaben pro Gr&ouml;&szlig;envariante</p>
     <div class="specs-wrap">
       <table class="specs-table">
         <thead>
@@ -547,15 +547,15 @@
           </tr>
           <tr>
             <td>Material</td>
-            <td>Weißes Papier / Kraft</td>
-            <td>Weißes Papier / Kraft</td>
-            <td>Weißes Papier / Kraft</td>
-            <td>Weißes Papier / Kraft</td>
-            <td>Weißes Papier / Kraft</td>
-            <td>Weißes Papier / Kraft</td>
+            <td>Wei&szlig;es Papier / Kraft</td>
+            <td>Wei&szlig;es Papier / Kraft</td>
+            <td>Wei&szlig;es Papier / Kraft</td>
+            <td>Wei&szlig;es Papier / Kraft</td>
+            <td>Wei&szlig;es Papier / Kraft</td>
+            <td>Wei&szlig;es Papier / Kraft</td>
           </tr>
           <tr>
-            <td>Papierstärke</td>
+            <td>Papierst&auml;rke</td>
             <td>70 g/m&sup2;</td>
             <td>70 g/m&sup2;</td>
             <td>70 g/m&sup2;</td>
@@ -600,7 +600,7 @@
             <td>10.000</td>
           </tr>
           <tr>
-            <td>Stück pro Karton</td>
+            <td>St&uuml;ck pro Karton</td>
             <td>250</td>
             <td>250</td>
             <td>250</td>
@@ -620,63 +620,63 @@
         </tbody>
       </table>
     </div>
-    <p class="specs-footnote">* Der Druckbereich bezieht sich auf den bedruckbaren Anteil der Tütenoberfläche. Bei höheren Deckungsgraden ist eine individuelle Abstimmung erforderlich.</p>
+    <p class="specs-footnote">* Der Druckbereich bezieht sich auf den bedruckbaren Anteil der T&uuml;tenoberfl&auml;che. Bei h&ouml;heren Deckungsgraden ist eine individuelle Abstimmung erforderlich.</p>
   </div>
 </section>
 
 <!-- -- SEO / PRODUCT INFO -- -->
 <section class="seo-section">
   <div class="seo-inner">
-    <h2>Papiertüten mit individuellem Logo</h2>
-    <p class="seo-lead">Papiertüten gehören heute zu den beliebtesten Verpackungslösungen für Restaurants, Cafés, Bäckereien, Imbisse, Fast-Food-Ketten, Einzelhändler und viele weitere Branchen. Sie verbinden Funktionalität, Nachhaltigkeit und eine hochwertige Optik in einer Verpackung. Gleichzeitig bieten sie eine ideale Werbefläche für Ihr Unternehmen. Mit individuell bedruckten Papiertüten wird jede Bestellung zu einem Markenbotschafter und sorgt dafür, dass Ihr Logo auch außerhalb Ihres Geschäfts sichtbar bleibt.</p>
-    <p>Bei PackFactory erhalten Sie hochwertige Papiertüten, die individuell nach Ihren Wünschen produziert werden. Ob schlicht, elegant oder auffällig — wir fertigen Ihre Verpackungen passend zu Ihrer Marke und Ihrem Corporate Design.</p>
+    <h2>Papiert&uuml;ten mit individuellem Logo</h2>
+    <p class="seo-lead">Papiert&uuml;ten geh&ouml;ren heute zu den beliebtesten Verpackungsl&ouml;sungen f&uuml;r Restaurants, Caf&eacute;s, B&auml;ckereien, Imbisse, Fast-Food-Ketten, Einzelh&auml;ndler und viele weitere Branchen. Sie verbinden Funktionalit&auml;t, Nachhaltigkeit und eine hochwertige Optik in einer Verpackung. Gleichzeitig bieten sie eine ideale Werbefl&auml;che f&uuml;r Ihr Unternehmen. Mit individuell bedruckten Papiert&uuml;ten wird jede Bestellung zu einem Markenbotschafter und sorgt daf&uuml;r, dass Ihr Logo auch au&szlig;erhalb Ihres Gesch&auml;fts sichtbar bleibt.</p>
+    <p>Bei PackFactory erhalten Sie hochwertige Papiert&uuml;ten, die individuell nach Ihren W&uuml;nschen produziert werden. Ob schlicht, elegant oder auff&auml;llig &mdash; wir fertigen Ihre Verpackungen passend zu Ihrer Marke und Ihrem Corporate Design.</p>
 
-    <h3>Warum sind Papiertüten die richtige Wahl?</h3>
-    <p>Eine hochwertige Verpackung ist weit mehr als nur ein Transportmittel. Sie vermittelt Qualität, Professionalität und stärkt das Vertrauen Ihrer Kunden. Besonders im Bereich Take-away, Delivery und Einzelhandel spielt die Verpackung eine entscheidende Rolle für den ersten und letzten Eindruck.</p>
-    <p>Papiertüten sind stabil, leicht, vielseitig einsetzbar und in zahlreichen Größen erhältlich. Sie eignen sich sowohl für warme als auch für kalte Produkte und bieten ausreichend Platz für Lebensmittel, Getränke oder Verkaufsartikel. Gleichzeitig entscheiden sich immer mehr Unternehmen bewusst für Papierverpackungen, da diese von Kunden als hochwertig und umweltbewusst wahrgenommen werden.</p>
+    <h3>Warum sind Papiert&uuml;ten die richtige Wahl?</h3>
+    <p>Eine hochwertige Verpackung ist weit mehr als nur ein Transportmittel. Sie vermittelt Qualit&auml;t, Professionalit&auml;t und st&auml;rkt das Vertrauen Ihrer Kunden. Besonders im Bereich Take-away, Delivery und Einzelhandel spielt die Verpackung eine entscheidende Rolle f&uuml;r den ersten und letzten Eindruck.</p>
+    <p>Papiert&uuml;ten sind stabil, leicht, vielseitig einsetzbar und in zahlreichen Gr&ouml;&szlig;en erh&auml;ltlich. Sie eignen sich sowohl f&uuml;r warme als auch f&uuml;r kalte Produkte und bieten ausreichend Platz f&uuml;r Lebensmittel, Getr&auml;nke oder Verkaufsartikel. Gleichzeitig entscheiden sich immer mehr Unternehmen bewusst f&uuml;r Papierverpackungen, da diese von Kunden als hochwertig und umweltbewusst wahrgenommen werden.</p>
 
-    <h3>Papiertüten mit Logo — Kostenlose Werbung bei jeder Bestellung</h3>
-    <p>Jede Bestellung verlässt Ihr Geschäft in einer Verpackung. Warum diese Fläche ungenutzt lassen? Eine individuell bedruckte Papiertüte sorgt dafür, dass Ihr Unternehmen überall sichtbar wird — auf der Straße, im Büro, zu Hause oder unterwegs. Jeder Kunde trägt Ihre Marke nach außen und macht gleichzeitig auf Ihr Unternehmen aufmerksam.</p>
-    <p>Ein professionelles Design erhöht den Wiedererkennungswert Ihrer Marke und vermittelt Qualität bereits vor dem Öffnen der Verpackung. Gerade in der Gastronomie kann eine hochwertige Verpackung dazu beitragen, dass Kunden Ihr Unternehmen positiv in Erinnerung behalten und häufiger wiederkommen.</p>
+    <h3>Papiert&uuml;ten mit Logo &mdash; Kostenlose Werbung bei jeder Bestellung</h3>
+    <p>Jede Bestellung verl&auml;sst Ihr Gesch&auml;ft in einer Verpackung. Warum diese Fl&auml;che ungenutzt lassen? Eine individuell bedruckte Papiert&uuml;te sorgt daf&uuml;r, dass Ihr Unternehmen &uuml;berall sichtbar wird &mdash; auf der Stra&szlig;e, im B&uuml;ro, zu Hause oder unterwegs. Jeder Kunde tr&auml;gt Ihre Marke nach au&szlig;en und macht gleichzeitig auf Ihr Unternehmen aufmerksam.</p>
+    <p>Ein professionelles Design erh&ouml;ht den Wiedererkennungswert Ihrer Marke und vermittelt Qualit&auml;t bereits vor dem &Ouml;ffnen der Verpackung. Gerade in der Gastronomie kann eine hochwertige Verpackung dazu beitragen, dass Kunden Ihr Unternehmen positiv in Erinnerung behalten und h&auml;ufiger wiederkommen.</p>
 
-    <h3>Hochwertige Materialien für maximale Qualität</h3>
-    <p>Unsere Papiertüten werden aus hochwertigen, lebensmittelechten Papiermaterialien gefertigt und überzeugen durch ihre Stabilität sowie ihre angenehme Haptik. Je nach Einsatzbereich stehen unterschiedliche Papierstärken und Ausführungen zur Verfügung:</p>
+    <h3>Hochwertige Materialien f&uuml;r maximale Qualit&auml;t</h3>
+    <p>Unsere Papiert&uuml;ten werden aus hochwertigen, lebensmittelechten Papiermaterialien gefertigt und &uuml;berzeugen durch ihre Stabilit&auml;t sowie ihre angenehme Haptik. Je nach Einsatzbereich stehen unterschiedliche Papierst&auml;rken und Ausf&uuml;hrungen zur Verf&uuml;gung:</p>
     <ul>
       <li>Kraftpapier (Whitekraft oder Brownkraft)</li>
       <li>Verschiedene Grammaturen je nach Belastung</li>
-      <li>Papier mit verstärktem Boden</li>
+      <li>Papier mit verst&auml;rktem Boden</li>
       <li>Flach- oder Kordelgriffe</li>
     </ul>
-    <p>Die Tüten eignen sich sowohl für leichte Produkte als auch für schwerere Speisen oder Einkäufe.</p>
+    <p>Die T&uuml;ten eignen sich sowohl f&uuml;r leichte Produkte als auch f&uuml;r schwerere Speisen oder Eink&auml;ufe.</p>
 
     <h3>Individuelle Gestaltung nach Ihren Vorstellungen</h3>
-    <p>Jedes Unternehmen ist einzigartig — genau deshalb sollte auch Ihre Verpackung einzigartig sein. Wir produzieren Ihre Papiertüten individuell nach Ihren Vorgaben. Dabei können unter anderem folgende Elemente umgesetzt werden:</p>
+    <p>Jedes Unternehmen ist einzigartig &mdash; genau deshalb sollte auch Ihre Verpackung einzigartig sein. Wir produzieren Ihre Papiert&uuml;ten individuell nach Ihren Vorgaben. Dabei k&ouml;nnen unter anderem folgende Elemente umgesetzt werden:</p>
     <ul>
       <li>Firmenlogo und Unternehmensfarben</li>
       <li>Eigene Designs und Grafiken</li>
       <li>Werbeslogans und Kontaktdaten</li>
-      <li>QR-Codes und Social-Media-Kanäle</li>
+      <li>QR-Codes und Social-Media-Kan&auml;le</li>
     </ul>
 
-    <h3>Für welche Branchen eignen sich Papiertüten?</h3>
-    <p>Unsere Papiertüten kommen in nahezu allen Branchen zum Einsatz:</p>
+    <h3>F&uuml;r welche Branchen eignen sich Papiert&uuml;ten?</h3>
+    <p>Unsere Papiert&uuml;ten kommen in nahezu allen Branchen zum Einsatz:</p>
     <ul>
-      <li>Restaurants, Imbisse, Dönerläden, Burgerrestaurants, Pizzerien</li>
-      <li>Cafés, Bäckereien, Konditoreien, Eisdielen, Bubble-Tea-Shops</li>
+      <li>Restaurants, Imbisse, D&ouml;nerl&auml;den, Burgerrestaurants, Pizzerien</li>
+      <li>Caf&eacute;s, B&auml;ckereien, Konditoreien, Eisdielen, Bubble-Tea-Shops</li>
       <li>Einzelhandel, Boutiquen, Apotheken, Kosmetikstudios</li>
       <li>Messen und Events</li>
     </ul>
-    <p>Durch die große Auswahl an Größen — von XS bis XXL sowie individuellen Sondermaßen — finden wir für nahezu jeden Einsatzbereich die passende Lösung.</p>
+    <p>Durch die gro&szlig;e Auswahl an Gr&ouml;&szlig;en &mdash; von XS bis XXL sowie individuellen Sonderma&szlig;en &mdash; finden wir f&uuml;r nahezu jeden Einsatzbereich die passende L&ouml;sung.</p>
 
     <h3>Nachhaltigkeit</h3>
-    <p>Nachhaltigkeit spielt für viele Unternehmen und Kunden eine immer größere Rolle. Papierverpackungen gelten als umweltfreundliche Alternative zu vielen herkömmlichen Verpackungslösungen. Je nach Ausführung bestehen unsere Papiertüten aus recycelbaren oder nachhaltig gewonnenen Materialien. Unternehmen profitieren zusätzlich von einem positiven Markenimage, da viele Kunden nachhaltige Verpackungen bevorzugen.</p>
+    <p>Nachhaltigkeit spielt f&uuml;r viele Unternehmen und Kunden eine immer gr&ouml;&szlig;ere Rolle. Papierverpackungen gelten als umweltfreundliche Alternative zu vielen herk&ouml;mmlichen Verpackungsl&ouml;sungen. Je nach Ausf&uuml;hrung bestehen unsere Papiert&uuml;ten aus recycelbaren oder nachhaltig gewonnenen Materialien. Unternehmen profitieren zus&auml;tzlich von einem positiven Markenimage, da viele Kunden nachhaltige Verpackungen bevorzugen.</p>
   </div>
 </section>
 
 <!-- -- CONTACT -- -->
 <section class="contact">
   <h2 class="contact-title">Bereit loszulegen?</h2>
-  <p class="contact-sub">Frag jetzt an — wir antworten innerhalb von 24 Stunden und kümmern uns um alles Weitere.</p>
+  <p class="contact-sub">Frag jetzt an &mdash; wir antworten innerhalb von 24 Stunden und k&uuml;mmern uns um alles Weitere.</p>
   <div class="contact-btns">
     <a id="contact-wa" href="https://wa.me/4917673216419?text=Hallo%2C%20ich%20m%C3%B6chte%20Papiert%C3%BCten%20anfragen." target="_blank" class="cbtn-wa">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -716,7 +716,7 @@
   const dimensions = {
     'XS':'180 x 80 x 240 mm', 'S':'220 x 100 x 285 mm', 'M':'260 x 160 x 280 mm',
     'L':'320 x 170 x 270 mm', 'XL':'320 x 220 x 250 mm', 'XXL':'460 x 220 x 460 mm',
-    'Sondermaß':'Individuelle Abmessungen'
+    'Sonderma\u00DF':'Individuelle Abmessungen'
   };
   const sel = { size:'XS', material:'Whitekraft', menge:10000 };
 
@@ -737,25 +737,25 @@
     img.classList.add('pulse');
 
     // Badge + inline dim
-    const isSonder = sel.size === 'Sondermaß';
+    const isSonder = sel.size === 'Sonderma\u00DF';
     document.getElementById('badge-size').textContent = sel.size;
     document.getElementById('badge-dim').textContent = isSonder ? 'Nach Wunsch' : dimensions[sel.size];
-    document.getElementById('dim-hint').textContent = isSonder ? 'Abmessungen nach Wunsch — Preis auf Anfrage' : dimensions[sel.size];
+    document.getElementById('dim-hint').textContent = isSonder ? 'Abmessungen nach Wunsch \u2014 Preis auf Anfrage' : dimensions[sel.size];
 
     // Price
     if (isSonder) {
       document.getElementById('price-display').textContent = 'Preis auf Anfrage';
-      document.getElementById('price-per').textContent = 'Sondermaß — individuelles Angebot';
+      document.getElementById('price-per').textContent = 'Sonderma\u00DF \u2014 individuelles Angebot';
     } else {
       const pp = pricePerPiece[sel.size][sel.menge];
       const total = Math.round(pp * sel.menge * 100) / 100;
       document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
-      document.getElementById('price-per').textContent = pp.toFixed(4).replace('.',',') + ' EUR / Stück';
+      document.getElementById('price-per').textContent = pp.toFixed(4).replace('.',',') + ' EUR / St\u00FCck';
     }
 
     // WhatsApp & email
-    const mengeText = isSonder ? 'Sondermaß' : sel.menge.toLocaleString('de-DE') + ' Stueck';
-    const dimText = isSonder ? 'Sondermaß nach Wunsch' : dimensions[sel.size];
+    const mengeText = isSonder ? 'Sonderma\u00DF' : sel.menge.toLocaleString('de-DE') + ' Stueck';
+    const dimText = isSonder ? 'Sonderma\u00DF nach Wunsch' : dimensions[sel.size];
     const msg = encodeURIComponent('Hallo, ich interessiere mich fuer Papiertueten (' + sel.size + ', ' + dimText + ', ' + sel.material + ', ' + mengeText + ') und moechte ein Angebot anfragen.');
     document.getElementById('wa-link').href = 'https://wa.me/4917673216419?text=' + msg;
     document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Papiertueten&body=Groesse%3A%20' + sel.size + '%0AAbmessung%3A%20' + encodeURIComponent(dimText) + '%0AMaterial%3A%20' + sel.material + '%0AMenge%3A%20' + mengeText;
