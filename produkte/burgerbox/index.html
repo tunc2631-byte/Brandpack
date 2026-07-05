@@ -249,7 +249,12 @@
     <!-- Menge -->
     <div class="opt-group">
       <div class="opt-group-label">Menge</div>
-      <div class="opt-btns" id="menge-btns"></div>
+      <div class="opt-btns">
+        <button class="opt active" onclick="selectOpt('menge',15000,this)">15.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',20000,this)">20.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',30000,this)">30.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',40000,this)">40.000 St&uuml;ck</button>
+      </div>
       <div class="dim-hint">Gr&ouml;&szlig;ere Mengen auf Anfrage m&ouml;glich</div>
     </div>
 
@@ -358,7 +363,7 @@
           <tr><td>Druckmethode</td><td>Offsetdruck</td><td>Offsetdruck</td><td>Offsetdruck</td></tr>
           <tr><td>Anzahl Farben</td><td>Alle CMYK</td><td>Alle CMYK</td><td>Alle CMYK</td></tr>
           <tr><td>Druckbereich</td><td>Volldruck</td><td>Volldruck</td><td>Volldruck</td></tr>
-          <tr><td>Mindestbestellmenge</td><td>15.000</td><td>25.000</td><td>25.000</td></tr>
+          <tr><td>Mindestbestellmenge</td><td>15.000</td><td>15.000</td><td>15.000</td></tr>
           <tr><td>Anzahl pro Box</td><td>600</td><td>750</td><td>300</td></tr>
           <tr><td>Max. Anzahl pro Palette</td><td>15.000</td><td>10.000</td><td>9.000</td></tr>
         </tbody>
@@ -463,28 +468,12 @@
   };
   const matLabel = { 'bristol': 'Bristol Wei\u00DF', 'kraft': 'Kraft Braun', 'ckb': 'CKB Wei\u00DF/Braun' };
 
-  const mengeOptions = { 'S': [15000,20000,30000,40000], 'M': [30000,40000], 'L': [30000,40000] };
-
   const sel = { size:'S', material:'bristol', menge:15000 };
-
-  function renderMengeBtns() {
-    const opts = mengeOptions[sel.size];
-    if (!opts.includes(sel.menge)) sel.menge = opts[0];
-    const container = document.getElementById('menge-btns');
-    container.innerHTML = opts.map(q =>
-      '<button class="opt' + (q === sel.menge ? ' active' : '') + '" onclick="selectOpt(\'menge\',' + q + ',this)">' +
-      q.toLocaleString('de-DE') + ' St\u00FCck</button>'
-    ).join('');
-  }
 
   function selectOpt(key, val, btn) {
     sel[key] = val;
-    if (key === 'size') {
-      renderMengeBtns();
-    } else {
-      btn.closest('.opt-btns').querySelectorAll('.opt').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
+    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
     updateAll();
   }
 
@@ -530,7 +519,6 @@
     document.getElementById('delivery-date').textContent = 'ca. ' + d.toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric' });
   })();
 
-  renderMengeBtns();
   updateAll();
 </script>
 </body>
