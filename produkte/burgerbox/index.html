@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Burgerbox | PackFactory</title>
-  <meta name="description" content="Individuelle Burgerboxen mit deinem Logo. 3 Groessen, 3 Materialien, ab 15.000 Stueck. Jetzt anfragen.">
+  <meta name="description" content="Individuelle Burgerboxen mit deinem Logo. 3 Gr&ouml;&szlig;en, 3 Materialien, ab 15.000 St&uuml;ck. Jetzt anfragen.">
   <link rel="icon" type="image/png" href="/Bilder/neues%20logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,12 +179,12 @@
         <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
         <a href="/designservice/">Designservice</a>
-        <a href="/ueber-uns/">Ueber uns</a>
+        <a href="/ueber-uns/">&Uuml;ber uns</a>
         <a href="/#kontakt">Kontakt</a>
       </div>
       <div class="nav-right">
         <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Menue"><span></span><span></span><span></span></button>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -193,7 +193,7 @@
   <a href="/" onclick="closeMenu()">Home</a>
   <a href="/#produkte" onclick="closeMenu()">Produkte</a>
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
-  <a href="/ueber-uns/" onclick="closeMenu()">Ueber uns</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
   <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
@@ -209,7 +209,7 @@
     <div class="size-badge">
       <div class="size-badge-s">Auswahl</div>
       <div class="size-badge-v" id="badge-size">S</div>
-      <div class="size-badge-d" id="badge-dim">95 x 95 x 73 mm</div>
+      <div class="size-badge-d" id="badge-dim">95 x 95 x 75 mm</div>
     </div>
   </div>
 
@@ -224,44 +224,39 @@
 
     <h1 class="product-title">Burgerbox</h1>
 
-    <!-- Groesse -->
+    <!-- Gr&ouml;&szlig;e -->
     <div class="opt-group">
-      <div class="opt-group-label">Groesse</div>
+      <div class="opt-group-label">Gr&ouml;&szlig;e</div>
       <div class="opt-btns">
         <button class="opt active" onclick="selectOpt('size','S',this)">S</button>
         <button class="opt" onclick="selectOpt('size','M',this)">M</button>
         <button class="opt" onclick="selectOpt('size','L',this)">L</button>
       </div>
-      <div class="dim-hint" id="dim-hint">95 x 95 x 73 mm</div>
-      <div class="dim-hint" style="margin-top:3px;font-weight:600;color:var(--muted);">Weitere Groessen auf Anfrage moeglich</div>
+      <div class="dim-hint" id="dim-hint">95 x 95 x 75 mm</div>
+      <div class="dim-hint" style="margin-top:3px;font-weight:600;color:var(--muted);">Weitere Gr&ouml;&szlig;en auf Anfrage m&ouml;glich</div>
     </div>
 
     <!-- Material -->
     <div class="opt-group">
       <div class="opt-group-label">Material</div>
       <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('material','bristol',this)">Bristol &middot; ca. 300 g/m&sup2; &middot; Weiss</button>
-        <button class="opt" onclick="selectOpt('material','kraft',this)">Kraft &middot; ca. 325 g/m&sup2; &middot; Braun</button>
-        <button class="opt" onclick="selectOpt('material','ckb',this)">CKB &middot; ca. 281 g/m&sup2; &middot; Weiss/Braun</button>
+        <button class="opt active" onclick="selectOpt('material','bristol',this)">Bristol Wei&szlig;</button>
+        <button class="opt" onclick="selectOpt('material','kraft',this)">Kraft Braun</button>
+        <button class="opt" onclick="selectOpt('material','ckb',this)">CKB Wei&szlig;/Braun</button>
       </div>
     </div>
 
     <!-- Menge -->
     <div class="opt-group">
       <div class="opt-group-label">Menge</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('menge',15000,this)">15.000 Stueck</button>
-        <button class="opt" onclick="selectOpt('menge',20000,this)">20.000 Stueck</button>
-        <button class="opt" onclick="selectOpt('menge',30000,this)">30.000 Stueck</button>
-        <button class="opt" onclick="selectOpt('menge',40000,this)">40.000 Stueck</button>
-      </div>
-      <div class="dim-hint">Groessere Mengen auf Anfrage moeglich</div>
+      <div class="opt-btns" id="menge-btns"></div>
+      <div class="dim-hint">Gr&ouml;&szlig;ere Mengen auf Anfrage m&ouml;glich</div>
     </div>
 
     <!-- Price -->
     <div class="price-row">
       <span class="price-total" id="price-display">EUR 1.690,50</span>
-      <span class="price-per" id="price-per">0,1127 EUR / Stueck</span>
+      <span class="price-per" id="price-per">0,1127 EUR / St&uuml;ck</span>
     </div>
     <p class="price-vat">Inkl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
 
@@ -307,7 +302,7 @@
   <div class="delivery-item">
     <div>
       <div class="delivery-label">Lagerung &amp; Logistik</div>
-      <div class="delivery-value">Auf Wunsch verfuegbar</div>
+      <div class="delivery-value">Auf Wunsch verf&uuml;gbar</div>
     </div>
   </div>
 </div>
@@ -316,23 +311,23 @@
 <section class="service-section">
   <div class="service-inner">
     <p class="section-eyebrow">Dein Verpackungspartner</p>
-    <h2 class="section-title">Wir kuemmern uns um alles.</h2>
-    <p class="section-sub">Du bestellst nicht einfach eine Box &mdash; du bekommst einen kompletten Service. Von der Idee bis zur Lieferung uebernehmen wir jeden Schritt fuer dich.</p>
+    <h2 class="section-title">Wir k&uuml;mmern uns um alles.</h2>
+    <p class="section-sub">Du bestellst nicht einfach eine Box &mdash; du bekommst einen kompletten Service. Von der Idee bis zur Lieferung &uuml;bernehmen wir jeden Schritt f&uuml;r dich.</p>
     <div class="service-grid">
       <div class="service-card">
         <div class="service-card-title">Design aus einer Hand</div>
-        <div class="service-card-desc">Kein eigenes Design noetig. Schick uns dein Logo &mdash; wir gestalten die gesamte Verpackung professionell fuer dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand.</div>
+        <div class="service-card-desc">Kein eigenes Design n&ouml;tig. Schick uns dein Logo &mdash; wir gestalten die gesamte Verpackung professionell f&uuml;r dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand.</div>
         <span class="service-card-tag">Kostenlos inklusive</span>
       </div>
       <div class="service-card">
-        <div class="service-card-title">Persoenliche Beratung</div>
-        <div class="service-card-desc">Unsicher welche Groesse oder welches Material? Wir beraten dich persoenlich &mdash; per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner.</div>
+        <div class="service-card-title">Pers&ouml;nliche Beratung</div>
+        <div class="service-card-desc">Unsicher welche Gr&ouml;&szlig;e oder welches Material? Wir beraten dich pers&ouml;nlich &mdash; per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner.</div>
         <span class="service-card-tag">Kostenlos &amp; unverbindlich</span>
       </div>
       <div class="service-card">
         <div class="service-card-title">Lagerung &amp; Logistik</div>
-        <div class="service-card-desc">Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine grossen Lagermengen, kein eigener Lagerplatz &mdash; wir uebernehmen die Logistik fuer dich.</div>
-        <span class="service-card-tag">Auf Anfrage verfuegbar</span>
+        <div class="service-card-desc">Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine gro&szlig;en Lagermengen, kein eigener Lagerplatz &mdash; wir &uuml;bernehmen die Logistik f&uuml;r dich.</div>
+        <span class="service-card-tag">Auf Anfrage verf&uuml;gbar</span>
       </div>
     </div>
   </div>
@@ -345,7 +340,7 @@
       <div class="specs-pink-bar"></div>
       <h2 class="specs-title">Technische Spezifikationen</h2>
     </div>
-    <p class="specs-sub">Alle Angaben pro Groessenvariante</p>
+    <p class="specs-sub">Alle Angaben pro Gr&ouml;&szlig;envariante</p>
     <div class="specs-wrap">
       <table class="specs-table">
         <thead>
@@ -357,13 +352,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Abmessungen</td><td>95 x 95 x 73 mm</td><td>114 x 113 x 89 mm</td><td>130 x 130 x 90 mm</td></tr>
-          <tr><td>Material (Weiss)</td><td>Bristol &middot; ca. 300 g/m&sup2;</td><td>Bristol &middot; ca. 300 g/m&sup2;</td><td>Bristol &middot; ca. 300 g/m&sup2;</td></tr>
-          <tr><td>Material (Braun)</td><td>Kraft &middot; ca. 325 g/m&sup2;</td><td>Kraft &middot; ca. 325 g/m&sup2;</td><td>Kraft &middot; ca. 325 g/m&sup2;</td></tr>
-          <tr><td>Material (Weiss/Braun)</td><td>CKB &middot; ca. 281 g/m&sup2;</td><td>CKB &middot; ca. 281 g/m&sup2;</td><td>CKB &middot; ca. 281 g/m&sup2;</td></tr>
+          <tr><td>Abmessungen (L/B/H)</td><td>95 x 95 x 75 mm</td><td>118 x 118 x 90 mm</td><td>130 x 130 x 90 mm</td></tr>
+          <tr><td>Farbe</td><td>Wei&szlig; / Braun</td><td>Wei&szlig; / Braun</td><td>Wei&szlig; / Braun</td></tr>
+          <tr><td>Material &amp; St&auml;rke</td><td colspan="3">Bristol ca. 300 g/m&sup2; &middot; Kraft ca. 325 g/m&sup2; &middot; CKB ca. 281 g/m&sup2;</td></tr>
           <tr><td>Druckmethode</td><td>Offsetdruck</td><td>Offsetdruck</td><td>Offsetdruck</td></tr>
           <tr><td>Anzahl Farben</td><td>Alle CMYK</td><td>Alle CMYK</td><td>Alle CMYK</td></tr>
-          <tr><td>Mindestbestellmenge</td><td>15.000</td><td>15.000</td><td>15.000</td></tr>
+          <tr><td>Druckbereich</td><td>Volldruck</td><td>Volldruck</td><td>Volldruck</td></tr>
+          <tr><td>Mindestbestellmenge</td><td>15.000</td><td>25.000</td><td>25.000</td></tr>
+          <tr><td>Anzahl pro Box</td><td>600</td><td>750</td><td>300</td></tr>
+          <tr><td>Max. Anzahl pro Palette</td><td>15.000</td><td>10.000</td><td>9.000</td></tr>
         </tbody>
       </table>
     </div>
@@ -374,48 +371,48 @@
 <section class="seo-section">
   <div class="seo-inner">
     <h2>Burgerboxen mit individuellem Logo</h2>
-    <p class="seo-lead">Die Burgerbox ist weit mehr als eine Verpackung &mdash; sie ist das erste, was dein Kunde nach der Bestellung in die Hand nimmt. Eine hochwertig bedruckte Box vermittelt Qualitaet, staerkt dein Markenbild und sorgt dafuer, dass dein Burger nicht nur gut schmeckt, sondern auch gut aussieht. Bei PackFactory produzieren wir individuelle Burgerboxen in drei Groessen und drei hochwertigen Materialien &mdash; vollstaendig angepasst an dein Branding.</p>
-    <p>Ob kleiner Slider, klassischer Cheeseburger oder doppelter Signature-Burger &mdash; fuer jede Burgergroesse gibt es die passende Box. Alle Varianten werden im Offsetdruck mit allen CMYK-Farben produziert und koennen rundum mit deinem Logo, Slogan oder Design bedruckt werden.</p>
+    <p class="seo-lead">Die Burgerbox ist weit mehr als eine Verpackung &mdash; sie ist das erste, was dein Kunde nach der Bestellung in die Hand nimmt. Eine hochwertig bedruckte Box vermittelt Qualit&auml;t, st&auml;rkt dein Markenbild und sorgt daf&uuml;r, dass dein Burger nicht nur gut schmeckt, sondern auch gut aussieht. Bei PackFactory produzieren wir individuelle Burgerboxen in drei Gr&ouml;&szlig;en und drei hochwertigen Materialien &mdash; vollst&auml;ndig angepasst an dein Branding.</p>
+    <p>Ob kleiner Slider, klassischer Cheeseburger oder doppelter Signature-Burger &mdash; f&uuml;r jede Burgergr&ouml;&szlig;e gibt es die passende Box. Alle Varianten werden im Offsetdruck mit allen CMYK-Farben produziert und k&ouml;nnen rundum mit deinem Logo, Slogan oder Design bedruckt werden.</p>
 
-    <h3>Drei Materialien &mdash; eine Entscheidung fuer deine Marke</h3>
-    <p>Die Wahl des Materials beeinflusst nicht nur die Optik, sondern auch die Stabilitaet und die Wahrnehmung deiner Marke. Wir bieten drei hochwertige Varianten:</p>
+    <h3>Drei Materialien &mdash; eine Entscheidung f&uuml;r deine Marke</h3>
+    <p>Die Wahl des Materials beeinflusst nicht nur die Optik, sondern auch die Stabilit&auml;t und die Wahrnehmung deiner Marke. Wir bieten drei hochwertige Varianten:</p>
     <ul>
-      <li><strong>Bristol ca. 300 g/m&sup2; (Weiss)</strong> &mdash; Glatte, weisse Oberflaeche fuer brillante Farben und detailreiche Druckmotive. Ideal fuer helle, moderne Designs.</li>
-      <li><strong>Kraft ca. 325 g/m&sup2; (Braun)</strong> &mdash; Natuerliche Kraftpapier-Optik mit hoher Stabilitaet. Besonders beliebt bei Burgerladen mit einem nachhaltigen oder rustikalen Markenbild.</li>
-      <li><strong>CKB ca. 281 g/m&sup2; (Weiss/Braun)</strong> &mdash; Aussen weiss, innen braun. Kombiniert die Vorteile beider Materialien: saubere Aussendarstellung mit naturlichem Innencharakter.</li>
+      <li><strong>Bristol ca. 300 g/m&sup2; (Wei&szlig;)</strong> &mdash; Glatte, wei&szlig;e Oberfl&auml;che f&uuml;r brillante Farben und detailreiche Druckmotive. Ideal f&uuml;r helle, moderne Designs.</li>
+      <li><strong>Kraft ca. 325 g/m&sup2; (Braun)</strong> &mdash; Nat&uuml;rliche Kraftpapier-Optik mit hoher Stabilit&auml;t. Besonders beliebt bei Burgerl&auml;den mit einem nachhaltigen oder rustikalen Markenbild.</li>
+      <li><strong>CKB ca. 281 g/m&sup2; (Wei&szlig;/Braun)</strong> &mdash; Au&szlig;en wei&szlig;, innen braun. Kombiniert die Vorteile beider Materialien: saubere Au&szlig;endarstellung mit nat&uuml;rlichem Innencharakter.</li>
     </ul>
 
     <h3>Deine Box &mdash; dein Markenauftritt</h3>
-    <p>Jede Burgerbox, die dein Restaurant verlaesst, ist eine Chance, deine Marke sichtbar zu machen. Mit einem rundum bedruckten Design ist dein Logo aus allen Perspektiven sichtbar &mdash; auf dem Tisch, beim Einpacken und unterwegs. Wir uebernehmen die gesamte Gestaltung kostenlos fuer dich:</p>
+    <p>Jede Burgerbox, die dein Restaurant verl&auml;sst, ist eine Chance, deine Marke sichtbar zu machen. Mit einem rundum bedruckten Design ist dein Logo aus allen Perspektiven sichtbar &mdash; auf dem Tisch, beim Einpacken und unterwegs. Wir &uuml;bernehmen die gesamte Gestaltung kostenlos f&uuml;r dich:</p>
     <ul>
       <li>Firmenlogo und Markenfarben</li>
       <li>Eigene Designs, Muster und Grafiken</li>
-      <li>Werbeslogans, Hashtags, Social-Media-Kanaele</li>
-      <li>QR-Codes fuer Bewertungen oder deine Speisekarte</li>
+      <li>Werbeslogans, Hashtags, Social-Media-Kan&auml;le</li>
+      <li>QR-Codes f&uuml;r Bewertungen oder deine Speisekarte</li>
     </ul>
 
-    <h3>Fuer welche Betriebe sind Burgerboxen geeignet?</h3>
-    <p>Unsere Burgerboxen sind die ideale Loesung fuer alle, die ihren Burger professionell und ansprechend verpacken moechten:</p>
+    <h3>F&uuml;r welche Betriebe sind Burgerboxen geeignet?</h3>
+    <p>Unsere Burgerboxen sind die ideale L&ouml;sung f&uuml;r alle, die ihren Burger professionell und ansprechend verpacken m&ouml;chten:</p>
     <ul>
-      <li>Burgerrestaurants und Gourmet-Burger-Laedens</li>
+      <li>Burgerrestaurants und Gourmet-Burger-L&auml;den</li>
       <li>Fast-Food-Ketten und Systemgastronomie</li>
-      <li>Food Trucks und Strassenverkauf</li>
-      <li>Doenerlaeden, Imbisse und Take-away-Konzepte</li>
+      <li>Food Trucks und Stra&szlig;enverkauf</li>
+      <li>D&ouml;nerl&auml;den, Imbisse und Take-away-Konzepte</li>
       <li>Catering-Unternehmen und Events</li>
       <li>Gastronomie-Lieferdienste</li>
     </ul>
 
     <h3>Nachhaltigkeit und Lebensmittelsicherheit</h3>
-    <p>Alle unsere Burgerboxen werden aus lebensmittelgeeignetem Papier hergestellt und sind vollstaendig recycelbar. Im Vergleich zu Styropor- oder Kunststoffverpackungen sind Papierboxen die umweltfreundlichere Wahl &mdash; und werden von immer mehr Gaesten aktiv bevorzugt. Ein nachhaltiges Verpackungskonzept staerkt das Image deines Betriebs und kommt bei deinen Kunden gut an.</p>
+    <p>Alle unsere Burgerboxen werden aus lebensmittelgeeignetem Papier hergestellt und sind vollst&auml;ndig recycelbar. Im Vergleich zu Styropor- oder Kunststoffverpackungen sind Papierboxen die umweltfreundlichere Wahl &mdash; und werden von immer mehr G&auml;sten aktiv bevorzugt. Ein nachhaltiges Verpackungskonzept st&auml;rkt das Image deines Betriebs und kommt bei deinen Kunden gut an.</p>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact">
   <h2 class="contact-title">Bereit loszulegen?</h2>
-  <p class="contact-sub">Frag jetzt an &mdash; wir antworten innerhalb von 24 Stunden und kuemmern uns um alles Weitere.</p>
+  <p class="contact-sub">Frag jetzt an &mdash; wir antworten innerhalb von 24 Stunden und k&uuml;mmern uns um alles Weitere.</p>
   <div class="contact-btns">
-    <a id="contact-wa" href="https://wa.me/4917673216419?text=Hallo%2C%20ich%20moechte%20Burgerboxen%20anfragen." target="_blank" class="cbtn-wa">
+    <a id="contact-wa" href="https://wa.me/4917673216419?text=Hallo%2C%20ich%20m%C3%B6chte%20Burgerboxen%20anfragen." target="_blank" class="cbtn-wa">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
     </a>
@@ -460,18 +457,34 @@
     }
   };
   const dimensions = {
-    'S': '95 x 95 x 73 mm',
-    'M': '114 x 113 x 89 mm',
+    'S': '95 x 95 x 75 mm',
+    'M': '118 x 118 x 90 mm',
     'L': '130 x 130 x 90 mm'
   };
-  const matLabel = { 'bristol': 'Bristol Weiss', 'kraft': 'Kraft Braun', 'ckb': 'CKB Weiss/Braun' };
+  const matLabel = { 'bristol': 'Bristol Wei\u00DF', 'kraft': 'Kraft Braun', 'ckb': 'CKB Wei\u00DF/Braun' };
+
+  const mengeOptions = { 'S': [15000,20000,30000,40000], 'M': [30000,40000], 'L': [30000,40000] };
 
   const sel = { size:'S', material:'bristol', menge:15000 };
 
+  function renderMengeBtns() {
+    const opts = mengeOptions[sel.size];
+    if (!opts.includes(sel.menge)) sel.menge = opts[0];
+    const container = document.getElementById('menge-btns');
+    container.innerHTML = opts.map(q =>
+      '<button class="opt' + (q === sel.menge ? ' active' : '') + '" onclick="selectOpt(\'menge\',' + q + ',this)">' +
+      q.toLocaleString('de-DE') + ' St\u00FCck</button>'
+    ).join('');
+  }
+
   function selectOpt(key, val, btn) {
     sel[key] = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    if (key === 'size') {
+      renderMengeBtns();
+    } else {
+      btn.closest('.opt-btns').querySelectorAll('.opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
     updateAll();
   }
 
@@ -486,12 +499,12 @@
     const pp = pricePerPiece[sel.size][sel.material][sel.menge];
     const total = Math.round(pp * sel.menge * 100) / 100;
     document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
-    document.getElementById('price-per').textContent = pp.toFixed(4).replace('.',',') + ' EUR / Stueck';
+    document.getElementById('price-per').textContent = pp.toFixed(4).replace('.',',') + ' EUR / St\u00FCck';
 
     const mat = matLabel[sel.material];
-    const msg = encodeURIComponent('Hallo, ich interessiere mich fuer Burgerboxen (Groesse ' + sel.size + ', ' + dimensions[sel.size] + ', ' + mat + ', ' + sel.menge.toLocaleString('de-DE') + ' Stueck) und moechte ein Angebot anfragen.');
+    const msg = encodeURIComponent('Hallo, ich interessiere mich f\u00FCr Burgerboxen (Gr\u00F6\u00DFe ' + sel.size + ', ' + dimensions[sel.size] + ', ' + mat + ', ' + sel.menge.toLocaleString('de-DE') + ' St\u00FCck) und m\u00F6chte ein Angebot anfragen.');
     document.getElementById('wa-link').href = 'https://wa.me/4917673216419?text=' + msg;
-    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Burgerbox&body=Groesse%3A%20' + sel.size + '%0AAbmessungen%3A%20' + encodeURIComponent(dimensions[sel.size]) + '%0AMaterial%3A%20' + encodeURIComponent(mat) + '%0AMenge%3A%20' + sel.menge.toLocaleString('de-DE') + '%20Stueck';
+    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Burgerbox&body=Gr%C3%B6%C3%9Fe%3A%20' + sel.size + '%0AAbmessungen%3A%20' + encodeURIComponent(dimensions[sel.size]) + '%0AMaterial%3A%20' + encodeURIComponent(mat) + '%0AMenge%3A%20' + sel.menge.toLocaleString('de-DE') + '%20St%C3%BCck';
   }
 
   function fmt(n) { return n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
@@ -517,6 +530,7 @@
     document.getElementById('delivery-date').textContent = 'ca. ' + d.toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric' });
   })();
 
+  renderMengeBtns();
   updateAll();
 </script>
 </body>
