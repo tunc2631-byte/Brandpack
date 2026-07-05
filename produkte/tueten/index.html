@@ -12,7 +12,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 92px; }
     * { -webkit-tap-highlight-color: transparent; }
     a, button { touch-action: manipulation; }
     :root {
@@ -28,7 +28,7 @@
        NAV  (identical to main site)
     --------------------------------------- */
     .nav-wrapper {
-      position: sticky; top: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       padding: 12px 20px; pointer-events: none;
     }
     .nav-wrapper nav {
@@ -87,10 +87,12 @@
       .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,.08) !important; }
       .nav-logo { height: 90px !important; }
       .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; }
+      body { padding-top: 72px; }
     }
     @media (max-width: 480px) {
       .nav-logo { height: 75px !important; }
       .nav-inner { height: 64px !important; }
+      body { padding-top: 64px; }
     }
 
     /* ---------------------------------------
@@ -99,9 +101,7 @@
     .product-hero {
       display: grid;
       grid-template-columns: 55% 45%;
-      height: calc(100vh - 92px);
-      min-height: 560px;
-      max-height: 900px;
+      min-height: calc(100vh - 92px);
     }
     @media (max-width: 960px) {
       .product-hero {
@@ -175,13 +175,13 @@
     /* Option groups */
     .opt-group { margin-bottom: 14px; }
     .opt-group-label {
-      font-size: 10px; font-weight: 700; color: var(--muted);
+      font-size: 11px; font-weight: 700; color: var(--muted);
       text-transform: uppercase; letter-spacing: .07em;
       margin-bottom: 7px;
     }
-    .opt-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+    .opt-btns { display: flex; flex-wrap: wrap; gap: 7px; }
     .opt {
-      padding: 7px 15px; border-radius: 100px;
+      padding: 9px 18px; border-radius: 100px;
       border: 1.5px solid #d2d2d7; background: #fff;
       font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark);
       cursor: pointer; transition: border-color .12s, background .12s, color .12s;

@@ -12,7 +12,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 92px; }
     * { -webkit-tap-highlight-color: transparent; }
     a, button { touch-action: manipulation; }
     :root {
@@ -25,7 +25,7 @@
     }
 
     /* NAV */
-    .nav-wrapper { position: sticky; top: 0; z-index: 200; padding: 12px 20px; pointer-events: none; }
+    .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 12px 20px; pointer-events: none; }
     .nav-wrapper nav { background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04); pointer-events: all; max-width: 1200px; margin: 0 auto; border: 1px solid #E8E3DA; }
     .nav-inner { padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px; }
     .nav-logo { height: 150px; width: auto; }
@@ -50,11 +50,11 @@
     .mobile-menu.open a:nth-child(5) { opacity: 1; transform: none; transition-delay: .21s; }
     .mobile-menu a:hover { color: var(--pink); }
     @media (min-width: 769px) { .nav-wrapper { transition: padding .35s cubic-bezier(.22,1,.36,1); } .nav-wrapper.scrolled { padding: 6px 20px; } }
-    @media (max-width: 768px) { .nav-links, .btn-pink.nav-cta { display: none !important; } .hamburger { display: flex !important; } .nav-wrapper { padding: 0 !important; } .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,.08) !important; } .nav-logo { height: 90px !important; } .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; } }
-    @media (max-width: 480px) { .nav-logo { height: 75px !important; } .nav-inner { height: 64px !important; } }
+    @media (max-width: 768px) { .nav-links, .btn-pink.nav-cta { display: none !important; } .hamburger { display: flex !important; } .nav-wrapper { padding: 0 !important; } .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,.08) !important; } .nav-logo { height: 90px !important; } .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; } body { padding-top: 72px; } }
+    @media (max-width: 480px) { .nav-logo { height: 75px !important; } .nav-inner { height: 64px !important; } body { padding-top: 64px; } }
 
     /* PRODUCT HERO */
-    .product-hero { display: grid; grid-template-columns: 55% 45%; height: calc(100vh - 92px); min-height: 560px; max-height: 900px; }
+    .product-hero { display: grid; grid-template-columns: 55% 45%; min-height: calc(100vh - 92px); }
     @media (max-width: 960px) { .product-hero { grid-template-columns: 1fr; height: auto; max-height: none; } }
 
     /* Image panel */
@@ -77,10 +77,10 @@
     .breadcrumb a:hover { color: var(--dark); }
     .breadcrumb span { color: #c7c7cc; }
     h1.product-title { font-size: clamp(26px, 3vw, 38px); font-weight: 900; letter-spacing: -.03em; color: var(--dark); line-height: 1.05; margin-bottom: 14px; }
-    .opt-group { margin-bottom: 10px; }
-    .opt-group-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 5px; }
-    .opt-btns { display: flex; flex-wrap: wrap; gap: 5px; }
-    .opt { padding: 6px 13px; border-radius: 100px; border: 1.5px solid #d2d2d7; background: #fff; font-family: inherit; font-size: 12px; font-weight: 700; color: var(--dark); cursor: pointer; transition: border-color .12s, background .12s, color .12s; white-space: nowrap; }
+    .opt-group { margin-bottom: 14px; }
+    .opt-group-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
+    .opt-btns { display: flex; flex-wrap: wrap; gap: 7px; }
+    .opt { padding: 9px 18px; border-radius: 100px; border: 1.5px solid #d2d2d7; background: #fff; font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark); cursor: pointer; transition: border-color .12s, background .12s, color .12s; white-space: nowrap; }
     .opt:hover { border-color: #8e8e93; }
     .opt.active { background: var(--dark); color: #fff; border-color: var(--dark); }
     .dim-hint { font-size: 11px; color: var(--pink); font-weight: 700; margin-top: 4px; }
