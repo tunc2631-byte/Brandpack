@@ -266,29 +266,47 @@
     /* ---------------------------------------
        SPECS TABLE
     --------------------------------------- */
-    .specs-section { background: var(--bg); padding: 80px 24px; }
+    .specs-section {
+      background: #fff; padding: 80px 24px;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    }
     .specs-inner { max-width: 1000px; margin: 0 auto; }
-    .specs-title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 900; color: var(--dark); letter-spacing: -.02em; margin-bottom: 6px; }
-    .specs-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+    .specs-header { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+    .specs-pink-bar { width: 4px; height: 32px; background: var(--pink); border-radius: 4px; flex-shrink: 0; }
+    .specs-title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--dark); letter-spacing: -.025em; }
+    .specs-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; margin-left: 18px; }
     .specs-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .specs-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 14px; overflow: hidden; min-width: 640px; }
-    .specs-table thead tr { background: var(--dark); color: #fff; }
-    .specs-table th { padding: 12px 14px; font-size: 12px; font-weight: 700; text-align: center; }
+    .specs-table {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+      background: #fff; border-radius: 16px; overflow: hidden;
+      min-width: 640px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05);
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    }
+    .specs-table thead tr { background: var(--pink); color: #fff; }
+    .specs-table th { padding: 13px 16px; font-size: 12px; font-weight: 600; text-align: center; letter-spacing: .02em; }
     .specs-table th:first-child { text-align: left; }
-    .specs-table td { padding: 11px 14px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
-    .specs-table td:first-child { text-align: left; font-weight: 700; color: var(--dark); white-space: nowrap; }
+    .specs-table td { padding: 12px 16px; text-align: center; border-bottom: 1px solid #f5f5f5; font-size: 13px; color: #3a3a3a; }
+    .specs-table td:first-child {
+      text-align: left; font-weight: 600; color: var(--dark);
+      white-space: nowrap; background: #fdf4f5;
+      border-right: 2px solid rgba(240,122,140,.15);
+    }
     .specs-table tr:last-child td { border-bottom: none; }
-    .specs-table tr:nth-child(even) td { background: #fafafa; }
-    .specs-table tr:nth-child(even) td:first-child { background: #fafafa; }
-    .specs-footnote { font-size: 12px; color: var(--muted); margin-top: 14px; }
+    .specs-table tr:hover td { background: #fff8f9; }
+    .specs-table tr:hover td:first-child { background: #fceef0; }
+    .specs-footnote { font-size: 12px; color: var(--muted); margin-top: 14px; margin-left: 2px; }
 
     /* ---------------------------------------
        SEO / PRODUCT INFO SECTION
     --------------------------------------- */
     .seo-section { background: var(--bg); padding: 80px 24px; }
-    .seo-inner { max-width: 860px; margin: 0 auto; }
-    .seo-inner h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 900; color: var(--dark); letter-spacing: -.02em; margin-bottom: 10px; }
-    .seo-inner h3 { font-size: 18px; font-weight: 800; color: var(--dark); margin: 32px 0 8px; }
+    .seo-inner {
+      max-width: 860px; margin: 0 auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    }
+    .seo-inner h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--dark); letter-spacing: -.02em; margin-bottom: 10px; }
+    .seo-inner h3 { font-size: 17px; font-weight: 600; color: var(--pink); margin: 32px 0 8px; letter-spacing: -.01em; }
     .seo-inner p { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 16px; }
     .seo-inner ul { padding-left: 20px; margin-bottom: 16px; }
     .seo-inner ul li { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 4px; }
@@ -495,7 +513,10 @@
 <!-- -- SPECS TABLE -- -->
 <section class="specs-section">
   <div class="specs-inner">
-    <h2 class="specs-title">Technische Spezifikationen</h2>
+    <div class="specs-header">
+      <div class="specs-pink-bar"></div>
+      <h2 class="specs-title">Technische Spezifikationen</h2>
+    </div>
     <p class="specs-sub">Alle Angaben pro Größenvariante</p>
     <div class="specs-wrap">
       <table class="specs-table">
