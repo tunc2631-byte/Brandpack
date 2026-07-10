@@ -144,43 +144,34 @@
 </head>
 <body>
 
-<!-- NAV -->
-<div class="nav-wrapper" id="nav-wrapper">
+<div class="nav-wrapper" id="navWrapper">
   <nav>
     <div class="nav-inner">
-      <a href="/"><img src="/Bilder/neues%20logo.png" alt="PackFactory" class="nav-logo"></a>
+      <a href="/" style="display:flex;align-items:center;flex-shrink:0;">
+        <img src="/Bilder/neues%20logo.png" alt="PackFactory" class="nav-logo">
+      </a>
       <div class="nav-links">
+        <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
-        <a href="/#so-funktionierts">So funktioniert's</a>
+        <a href="/designservice/">Designservice</a>
+        <a href="/ueber-uns/">&Uuml;ber uns</a>
         <a href="/#kontakt">Kontakt</a>
       </div>
       <div class="nav-right">
-        <a href="/#kontakt" class="btn-pink nav-cta">Anfragen</a>
-        <button class="hamburger" id="hamburger" aria-label="Men&uuml;">
-          <span></span><span></span><span></span>
-        </button>
+        <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
 </div>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="/#produkte" onclick="closeMobileMenu()">Produkte</a>
-  <a href="/#so-funktionierts" onclick="closeMobileMenu()">So funktioniert's</a>
-  <a href="/#kontakt" onclick="closeMobileMenu()">Kontakt</a>
-  <a href="/#kontakt" onclick="closeMobileMenu()" style="color:var(--pink);">Anfragen</a>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#produkte" onclick="closeMenu()">Produkte</a>
+  <a href="/designservice/" onclick="closeMenu()">Designservice</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
+  <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
-
-<script>
-  var hamburger = document.getElementById('hamburger');
-  var mobileMenu = document.getElementById('mobile-menu');
-  function closeMobileMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
-  hamburger.addEventListener('click', function() { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
-  window.addEventListener('scroll', function() {
-    document.getElementById('nav-wrapper').classList.toggle('scrolled', window.scrollY > 20);
-  });
-</script>
 
 <!-- HERO -->
 <section class="product-hero">
@@ -252,7 +243,7 @@
 <div class="delivery-strip">
   <div class="delivery-item">
     <div class="delivery-label">Lieferzeit</div>
-    <div class="delivery-value">ca. 3&ndash;4 Wochen</div>
+    <div class="delivery-value">ca. 6&ndash;8 Wochen</div>
   </div>
   <div class="delivery-item">
     <div class="delivery-label">Versand</div>
@@ -372,7 +363,7 @@
       <li><strong>Ab 200 kg Mindestbestellmenge</strong> &mdash; auch f&uuml;r mittelgro&szlig;e Betriebe realisierbar</li>
       <li><strong>Einrichtungskosten nur beim ersten Auftrag</strong> &mdash; Nachbestellungen ohne erneute Einrichtungskosten</li>
       <li><strong>Flexodruck, 1&ndash;4 Farben</strong> &mdash; wirtschaftlich und farbstark</li>
-      <li><strong>Lieferzeit ca. 3&ndash;4 Wochen</strong> nach Auftragsbest&auml;tigung</li>
+      <li><strong>Lieferzeit ca. 6&ndash;8 Wochen</strong> nach Auftragsbest&auml;tigung</li>
       <li><strong>Kostenlose Beratung</strong> bei Papierauswahl und Druckdaten</li>
     </ul>
   </div>
