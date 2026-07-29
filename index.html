@@ -612,112 +612,60 @@
     <p id="no-products-msg" style="display:none; text-align:center; color:#aaa; padding: 40px 0; font-size:15px;">Keine Produkte f&uuml;r diese Auswahl gefunden.</p>
 
     <script>
-    let allProducts = [];
-    const localPages = {
-      'tuten': '/produkte/tueten/',
-      'sleeves': '/produkte/sleeves/',
-      'burgerbox': '/produkte/burgerbox/',
-      'papiere': '/produkte/einschlagpapier/',
-      'brotchentuten': '/produkte/broetchentueten/',
-      'donertute-16x17cm': '/produkte/doenertueten/',
-      'kuru-pasta-kutusu': '/produkte/kuru-pasta/'
-    };
-    const localImages = {
-      'donertute-16x17cm': '/Bilder/doenertueten.jpeg',
-      'brotchentuten':     '/Bilder/broetchentueten.jpeg',
-      'kuru-pasta-kutusu': '/Bilder/kurupasta.jpeg'
-    };
-    let activeKat = 'alle';
+    var PRODUCTS = [
+      { title: 'Papiert\u00FCten',        tags: ['papiert\u00FCten'], price: '1.391,00', img: '/Bilder/tueten.jpeg',           url: '/produkte/tueten/' },
+      { title: 'Kaffeebecher Sleeves',    tags: ['pappbecher'],  price: '546,00',   img: '/Bilder/sleeves.jpeg',          url: '/produkte/sleeves/' },
+      { title: 'Burgerbox',               tags: ['papierboxen'], price: '1.690,50', img: '/Bilder/burgerbox.jpeg',        url: '/produkte/burgerbox/' },
+      { title: 'Einschlagpapier',         tags: ['papier'],      price: '1.400,00', img: '/Bilder/Tablettpapier.jpeg',    url: '/produkte/einschlagpapier/' },
+      { title: 'Br\u00F6tchent\u00FCten', tags: ['papiert\u00FCten'], price: '1.400,00', img: '/Bilder/broetchentueten.jpeg',  url: '/produkte/broetchentueten/' },
+      { title: 'D\u00F6nert\u00FCten',    tags: ['papiert\u00FCten'], price: '1.400,00', img: '/Bilder/doenertueten.jpeg',     url: '/produkte/doenertueten/' },
+      { title: 'Kuru Pasta Kutusu',       tags: ['papierboxen'], price: '1.410,00', img: '/Bilder/kurupasta.jpeg',        url: '/produkte/kuru-pasta/' }
+    ];
+
+    var activeKat = 'alle';
 
     function setFilter(group, val) {
       activeKat = val;
-      document.querySelectorAll('.filter-kat').forEach(b => b.classList.toggle('active', b.dataset.val === val));
+      document.querySelectorAll('.filter-kat').forEach(function(b) { b.classList.toggle('active', b.dataset.val === val); });
       renderProducts();
     }
 
     function renderProducts() {
-      const grid = document.getElementById('shopify-products-grid');
-      const msg  = document.getElementById('no-products-msg');
-      const filtered = allProducts.filter(p => {
-        const tags = p.tags.map(t => t.toLowerCase());
-        return activeKat === 'alle' || tags.includes(activeKat);
+      var grid = document.getElementById('shopify-products-grid');
+      var msg  = document.getElementById('no-products-msg');
+      var filtered = PRODUCTS.filter(function(p) {
+        return activeKat === 'alle' || p.tags.includes(activeKat);
       });
       if (filtered.length === 0) { grid.innerHTML = ''; msg.style.display = 'block'; return; }
       msg.style.display = 'none';
-      grid.innerHTML = filtered.map(p => {
-        const shopImg = p.images.edges[0]?.node;
-        const localImg = localImages[p.handle];
-        const imgSrc = localImg || (shopImg ? shopImg.url : null);
-        const imgAlt = shopImg ? (shopImg.altText || p.title) : p.title;
-        const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
-        const url   = localPages[p.handle] || 'https://shop.pack-factory.de/products/' + p.handle;
-        return `
-          <a href="${url}" target="_blank" rel="noopener" style="text-decoration:none; display:block; background:#f2f2f7; border-radius:18px; overflow:hidden; transition:transform 0.3s cubic-bezier(.34,1.56,.64,1),box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.10)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-            <div style="aspect-ratio:1/1; overflow:hidden; background:#f2f2f7;">
-              ${imgSrc ? `<img src="${imgSrc}" alt="${imgAlt}" style="width:100%;height:100%;object-fit:contain;padding:12px;transition:transform 0.5s cubic-bezier(.25,1,.5,1);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">` : '<div style="width:100%;height:100%;background:#e5e5ea;"></div>'}
-            </div>
-            <div style="padding:14px 16px 18px; background:#fff;">
-              <h3 style="font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:10px;line-height:1.3;">${p.title}</h3>
-              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-                <span style="font-size:15px;font-weight:800;color:#1a1a1a;">ab \u20AC${price}</span>
-                <span style="background:#3a3a3c;color:#fff;font-size:12px;font-weight:700;padding:7px 16px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2c'" onmouseout="this.style.background='#3a3a3c'" class="btn-kaufen">Kaufen \u2192</span>
-              </div>
-            </div>
-          </a>`;
+      grid.innerHTML = filtered.map(function(p) {
+        var imgHtml = p.img
+          ? '<img src="' + p.img + '" alt="' + p.title + '" style="width:100%;height:100%;object-fit:contain;padding:12px;transition:transform 0.5s cubic-bezier(.25,1,.5,1);" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\'">'
+          : '<div style="width:100%;height:100%;background:#e5e5ea;"></div>';
+        return '<a href="' + p.url + '" style="text-decoration:none;display:block;background:#f2f2f7;border-radius:18px;overflow:hidden;transition:transform 0.3s cubic-bezier(.34,1.56,.64,1),box-shadow 0.3s ease;" onmouseover="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 12px 32px rgba(0,0,0,0.10)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">'
+          + '<div style="aspect-ratio:1/1;overflow:hidden;background:#f2f2f7;">' + imgHtml + '</div>'
+          + '<div style="padding:14px 16px 18px;background:#fff;">'
+          + '<h3 style="font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:10px;line-height:1.3;">' + p.title + '</h3>'
+          + '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">'
+          + '<span style="font-size:15px;font-weight:800;color:#1a1a1a;">ab \u20AC' + p.price + '</span>'
+          + '<span style="background:#3a3a3c;color:#fff;font-size:12px;font-weight:700;padding:7px 16px;border-radius:100px;white-space:nowrap;" class="btn-kaufen">Kaufen \u2192</span>'
+          + '</div></div></a>';
       }).join('');
     }
 
-    fetch('https://rufvva-ug.myshopify.com/api/2024-01/graphql.json', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': 'b4105051f35bb57511c8b7493375b19c'
-      },
-      body: JSON.stringify({ query: `{
-        products(first: 50) {
-          edges {
-            node {
-              title handle tags
-              priceRange { minVariantPrice { amount currencyCode } }
-              images(first: 1) { edges { node { url altText } } }
-            }
-          }
-        }
-      }`})
-    })
-    .then(r => r.json())
-    .then(data => {
-      allProducts = data.data.products.edges.map(e => e.node);
-
-      // Hero bestseller cards: find T\u00FCten, Sleeves, Burgerbox by title keyword
-      const tuete  = allProducts.find(p => /t\u00FCt|t\u00FCte|bag/i.test(p.title));
-      const sleeve = allProducts.find(p => /sleeve|manschett|h\u00FClle/i.test(p.title));
-      const burger = allProducts.find(p => /burger|burgerbox/i.test(p.title));
-      const heroProducts = [tuete, sleeve, burger].filter(Boolean);
-      // fallback: fill up to 3 with unused products
-      const usedHandles = new Set(heroProducts.map(p => p.handle));
-      for (const p of allProducts) {
-        if (heroProducts.length >= 3) break;
-        if (!usedHandles.has(p.handle)) { heroProducts.push(p); usedHandles.add(p.handle); }
-      }
-      heroProducts.slice(0,3).forEach((p, i) => {
-        const shopImg = p.images.edges[0]?.node;
-        const localImg = localImages[p.handle];
-        const imgSrc = localImg || (shopImg ? shopImg.url : null);
-        const price = parseFloat(p.priceRange.minVariantPrice.amount).toFixed(2).replace('.', ',');
-        const url   = localPages[p.handle] || 'https://shop.pack-factory.de/products/' + p.handle;
-        document.getElementById('hero-card-' + i).href = url;
-        document.getElementById('hero-title-' + i).textContent = p.title;
-        document.getElementById('hero-price-' + i).textContent = 'ab \u20AC' + price;
-        if (imgSrc) document.getElementById('hero-img-' + i).innerHTML =
-          `<img src="${imgSrc}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`;
-      });
-
-      renderProducts();
-    })
-    .catch(() => {
-      document.getElementById('shopify-products-grid').innerHTML = '<p style="color:#aaa;">Produkte konnten nicht geladen werden.</p>';
+    // Hero tiles (T\u00FCten, Sleeves, Burgerbox)
+    [0, 1, 2].forEach(function(i) {
+      var p = PRODUCTS[i];
+      var card = document.getElementById('hero-card-' + i);
+      if (!card) return;
+      card.href = p.url;
+      document.getElementById('hero-title-' + i).textContent = p.title;
+      document.getElementById('hero-price-' + i).textContent = 'ab \u20AC' + p.price;
+      if (p.img) document.getElementById('hero-img-' + i).innerHTML =
+        '<img src="' + p.img + '" alt="' + p.title + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
     });
+
+    renderProducts();
     </script>
   </div>
 </section>
