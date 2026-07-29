@@ -228,7 +228,6 @@
         <button class="opt" onclick="selectOpt('groesse','m',this)">M &middot; 169&times;98&times;63</button>
         <button class="opt" onclick="selectOpt('groesse','l',this)">L &middot; 225&times;120&times;70</button>
       </div>
-      <div class="dim-hint" id="dim-hint">139 &times; 78 &times; 53 mm</div>
     </div>
 
     <!-- Menge -->
@@ -446,9 +445,8 @@
     var d = DIMS[sel.groesse];
     document.getElementById('price-display').textContent = 'EUR ' + fmt(p.total);
     document.getElementById('price-per').textContent     = p.vk.toFixed(3).replace('.', ',') + ' \u20AC / St\xfcck';
-    document.getElementById('badge-size').textContent    = d.label;
-    document.getElementById('badge-dim').textContent     = d.dim;
-    document.getElementById('dim-hint').textContent      = d.dim;
+    document.getElementById('badge-size').textContent = d.label;
+    document.getElementById('badge-dim').textContent  = d.dim;
 
     var msg = 'Hallo, ich interessiere mich f\xfcr FC Box Gr\xf6\xdfe ' + d.label + ', ' + sel.menge.toLocaleString('de-DE') + ' St\xfcck und m\xf6chte ein Angebot anfragen.';
     document.getElementById('wa-link').href    = 'https://wa.me/4917673216419?text=' + encodeURIComponent(msg);
