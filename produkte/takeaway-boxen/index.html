@@ -90,12 +90,15 @@
 
     /* MATERIAL CHIPS */
     .mat-chips { display: flex; gap: 7px; flex-wrap: wrap; }
-    .mat-chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 100px; padding: 6px 13px; font-size: 12px; font-weight: 700; border: 1.5px solid; }
+    .mat-chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 100px; padding: 6px 13px; font-family: inherit; font-size: 12px; font-weight: 700; border: 1.5px solid; cursor: pointer; transition: border-color .12s, background .12s, box-shadow .12s; }
     .mat-chip-white { background: #fff; border-color: #d2d2d7; color: var(--dark); }
     .mat-chip-kraft { background: #f0ebe0; border-color: #a0845a; color: #5a3a10; }
     .mat-chip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .mat-chip-white .mat-chip-dot { background: #e0e0e0; border: 1.5px solid #aaa; }
     .mat-chip-kraft .mat-chip-dot { background: #8B5E2D; }
+    .mat-chip:hover { border-color: #8e8e93; }
+    .mat-chip.active { box-shadow: 0 0 0 2px var(--dark) inset; }
+    .mat-chip-kraft.active { box-shadow: 0 0 0 2px #5a3a10 inset; }
 
     /* DELIVERY STRIP */
     .delivery-strip { background: var(--card); border-bottom: 1px solid #E8E3DA; display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; }
@@ -236,8 +239,8 @@
     <div class="opt-group">
       <div class="opt-group-label">Material</div>
       <div class="mat-chips">
-        <span class="mat-chip mat-chip-white"><span class="mat-chip-dot"></span>Bristol (wei&szlig;)</span>
-        <span class="mat-chip mat-chip-kraft"><span class="mat-chip-dot"></span>Kraft (braun)</span>
+        <button type="button" class="mat-chip mat-chip-white active" onclick="selectOpt('material','Bristol',this)"><span class="mat-chip-dot"></span>Bristol (wei&szlig;)</button>
+        <button type="button" class="mat-chip mat-chip-kraft" onclick="selectOpt('material','Kraft',this)"><span class="mat-chip-dot"></span>Kraft (braun)</button>
       </div>
       <div class="dim-hint" style="margin-top:6px;">Gleicher Preis f&uuml;r Bristol &amp; Kraft</div>
     </div>
@@ -429,11 +432,11 @@
     '98': { label: '98oz', dim: '197 \xd7 140 \xd7 89 mm' }
   };
 
-  var sel = { groesse: '26', menge: 10000 };
+  var sel = { groesse: '26', menge: 10000, material: 'Bristol' };
 
   function selectOpt(key, val, btn) {
     sel[key] = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
+    Array.prototype.forEach.call(btn.parentElement.children, function(b) { b.classList.remove('active'); });
     btn.classList.add('active');
     updateAll();
     var img = document.getElementById('product-img');
@@ -448,9 +451,9 @@
     document.getElementById('badge-size').textContent = d.label;
     document.getElementById('badge-dim').textContent  = d.dim;
 
-    var msg = 'Hallo, ich interessiere mich f\xfcr Take-away Boxen (' + d.label + ', ' + d.dim + ', ' + sel.menge.toLocaleString('de-DE') + ' St\xfcck) und m\xf6chte ein Angebot anfragen.';
+    var msg = 'Hallo, ich interessiere mich f\xfcr Take-away Boxen (' + d.label + ', ' + d.dim + ', ' + sel.material + ', ' + sel.menge.toLocaleString('de-DE') + ' St\xfcck) und m\xf6chte ein Angebot anfragen.';
     document.getElementById('wa-link').href    = 'https://wa.me/4917673216419?text=' + encodeURIComponent(msg);
-    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Take-away%20Boxen&body=' + encodeURIComponent('Gr\xf6\xdfe: ' + d.label + ' (' + d.dim + ')\nMenge: ' + sel.menge.toLocaleString('de-DE') + ' St\xfcck\nMaterial: Bristol oder Kraft');
+    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Take-away%20Boxen&body=' + encodeURIComponent('Gr\xf6\xdfe: ' + d.label + ' (' + d.dim + ')\nMaterial: ' + sel.material + '\nMenge: ' + sel.menge.toLocaleString('de-DE') + ' St\xfcck');
     window.PF_ITEM = { title: 'Take-away Boxen', desc: msg, priceTotal: document.getElementById('price-display').textContent, url: location.pathname };
   }
 
