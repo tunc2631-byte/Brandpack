@@ -125,9 +125,6 @@
       user-select: none; pointer-events: none;
       display: block;
     }
-    .img-panel img.brown {
-      filter: sepia(35%) saturate(120%) brightness(.93) hue-rotate(-10deg);
-    }
     .img-panel img.pulse { animation: imgPulse .28s ease; }
     @keyframes imgPulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
 
@@ -143,8 +140,8 @@
     .size-badge-d { font-size: 11px; color: rgba(255,255,255,.6); }
 
     @media (max-width: 960px) {
-      .img-panel { height: 44vw; min-height: 220px; }
-      .img-panel img { width: 52%; }
+      .img-panel { height: 60vw; min-height: 300px; }
+      .img-panel img { width: 84%; height: 84%; }
       .size-badge { bottom: 14px; left: 14px; padding: 7px 11px; }
       .size-badge-v { font-size: 16px; }
     }
@@ -725,7 +722,6 @@
     const img = document.getElementById('product-img');
 
     // Image feedback
-    img.classList.toggle('brown', sel.material === 'Brownkraft');
     img.classList.remove('pulse');
     void img.offsetWidth;
     img.classList.add('pulse');
