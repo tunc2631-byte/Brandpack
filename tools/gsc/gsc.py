@@ -1,16 +1,21 @@
 #!/usr/bin/env python
 """
-Google Search Console data fetcher for pack-factory.de.
+Google Search Console data fetcher + manager for pack-factory.de.
 
 Uses a service account (key kept outside this repo, in
 ~/.credentials/packfactory-seo/service-account.json) that has been
-added as a user on the Search Console property.
+added as a Full user on the Search Console property.
 
-Usage:
+Read:
   python gsc.py queries [--days 28] [--limit 25]
   python gsc.py pages   [--days 28] [--limit 25]
   python gsc.py devices [--days 28]
   python gsc.py inspect <url>
+  python gsc.py sitemaps
+
+Write:
+  python gsc.py sitemap-submit <sitemap-url>
+  python gsc.py sitemap-delete <sitemap-url>
 """
 import argparse
 import datetime
@@ -23,7 +28,7 @@ from googleapiclient.discovery import build
 
 SITE_URL = "sc-domain:pack-factory.de"
 KEY_PATH = os.path.expanduser("~/.credentials/packfactory-seo/service-account.json")
-SCOPES = ["https://www.googleapis.com/auth/webmasters.readonly"]
+SCOPES = ["https://www.googleapis.com/auth/webmasters"]
 
 
 def get_credentials():
@@ -82,6 +87,39 @@ def cmd_inspect(args):
     print(json.dumps(resp, indent=2, ensure_ascii=False))
 
 
+def cmd_sitemaps(args):
+    creds = get_credentials()
+    service = build("webmasters", "v3", credentials=creds)
+    resp = service.sitemaps().list(siteUrl=SITE_URL).execute()
+    entries = resp.get("sitemap", [])
+    if not entries:
+        print("Keine Sitemaps eingereicht.")
+        return
+    for s in entries:
+        print(f"{s.get('path')}")
+        print(f"  Typ: {s.get('type')}  Zuletzt gelesen: {s.get('lastDownloaded', '-')}")
+        errors = s.get("errors", 0)
+        warnings = s.get("warnings", 0)
+        print(f"  Fehler: {errors}  Warnungen: {warnings}")
+        for c in s.get("contents", []):
+            print(f"  {c.get('type')}: {c.get('submitted')} eingereicht, {c.get('indexed', '-')} indexiert")
+        print()
+
+
+def cmd_sitemap_submit(args):
+    creds = get_credentials()
+    service = build("webmasters", "v3", credentials=creds)
+    service.sitemaps().submit(siteUrl=SITE_URL, feedpath=args.url).execute()
+    print(f"Sitemap eingereicht: {args.url}")
+
+
+def cmd_sitemap_delete(args):
+    creds = get_credentials()
+    service = build("webmasters", "v3", credentials=creds)
+    service.sitemaps().delete(siteUrl=SITE_URL, feedpath=args.url).execute()
+    print(f"Sitemap entfernt: {args.url}")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -103,6 +141,17 @@ def main():
     p_i = sub.add_parser("inspect", help="URL Inspection API für eine einzelne URL")
     p_i.add_argument("url")
     p_i.set_defaults(func=cmd_inspect)
+
+    p_sm = sub.add_parser("sitemaps", help="Eingereichte Sitemaps auflisten")
+    p_sm.set_defaults(func=cmd_sitemaps)
+
+    p_ss = sub.add_parser("sitemap-submit", help="Sitemap einreichen/neu abrufen lassen")
+    p_ss.add_argument("url")
+    p_ss.set_defaults(func=cmd_sitemap_submit)
+
+    p_sd = sub.add_parser("sitemap-delete", help="Sitemap-Eintrag entfernen")
+    p_sd.add_argument("url")
+    p_sd.set_defaults(func=cmd_sitemap_delete)
 
     args = parser.parse_args()
     args.func(args)
