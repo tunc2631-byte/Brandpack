@@ -1,0 +1,1560 @@
+[
+  {
+    "url": "https://pack-factory.de/produkte/tueten/",
+    "name": "Papiertüten",
+    "source_file": "produkte/tueten/index.html",
+    "source_sha256": "2de30c23666f7ff9c42c4b36bbe5d4d608304103c1dac65f5ac2463ac7b7dd32",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "XXL"
+        ],
+        [
+          "Abmessungen (mm)",
+          "180×80×240",
+          "220×100×285",
+          "260×160×280",
+          "320×170×270",
+          "320×220×250",
+          "460×220×460"
+        ],
+        [
+          "Farbe",
+          "Weiß / Braun",
+          "Weiß / Braun",
+          "Weiß / Braun",
+          "Weiß / Braun",
+          "Weiß / Braun",
+          "Weiß / Braun"
+        ],
+        [
+          "Material",
+          "Weißes Papier / Kraft",
+          "Weißes Papier / Kraft",
+          "Weißes Papier / Kraft",
+          "Weißes Papier / Kraft",
+          "Weißes Papier / Kraft",
+          "Weißes Papier / Kraft"
+        ],
+        [
+          "Papierstärke",
+          "70 g/m²",
+          "70 g/m²",
+          "70 g/m²",
+          "80 g/m²",
+          "80 g/m²",
+          "100 g/m²"
+        ],
+        [
+          "Druckmethode",
+          "Flexodruck",
+          "Flexodruck",
+          "Flexodruck",
+          "Flexodruck",
+          "Flexodruck",
+          "Flexodruck"
+        ],
+        [
+          "Anzahl Farben",
+          "1–4 Farben",
+          "1–4 Farben",
+          "1–4 Farben",
+          "1–4 Farben",
+          "1–4 Farben",
+          "1–4 Farben"
+        ],
+        [
+          "Druckbereich",
+          "30 % *",
+          "30 % *",
+          "30 % *",
+          "30 % *",
+          "30 % *",
+          "30 % *"
+        ],
+        [
+          "Mindestbestellmenge",
+          "10.000",
+          "10.000",
+          "10.000",
+          "10.000",
+          "10.000",
+          "10.000"
+        ],
+        [
+          "Stück pro Karton",
+          "250",
+          "250",
+          "250",
+          "250",
+          "250",
+          "200"
+        ],
+        [
+          "Max. pro Palette",
+          "15.000",
+          "15.000",
+          "10.000",
+          "7.500",
+          "7.500",
+          "5.000"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe XS S M L XL XXL Sondermaß 180 x 80 x 240 mm",
+      "Material Whitekraft — Weiß Brownkraft — Braun",
+      "Menge 10.000 Stück 20.000 Stück 30.000 Stück 50.000 Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 1.391,00 0,1391 € / Stück",
+      "Inkl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Lagerung & Logistik Auf Wunsch verfügbar",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die gesamte Verpackung professionell für dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand. Kostenlos inklusive",
+      "Persönliche Beratung Unsicher welche Größe, welches Material oder welche Menge? Wir beraten dich persönlich — per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner. Kostenlos & unverbindlich",
+      "Lagerung & Logistik Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine großen Lagermengen, kein eigener Lagerplatz — wir übernehmen die Logistik für dich. Auf Anfrage verfügbar"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/sleeves/",
+    "name": "Sleeves",
+    "source_file": "produkte/sleeves/index.html",
+    "source_sha256": "5dd31e5ffb6344ba865d8489a186027249b771404e983ab170a390fffd7c095e",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "8 oz",
+          "12 oz",
+          "16 oz"
+        ],
+        [
+          "Volumen",
+          "240 ml",
+          "350 ml",
+          "450 ml"
+        ],
+        [
+          "Durchmesser oben",
+          "Ø 80 mm",
+          "Ø 90 mm",
+          "Ø 90 mm"
+        ],
+        [
+          "Farbe",
+          "Weiß / Braun",
+          "Weiß / Braun",
+          "Weiß / Braun"
+        ],
+        [
+          "Material",
+          "Bristolpapier / Kraftkarton",
+          "Bristolpapier / Kraftkarton",
+          "Bristolpapier / Kraftkarton"
+        ],
+        [
+          "Papierstärke",
+          "1,3 mm",
+          "1,3 mm",
+          "1,3 mm"
+        ],
+        [
+          "Druckmethode",
+          "Offsetdruck",
+          "Offsetdruck",
+          "Offsetdruck"
+        ],
+        [
+          "Anzahl Farben",
+          "Alle CMYK",
+          "Alle CMYK",
+          "Alle CMYK"
+        ],
+        [
+          "Druckbereich",
+          "Rundherum / Volldruck",
+          "Rundherum / Volldruck",
+          "Rundherum / Volldruck"
+        ],
+        [
+          "Mindestbestellmenge",
+          "10.000",
+          "10.000",
+          "10.000"
+        ],
+        [
+          "Stück pro Karton",
+          "1.000",
+          "1.000",
+          "1.000"
+        ],
+        [
+          "Max. pro Palette",
+          "50.000",
+          "50.000",
+          "50.000"
+        ],
+        [
+          "Kompatibilität",
+          "Alle 8 oz Becher",
+          "Alle 12 oz Becher",
+          "Alle 16 oz Becher"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Becher-Größe 8 oz 12 oz 16 oz 240 ml · Ø 80 mm Weitere Größen auf Anfrage möglich",
+      "Material Brauner Kraftkarton Bristolpapier (Weiß)",
+      "Menge 10.000 Stück 20.000 Stück 30.000 Stück 50.000 Stück 75.000 Stück 100.000 Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 546,00 0,0546 EUR / Stück",
+      "Inkl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Lagerung & Logistik Auf Wunsch verfügbar",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die gesamte Verpackung professionell für dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand. Kostenlos inklusive",
+      "Persönliche Beratung Unsicher welche Größe oder welche Menge? Wir beraten dich persönlich — per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner. Kostenlos & unverbindlich",
+      "Lagerung & Logistik Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine großen Lagermengen, kein eigener Lagerplatz — wir übernehmen die Logistik für dich. Auf Anfrage verfügbar"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/burgerbox/",
+    "name": "Burgerbox",
+    "source_file": "produkte/burgerbox/index.html",
+    "source_sha256": "611b57205014a92dfea4ac7077f74947b143fedc2de042d920fd8758619424e3",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "S",
+          "M",
+          "L"
+        ],
+        [
+          "Abmessungen (L/B/H)",
+          "95 x 95 x 73 mm",
+          "114 x 113 x 89 mm",
+          "130 x 130 x 90 mm"
+        ],
+        [
+          "Farbe",
+          "Weiß / Braun",
+          "Weiß / Braun",
+          "Weiß / Braun"
+        ],
+        [
+          "Material & Stärke",
+          "Bristol ca. 300 g/m² · Kraft ca. 325 g/m² · CKB ca. 281 g/m²"
+        ],
+        [
+          "Druckmethode",
+          "Offsetdruck",
+          "Offsetdruck",
+          "Offsetdruck"
+        ],
+        [
+          "Anzahl Farben",
+          "Alle CMYK",
+          "Alle CMYK",
+          "Alle CMYK"
+        ],
+        [
+          "Druckbereich",
+          "Volldruck",
+          "Volldruck",
+          "Volldruck"
+        ],
+        [
+          "Mindestbestellmenge",
+          "15.000",
+          "15.000",
+          "15.000"
+        ],
+        [
+          "Anzahl pro Box",
+          "600",
+          "750",
+          "300"
+        ],
+        [
+          "Max. Anzahl pro Palette",
+          "15.000",
+          "10.000",
+          "9.000"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe S M L 95 x 95 x 73 mm Weitere Größen auf Anfrage möglich",
+      "Material Bristol (Weiß) Kraftpapier (Braun) CKB (Innen Weiß / Außen Braun)",
+      "Menge 15.000 Stück 20.000 Stück 30.000 Stück 40.000 Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 1.690,50 0,1127 EUR / Stück",
+      "Inkl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Lagerung & Logistik Auf Wunsch verfügbar",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die gesamte Verpackung professionell für dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand. Kostenlos inklusive",
+      "Persönliche Beratung Unsicher welche Größe oder welches Material? Wir beraten dich persönlich — per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner. Kostenlos & unverbindlich",
+      "Lagerung & Logistik Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine großen Lagermengen, kein eigener Lagerplatz — wir übernehmen die Logistik für dich. Auf Anfrage verfügbar"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/doenerboxen/",
+    "name": "Dönerboxen / Asiaboxen",
+    "source_file": "produkte/doenerboxen/index.html",
+    "source_sha256": "fbbe74f00a3da70ec29fe9f1c489640a630135e12058336c4fcab89e4a8adb17",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "S (470 ml)",
+          "M (750 ml)"
+        ],
+        [
+          "Volumen",
+          "470 ml (16 oz)",
+          "750 ml (26 oz)"
+        ],
+        [
+          "Material Bristol",
+          "Bristolkarton 300g/m² + PE-Beschichtung"
+        ],
+        [
+          "Material Kraft",
+          "Kraftpapier 255g/m² + 20g PE-Beschichtung"
+        ],
+        [
+          "Druckmethode",
+          "Offsetdruck",
+          "Offsetdruck"
+        ],
+        [
+          "Druckbereich",
+          "Volldruck",
+          "Volldruck"
+        ],
+        [
+          "Farben",
+          "CMYK",
+          "CMYK"
+        ],
+        [
+          "Mindestbestellung",
+          "15.000 Stück",
+          "15.000 Stück"
+        ],
+        [
+          "Stück / Palette",
+          "10.000",
+          "10.000"
+        ],
+        [
+          "Bristol 15.000 St.",
+          "1.618,50 €",
+          "1.725,00 €"
+        ],
+        [
+          "Bristol 25.000 St.",
+          "2.432,50 €",
+          "2.647,50 €"
+        ],
+        [
+          "Bristol 40.000 St.",
+          "3.468,00 €",
+          "3.800,00 €"
+        ],
+        [
+          "Bristol 50.000 St.",
+          "4.145,00 €",
+          "4.560,00 €"
+        ],
+        [
+          "Kraft 15.000 St.",
+          "1.792,50 €",
+          "2.011,50 €"
+        ],
+        [
+          "Kraft 25.000 St.",
+          "2.697,50 €",
+          "3.070,00 €"
+        ],
+        [
+          "Kraft 40.000 St.",
+          "3.932,00 €",
+          "4.480,00 €"
+        ],
+        [
+          "Kraft 50.000 St.",
+          "4.725,00 €",
+          "5.375,00 €"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe S · 470 ml (16 oz) M · 750 ml (26 oz)",
+      "Material Bristol (Weiß) Kraft (Braun)",
+      "Menge 15.000 Stück 25.000 Stück 40.000 Stück 50.000 Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 1.618,50 0,108 € / Stück",
+      "Inkl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Mindestmenge 15.000 Stück",
+      "Bristol oder Kraft Weißes Bristol für brillante CMYK-Farben (300g+PE) oder braunes Kraftpapier für den natürlichen Look (255g+PE) — du entscheidest. Bristol · Kraft",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die Box professionell für dich, kostenlos inklusive. Kostenlos inklusive",
+      "Mengenrabatt bis 50k Je mehr du bestellst, desto günstiger der Stückpreis. Bei 50.000 Stück sparst du gegenüber 15.000 Stück bis zu 23 %. Bis zu 23 % Günstiger"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/doenertueten/",
+    "name": "Dönertüten",
+    "source_file": "produkte/doenertueten/index.html",
+    "source_sha256": "f3277702ee758fa8c57ccbc977ae9aa2196ffef30f37dd8c1a71635185fec00f",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "Standard",
+          "Fettabweisend",
+          "PE-coated"
+        ],
+        [
+          "Abmessungen",
+          "16 × 17 cm",
+          "16 × 17 cm",
+          "16 × 17 cm"
+        ],
+        [
+          "Material",
+          "Kraftpapier",
+          "Pergamentersatzpapier",
+          "Papier + PE-Beschichtung"
+        ],
+        [
+          "Materialstärke",
+          "40 g/m²",
+          "40 g/m²",
+          "35 g/m² + 6 PE"
+        ],
+        [
+          "Druckmethode",
+          "Flexodruck",
+          "Flexodruck",
+          "Flexodruck"
+        ],
+        [
+          "Anzahl Farben",
+          "1 – 4 Farben",
+          "1 – 4 Farben",
+          "1 – 4 Farben"
+        ],
+        [
+          "Druckbereich",
+          "30 % des Druckbereichs*",
+          "30 % des Druckbereichs*",
+          "30 % des Druckbereichs*"
+        ],
+        [
+          "Mindestbestellmenge",
+          "200 kg",
+          "200 kg",
+          "200 kg"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Papier Standard Fettabweisend PE-coated",
+      "Menge 200 kg 400 kg 600 kg 800 kg ca. 80.000 Stück · 1,75 Ct./Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 1.400,00 7,00 € / kg",
+      "Alle Preise netto zzgl. MwSt.**"
+    ],
+    "delivery_rule_days": [],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Lieferzeit ca. 6–8 Wochen",
+      "Versand auf Anfrage",
+      "Mindestmenge 200 kg",
+      "Druck Flexodruck"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/einschlagpapier/",
+    "name": "Einschlagpapier",
+    "source_file": "produkte/einschlagpapier/index.html",
+    "source_sha256": "e878adba46b7d8e0010972e8a67da4be15fc017b7a739aea0c77bcc16baeb917",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "Standard",
+          "Fettabweisendes Papier",
+          "PE-coated Papier"
+        ],
+        [
+          "Länge × Breite",
+          "400×300 mm (S) 400×500 mm (M) Sondergröße auf Anfrage",
+          "400×300 mm (S) 400×500 mm (M) Sondergröße auf Anfrage",
+          "400×300 mm (S) 400×500 mm (M) Sondergröße auf Anfrage"
+        ],
+        [
+          "Farbe",
+          "Weiß / Braun",
+          "Weiß / Braun",
+          "Weiß / Braun"
+        ],
+        [
+          "Material",
+          "Kraftpapier",
+          "Pergamentersatzpapier",
+          "Papier + PE-Beschichtung"
+        ],
+        [
+          "Papiersstärke",
+          "40 g/m²",
+          "40 g/m²",
+          "35 g/m² + 6 PE"
+        ],
+        [
+          "Druckmethode",
+          "Flexodruck",
+          "Flexodruck",
+          "Flexodruck"
+        ],
+        [
+          "Anzahl Farben",
+          "1 – 3 Farben",
+          "1 – 3 Farben",
+          "1 – 3 Farben"
+        ],
+        [
+          "Druckbereich",
+          "30 % des Druckbereichs*",
+          "30 % des Druckbereichs*",
+          "30 % des Druckbereichs*"
+        ],
+        [
+          "Mindestbestellmenge",
+          "200 kg",
+          "200 kg",
+          "200 kg"
+        ],
+        [
+          "Anzahl pro Box",
+          "10 kg",
+          "10 kg",
+          "10 kg"
+        ],
+        [
+          "Max. pro Palette",
+          "500 kg",
+          "500 kg",
+          "500 kg"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Format S — 400×300 mm M — 400×500 mm Sondergröße Breite (mm) Höhe (mm) ca. 41.700 Blatt / 200 kg",
+      "Papierart Standard Fettabweisendes Papier PE-coated Papier",
+      "Menge (kg) 200 kg 400 kg 600 kg 800 kg ca. 41.700 Blatt Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 1.400,00 7,00 € / kg",
+      "Zzgl. MwSt. · Inkl. individuellem Druck"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Lagerung & Logistik Auf Wunsch verfügbar",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten das gesamte Druckbild professionell für dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand. Kostenlos inklusive",
+      "Sonderformate jederzeit möglich Individuelle Formate und Sondergrößen sind kein Problem. Gib einfach deine Wunschmaße ein — wir berechnen Preis und Blattmenge automatisch für dich. Auf Anfrage",
+      "Lagerung & Logistik Auf Wunsch lagern wir dein Einschlagpapier ein und liefern es nach Bedarf aus. Kein eigener Lagerplatz nötig — wir übernehmen die Logistik für dich. Auf Anfrage verfügbar"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/fc-box/",
+    "name": "FC Box",
+    "source_file": "produkte/fc-box/index.html",
+    "source_sha256": "8f60d58b6027eae5b06c8d717b4eecefcec5c5a69cc8115517a31d9e5e8d290d",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Größe",
+          "Maße (mm)",
+          "10.000 St.",
+          "20.000 St.",
+          "30.000 St."
+        ],
+        [
+          "S",
+          "139×78×53",
+          "826 €",
+          "1.504 €",
+          "2.109 €"
+        ],
+        [
+          "M",
+          "169×98×63",
+          "1.176 €",
+          "2.120 €",
+          "2.949 €"
+        ],
+        [
+          "L",
+          "225×120×70",
+          "1.582 €",
+          "2.834 €",
+          "3.924 €"
+        ],
+        [
+          "Stückpreis S",
+          "—",
+          "0,083 €",
+          "0,075 €",
+          "0,070 €"
+        ],
+        [
+          "Stückpreis L",
+          "—",
+          "0,158 €",
+          "0,142 €",
+          "0,131 €"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe S · 139×78×53 M · 169×98×63 L · 225×120×70",
+      "Menge 10.000 Stück 20.000 Stück 30.000 Stück Größere Mengen auf Anfrage möglich",
+      "Material Bristol (weiß) CKB (außen braun) Brown Kraft Preise für Bristol · CKB & Brown Kraft auf Anfrage"
+    ],
+    "displayed_price": [
+      "EUR 826,00 0,083 € / Stück",
+      "Zzgl. MwSt. · Inkl. individuellem Druck & Design · Bristol-Preis"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Materialien Bristol · CKB · Kraft",
+      "3 Materialien zur Wahl Weißes Bristol für brillante Farben, CKB für den Natur-Look außen, Brown Kraft für ein vollständig nachhaltiges Erscheinungsbild. Bristol · CKB · Brown Kraft",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die FC Box professionell für dich. Kostenlos inklusive",
+      "Mengenrabatt bis 30k Je mehr du bestellst, desto günstiger der Stückpreis. Bei 30.000 Stück sparst du gegenüber 10.000 Stück bis zu 16 %. Ab 20.000 Stk. günstiger"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/kuchenboxen/",
+    "name": "Kuchenboxen & Tortenunterlagen",
+    "source_file": "produkte/kuchenboxen/index.html",
+    "source_sha256": "85f43136bf28f719733ad7c9ee16a5ddce605e3320c40227f256e7bd6bd1762f",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Produkt",
+          "No 0",
+          "No 1",
+          "No 2",
+          "No 3",
+          "No 4"
+        ],
+        [
+          "Box Maße",
+          "18×18×13",
+          "21×21×13",
+          "25×25×13",
+          "27×27×13",
+          "29×29×18"
+        ],
+        [
+          "Mendil Maße",
+          "18×18 cm",
+          "21×21 cm",
+          "25×25 cm",
+          "27×27 cm",
+          "29×29 cm"
+        ],
+        [
+          "VK Box / Stück",
+          "0,41 €",
+          "0,46 €",
+          "0,51 €",
+          "0,57 €",
+          "0,63 €"
+        ],
+        [
+          "Gesamtpreis Box",
+          "4.100 €",
+          "4.600 €",
+          "5.100 €",
+          "5.700 €",
+          "6.300 €"
+        ],
+        [
+          "VK Mendil / Stück",
+          "0,16 €",
+          "0,21 €",
+          "0,26 €",
+          "0,32 €",
+          "0,40 €"
+        ],
+        [
+          "Gesamtpreis Mendil",
+          "1.600 €",
+          "2.100 €",
+          "2.600 €",
+          "3.200 €",
+          "4.000 €"
+        ],
+        [
+          "VK Set / Stück",
+          "0,57 €",
+          "0,67 €",
+          "0,77 €",
+          "0,89 €",
+          "1,03 €"
+        ],
+        [
+          "Gesamtpreis Set",
+          "5.700 €",
+          "6.700 €",
+          "7.700 €",
+          "8.900 €",
+          "10.300 €"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Ausführung Kuchenbox nur Box Mendil nur Unterlage Set SPAR Box + Mendil",
+      "Größe No 0 · 18 cm No 1 · 21 cm No 2 · 25 cm No 3 · 27 cm No 4 · 29 cm 18 × 18 × 13 cm · Höhe 13 cm"
+    ],
+    "displayed_price": [
+      "EUR 4.100,00 0,41 € / Stück",
+      "Zzgl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Mindestbestellung 10.000 Stück",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die Kuchenbox professionell für dich. Kostenlos inklusive",
+      "Box + Mendil als Set Bestelle Box und Tortenunterlage zusammen — Versandvorteil bleibt bei dir, du sparst gegenüber Einzelbestellung. Versandvorteil im Set",
+      "Lagerung & Logistik Auf Wunsch lagern wir deine Verpackungen und liefern nach Bedarf. Kein eigener Lagerplatz nötig. Auf Anfrage verfügbar"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/kuru-pasta/",
+    "name": "Kuru Pasta Kutusu",
+    "source_file": "produkte/kuru-pasta/index.html",
+    "source_sha256": "4f264f3432aacc2023b2e8f131d13bdae69bf32791eb9a89daad2488cfeca9d4",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "500g",
+          "1000g"
+        ],
+        [
+          "Füllmenge",
+          "500g",
+          "1000g"
+        ],
+        [
+          "Material",
+          "Beschichteter Karton",
+          "Beschichteter Karton"
+        ],
+        [
+          "Druckmethode",
+          "Offsetdruck",
+          "Offsetdruck"
+        ],
+        [
+          "Anzahl Farben",
+          "Alle CMYK",
+          "Alle CMYK"
+        ],
+        [
+          "Druckbereich",
+          "Volldruck",
+          "Volldruck"
+        ],
+        [
+          "Mindestbestellmenge",
+          "10.000 Stück",
+          "10.000 Stück"
+        ],
+        [
+          "Preis ab",
+          "0,14 € / Stück",
+          "0,22 € / Stück"
+        ],
+        [
+          "Lebensmittelecht",
+          "Ja",
+          "Ja"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Füllmenge 500g 1000g",
+      "Menge 10.000 Stück 20.000 Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 1.410,00 0,14 € / Stück",
+      "Inkl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Versand Kostenlos inklusive",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die gesamte Verpackung professionell für dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand. Kostenlos inklusive",
+      "Persönliche Beratung Unsicher welche Größe oder welches Motiv? Wir beraten dich persönlich — per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner. Kostenlos & unverbindlich",
+      "Lagerung & Logistik Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine großen Lagermengen, kein eigener Lagerplatz — wir übernehmen die Logistik für dich. Auf Anfrage verfügbar"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/pommesschuetten/",
+    "name": "Pommesschütten",
+    "source_file": "produkte/pommesschuetten/index.html",
+    "source_sha256": "4956335c3b7edf5d5ce06f85e4c8055a6c42ae30c327e96196229f2b345dc97f",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Größe",
+          "Maße (mm)",
+          "10.000 St.",
+          "15.000 St.",
+          "30.000 St."
+        ],
+        [
+          "S",
+          "77×59×40×95",
+          "1.279 €",
+          "1.350 €",
+          "1.776 €"
+        ],
+        [
+          "M",
+          "84×64×41×116",
+          "1.385 €",
+          "1.455 €",
+          "2.004 €"
+        ],
+        [
+          "L",
+          "91×64×41×140",
+          "1.443 €",
+          "1.514 €",
+          "2.110 €"
+        ],
+        [
+          "XL",
+          "104×71,5×48×178",
+          "1.734 €",
+          "1.805 €",
+          "2.911 €"
+        ],
+        [
+          "Stückpreis S",
+          "—",
+          "0,128 €",
+          "0,090 €",
+          "0,059 €"
+        ],
+        [
+          "Stückpreis XL",
+          "—",
+          "0,173 €",
+          "0,121 €",
+          "0,097 €"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe S · 95 mm M · 116 mm L · 140 mm XL · 178 mm 77 × 59 × 40 mm · Höhe 95 mm",
+      "Menge 10.000 Stück 15.000 Stück 30.000 Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 1.279,00 0,128 € / Stück",
+      "Inkl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Einrichtungskosten Einmalig 100 €",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die Pommesschütte professionell für dich. Kostenlos inklusive",
+      "4 Größen zur Auswahl Von der kleinen S-Schütte für Snack-Portionen bis zur XL-Schütte für große Pommes-Portionen — für jedes Konzept die richtige Größe. S · M · L · XL",
+      "Mengenrabatt ab 15.000 Je mehr du bestellst, desto günstiger der Stückpreis. Ab 30.000 Stück bis zu 54 % günstiger als Einzelkauf. Bis zu 54% Günstiger"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/salatschalen/",
+    "name": "Salatschalen",
+    "source_file": "produkte/salatschalen/index.html",
+    "source_sha256": "f7875ef3465a33ebd4af57b3ffb4e235e8f80e1559eccbbe68a7b167c1f77495",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "500 ml",
+          "750 ml",
+          "1.100 ml",
+          "1.300 ml"
+        ],
+        [
+          "Füllvolumen",
+          "500 ml",
+          "750 ml",
+          "1.100 ml",
+          "1.300 ml"
+        ],
+        [
+          "Material Braun",
+          "Kraftpapier + PE-Beschichtung (innen lebensmittelecht)"
+        ],
+        [
+          "Material Weiß",
+          "Bristolkarton + PE-Beschichtung (innen lebensmittelecht)"
+        ],
+        [
+          "Druckmethode",
+          "Offsetdruck",
+          "Offsetdruck",
+          "Offsetdruck",
+          "Offsetdruck"
+        ],
+        [
+          "Druckfarben",
+          "CMYK Vollfarb",
+          "CMYK Vollfarb",
+          "CMYK Vollfarb",
+          "CMYK Vollfarb"
+        ],
+        [
+          "Druckbereich",
+          "Volldruck",
+          "Volldruck",
+          "Volldruck",
+          "Volldruck"
+        ],
+        [
+          "Mindestbestellmenge",
+          "15.000 Stück",
+          "15.000 Stück",
+          "15.000 Stück",
+          "15.000 Stück"
+        ],
+        [
+          "Deckel",
+          "Auf Anfrage verfügbar"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe 500 ml 750 ml 1.100 ml 1.300 ml Deckel auf Anfrage verfügbar",
+      "Material Weiß · Bristol+PE Braun · Kraft+PE",
+      "Menge 15.000 Stück 25.000 Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 2.048,00 0,1365 € / Stück",
+      "Inkl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Deckel Auf Anfrage verfügbar",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die gesamte Verpackung professionell für dich. Kostenlos inklusive",
+      "Persönliche Beratung Unsicher welche Größe oder welches Material? Wir beraten dich persönlich — per WhatsApp, Telefon oder E-Mail. Kostenlos & unverbindlich",
+      "Lagerung & Logistik Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Kein eigener Lagerplatz nötig. Auf Anfrage verfügbar"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/baklava-kutusu/",
+    "name": "Baklava Kutusu",
+    "source_file": "produkte/baklava-kutusu/index.html",
+    "source_sha256": "c3c1b2dd101d6aa22b1e53fbf9d1a47c79c44c483fa759fbf6c7bd6210a8e7be",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "250 g",
+          "500 g",
+          "1.000 g",
+          "1.500 g"
+        ],
+        [
+          "Füllgewicht",
+          "250 g",
+          "500 g",
+          "1.000 g",
+          "1.500 g"
+        ],
+        [
+          "Material",
+          "Kroma-Karton",
+          "Kroma-Karton",
+          "Kroma-Karton",
+          "Kroma-Karton"
+        ],
+        [
+          "Druckmethode",
+          "Offsetdruck",
+          "Offsetdruck",
+          "Offsetdruck",
+          "Offsetdruck"
+        ],
+        [
+          "Druckfarben",
+          "CMYK Vollfarb",
+          "CMYK Vollfarb",
+          "CMYK Vollfarb",
+          "CMYK Vollfarb"
+        ],
+        [
+          "Mindestbestellung",
+          "10.000 Stück",
+          "10.000 Stück",
+          "10.000 Stück",
+          "10.000 Stück"
+        ],
+        [
+          "Veredelung",
+          "Goldprägung, Reliefprägung, Sichtfenster auf Anfrage"
+        ],
+        [
+          "Produktion",
+          "Istanbul · CMYK Vollfarb-Offsetdruck"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe 250 g 500 g 1.000 g 1.500 g Für Baklava, Kekse & orientalische Süßwaren",
+      "Menge 10.000 Stück 20.000 Stück Größere Mengen auf Anfrage möglich",
+      "Veredelung auf Anfrage ✦ Goldprägung außen ✦ Goldprägung innen ✦ Reliefprägung □ Sichtfenster"
+    ],
+    "displayed_price": [
+      "EUR 1.050,00 0,1050 € / Stück",
+      "Inkl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Mindestbestellung 10.000 Stück",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die gesamte Verpackung professionell für dich. Kostenlos inklusive",
+      "Persönliche Beratung Unsicher welche Größe passt? Wir beraten dich persönlich — per WhatsApp, Telefon oder E-Mail. Kostenlos & unverbindlich",
+      "Lagerung & Logistik Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Kein eigener Lagerplatz nötig. Auf Anfrage verfügbar"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/broetchentueten/",
+    "name": "Brötchentüten",
+    "source_file": "produkte/broetchentueten/index.html",
+    "source_sha256": "4bd3d3affe8c57ddd8605e570384583cb517996340acb595aed8514a20d58f89",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Eigenschaft",
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL"
+        ],
+        [
+          "Abmessungen",
+          "120×50×250 mm",
+          "150×60×250 mm",
+          "150×55×290 mm",
+          "200×70×340 mm",
+          "200×105×430 mm"
+        ],
+        [
+          "Gewicht / Stück",
+          "2,90 g",
+          "3,60 g",
+          "4,12 g",
+          "6,39 g",
+          "8,69 g"
+        ],
+        [
+          "Farbe",
+          "Weiß / Braun"
+        ],
+        [
+          "Material",
+          "Papier  ·  Fettabweisendes Papier"
+        ],
+        [
+          "Materialstärke",
+          "40 g/m²"
+        ],
+        [
+          "Druckmethode",
+          "Flexodruck"
+        ],
+        [
+          "Anzahl Farben",
+          "1 – 4 Farben"
+        ],
+        [
+          "Druckbereich",
+          "30 % des Druckbereichs*"
+        ],
+        [
+          "Mindestbestellmenge",
+          "200 kg"
+        ],
+        [
+          "Anzahl pro Box",
+          "1.000 Stück"
+        ],
+        [
+          "Anzahl pro Palette",
+          "30.000 Stück"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe XS S M L XL 120 × 50 × 250 mm",
+      "Papierart Standard Fettabweisendes Papier",
+      "Menge (kg) 200 kg 400 kg 600 kg 800 kg ca. 68.900 Stück · 2,03 Ct./Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 1.400,00 7,00 € / kg",
+      "Zzgl. MwSt. · Inkl. individuellem Druck"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Lagerung & Logistik Auf Wunsch verfügbar",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die Verpackung professionell für dich. Keine Druckdaten, kein Aufwand. Kostenlos inklusive",
+      "Persönliche Beratung Unsicher welche Größe oder welches Papier? Wir beraten dich persönlich — per WhatsApp, Telefon oder E-Mail. Kostenlos & unverbindlich",
+      "Lagerung & Logistik Auf Wunsch lagern wir deine Tüten ein und liefern sie nach Bedarf aus. Kein eigener Lagerplatz nötig. Auf Anfrage verfügbar"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/takeaway-boxen/",
+    "name": "Take-away Boxen",
+    "source_file": "produkte/takeaway-boxen/index.html",
+    "source_sha256": "c09d202f28546079b0d1d4ed5eb4c8d72734a0643c6b26cd7fe9a3821a61d410",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Größe",
+          "Maße (mm)",
+          "St./Karton",
+          "St./Palette",
+          "Preis (10.000 St.)",
+          "Stückpreis"
+        ],
+        [
+          "26oz",
+          "113×90×63",
+          "450",
+          "11.250",
+          "1.580,50 €",
+          "0,1581 €"
+        ],
+        [
+          "36oz",
+          "150×120×55",
+          "350",
+          "7.000",
+          "1.943,00 €",
+          "0,1943 €"
+        ],
+        [
+          "46oz",
+          "151×119×64",
+          "300",
+          "4.500",
+          "2.001,00 €",
+          "0,2001 €"
+        ],
+        [
+          "51oz",
+          "197×140×48",
+          "200",
+          "4.800",
+          "2.102,50 €",
+          "0,2103 €"
+        ],
+        [
+          "69oz",
+          "195×138×63",
+          "200",
+          "4.000",
+          "2.987,00 €",
+          "0,2987 €"
+        ],
+        [
+          "98oz",
+          "197×140×89",
+          "160",
+          "2.560",
+          "3.262,50 €",
+          "0,3263 €"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe 26oz 36oz 46oz 51oz 69oz 98oz Mindestbestellmenge 10.000 Stück pro Größe",
+      "Material Bristol (weiß) Kraft (braun) Gleicher Preis für Bristol & Kraft"
+    ],
+    "displayed_price": [
+      "EUR 1.580,50 0,1581 € / Stück",
+      "Zzgl. MwSt. · Inkl. individuellem Druck & Design · bei 10.000 Stück"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Materialien Bristol · Kraft",
+      "6 Größen zur Wahl Von 26oz für kleine Portionen bis 98oz für große Bowls und Familien-Portionen — für jedes Gericht die passende Box. 26oz – 98oz",
+      "Bristol oder Kraft Weißes Bristol für brillante Farben oder braunes Kraftpapier für einen natürlichen, nachhaltigen Look — zum gleichen Preis. Kein Aufpreis",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die Take-away Box professionell für dich. Kostenlos inklusive"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/kaffeebecher-single-wall/",
+    "name": "Kaffeebecher Single Wall",
+    "source_file": "produkte/kaffeebecher-single-wall/index.html",
+    "source_sha256": "50a4ae6506e3bdf9d16fdf31de56ed2ea3c02c4beb6e51df704265cba5cd6b89",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Größe",
+          "St./Palette",
+          "10.000 St.",
+          "30.000 St.",
+          "50.000 St."
+        ],
+        [
+          "8oz",
+          "30.000",
+          "942,50 €",
+          "2.175,00 €",
+          "3.335,00 €"
+        ],
+        [
+          "12oz",
+          "15.000",
+          "1.160,00 €",
+          "3.045,00 €",
+          "4.857,50 €"
+        ],
+        [
+          "16oz",
+          "12.000",
+          "1.312,50 €",
+          "3.750,00 €",
+          "5.937,50 €"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe 8oz 12oz 16oz",
+      "Menge 10.000 Stück 30.000 Stück 50.000 Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 942,50 0,0943 € / Stück",
+      "Zzgl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Wandstärke Single Wall",
+      "3 Größen zur Wahl 8oz für Espresso & kleine Getränke, 12oz für den klassischen Coffee-to-go, 16oz für große Latte-Formate. 8oz · 12oz · 16oz",
+      "Design aus einer Hand Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten den Becher professionell für dich. Kostenlos inklusive",
+      "Mengenrabatt bis 50k Je mehr du bestellst, desto günstiger der Stückpreis. Bei 50.000 Stück sparst du gegenüber 10.000 Stück deutlich. Ab 30.000 Stk. günstiger"
+    ]
+  },
+  {
+    "url": "https://pack-factory.de/produkte/kaffeebecher-double-wall/",
+    "name": "Kaffeebecher Double Wall",
+    "source_file": "produkte/kaffeebecher-double-wall/index.html",
+    "source_sha256": "1660ed2ea253c73107a16ba85eba91d7a1d60e7fa168c57c47044b2c1e12ed17",
+    "checked_on": "2026-09-19",
+    "verification": "Extracted from current website source; supplier/business confirmation pending. Not permission to publish new claims.",
+    "specification_tables": [
+      [
+        [
+          "Größe",
+          "St./Palette",
+          "10.000 St.",
+          "30.000 St.",
+          "50.000 St."
+        ],
+        [
+          "8oz",
+          "10.000",
+          "1.160,00 €",
+          "3.262,50 €",
+          "5.075,00 €"
+        ],
+        [
+          "12oz",
+          "8.000",
+          "1.362,50 €",
+          "3.543,75 €",
+          "5.687,50 €"
+        ],
+        [
+          "16oz",
+          "6.000",
+          "1.662,50 €",
+          "4.537,50 €",
+          "7.250,00 €"
+        ]
+      ]
+    ],
+    "configurator_options": [
+      "Größe 8oz 12oz 16oz",
+      "Menge 10.000 Stück 30.000 Stück 50.000 Stück Größere Mengen auf Anfrage möglich"
+    ],
+    "displayed_price": [
+      "EUR 1.160,00 0,1160 € / Stück",
+      "Zzgl. MwSt. · Inkl. individuellem Druck & Design"
+    ],
+    "delivery_rule_days": [
+      "56",
+      "2",
+      "1"
+    ],
+    "open_fields": [
+      "Actual lead time",
+      "Current prices and tax basis",
+      "Food-contact and environmental substantiation",
+      "Supplier sign-off"
+    ],
+    "service_statements": [
+      "Voraussichtliche Lieferung wird berechnet...",
+      "Produktion Erst nach deiner Freigabe",
+      "Designservice Kostenlos inklusive",
+      "Wandstärke Double Wall",
+      "3 Größen zur Wahl 8oz für Espresso & kleine Getränke, 12oz für den klassischen Coffee-to-go, 16oz für große Latte-Formate. 8oz · 12oz · 16oz",
+      "Isolierend ohne Sleeve Die doppelte Wandstärke hält Getränke länger heiß und schützt die Hand — ohne zusätzliche Kaffeebecher-Sleeve. Kein Sleeve nötig",
+      "Mengenrabatt bis 50k Je mehr du bestellst, desto günstiger der Stückpreis. Bei 50.000 Stück sparst du gegenüber 10.000 Stück deutlich. Ab 30.000 Stk. günstiger"
+    ]
+  }
+]

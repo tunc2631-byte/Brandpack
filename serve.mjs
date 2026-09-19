@@ -4,7 +4,7 @@ import { extname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const PORT = 3000;
+const PORT = Number(process.env.PORT || 3000);
 
 const mime = {
   '.html': 'text/html',
@@ -12,6 +12,7 @@ const mime = {
   '.js': 'application/javascript',
   '.json': 'application/json',
   '.png': 'image/png',
+  '.webp': 'image/webp',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.gif': 'image/gif',
@@ -23,7 +24,7 @@ const mime = {
 
 createServer(async (req, res) => {
   let path = decodeURIComponent(req.url.split('?')[0]);
-  if (path === '/') path = '/index.html';
+  if (path.endsWith('/')) path += 'index.html';
   const file = join(__dirname, path);
   try {
     const data = await readFile(file);
@@ -34,4 +35,4 @@ createServer(async (req, res) => {
     res.writeHead(404);
     res.end('Not found');
   }
-}).listen(PORT, () => console.log(`http://localhost:${PORT}`));
+}).listen(PORT, '127.0.0.1', () => console.log(`http://localhost:${PORT}`));
