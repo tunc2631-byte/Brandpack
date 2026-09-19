@@ -1,0 +1,338 @@
+[
+  {
+    "url": "https://pack-factory.de/produkte/tueten/",
+    "source": "produkte/tueten/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Papiertüten",
+    "h1_after": "Papiertüten mit eigenem Logo",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/burgerbox/",
+    "source": "produkte/burgerbox/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Burgerbox",
+    "h1_after": "Burgerboxen mit Logo bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/sleeves/",
+    "source": "produkte/sleeves/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Sleeves",
+    "h1_after": "Bechermanschetten mit Logo",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/doenertueten/",
+    "source": "produkte/doenertueten/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Dönertüten mit Logo bedrucken",
+    "h1_after": "Dönertüten mit eigenem Logo",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/broetchentueten/",
+    "source": "produkte/broetchentueten/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Brötchentüten",
+    "h1_after": "Brötchentüten mit Logo bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/einschlagpapier/",
+    "source": "produkte/einschlagpapier/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Einschlagpapier mit Logo bedrucken",
+    "h1_after": "Einschlagpapier mit Logo bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/doenerboxen/",
+    "source": "produkte/doenerboxen/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Dönerboxen / Asiaboxen",
+    "h1_after": "Dönerboxen und Asiaboxen bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/fc-box/",
+    "source": "produkte/fc-box/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "FC Box",
+    "h1_after": "FC Box mit Logo bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/salatschalen/",
+    "source": "produkte/salatschalen/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Salatschalen",
+    "h1_after": "Salatschalen mit Logo bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/pommesschuetten/",
+    "source": "produkte/pommesschuetten/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Pommesschütten",
+    "h1_after": "Pommesschütten mit Logo",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/takeaway-boxen/",
+    "source": "produkte/takeaway-boxen/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Take-away Boxen",
+    "h1_after": "Take-away-Boxen mit Logo",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/kaffeebecher-single-wall/",
+    "source": "produkte/kaffeebecher-single-wall/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Kaffeebecher Single Wall",
+    "h1_after": "Einwandige Kaffeebecher bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/kaffeebecher-double-wall/",
+    "source": "produkte/kaffeebecher-double-wall/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Kaffeebecher Double Wall",
+    "h1_after": "Doppelwandige Kaffeebecher bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/kuchenboxen/",
+    "source": "produkte/kuchenboxen/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Kuchenboxen & Tortenunterlagen",
+    "h1_after": "Kuchenboxen mit Logo bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/baklava-kutusu/",
+    "source": "produkte/baklava-kutusu/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Baklava Kutusu",
+    "h1_after": "Baklava-Schachteln mit Logo",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  },
+  {
+    "url": "https://pack-factory.de/produkte/kuru-pasta/",
+    "source": "produkte/kuru-pasta/index.html at 22fae249cd76a8e953a7a279f37b0f80adb22fc8",
+    "reviewed_on": "2026-09-19",
+    "status": "Draft copy based on existing website specifications; supplier confirmation remains pending.",
+    "h1_before": "Kuru Pasta Kutusu",
+    "h1_after": "Gebäckschachteln mit Logo bedrucken",
+    "scope": [
+      "title",
+      "description",
+      "h1",
+      "buying_guidance",
+      "related_links"
+    ],
+    "unchanged": [
+      "specification tables",
+      "configurator scripts",
+      "price calculations"
+    ],
+    "claim_policy": "Removed unsupported outcome, environmental and performance claims from rewritten guidance. Remaining claims elsewhere need separate confirmation."
+  }
+]
