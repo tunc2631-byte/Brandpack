@@ -6,3 +6,8 @@ credentials.json
 *.key
 .env
 .env.*
+__pycache__/
+*.pyc
+.venv/
+seo-private/
+temporary screenshots/

@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PackFactory &mdash; Verpackungen individuell mit Logo bedrucken</title>
+  <link rel="canonical" href="https://pack-factory.de/">
   <meta name="description" content="Verpackungen individuell mit deinem Logo bedrucken lassen &mdash; T&uuml;ten, Boxen, Becher &amp; mehr f&uuml;r Restaurants, Caf&eacute;s und Foodservice. Kostenloser Designservice, ab 10.000 St&uuml;ck.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="/Bilder/neues%20logo.png">
+  <link rel="icon" type="image/png" href="/Bilder/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -379,7 +380,35 @@
       .nav-wrapper.scrolled { padding: 6px 20px !important; }
       .nav-wrapper.scrolled nav { box-shadow: 0 10px 44px rgba(0,0,0,0.11), 0 1px 4px rgba(0,0,0,0.05) !important; }
     }
+
+    .catalog-card { text-decoration:none; display:block; background:#f2f2f7; border-radius:18px; overflow:hidden; transition:transform .2s ease; }
+    .catalog-card[hidden] { display:none; }
+    .catalog-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,.10); }
+    .catalog-card:focus-visible { outline:3px solid #d9697a; outline-offset:4px; }
+    .catalog-card:active { transform:scale(.98); }
+    .catalog-image { aspect-ratio:1/1; overflow:hidden; background:#f2f2f7; }
+    .catalog-image img { width:100%; height:100%; object-fit:contain; padding:12px; }
+    .catalog-info { padding:14px 16px 18px; background:#fff; }
+    .catalog-info h3 { font-size:14px; font-weight:700; color:#1a1a1a; margin-bottom:10px; line-height:1.3; }
+    .catalog-price-row { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .catalog-price-row > span:first-child { font-size:15px; font-weight:800; color:#1a1a1a; }
+    .catalog-price-row .btn-kaufen { background:#3a3a3c; color:#fff; font-size:12px; font-weight:700; padding:7px 16px; border-radius:100px; white-space:nowrap; }
+    @media (max-width:480px) {
+      .catalog-price-row { flex-direction:column; align-items:flex-start; gap:8px; }
+      .catalog-price-row > span:first-child { font-size:12px; white-space:nowrap; }
+    }
+    @media (prefers-reduced-motion:reduce) { .catalog-card { transition:none; } }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://pack-factory.de/#organization",
+  "name": "PackFactory",
+  "url": "https://pack-factory.de/",
+  "logo": "https://pack-factory.de/Bilder/neues%20logo.png"
+}
+  </script>
 </head>
 <body>
 
@@ -391,7 +420,7 @@
     <div class="nav-inner" style="padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px;">
       <!-- Logo left -->
       <a href="#" style="display: flex; align-items: center; flex-shrink: 0;">
-        <img src="/Bilder/neues%20logo.png" alt="PackFactory" class="nav-logo" style="width: auto;">
+        <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo" style="width: auto;">
       </a>
       <!-- Links center -->
       <div class="nav-links" style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap;">
@@ -477,41 +506,41 @@
     <!-- Apple-style full-image product tiles -->
     <div id="hero-tiles" style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px;">
 
-      <a id="hero-card-0" href="#" target="_blank" rel="noopener" class="hero-tile">
-        <div id="hero-img-0" class="hero-tile-img"></div>
+      <a id="hero-card-0" href="/produkte/tueten/" target="_blank" rel="noopener" class="hero-tile">
+        <div id="hero-img-0" class="hero-tile-img"><img src="https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0346.png?v=1781526153" alt="Papiertüten" width="480" height="480" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div class="hero-tile-overlay"></div>
         <div class="hero-tile-body">
           <p style="font-size:10px;font-weight:800;color:#1a1a1a;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 3px;">&#10022; Bestseller</p>
-          <h2 id="hero-title-0" style="font-size:14px;font-weight:800;color:#1a1a1a;margin:0 0 6px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></h2>
+          <h2 id="hero-title-0" style="font-size:14px;font-weight:800;color:#1a1a1a;margin:0 0 6px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Papiertüten</h2>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-            <span id="hero-price-0" style="font-size:15px;font-weight:900;color:#1a1a1a;"></span>
-            <span style="background:#3a3a3c;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2c'" onmouseout="this.style.background='#3a3a3c'" class="btn-kaufen">Kaufen &#8594;</span>
+            <span id="hero-price-0" style="font-size:15px;font-weight:900;color:#1a1a1a;">ab €0,1391 / Stück</span>
+            <span style="background:#3a3a3c;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2c'" onmouseout="this.style.background='#3a3a3c'" class="btn-kaufen">Anfragen &#8594;</span>
           </div>
         </div>
       </a>
 
-      <a id="hero-card-1" href="#" target="_blank" rel="noopener" class="hero-tile">
-        <div id="hero-img-1" class="hero-tile-img"></div>
+      <a id="hero-card-1" href="/produkte/sleeves/" target="_blank" rel="noopener" class="hero-tile">
+        <div id="hero-img-1" class="hero-tile-img"><img src="https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0349.png?v=1781526175" alt="Kaffeebecher Sleeves" width="480" height="480" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div class="hero-tile-overlay"></div>
         <div class="hero-tile-body">
           <p style="font-size:10px;font-weight:800;color:#1a1a1a;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 3px;">&#10022; Bestseller</p>
-          <h2 id="hero-title-1" style="font-size:14px;font-weight:800;color:#1a1a1a;margin:0 0 6px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></h2>
+          <h2 id="hero-title-1" style="font-size:14px;font-weight:800;color:#1a1a1a;margin:0 0 6px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Kaffeebecher Sleeves</h2>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-            <span id="hero-price-1" style="font-size:15px;font-weight:900;color:#1a1a1a;"></span>
-            <span style="background:#3a3a3c;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2c'" onmouseout="this.style.background='#3a3a3c'" class="btn-kaufen">Kaufen &#8594;</span>
+            <span id="hero-price-1" style="font-size:15px;font-weight:900;color:#1a1a1a;">ab €0,0546 / Stück</span>
+            <span style="background:#3a3a3c;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2c'" onmouseout="this.style.background='#3a3a3c'" class="btn-kaufen">Anfragen &#8594;</span>
           </div>
         </div>
       </a>
 
-      <a id="hero-card-2" href="#" target="_blank" rel="noopener" class="hero-tile">
-        <div id="hero-img-2" class="hero-tile-img"></div>
+      <a id="hero-card-2" href="/produkte/burgerbox/" target="_blank" rel="noopener" class="hero-tile">
+        <div id="hero-img-2" class="hero-tile-img"><img src="https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0347.png?v=1781526196" alt="Burgerbox" width="480" height="480" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div class="hero-tile-overlay"></div>
         <div class="hero-tile-body">
           <p style="font-size:10px;font-weight:800;color:#1a1a1a;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 3px;">&#10022; Bestseller</p>
-          <h2 id="hero-title-2" style="font-size:14px;font-weight:800;color:#1a1a1a;margin:0 0 6px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></h2>
+          <h2 id="hero-title-2" style="font-size:14px;font-weight:800;color:#1a1a1a;margin:0 0 6px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Burgerbox</h2>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-            <span id="hero-price-2" style="font-size:15px;font-weight:900;color:#1a1a1a;"></span>
-            <span style="background:#3a3a3c;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2c'" onmouseout="this.style.background='#3a3a3c'" class="btn-kaufen">Kaufen &#8594;</span>
+            <span id="hero-price-2" style="font-size:15px;font-weight:900;color:#1a1a1a;">ab €0,1127 / Stück</span>
+            <span style="background:#3a3a3c;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2c'" onmouseout="this.style.background='#3a3a3c'" class="btn-kaufen">Anfragen &#8594;</span>
           </div>
         </div>
       </a>
@@ -609,73 +638,124 @@
       <button onclick="setFilter('kat','zubeh&ouml;r')" class="filter-btn filter-kat" data-val="zubeh&ouml;r">Zubeh&ouml;r</button>
     </div>
 
-    <div id="shopify-products-grid" class="products-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;"></div>
+    <div id="shopify-products-grid" class="products-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+      <!-- catalog:start -->
+      <a href="/produkte/tueten/" data-product-category="papiertüten" class="catalog-card">
+        <div class="catalog-image"><img src="https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0346.png?v=1781526153" alt="Papiertüten" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Papiertüten</h3>
+          <div class="catalog-price-row"><span>ab €0,1391 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/sleeves/" data-product-category="pappbecher" class="catalog-card">
+        <div class="catalog-image"><img src="https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0349.png?v=1781526175" alt="Kaffeebecher Sleeves" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Kaffeebecher Sleeves</h3>
+          <div class="catalog-price-row"><span>ab €0,0546 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/burgerbox/" data-product-category="papierboxen" class="catalog-card">
+        <div class="catalog-image"><img src="https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0347.png?v=1781526196" alt="Burgerbox" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Burgerbox</h3>
+          <div class="catalog-price-row"><span>ab €0,1127 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/einschlagpapier/" data-product-category="papier" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/Tablettpapier.jpeg" alt="Einschlagpapier" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Einschlagpapier</h3>
+          <div class="catalog-price-row"><span>ab €7,00 / kg</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/broetchentueten/" data-product-category="papiertüten" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/broetchentueten.jpeg" alt="Brötchentüten" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Brötchentüten</h3>
+          <div class="catalog-price-row"><span>ab €7,00 / kg</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/doenertueten/" data-product-category="papiertüten" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/doenertueten.jpeg" alt="Dönertüten" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Dönertüten</h3>
+          <div class="catalog-price-row"><span>ab €7,00 / kg</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/kuru-pasta/" data-product-category="papierboxen" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/kurupasta.jpeg" alt="Kuru Pasta Kutusu" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Kuru Pasta Kutusu</h3>
+          <div class="catalog-price-row"><span>ab €0,14 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/salatschalen/" data-product-category="pappschalen" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/bowl.jpeg" alt="Salatschalen" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Salatschalen</h3>
+          <div class="catalog-price-row"><span>ab €0,1365 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/baklava-kutusu/" data-product-category="papierboxen" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/baklava.jpeg" alt="Baklava Kutusu" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Baklava Kutusu</h3>
+          <div class="catalog-price-row"><span>ab €0,1050 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/kuchenboxen/" data-product-category="papierboxen" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/kuchenbox.jpeg" alt="Kuchenboxen" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Kuchenboxen</h3>
+          <div class="catalog-price-row"><span>ab €0,41 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/pommesschuetten/" data-product-category="papierboxen" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/pommes.jpeg" alt="Pommeschütten" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Pommeschütten</h3>
+          <div class="catalog-price-row"><span>ab €0,128 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/fc-box/" data-product-category="papierboxen" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/fcbox.jpeg" alt="FC Box" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>FC Box</h3>
+          <div class="catalog-price-row"><span>ab €0,083 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/doenerboxen/" data-product-category="papierboxen" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/doenerbox.jpeg" alt="Dönerboxen" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Dönerboxen</h3>
+          <div class="catalog-price-row"><span>ab €0,108 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/takeaway-boxen/" data-product-category="papierboxen" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/takeawaybox.jpeg" alt="Take-away Boxen" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Take-away Boxen</h3>
+          <div class="catalog-price-row"><span>ab €0,1581 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/kaffeebecher-single-wall/" data-product-category="pappbecher" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/kaffeebecher-sw.jpeg" alt="Kaffeebecher Single Wall" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Kaffeebecher Single Wall</h3>
+          <div class="catalog-price-row"><span>ab €0,0943 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/kaffeebecher-double-wall/" data-product-category="pappbecher" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/kaffeebecher-dw.jpeg" alt="Kaffeebecher Double Wall" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Kaffeebecher Double Wall</h3>
+          <div class="catalog-price-row"><span>ab €0,1160 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <!-- catalog:end -->
+    </div>
     <p id="no-products-msg" style="display:none; text-align:center; color:#aaa; padding: 40px 0; font-size:15px;">Keine Produkte f&uuml;r diese Auswahl gefunden.</p>
 
     <script>
-    var PRODUCTS = [
-      { title: 'Papiert\u00FCten',        tags: ['papiert\u00FCten'], price: '0,1391', unit: 'St\u00FCck', img: 'https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0346.png?v=1781526153', url: '/produkte/tueten/' },
-      { title: 'Kaffeebecher Sleeves',    tags: ['pappbecher'],  price: '0,0546', unit: 'St\u00FCck', img: 'https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0349.png?v=1781526175', url: '/produkte/sleeves/' },
-      { title: 'Burgerbox',               tags: ['papierboxen'], price: '0,1127', unit: 'St\u00FCck', img: 'https://cdn.shopify.com/s/files/1/1051/5474/0556/files/IMG-0347.png?v=1781526196', url: '/produkte/burgerbox/' },
-      { title: 'Einschlagpapier',         tags: ['papier'],      price: '7,00',   unit: 'kg',     img: '/Bilder/Tablettpapier.jpeg',                                                        url: '/produkte/einschlagpapier/' },
-      { title: 'Br\u00F6tchent\u00FCten', tags: ['papiert\u00FCten'], price: '7,00',   unit: 'kg',     img: '/Bilder/broetchentueten.jpeg',  url: '/produkte/broetchentueten/' },
-      { title: 'D\u00F6nert\u00FCten',    tags: ['papiert\u00FCten'], price: '7,00',   unit: 'kg',     img: '/Bilder/doenertueten.jpeg',     url: '/produkte/doenertueten/' },
-      { title: 'Kuru Pasta Kutusu',       tags: ['papierboxen'], price: '0,14',   unit: 'St\u00FCck', img: '/Bilder/kurupasta.jpeg',        url: '/produkte/kuru-pasta/' },
-      { title: 'Salatschalen',            tags: ['pappschalen'], price: '0,1365', unit: 'St\u00FCck', img: '/Bilder/bowl.jpeg',             url: '/produkte/salatschalen/' },
-      { title: 'Baklava Kutusu',          tags: ['papierboxen'], price: '0,1050', unit: 'St\u00FCck', img: '/Bilder/baklava.jpeg',          url: '/produkte/baklava-kutusu/' },
-      { title: 'Kuchenboxen',             tags: ['papierboxen'], price: '0,41',   unit: 'St\u00FCck', img: '/Bilder/kuchenbox.jpeg',         url: '/produkte/kuchenboxen/' },
-      { title: 'Pommesch\u00FCtten',      tags: ['papierboxen'], price: '0,128',  unit: 'St\u00FCck', img: '/Bilder/pommes.jpeg',            url: '/produkte/pommesschuetten/' },
-      { title: 'FC Box',                  tags: ['papierboxen'], price: '0,083',  unit: 'St\u00FCck', img: '/Bilder/fcbox.jpeg',            url: '/produkte/fc-box/' },
-      { title: 'D\u00F6nerboxen',             tags: ['papierboxen'], price: '0,108',  unit: 'St\u00FCck', img: '/Bilder/doenerbox.jpeg',        url: '/produkte/doenerboxen/' },
-      { title: 'Take-away Boxen',         tags: ['papierboxen'], price: '0,1581', unit: 'St\u00FCck', img: '/Bilder/takeawaybox.jpeg',      url: '/produkte/takeaway-boxen/' },
-      { title: 'Kaffeebecher Single Wall', tags: ['pappbecher'], price: '0,0943', unit: 'St\u00FCck', img: '/Bilder/kaffeebecher-sw.jpeg',   url: '/produkte/kaffeebecher-single-wall/' },
-      { title: 'Kaffeebecher Double Wall', tags: ['pappbecher'], price: '0,1160', unit: 'St\u00FCck', img: '/Bilder/kaffeebecher-dw.jpeg',   url: '/produkte/kaffeebecher-double-wall/' }
-    ];
-
-    var activeKat = 'alle';
-
     function setFilter(group, val) {
-      activeKat = val;
-      document.querySelectorAll('.filter-kat').forEach(function(b) { b.classList.toggle('active', b.dataset.val === val); });
-      renderProducts();
-    }
-
-    function renderProducts() {
-      var grid = document.getElementById('shopify-products-grid');
-      var msg  = document.getElementById('no-products-msg');
-      var filtered = PRODUCTS.filter(function(p) {
-        return activeKat === 'alle' || p.tags.includes(activeKat);
+      var count = 0;
+      document.querySelectorAll('.filter-kat').forEach(function(button) {
+        var selected = button.dataset.val === val;
+        button.classList.toggle('active', selected);
+        button.setAttribute('aria-pressed', String(selected));
       });
-      if (filtered.length === 0) { grid.innerHTML = ''; msg.style.display = 'block'; return; }
-      msg.style.display = 'none';
-      grid.innerHTML = filtered.map(function(p) {
-        var imgHtml = p.img
-          ? '<img src="' + p.img + '" alt="' + p.title + '" style="width:100%;height:100%;object-fit:contain;padding:12px;transition:transform 0.5s cubic-bezier(.25,1,.5,1);" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\'">'
-          : '<div style="width:100%;height:100%;background:#e5e5ea;"></div>';
-        return '<a href="' + p.url + '" style="text-decoration:none;display:block;background:#f2f2f7;border-radius:18px;overflow:hidden;transition:transform 0.3s cubic-bezier(.34,1.56,.64,1),box-shadow 0.3s ease;" onmouseover="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 12px 32px rgba(0,0,0,0.10)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">'
-          + '<div style="aspect-ratio:1/1;overflow:hidden;background:#f2f2f7;">' + imgHtml + '</div>'
-          + '<div style="padding:14px 16px 18px;background:#fff;">'
-          + '<h3 style="font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:10px;line-height:1.3;">' + p.title + '</h3>'
-          + '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">'
-          + '<span style="font-size:15px;font-weight:800;color:#1a1a1a;">ab \u20AC' + p.price + ' / ' + p.unit + '</span>'
-          + '<span style="background:#3a3a3c;color:#fff;font-size:12px;font-weight:700;padding:7px 16px;border-radius:100px;white-space:nowrap;" class="btn-kaufen">Kaufen \u2192</span>'
-          + '</div></div></a>';
-      }).join('');
+      document.querySelectorAll('[data-product-category]').forEach(function(card) {
+        var visible = val === 'alle' || card.dataset.productCategory.split(' ').includes(val);
+        card.hidden = !visible;
+        if (visible) count++;
+      });
+      document.getElementById('no-products-msg').style.display = count ? 'none' : 'block';
     }
-
-    // Hero tiles (T\u00FCten, Sleeves, Burgerbox)
-    [0, 1, 2].forEach(function(i) {
-      var p = PRODUCTS[i];
-      var card = document.getElementById('hero-card-' + i);
-      if (!card) return;
-      card.href = p.url;
-      document.getElementById('hero-title-' + i).textContent = p.title;
-      document.getElementById('hero-price-' + i).textContent = 'ab \u20AC' + p.price + ' / ' + p.unit;
-      if (p.img) document.getElementById('hero-img-' + i).innerHTML =
-        '<img src="' + p.img + '" alt="' + p.title + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
-    });
-
-    renderProducts();
+    setFilter('kat', 'alle');
     </script>
   </div>
 </section>
@@ -1049,16 +1129,16 @@
 
     <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px;">
       <div>
-        <img src="/Bilder/neues%20logo.png" alt="PackFactory" style="height: 72px; margin-bottom: 16px; filter: brightness(0) invert(1);">
+        <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" style="height: 72px; margin-bottom: 16px; filter: brightness(0) invert(1);">
         <p style="font-size: 14px; color: rgba(255,255,255,0.38); line-height: 1.7; max-width: 280px;">Individuelle Verpackungsl&ouml;sungen f&uuml;r Gastronomie und Foodservice.</p>
       </div>
       <div>
         <h4 style="font-size: 13px; font-weight: 800; color: rgba(255,255,255,0.8); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px;">Produkte</h4>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
-          <li><a href="#" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Bechermanschetten</a></li>
-          <li><a href="#" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">T&uuml;ten</a></li>
-          <li><a href="#" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Verpackungsboxen</a></li>
-          <li><a href="#" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Tabletpapier</a></li>
+          <li><a href="/produkte/sleeves/" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Bechermanschetten</a></li>
+          <li><a href="/produkte/tueten/" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">T&uuml;ten</a></li>
+          <li><a href="/#produkte-filter" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Verpackungsboxen</a></li>
+          <li><a href="/produkte/einschlagpapier/" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Tabletpapier</a></li>
         </ul>
       </div>
       <div>
