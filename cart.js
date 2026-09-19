@@ -4,7 +4,7 @@
    E-Mail-Anfrage zusammen. */
 (function () {
   var STORAGE_KEY = 'pf_cart_v1';
-  var WA_NUMBER = '4917673216419';
+  var WA_NUMBER = '491776990017';
   var EMAIL = 'info@pack-factory.de';
 
   function getCart() {
