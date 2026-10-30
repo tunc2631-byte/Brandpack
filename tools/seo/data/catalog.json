@@ -164,9 +164,19 @@
     "tags": [
       "pappbecher"
     ],
-    "price": "0,121",
+    "price": "0,135",
     "unit": "Stück",
     "img": "/Bilder/clear-cups.jpeg",
     "url": "/produkte/clear-cups/"
+  },
+  {
+    "title": "Bubble Tea Cups",
+    "tags": [
+      "pappbecher"
+    ],
+    "price": "0,173",
+    "unit": "Stück",
+    "img": "/Bilder/bubble-tea-cups.jpeg",
+    "url": "/produkte/bubble-tea-cups/"
   }
 ]
