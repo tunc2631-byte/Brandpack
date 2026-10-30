@@ -267,8 +267,8 @@
 
     <!-- Price -->
     <div class="price-row">
-      <span class="price-total" id="price-display">EUR 403,20</span>
-      <span class="price-per" id="price-per">0,252 &euro; / St&uuml;ck</span>
+      <span class="price-total" id="price-display">EUR 430,40</span>
+      <span class="price-per" id="price-per">0,269 &euro; / St&uuml;ck</span>
     </div>
     <p class="price-vat">Zzgl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
 
@@ -361,11 +361,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>1.600 St.</td><td>Tampondruck, einseitig</td><td>0,252 &euro;</td><td>0,256 &euro;</td><td>0,263 &euro;</td></tr>
-          <tr><td>3.200 St.</td><td>Tampondruck, einseitig</td><td>0,195 &euro;</td><td>0,199 &euro;</td><td>0,204 &euro;</td></tr>
-          <tr><td>4.800 St.</td><td>Tampondruck, einseitig</td><td>0,176 &euro;</td><td>0,180 &euro;</td><td>0,185 &euro;</td></tr>
-          <tr><td>10.000 St.</td><td>Rundumdruck, bis 2 Farben</td><td>0,139 &euro;</td><td>0,158 &euro;</td><td>0,163 &euro;</td></tr>
-          <tr><td>20.000 St.</td><td>Rundumdruck, bis 3 Farben</td><td>0,121 &euro;</td><td>0,142 &euro;</td><td>0,146 &euro;</td></tr>
+          <tr><td>1.600 St.</td><td>Tampondruck, einseitig</td><td>0,269 &euro;</td><td>0,273 &euro;</td><td>0,279 &euro;</td></tr>
+          <tr><td>3.200 St.</td><td>Tampondruck, einseitig</td><td>0,209 &euro;</td><td>0,213 &euro;</td><td>0,219 &euro;</td></tr>
+          <tr><td>4.800 St.</td><td>Tampondruck, einseitig</td><td>0,189 &euro;</td><td>0,193 &euro;</td><td>0,199 &euro;</td></tr>
+          <tr><td>10.000 St.</td><td>Rundumdruck, bis 2 Farben</td><td>0,155 &euro;</td><td>0,174 &euro;</td><td>0,179 &euro;</td></tr>
+          <tr><td>20.000 St.</td><td>Rundumdruck, bis 3 Farben</td><td>0,135 &euro;</td><td>0,155 &euro;</td><td>0,159 &euro;</td></tr>
         </tbody>
       </table>
     </div>
@@ -383,11 +383,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>1.600 St.</td><td>Tampondruck, einseitig</td><td>0,296 &euro;</td><td>0,300 &euro;</td><td>0,307 &euro;</td></tr>
-          <tr><td>3.200 St.</td><td>Tampondruck, einseitig</td><td>0,239 &euro;</td><td>0,243 &euro;</td><td>0,248 &euro;</td></tr>
-          <tr><td>4.800 St.</td><td>Tampondruck, einseitig</td><td>0,220 &euro;</td><td>0,224 &euro;</td><td>0,229 &euro;</td></tr>
-          <tr><td>10.000 St.</td><td>Rundumdruck, bis 2 Farben</td><td>0,165 &euro;</td><td>0,184 &euro;</td><td>0,189 &euro;</td></tr>
-          <tr><td>20.000 St.</td><td>Rundumdruck, bis 3 Farben</td><td>0,147 &euro;</td><td>0,168 &euro;</td><td>0,172 &euro;</td></tr>
+          <tr><td>1.600 St.</td><td>Tampondruck, einseitig</td><td>0,313 &euro;</td><td>0,317 &euro;</td><td>0,323 &euro;</td></tr>
+          <tr><td>3.200 St.</td><td>Tampondruck, einseitig</td><td>0,253 &euro;</td><td>0,257 &euro;</td><td>0,263 &euro;</td></tr>
+          <tr><td>4.800 St.</td><td>Tampondruck, einseitig</td><td>0,233 &euro;</td><td>0,237 &euro;</td><td>0,243 &euro;</td></tr>
+          <tr><td>10.000 St.</td><td>Rundumdruck, bis 2 Farben</td><td>0,181 &euro;</td><td>0,200 &euro;</td><td>0,205 &euro;</td></tr>
+          <tr><td>20.000 St.</td><td>Rundumdruck, bis 3 Farben</td><td>0,161 &euro;</td><td>0,181 &euro;</td><td>0,185 &euro;</td></tr>
         </tbody>
       </table>
     </div>
@@ -490,18 +490,18 @@
   // Stueckpreise netto: PRICES[deckel][menge][groesse]
   var PRICES = {
     ohne: {
-      1600:  { '300': 0.252, '400': 0.256, '500': 0.263 },
-      3200:  { '300': 0.195, '400': 0.199, '500': 0.204 },
-      4800:  { '300': 0.176, '400': 0.180, '500': 0.185 },
-      10000: { '300': 0.139, '400': 0.158, '500': 0.163 },
-      20000: { '300': 0.121, '400': 0.142, '500': 0.146 }
+      1600:  { '300': 0.269, '400': 0.273, '500': 0.279 },
+      3200:  { '300': 0.209, '400': 0.213, '500': 0.219 },
+      4800:  { '300': 0.189, '400': 0.193, '500': 0.199 },
+      10000: { '300': 0.155, '400': 0.174, '500': 0.179 },
+      20000: { '300': 0.135, '400': 0.155, '500': 0.159 }
     },
     mit: {
-      1600:  { '300': 0.296, '400': 0.300, '500': 0.307 },
-      3200:  { '300': 0.239, '400': 0.243, '500': 0.248 },
-      4800:  { '300': 0.220, '400': 0.224, '500': 0.229 },
-      10000: { '300': 0.165, '400': 0.184, '500': 0.189 },
-      20000: { '300': 0.147, '400': 0.168, '500': 0.172 }
+      1600:  { '300': 0.313, '400': 0.317, '500': 0.323 },
+      3200:  { '300': 0.253, '400': 0.257, '500': 0.263 },
+      4800:  { '300': 0.233, '400': 0.237, '500': 0.243 },
+      10000: { '300': 0.181, '400': 0.200, '500': 0.205 },
+      20000: { '300': 0.161, '400': 0.181, '500': 0.185 }
     }
   };
 
