@@ -311,8 +311,8 @@
 <!-- DELIVERY STRIP -->
 <div class="delivery-strip">
   <div class="delivery-item">
-    <div class="delivery-label">Voraussichtliche Lieferung</div>
-    <div class="delivery-value" id="delivery-date">wird berechnet...</div>
+    <div class="delivery-label">Lieferzeit</div>
+    <div class="delivery-value">ca. 5&ndash;7 Wochen nach Druckfreigabe</div>
   </div>
   <div class="delivery-item">
     <div class="delivery-label">Produktion</div>
@@ -526,13 +526,6 @@
     document.querySelector('.hamburger').classList.remove('open');
     document.body.style.overflow = '';
   }
-
-  (function() {
-    const d = new Date(); d.setDate(d.getDate() + 56);
-    if (d.getDay() === 6) d.setDate(d.getDate() + 2);
-    if (d.getDay() === 0) d.setDate(d.getDate() + 1);
-    document.getElementById('delivery-date').textContent = 'ca. ' + d.toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric' });
-  })();
 
   updateAll();
 </script>

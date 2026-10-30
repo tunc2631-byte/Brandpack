@@ -303,8 +303,8 @@
 <!-- DELIVERY STRIP -->
 <div class="delivery-strip">
   <div class="delivery-item">
-    <div class="delivery-label">Voraussichtliche Lieferung</div>
-    <div class="delivery-value" id="delivery-date">wird berechnet...</div>
+    <div class="delivery-label">Lieferzeit</div>
+    <div class="delivery-value">ca. 5&ndash;7 Wochen nach Druckfreigabe</div>
   </div>
   <div class="delivery-item">
     <div class="delivery-label">Produktion</div>
@@ -481,7 +481,7 @@
       <li><strong>Einrichtungskosten nur beim ersten Auftrag</strong> &mdash; alle Nachbestellungen ohne erneute Setup-Geb&uuml;hren</li>
       <li><strong>Flexodruck, 1&ndash;4 Farben</strong> &mdash; wirtschaftlich f&uuml;r gro&szlig;e Auflagen, farbstark und reproduzierbar</li>
       <li><strong>5 Standardgr&ouml;&szlig;en</strong> &mdash; kein Sonderformat n&ouml;tig, sofort konfigurierbar</li>
-      <li><strong>Lieferzeit ca. 6&ndash;8 Wochen</strong> &mdash; planbar f&uuml;r saisonale und regelm&auml;&szlig;ige Bestellungen</li>
+      <li><strong>Lieferzeit ca. 5&ndash;7 Wochen</strong> &mdash; planbar f&uuml;r saisonale und regelm&auml;&szlig;ige Bestellungen</li>
       <li><strong>Pers&ouml;nliche Beratung</strong> &mdash; bei Gr&ouml;&szlig;enauswahl, Papierart, Druckdaten und Mengenplanung</li>
     </ul>
   </div>
@@ -609,15 +609,6 @@
     document.querySelector('.hamburger').classList.remove('open');
     document.body.style.overflow = '';
   }
-
-  (function() {
-    var d = new Date();
-    d.setDate(d.getDate() + 56);
-    if (d.getDay() === 6) d.setDate(d.getDate() + 2);
-    if (d.getDay() === 0) d.setDate(d.getDate() + 1);
-    document.getElementById('delivery-date').textContent =
-      'ca. ' + d.toLocaleDateString('de-DE', {day:'2-digit', month:'2-digit', year:'numeric'});
-  })();
 
   updateAll();
 </script>
