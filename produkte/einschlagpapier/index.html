@@ -337,8 +337,8 @@
 <!-- DELIVERY STRIP -->
 <div class="delivery-strip">
   <div class="delivery-item">
-    <div class="delivery-label">Voraussichtliche Lieferung</div>
-    <div class="delivery-value" id="delivery-date">wird berechnet...</div>
+    <div class="delivery-label">Lieferzeit</div>
+    <div class="delivery-value">ca. 5&ndash;7 Wochen nach Druckfreigabe</div>
   </div>
   <div class="delivery-item">
     <div class="delivery-label">Produktion</div>
@@ -518,7 +518,7 @@
       <li><strong>Flexodruck, 1&ndash;3 Farben</strong> &mdash; wirtschaftlich f&uuml;r gro&szlig;e Auflagen</li>
       <li><strong>Sonderma&szlig;e ohne Aufpreis</strong> &mdash; Konfigurator berechnet automatisch</li>
       <li><strong>Bis zu 135 g/m&sup2; auf Anfrage</strong> &mdash; h&ouml;here Grammaturen f&uuml;r besondere Anwendungen</li>
-      <li><strong>Lieferzeit ca. 6&ndash;8 Wochen</strong> nach Auftragsbest&auml;tigung</li>
+      <li><strong>Lieferzeit ca. 5&ndash;7 Wochen</strong> nach Auftragsbest&auml;tigung</li>
       <li><strong>Pers&ouml;nliche Beratung</strong> &mdash; bei Papierauswahl, Ma&szlig;en und Druckdaten</li>
     </ul>
   </div>
@@ -678,15 +678,6 @@
     document.querySelector('.hamburger').classList.remove('open');
     document.body.style.overflow = '';
   }
-
-  // Delivery date (~8 weeks)
-  (function() {
-    var d = new Date();
-    d.setDate(d.getDate() + 56);
-    if (d.getDay() === 6) d.setDate(d.getDate() + 2);
-    if (d.getDay() === 0) d.setDate(d.getDate() + 1);
-    document.getElementById('delivery-date').textContent = 'ca. ' + d.toLocaleDateString('de-DE', {day:'2-digit', month:'2-digit', year:'numeric'});
-  })();
 
   updateAll();
 </script>

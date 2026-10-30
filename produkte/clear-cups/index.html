@@ -230,7 +230,7 @@
       Clear Cups
     </div>
 
-    <h1 class="product-title">Clear Cups &ndash; individuell bedruckt</h1>
+    <h1 class="product-title">Clear Cups</h1>
     <p class="product-subtitle">Transparente Becher aus PET oder R-PET &mdash; f&uuml;r Eiskaffee, Smoothies &amp; Kaltgetr&auml;nke</p>
 
     <!-- Groesse -->
@@ -296,8 +296,8 @@
 <!-- DELIVERY STRIP -->
 <div class="delivery-strip">
   <div class="delivery-item">
-    <div class="delivery-label">Voraussichtliche Lieferung</div>
-    <div class="delivery-value" id="delivery-date">wird berechnet...</div>
+    <div class="delivery-label">Lieferzeit</div>
+    <div class="delivery-value">ca. 5&ndash;7 Wochen nach Druckfreigabe</div>
   </div>
   <div class="delivery-item">
     <div class="delivery-label">Produktion</div>
@@ -402,7 +402,7 @@
       <div class="specs-pink-bar"></div>
       <h2 class="specs-title">Produktdetails</h2>
     </div>
-    <p class="specs-sub">Clear Cups &ndash; individuell bedruckt</p>
+    <p class="specs-sub">Clear Cups</p>
     <div class="specs-wrap">
       <table class="specs-table specs-table-details">
         <thead>
@@ -561,15 +561,6 @@
     document.querySelector('.hamburger').classList.remove('open');
     document.body.style.overflow = '';
   }
-
-  (function() {
-    var d = new Date();
-    d.setDate(d.getDate() + 49);
-    if (d.getDay() === 6) d.setDate(d.getDate() + 2);
-    if (d.getDay() === 0) d.setDate(d.getDate() + 1);
-    document.getElementById('delivery-date').textContent =
-      'ca. ' + d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-  })();
 
   updateAll();
 </script>
