@@ -158,5 +158,15 @@
     "unit": "Stück",
     "img": "/Bilder/kaffeebecher-dw.jpeg",
     "url": "/produkte/kaffeebecher-double-wall/"
+  },
+  {
+    "title": "Clear Cups",
+    "tags": [
+      "pappbecher"
+    ],
+    "price": "0,121",
+    "unit": "Stück",
+    "img": "/Bilder/clear-cups.jpeg",
+    "url": "/produkte/clear-cups/"
   }
 ]
