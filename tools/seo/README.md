@@ -21,7 +21,7 @@ python tools/seo/seo.py run --out ../seo-private/weekly
 `check` is offline and exits nonzero on SEO regressions. `audit` reads live pages;
 `gsc` reads Search Console; `run` combines these and generates a report and
 opportunity list. Use a NEW dated output directory per run. `--history` requests
-16 calendar months; `--inspect` checks the 21 sitemap URLs. GSC uses final web
+16 calendar months; `--inspect` checks the 22 sitemap URLs. GSC uses final web
 search data with a three-day buffer and exact, non-overlapping 28-day windows.
 The previous-year comparison is shifted 364 days to align weekdays. Empty
 periods mean missing data, not measured zero performance. Query anonymization,

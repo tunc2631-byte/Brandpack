@@ -8,7 +8,7 @@ from build_catalog import render_cards
 class SeoTests(unittest.TestCase):
     def test_regressions(self):
         report = audit()
-        self.assertEqual(len(report['pages']),21)
+        self.assertEqual(len(report['pages']),22)
         self.assertEqual(report['site_checks']['errors'],[])
         self.assertEqual([(p['url'],p['errors']) for p in report['pages'] if p['errors']],[])
 
@@ -18,8 +18,8 @@ class SeoTests(unittest.TestCase):
         self.assertEqual(rendered,render_cards().strip())
         soup=BeautifulSoup(rendered,'html.parser')
         cards=soup.select('a[data-product-category]')
-        self.assertEqual(len(cards),16)
-        self.assertEqual(len({a['href'] for a in cards}),16)
+        self.assertEqual(len(cards),17)
+        self.assertEqual(len({a['href'] for a in cards}),17)
         self.assertTrue(all(a.find('img').get('alt') for a in cards))
 
     def test_parser_catches_invalid_json_and_multiple_canonicals(self):
