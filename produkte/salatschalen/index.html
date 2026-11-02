@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salatschalen individuell mit Logo bedrucken | PackFactory</title>
   <link rel="canonical" href="https://pack-factory.de/produkte/salatschalen/">
-  <meta name="description" content="Salatschalen individuell bedruckt mit Ihrem Logo &mdash; 4 Gr&ouml;&szlig;en (500&ndash;1300 ml), 2 Materialien, ab 15.000 St&uuml;ck. CMYK Vollfarb-Offsetdruck. Jetzt anfragen.">
+  <meta name="description" content="Salatschalen individuell bedruckt mit Ihrem Logo &mdash; 3 Gr&ouml;&szlig;en (750&ndash;1.300 ml), 2 Materialien, optional mit PP- oder rPET-Deckel, ab 2.100 St&uuml;ck. Jetzt anfragen.">
   <link rel="icon" type="image/png" href="/Bilder/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,7 +212,7 @@
     <img id="product-img" src="/Bilder/bowl.jpeg" alt="Salatschalen mit Logo bedruckt">
     <div class="size-badge">
       <div class="size-badge-s">Gr&ouml;&szlig;e</div>
-      <div class="size-badge-v" id="badge-size">500 ml</div>
+      <div class="size-badge-v" id="badge-size">750 ml</div>
       <div class="size-badge-d" id="badge-mat">Wei&szlig; &middot; Bristol+PE</div>
     </div>
   </div>
@@ -230,12 +230,10 @@
     <div class="opt-group">
       <div class="opt-group-label">Gr&ouml;&szlig;e</div>
       <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('groesse','500ml',this)">500 ml</button>
-        <button class="opt" onclick="selectOpt('groesse','750ml',this)">750 ml</button>
-        <button class="opt" onclick="selectOpt('groesse','1100ml',this)">1.100 ml</button>
+        <button class="opt active" onclick="selectOpt('groesse','750ml',this)">750 ml</button>
+        <button class="opt" onclick="selectOpt('groesse','1000ml',this)">1.000 ml</button>
         <button class="opt" onclick="selectOpt('groesse','1300ml',this)">1.300 ml</button>
       </div>
-      <div class="dim-hint">Deckel auf Anfrage verf&uuml;gbar</div>
     </div>
 
     <!-- Material -->
@@ -247,22 +245,39 @@
       </div>
     </div>
 
+    <!-- Deckel -->
+    <div class="opt-group">
+      <div class="opt-group-label">Deckel</div>
+      <div class="opt-btns">
+        <button class="opt active" onclick="selectOpt('deckel','ohne',this)">Ohne Deckel</button>
+        <button class="opt" onclick="selectOpt('deckel','pp',this)">PP-Deckel</button>
+        <button class="opt" onclick="selectOpt('deckel','rpet',this)">rPET-Deckel</button>
+      </div>
+      <div class="dim-hint" id="lid-hint">Preis ohne Deckel</div>
+    </div>
+
     <!-- Menge -->
     <div class="opt-group">
       <div class="opt-group-label">Menge</div>
       <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('menge',15000,this)">15.000 St&uuml;ck</button>
-        <button class="opt" onclick="selectOpt('menge',25000,this)">25.000 St&uuml;ck</button>
+        <button class="opt active" onclick="selectOpt('menge',2100,this)">2.100 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',3000,this)">3.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',4800,this)">4.800 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',6000,this)">6.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',9600,this)">9.600 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',14400,this)">14.400 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',19200,this)">19.200 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',24000,this)">24.000 St&uuml;ck</button>
       </div>
       <div class="dim-hint">Gr&ouml;&szlig;ere Mengen auf Anfrage m&ouml;glich</div>
     </div>
 
     <!-- Price -->
     <div class="price-row">
-      <span class="price-total" id="price-display">EUR 2.048,00</span>
-      <span class="price-per" id="price-per">0,1365 &euro; / St&uuml;ck</span>
+      <span class="price-total" id="price-display">EUR 500,85</span>
+      <span class="price-per" id="price-per">0,2385 &euro; / St&uuml;ck</span>
     </div>
-    <p class="price-vat">Inkl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
+    <p class="price-vat">Zzgl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
 
     <button type="button" class="pf-cart-add" onclick="addCurrentToCart()">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -301,7 +316,7 @@
   </div>
   <div class="delivery-item">
     <div class="delivery-label">Deckel</div>
-    <div class="delivery-value">Auf Anfrage verf&uuml;gbar</div>
+    <div class="delivery-value">Optional &middot; PP oder rPET</div>
   </div>
 </div>
 
@@ -338,27 +353,29 @@
       <div class="specs-pink-bar"></div>
       <h2 class="specs-title">Technische Spezifikationen</h2>
     </div>
-    <p class="specs-sub">Alle Angaben pro Gr&ouml;&szlig;envariante</p>
+    <p class="specs-sub">Alle Angaben pro Gr&ouml;&szlig;envariante &middot; Preise netto zzgl. MwSt.</p>
     <div class="specs-wrap">
       <table class="specs-table">
         <thead>
           <tr>
             <th>Eigenschaft</th>
-            <th>500 ml</th>
             <th>750 ml</th>
-            <th>1.100 ml</th>
+            <th>1.000 ml</th>
             <th>1.300 ml</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>F&uuml;llvolumen</td><td>500 ml</td><td>750 ml</td><td>1.100 ml</td><td>1.300 ml</td></tr>
-          <tr><td>Material Braun</td><td colspan="4">Kraftpapier + PE-Beschichtung (innen lebensmittelecht)</td></tr>
-          <tr><td>Material Wei&szlig;</td><td colspan="4">Bristolkarton + PE-Beschichtung (innen lebensmittelecht)</td></tr>
-          <tr><td>Druckmethode</td><td>Offsetdruck</td><td>Offsetdruck</td><td>Offsetdruck</td><td>Offsetdruck</td></tr>
-          <tr><td>Druckfarben</td><td>CMYK Vollfarb</td><td>CMYK Vollfarb</td><td>CMYK Vollfarb</td><td>CMYK Vollfarb</td></tr>
-          <tr><td>Druckbereich</td><td>Volldruck</td><td>Volldruck</td><td>Volldruck</td><td>Volldruck</td></tr>
-          <tr><td>Mindestbestellmenge</td><td>15.000 St&uuml;ck</td><td>15.000 St&uuml;ck</td><td>15.000 St&uuml;ck</td><td>15.000 St&uuml;ck</td></tr>
-          <tr><td>Deckel</td><td colspan="4">Auf Anfrage verf&uuml;gbar</td></tr>
+          <tr><td>F&uuml;llvolumen</td><td>750 ml</td><td>1.000 ml</td><td>1.300 ml</td></tr>
+          <tr><td>Material Braun</td><td colspan="3">Kraftpapier + PE-Beschichtung (innen lebensmittelecht)</td></tr>
+          <tr><td>Material Wei&szlig;</td><td colspan="3">Bristolkarton + PE-Beschichtung (innen lebensmittelecht)</td></tr>
+          <tr><td>Druckmethode</td><td>Offsetdruck</td><td>Offsetdruck</td><td>Offsetdruck</td></tr>
+          <tr><td>Druckfarben</td><td>CMYK Vollfarb</td><td>CMYK Vollfarb</td><td>CMYK Vollfarb</td></tr>
+          <tr><td>Druckbereich</td><td>Volldruck</td><td>Volldruck</td><td>Volldruck</td></tr>
+          <tr><td>Mindestbestellmenge</td><td>2.100 St&uuml;ck</td><td>2.100 St&uuml;ck</td><td>2.100 St&uuml;ck</td></tr>
+          <tr><td>Deckel</td><td colspan="3">Optional: ohne Deckel, PP-Deckel oder rPET-Deckel</td></tr>
+          <tr><td>Deckel-Aufpreis</td><td>+7,15 ct / St&uuml;ck</td><td>+7,15 ct / St&uuml;ck</td><td>+7,00 ct / St&uuml;ck</td></tr>
+          <tr><td>PP-Deckel</td><td colspan="3">H&ouml;here Temperaturbest&auml;ndigkeit &mdash; besser geeignet f&uuml;r w&auml;rmere Speisen</td></tr>
+          <tr><td>rPET-Deckel</td><td colspan="3">Insbesondere f&uuml;r kalte Speisen geeignet</td></tr>
         </tbody>
       </table>
     </div>
@@ -369,8 +386,8 @@
 <!-- SEO -->
 <section class="seo-section">
   <div class="seo-inner">
-    <h2>Salatschalen bedrucken lassen &mdash; 4 Gr&ouml;&szlig;en, 2 Materialien, ab 15.000 St&uuml;ck</h2>
-    <p class="seo-lead">Bedruckte Salatschalen machen aus jedem Take-away-Salat ein Markenerlebnis. PackFactory produziert Salatschalen in vier F&uuml;llgr&ouml;&szlig;en von 500 bis 1.300 ml &mdash; wahlweise in Braun (Kraft+PE) oder Wei&szlig; (Bristol+PE), CMYK Vollfarb-Offsetdruck, ab 15.000 St&uuml;ck direkt vom Hersteller.</p>
+    <h2>Salatschalen bedrucken lassen &mdash; 3 Gr&ouml;&szlig;en, 2 Materialien, ab 2.100 St&uuml;ck</h2>
+    <p class="seo-lead">Bedruckte Salatschalen machen aus jedem Take-away-Salat ein Markenerlebnis. PackFactory produziert Salatschalen in drei F&uuml;llgr&ouml;&szlig;en &mdash; 750, 1.000 und 1.300 ml &mdash; wahlweise in Braun (Kraft+PE) oder Wei&szlig; (Bristol+PE), CMYK Vollfarb-Offsetdruck, optional mit PP- oder rPET-Deckel, ab 2.100 St&uuml;ck direkt vom Hersteller.</p>
 
     <h3>Was sind Salatschalen und wo werden sie eingesetzt?</h3>
     <p>Salatschalen sind stabile, lebensmittelechte Einwegbeh&auml;lter aus beschichtetem Papier f&uuml;r Take-away-Salate, Bowls, Poke-Gerichte, Pasta und alle anderen portionsweise servierten Speisen. Die PE-Beschichtung im Inneren macht sie fl&uuml;ssigkeitsdicht &mdash; auch Dressings, Sauce und nat&uuml;rliche Lebensmittelfeuchte h&auml;lten der Schale nichts an. Gleichzeitig bleibt die Au&szlig;enseite trocken, sauber und voll bedruckbar.</p>
@@ -388,8 +405,12 @@
       <li>Food Trucks mit Salat- und Bowl-Angeboten</li>
     </ul>
 
-    <h3>500 ml bis 1.300 ml &mdash; die richtige Gr&ouml;&szlig;e f&uuml;r jede Portion</h3>
-    <p>Die <strong>500-ml-Schale</strong> ist die ideale Gr&ouml;&szlig;e f&uuml;r kleine Beilagensalate, Vorspeisen oder leichte Mittagsportionen. Die <strong>750-ml-Schale</strong> deckt die klassische Mittagsportion ab &mdash; ein gef&uuml;llter Hauptgang-Salat mit Topping. Die <strong>1.100-ml-Schale</strong> eignet sich f&uuml;r gro&szlig;e Bowls und Kombigenuss-Portionen, die <strong>1.300-ml-Schale</strong> f&uuml;r Sharing-Portionen und Catering-Einzelportionen bei Events.</p>
+    <h3>750 ml bis 1.300 ml &mdash; die richtige Gr&ouml;&szlig;e f&uuml;r jede Portion</h3>
+    <p>Die <strong>750-ml-Schale</strong> deckt die klassische Mittagsportion ab &mdash; ein gef&uuml;llter Hauptgang-Salat mit Topping. Die <strong>1.000-ml-Schale</strong> eignet sich f&uuml;r gro&szlig;e Bowls und Kombigenuss-Portionen, die <strong>1.300-ml-Schale</strong> f&uuml;r Sharing-Portionen und Catering-Einzelportionen bei Events.</p>
+
+    <h3>Mit oder ohne Deckel &mdash; PP oder rPET</h3>
+    <p>Passende Deckel kannst du optional dazubuchen. Der Deckelpreis wird pro Schale zus&auml;tzlich berechnet: <strong>7,15 ct</strong> f&uuml;r 750 und 1.000 ml, <strong>7,00 ct</strong> f&uuml;r 1.300 ml &mdash; f&uuml;r PP und rPET jeweils gleich.</p>
+    <p><strong>PP-Deckel</strong> sind aufgrund ihrer h&ouml;heren Temperaturbest&auml;ndigkeit besser f&uuml;r w&auml;rmere Speisen geeignet. <strong>rPET-Deckel</strong> eignen sich insbesondere f&uuml;r kalte Speisen wie Salate und kalte Bowls.</p>
 
     <h3>Braun oder Wei&szlig; &mdash; welches Material passt zu Ihrer Marke?</h3>
     <p><strong>Braun (Kraft+PE)</strong> &mdash; die nat&uuml;rliche Kraftpapier-Optik kommuniziert Nachhaltigkeit, Handwerk und Authentizit&auml;t. Besonders beliebt bei Konzepten mit Bio-Positionierung, regionalem Fokus und naturbewusstem Markenauftritt. Schwarze oder gr&uuml;ne Druckfarben wirken auf Kraft besonders edel.</p>
@@ -397,10 +418,10 @@
 
     <h3>Warum PackFactory?</h3>
     <ul>
-      <li><strong>4 Gr&ouml;&szlig;en und 2 Materialien</strong> &mdash; f&uuml;r jede Portionsgr&ouml;&szlig;e und jeden Markenstil die passende Option</li>
+      <li><strong>3 Gr&ouml;&szlig;en und 2 Materialien</strong> &mdash; f&uuml;r jede Portionsgr&ouml;&szlig;e und jeden Markenstil die passende Option</li>
       <li><strong>CMYK Vollfarb-Offsetdruck</strong> &mdash; gestochen scharfe Ergebnisse, fotorealistische Qualit&auml;t</li>
       <li><strong>PE-Beschichtung innen</strong> &mdash; fl&uuml;ssigkeitsdicht, lebensmittelecht, kein Durchweichen</li>
-      <li><strong>Deckel auf Anfrage</strong> &mdash; f&uuml;r h&ouml;here Transportstabilit&auml;t und Frischehaltung</li>
+      <li><strong>Deckel optional</strong> &mdash; PP oder rPET, f&uuml;r h&ouml;here Transportstabilit&auml;t und Frischehaltung</li>
       <li><strong>Kostenloser Designservice</strong> &mdash; wir gestalten, du gibst frei</li>
       <li><strong>Lieferzeit ca. 5&ndash;7 Wochen</strong> &mdash; nach Druckfreigabe, inkl. Versand</li>
     </ul>
@@ -432,38 +453,23 @@
 </footer>
 
 <script>
+  // Netto-Stueckpreise der Schale ohne Deckel in Hundertstel-Cent (2385 = 23,85 ct)
   var PRICES = {
-    weiss: {
-      '500ml':  { 15000: 2048, 25000: 3003 },
-      '750ml':  { 15000: 2162, 25000: 3155 },
-      '1100ml': { 15000: 2802, 25000: 4208 },
-      '1300ml': { 15000: 2904, 25000: 4340 }
-    },
-    braun: {
-      '500ml':  { 15000: 2079, 25000: 3035 },
-      '750ml':  { 15000: 2192, 25000: 3190 },
-      '1100ml': { 15000: 2853, 25000: 4228 },
-      '1300ml': { 15000: 2955, 25000: 4428 }
-    }
+    '750ml':  { 2100: 2385, 3000: 2147, 4800: 1841, 6000: 1730, 9600: 1681, 14400: 1537, 19200: 1471, 24000: 1415 },
+    '1000ml': { 2100: 2515, 3000: 2277, 4800: 1961, 6000: 1850, 9600: 1811, 14400: 1667, 19200: 1591, 24000: 1535 },
+    '1300ml': { 2100: 2635, 3000: 2397, 4800: 2081, 6000: 2000, 9600: 1941, 14400: 1777, 19200: 1721, 24000: 1675 }
   };
-  var CT = {
-    weiss: {
-      '500ml':  { 15000: 0.1365, 25000: 0.1201 },
-      '750ml':  { 15000: 0.1441, 25000: 0.1262 },
-      '1100ml': { 15000: 0.1868, 25000: 0.1683 },
-      '1300ml': { 15000: 0.1936, 25000: 0.1736 }
-    },
-    braun: {
-      '500ml':  { 15000: 0.1386, 25000: 0.1214 },
-      '750ml':  { 15000: 0.1461, 25000: 0.1276 },
-      '1100ml': { 15000: 0.1902, 25000: 0.1691 },
-      '1300ml': { 15000: 0.1970, 25000: 0.1771 }
-    }
-  };
-  var LABELS = { '500ml': '500 ml', '750ml': '750 ml', '1100ml': '1.100 ml', '1300ml': '1.300 ml' };
+  // Deckel-Aufpreis pro Stueck in Hundertstel-Cent, gleich fuer PP und rPET
+  var LID_PRICES = { '750ml': 715, '1000ml': 715, '1300ml': 700 };
+  var LABELS = { '750ml': '750 ml', '1000ml': '1.000 ml', '1300ml': '1.300 ml' };
   var MAT_LABELS = { weiss: 'Wei\u00DF \u00B7 Bristol+PE', braun: 'Braun \u00B7 Kraft+PE' };
+  var LID_LABELS = { ohne: 'Ohne Deckel', pp: 'PP-Deckel', rpet: 'rPET-Deckel' };
+  var LID_NOTES = {
+    pp: 'besser f\u00FCr w\u00E4rmere Speisen (h\u00F6here Temperaturbest\u00E4ndigkeit)',
+    rpet: 'insbesondere f\u00FCr kalte Speisen geeignet'
+  };
 
-  var sel = { groesse: '500ml', material: 'weiss', menge: 15000 };
+  var sel = { groesse: '750ml', material: 'weiss', deckel: 'ohne', menge: 2100 };
 
   function selectOpt(key, val, btn) {
     sel[key] = val;
@@ -472,22 +478,31 @@
     updateAll();
   }
 
+  function ctLabel(v) {
+    return (v / 100).toFixed(2).replace('.', ',') + ' ct';
+  }
+
   function updateAll() {
-    var total = PRICES[sel.material][sel.groesse][sel.menge];
-    var ct    = CT[sel.material][sel.groesse][sel.menge];
+    var lid   = sel.deckel === 'ohne' ? 0 : LID_PRICES[sel.groesse];
+    var unit  = PRICES[sel.groesse][sel.menge] + lid;
+    var total = unit * sel.menge / 10000;
     document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
-    document.getElementById('price-per').textContent     = ct.toFixed(4).replace('.', ',') + ' \u20AC / St\u00FCck';
+    document.getElementById('price-per').textContent     = (unit / 10000).toFixed(4).replace('.', ',') + ' \u20AC / St\u00FCck';
     document.getElementById('badge-size').textContent    = LABELS[sel.groesse];
     document.getElementById('badge-mat').textContent     = MAT_LABELS[sel.material];
+    document.getElementById('lid-hint').textContent      = sel.deckel === 'ohne'
+      ? 'Preis ohne Deckel'
+      : LID_LABELS[sel.deckel] + ' +' + ctLabel(lid) + ' / St\u00FCck \u00B7 ' + LID_NOTES[sel.deckel];
 
     var img = document.getElementById('product-img');
     img.classList.remove('pulse'); void img.offsetWidth; img.classList.add('pulse');
 
     var sizeLabel = LABELS[sel.groesse];
     var matLabel  = MAT_LABELS[sel.material];
-    var msg = 'Hallo, ich interessiere mich f\u00FCr Salatschalen (' + sizeLabel + ', ' + matLabel + ', ' + sel.menge.toLocaleString('de-DE') + ' St\u00FCck) und m\u00F6chte ein Angebot anfragen.';
+    var lidLabel  = LID_LABELS[sel.deckel];
+    var msg = 'Hallo, ich interessiere mich f\u00FCr Salatschalen (' + sizeLabel + ', ' + matLabel + ', ' + lidLabel + ', ' + sel.menge.toLocaleString('de-DE') + ' St\u00FCck) und m\u00F6chte ein Angebot anfragen.';
     document.getElementById('wa-link').href    = 'https://wa.me/491776990017?text=' + encodeURIComponent(msg);
-    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Salatschalen&body=' + encodeURIComponent('Gr\u00F6\u00DFe: ' + sizeLabel + '\nMaterial: ' + matLabel + '\nMenge: ' + sel.menge.toLocaleString('de-DE') + ' St\u00FCck');
+    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Salatschalen&body=' + encodeURIComponent('Gr\u00F6\u00DFe: ' + sizeLabel + '\nMaterial: ' + matLabel + '\nDeckel: ' + lidLabel + '\nMenge: ' + sel.menge.toLocaleString('de-DE') + ' St\u00FCck');
     window.PF_ITEM = { title: 'Salatschalen', desc: msg, priceTotal: document.getElementById('price-display').textContent, url: location.pathname };
   }
 
