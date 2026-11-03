@@ -428,8 +428,8 @@
     <div class="opt-group">
       <div class="opt-group-label">Material</div>
       <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('material','Whitekraft',this)">Whitekraft &mdash; Wei&szlig;</button>
-        <button class="opt" onclick="selectOpt('material','Brownkraft',this)">Brownkraft &mdash; Braun</button>
+        <button class="opt active" onclick="selectOpt('material','Brownkraft',this)">Brownkraft &mdash; Braun</button>
+        <button class="opt" onclick="selectOpt('material','Whitekraft',this)">Whitekraft &mdash; Wei&szlig;</button>
       </div>
     </div>
 
@@ -445,8 +445,8 @@
 
     <!-- Price -->
     <div class="price-row">
-      <span class="price-total" id="price-display">EUR 1.485,00</span>
-      <span class="price-per" id="price-per">0,1485 &euro; / St&uuml;ck</span>
+      <span class="price-total" id="price-display">EUR 1.350,00</span>
+      <span class="price-per" id="price-per">0,1350 &euro; / St&uuml;ck</span>
     </div>
     <p class="price-vat">Inkl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
 
@@ -687,7 +687,7 @@
     'L':'310 x 180 x 300 mm', 'XL':'330 x 200 x 330 mm',
     'Sonderma\u00DF':'Individuelle Abmessungen'
   };
-  const sel = { size:'S', material:'Whitekraft', menge:10000 };
+  const sel = { size:'S', material:'Brownkraft', menge:10000 };
 
   function selectOpt(key, val, btn) {
     sel[key] = val;
