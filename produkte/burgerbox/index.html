@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Burgerbox individuell mit Logo bedrucken | PackFactory</title>
   <link rel="canonical" href="https://pack-factory.de/produkte/burgerbox/">
-  <meta name="description" content="Individuelle Burgerboxen mit deinem Logo bedrucken lassen. 3 Gr&ouml;&szlig;en, 3 Materialien, ab 15.000 St&uuml;ck. Jetzt anfragen.">
+  <meta name="description" content="Individuelle Burgerboxen mit deinem Logo bedrucken lassen. 3 Gr&ouml;&szlig;en, 3 Materialien, ab 10.000 St&uuml;ck. Jetzt anfragen.">
   <link rel="icon" type="image/png" href="/Bilder/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -270,9 +270,9 @@
     <div class="opt-group">
       <div class="opt-group-label">Menge</div>
       <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('menge',15000,this)">15.000 St&uuml;ck</button>
-        <button class="opt" onclick="selectOpt('menge',20000,this)">20.000 St&uuml;ck</button>
-        <button class="opt" onclick="selectOpt('menge',30000,this)">30.000 St&uuml;ck</button>
+        <button class="opt active" onclick="selectOpt('menge',10000,this)">10.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',15000,this)">15.000 St&uuml;ck</button>
+        <button class="opt" onclick="selectOpt('menge',25000,this)">25.000 St&uuml;ck</button>
         <button class="opt" onclick="selectOpt('menge',40000,this)">40.000 St&uuml;ck</button>
       </div>
       <div class="dim-hint">Gr&ouml;&szlig;ere Mengen auf Anfrage m&ouml;glich</div>
@@ -280,8 +280,8 @@
 
     <!-- Price -->
     <div class="price-row">
-      <span class="price-total" id="price-display">EUR 1.690,50</span>
-      <span class="price-per" id="price-per">0,1127 EUR / St&uuml;ck</span>
+      <span class="price-total" id="price-display">EUR 1.500,00</span>
+      <span class="price-per" id="price-per">0,1500 EUR / St&uuml;ck</span>
     </div>
     <p class="price-vat">Zzgl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
 
@@ -379,7 +379,7 @@
           <tr><td>Druckmethode</td><td>Offsetdruck</td><td>Offsetdruck</td><td>Offsetdruck</td></tr>
           <tr><td>Anzahl Farben</td><td>Alle CMYK</td><td>Alle CMYK</td><td>Alle CMYK</td></tr>
           <tr><td>Druckbereich</td><td>Volldruck</td><td>Volldruck</td><td>Volldruck</td></tr>
-          <tr><td>Mindestbestellmenge</td><td>15.000</td><td>15.000</td><td>15.000</td></tr>
+          <tr><td>Mindestbestellmenge</td><td>10.000</td><td>10.000</td><td>10.000</td></tr>
           <tr><td>Anzahl pro Box</td><td>600</td><td>750</td><td>300</td></tr>
           <tr><td>Max. Anzahl pro Palette</td><td>15.000</td><td>10.000</td><td>9.000</td></tr>
         </tbody>
@@ -458,23 +458,14 @@
 
 
 <script>
+  // Netto-Stueckpreise Bristol in Hundertstel-Cent (1500 = 15,00 ct)
   const pricePerPiece = {
-    'S': {
-      'bristol': { 15000:0.1127, 20000:0.1076, 30000:0.0930, 40000:0.0832 },
-      'kraft':   { 15000:0.1142, 20000:0.1116, 30000:0.0973, 40000:0.0910 },
-      'ckb':     { 15000:0.1219, 20000:0.0915, 30000:0.0970, 40000:0.0902 }
-    },
-    'M': {
-      'bristol': { 15000:0.1291, 20000:0.1183, 30000:0.1134, 40000:0.0972 },
-      'kraft':   { 15000:0.1354, 20000:0.1281, 30000:0.1183, 40000:0.0980 },
-      'ckb':     { 15000:0.1375, 20000:0.1303, 30000:0.1238, 40000:0.1217 }
-    },
-    'L': {
-      'bristol': { 15000:0.1739, 20000:0.1611, 30000:0.1504, 40000:0.1403 },
-      'kraft':   { 15000:0.1873, 20000:0.1731, 30000:0.1609, 40000:0.1499 },
-      'ckb':     { 15000:0.1971, 20000:0.1795, 30000:0.1637, 40000:0.1478 }
-    }
+    'S': { 10000:1500, 15000:1320, 25000:1260, 40000:1150 },
+    'M': { 10000:1610, 15000:1550, 25000:1420, 40000:1270 },
+    'L': { 10000:2080, 15000:1700, 25000:1550, 40000:1420 }
   };
+  // Materialaufschlag auf Bristol in Promille: Kraft +5,5 %, CKB +8 %
+  const materialFactor = { 'bristol':1000, 'kraft':1055, 'ckb':1080 };
   const dimensions = {
     'S': '95 x 95 x 73 mm',
     'M': '114 x 113 x 89 mm',
@@ -482,7 +473,7 @@
   };
   const matLabel = { 'bristol': 'Bristol (Wei\u00DF)', 'kraft': 'Kraftpapier (Braun)', 'ckb': 'CKB (Innen Wei\u00DF / Au\u00DFen Braun)' };
 
-  const sel = { size:'S', material:'bristol', menge:15000 };
+  const sel = { size:'S', material:'bristol', menge:10000 };
 
   function selectOpt(key, val, btn) {
     sel[key] = val;
@@ -499,10 +490,10 @@
     document.getElementById('badge-dim').textContent = dimensions[sel.size];
     document.getElementById('dim-hint').textContent = dimensions[sel.size];
 
-    const pp = pricePerPiece[sel.size][sel.material][sel.menge];
-    const total = Math.round(pp * sel.menge * 100) / 100;
+    const pp = Math.round(pricePerPiece[sel.size][sel.menge] * materialFactor[sel.material] / 1000);
+    const total = pp * sel.menge / 10000;
     document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
-    document.getElementById('price-per').textContent = pp.toFixed(4).replace('.',',') + ' EUR / St\u00FCck';
+    document.getElementById('price-per').textContent = (pp / 10000).toFixed(4).replace('.',',') + ' EUR / St\u00FCck';
 
     const mat = matLabel[sel.material];
     const msg = encodeURIComponent('Hallo, ich interessiere mich f\u00FCr Burgerboxen (Gr\u00F6\u00DFe ' + sel.size + ', ' + dimensions[sel.size] + ', ' + mat + ', ' + sel.menge.toLocaleString('de-DE') + ' St\u00FCck) und m\u00F6chte ein Angebot anfragen.');
