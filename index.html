@@ -392,6 +392,7 @@
     .catalog-info h3 { font-size:14px; font-weight:700; color:#1a1a1a; margin-bottom:10px; line-height:1.3; }
     .catalog-price-row { display:flex; align-items:center; justify-content:space-between; gap:8px; }
     .catalog-price-row > span:first-child { font-size:15px; font-weight:800; color:#1a1a1a; }
+    .catalog-note { font-size:11px; font-weight:600; color:var(--muted); margin-top:8px; line-height:1.4; }
     .catalog-price-row .btn-kaufen { background:#3a3a3c; color:#fff; font-size:12px; font-weight:700; padding:7px 16px; border-radius:100px; white-space:nowrap; }
     @media (max-width:480px) {
       .catalog-price-row { flex-direction:column; align-items:flex-start; gap:8px; }
@@ -520,7 +521,7 @@
       </a>
 
       <a id="hero-card-1" href="/produkte/salatschalen/" target="_blank" rel="noopener" class="hero-tile">
-        <div id="hero-img-1" class="hero-tile-img"><img src="/Bilder/salatschalen-v2.jpeg" alt="Salatschalen" width="480" height="480" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div id="hero-img-1" class="hero-tile-img"><img src="/Bilder/salatschalen-v3.jpeg" alt="Salatschalen" width="480" height="480" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div class="hero-tile-overlay"></div>
         <div class="hero-tile-body">
           <p style="font-size:10px;font-weight:800;color:#1a1a1a;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 3px;">&#10022; Bestseller</p>
@@ -533,7 +534,7 @@
       </a>
 
       <a id="hero-card-2" href="/produkte/burgerbox/" target="_blank" rel="noopener" class="hero-tile">
-        <div id="hero-img-2" class="hero-tile-img"><img src="/Bilder/burgerbox-v2.jpeg" alt="Burgerbox" width="480" height="480" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div id="hero-img-2" class="hero-tile-img"><img src="/Bilder/burgerbox-v3.jpeg" alt="Burgerbox" width="480" height="480" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div class="hero-tile-overlay"></div>
         <div class="hero-tile-body">
           <p style="font-size:10px;font-weight:800;color:#1a1a1a;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 3px;">&#10022; Bestseller</p>
@@ -653,7 +654,7 @@
         </div>
       </a>
       <a href="/produkte/burgerbox/" data-product-category="papierboxen" class="catalog-card">
-        <div class="catalog-image"><img src="/Bilder/burgerbox-v2.jpeg" alt="Burgerbox" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-image"><img src="/Bilder/burgerbox-v3.jpeg" alt="Burgerbox" loading="lazy" decoding="async" width="480" height="480"></div>
         <div class="catalog-info"><h3>Burgerbox</h3>
           <div class="catalog-price-row"><span>ab €0,1150 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
         </div>
@@ -683,7 +684,7 @@
         </div>
       </a>
       <a href="/produkte/salatschalen/" data-product-category="pappschalen" class="catalog-card">
-        <div class="catalog-image"><img src="/Bilder/salatschalen-v2.jpeg" alt="Salatschalen" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-image"><img src="/Bilder/salatschalen-v3.jpeg" alt="Salatschalen" loading="lazy" decoding="async" width="480" height="480"></div>
         <div class="catalog-info"><h3>Salatschalen</h3>
           <div class="catalog-price-row"><span>ab €0,1415 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
         </div>
@@ -746,6 +747,13 @@
         <div class="catalog-image"><img src="/Bilder/bubble-tea-cups.jpeg" alt="Bubble Tea Cups" loading="lazy" decoding="async" width="480" height="480"></div>
         <div class="catalog-info"><h3>Bubble Tea Cups</h3>
           <div class="catalog-price-row"><span>ab €0,173 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+        </div>
+      </a>
+      <a href="/produkte/servietten/" data-product-category="papier" class="catalog-card">
+        <div class="catalog-image"><img src="/Bilder/servietten.jpeg" alt="Servietten mit Logo" loading="lazy" decoding="async" width="480" height="480"></div>
+        <div class="catalog-info"><h3>Servietten mit Logo</h3>
+          <div class="catalog-price-row"><span>ab €0,0195 / Stück</span><span class="btn-kaufen">Anfragen →</span></div>
+          <p class="catalog-note">Preis bei 144.000 Stück, Größe S</p>
         </div>
       </a>
       <!-- catalog:end -->
@@ -1100,6 +1108,7 @@
           <option>T&uuml;ten</option>
           <option>Verpackungsboxen</option>
           <option>Tabletpapier</option>
+          <option>Servietten</option>
           <option>Bowls & Schalen</option>
           <option>Mehrere Produkte</option>
         </select>
@@ -1151,6 +1160,7 @@
           <li><a href="/produkte/tueten/" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">T&uuml;ten</a></li>
           <li><a href="/#produkte-filter" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Verpackungsboxen</a></li>
           <li><a href="/produkte/einschlagpapier/" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Tabletpapier</a></li>
+          <li><a href="/produkte/servietten/" style="font-size: 14px; color: rgba(255,255,255,0.38); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Servietten</a></li>
         </ul>
       </div>
       <div>

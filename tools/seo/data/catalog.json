@@ -26,7 +26,7 @@
     ],
     "price": "0,1150",
     "unit": "Stück",
-    "img": "/Bilder/burgerbox-v2.jpeg",
+    "img": "/Bilder/burgerbox-v3.jpeg",
     "url": "/produkte/burgerbox/"
   },
   {
@@ -76,7 +76,7 @@
     ],
     "price": "0,1415",
     "unit": "Stück",
-    "img": "/Bilder/salatschalen-v2.jpeg",
+    "img": "/Bilder/salatschalen-v3.jpeg",
     "url": "/produkte/salatschalen/"
   },
   {
@@ -178,5 +178,16 @@
     "unit": "Stück",
     "img": "/Bilder/bubble-tea-cups.jpeg",
     "url": "/produkte/bubble-tea-cups/"
+  },
+  {
+    "title": "Servietten mit Logo",
+    "tags": [
+      "papier"
+    ],
+    "price": "0,0195",
+    "unit": "Stück",
+    "img": "/Bilder/servietten.jpeg",
+    "url": "/produkte/servietten/",
+    "note": "Preis bei 144.000 Stück, Größe S"
   }
 ]
