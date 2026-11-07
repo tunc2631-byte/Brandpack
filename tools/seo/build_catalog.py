@@ -10,10 +10,11 @@ def render_cards():
     cards = []
     for p in products:
         e = lambda key: html.escape(p[key], quote=True)
+        note = f'\n          <p class="catalog-note">{e("note")}</p>' if p.get('note') else ''
         cards.append(f'''      <a href="{e('url')}" data-product-category="{html.escape(' '.join(p['tags']))}" class="catalog-card">
         <div class="catalog-image"><img src="{e('img')}" alt="{e('title')}" loading="lazy" decoding="async" width="480" height="480"></div>
         <div class="catalog-info"><h3>{e('title')}</h3>
-          <div class="catalog-price-row"><span>ab €{e('price')} / {e('unit')}</span><span class="btn-kaufen">Anfragen →</span></div>
+          <div class="catalog-price-row"><span>ab €{e('price')} / {e('unit')}</span><span class="btn-kaufen">Anfragen →</span></div>{note}
         </div>
       </a>''')
     return '\n'.join(cards)
