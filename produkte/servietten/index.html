@@ -256,7 +256,6 @@
         <button class="opt" onclick="selectOpt('groesse','m',this)">M &middot; 33&times;33 cm</button>
         <button class="opt" onclick="selectOpt('groesse','l',this)">L &middot; 40&times;40 cm</button>
       </div>
-      <div class="dim-hint" id="size-hint">Ma&szlig;e ungefaltet &middot; 2.400 St&uuml;ck pro Karton</div>
     </div>
 
     <!-- Menge -->
@@ -267,8 +266,7 @@
         <button class="opt" data-stufe="1" onclick="selectOpt('stufe',1,this)">120.000 St&uuml;ck</button>
         <button class="opt" data-stufe="2" onclick="selectOpt('stufe',2,this)">144.000 St&uuml;ck</button>
       </div>
-      <div class="dim-hint" id="qty-hint">30 Kartons &agrave; 2.400 St&uuml;ck</div>
-      <div class="dim-hint" style="margin-top:3px;font-weight:600;color:var(--muted);">Gr&ouml;&szlig;ere Mengen: individuelles Angebot anfragen</div>
+      <div class="dim-hint">Gr&ouml;&szlig;ere Mengen: individuelles Angebot anfragen</div>
     </div>
 
     <!-- Price -->
@@ -585,8 +583,6 @@
     document.querySelectorAll('[data-stufe]').forEach(function(b) {
       b.textContent = de(CARTONS[+b.dataset.stufe] * s.perCarton) + ' St\xfcck';
     });
-    document.getElementById('qty-hint').textContent  = cartons + ' Kartons \xe0 ' + de(s.perCarton) + ' St\xfcck';
-    document.getElementById('size-hint').textContent = 'Ma\xdfe ungefaltet \xb7 ' + de(s.perCarton) + ' St\xfcck pro Karton';
     document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
     document.getElementById('price-per').textContent     = ct + ' / St\xfcck';
     document.getElementById('badge-size').textContent = s.label;
