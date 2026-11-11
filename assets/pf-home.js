@@ -53,24 +53,29 @@
 
   var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Startbereich: wechselndes Wort in der Überschrift (Tüte, Box, Schale …)
+  // Startbereich: Wort in der Überschrift rollt wie eine Walze (Tüte, Box, Schale …).
+  // Das alte Wort rollt nach oben hinaus, das neue gleichzeitig von unten hinein.
   var swap = document.querySelector('.pf-swap');
+  var swapTo = function () {};
   if (swap && !calm) {
     var words = swap.dataset.words.split('|');
-    var word = swap.querySelector('.pf-swap-word');
-    var i = words.length - 1;
-    setInterval(function () {
-      if (document.hidden) return;
-      i = (i + 1) % words.length;
-      word.classList.add('is-out');
-      setTimeout(function () {
-        word.textContent = words[i];
-        word.classList.remove('is-out');
-        word.classList.add('is-in');
-        void word.offsetWidth; // Startposition übernehmen, dann einblenden
-        word.classList.remove('is-in');
-      }, 380);
-    }, 2400);
+    var cur = swap.querySelector('.pf-swap-word');
+    var nxt = cur.cloneNode(false);
+    nxt.classList.add('is-below');
+    swap.appendChild(nxt);
+    var idx = words.indexOf(cur.textContent);
+    swapTo = function (word) {
+      if (word === cur.textContent) return;
+      nxt.textContent = word;
+      nxt.className = 'pf-swap-word is-below';
+      void nxt.offsetWidth; // Startposition unterhalb übernehmen
+      nxt.className = 'pf-swap-word';
+      cur.className = 'pf-swap-word is-above';
+      var old = cur; cur = nxt; nxt = old;
+      idx = words.indexOf(word);
+    };
+    swap.pfNext = function () { swapTo(words[(idx + 1) % words.length]); };
+    swap.pfTimer = setInterval(function () { if (!document.hidden) swap.pfNext(); }, 2600);
   }
 
   // Startbereich: Video "Verpackung bekommt Branding" einmal abspielen, dann gebrandet stehen lassen.
