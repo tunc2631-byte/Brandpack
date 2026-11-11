@@ -58,5 +58,115 @@
     "feuchttuecher",
     "servietten",
     "bubble-tea-cups"
+  ],
+  "kunden": [
+    {
+      "file": "kunde-aymo",
+      "alt": "Aymo Burger",
+      "w": 136,
+      "h": 60
+    },
+    {
+      "file": "kunde-the-coffee",
+      "alt": "The Coffee",
+      "w": 86,
+      "h": 76
+    },
+    {
+      "file": "kunde-red-hen",
+      "alt": "Red Hen",
+      "w": 94,
+      "h": 76
+    },
+    {
+      "file": "kunde-crunch-house",
+      "alt": "Crunch House",
+      "w": 76,
+      "h": 76
+    },
+    {
+      "file": "kunde-emmis",
+      "alt": "Emmi's Gemüsekebap",
+      "w": 153,
+      "h": 54
+    },
+    {
+      "file": "kunde-haloom",
+      "alt": "Haloom Kebab Kitchen",
+      "w": 126,
+      "h": 65
+    },
+    {
+      "file": "kunde-bulls-kitchen",
+      "alt": "Bull's Kitchen",
+      "w": 63,
+      "h": 76
+    },
+    {
+      "file": "kunde-big-one-bite",
+      "alt": "Big One Bite",
+      "w": 111,
+      "h": 74
+    },
+    {
+      "file": "kunde-egg-club",
+      "alt": "Egg Club Ingolstadt",
+      "w": 97,
+      "h": 76
+    },
+    {
+      "file": "kunde-brudis",
+      "alt": "Brudis Döner & Burger",
+      "w": 110,
+      "h": 75
+    },
+    {
+      "file": "kunde-flying-chicken",
+      "alt": "Flying Chicken",
+      "w": 77,
+      "h": 76
+    },
+    {
+      "file": "kunde-damn-dog",
+      "alt": "Damn Dog",
+      "w": 139,
+      "h": 59
+    },
+    {
+      "file": "kunde-foodbros",
+      "alt": "Foodbro's Rostock",
+      "w": 114,
+      "h": 72
+    },
+    {
+      "file": "kunde-efendi-bey",
+      "alt": "Efendi Bey",
+      "w": 98,
+      "h": 76
+    },
+    {
+      "file": "kunde-baguette-am-eck",
+      "alt": "Baguette am Eck",
+      "w": 147,
+      "h": 56
+    },
+    {
+      "file": "kunde-essen-city",
+      "alt": "Essen City",
+      "w": 77,
+      "h": 76
+    },
+    {
+      "file": "kunde-bowlbox",
+      "alt": "BowlBox",
+      "w": 119,
+      "h": 69
+    },
+    {
+      "file": "kunde-tuai",
+      "alt": "TUAI Rooms",
+      "w": 147,
+      "h": 56
+    }
   ]
 }

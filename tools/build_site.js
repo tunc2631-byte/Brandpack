@@ -123,13 +123,10 @@ function productCard(p, opts) {
   return `<a class="${o.cls || 'pf-card'}" href="${esc(p.url)}"${attrs}><span class="pf-card-img"><img src="${esc(small(p.image))}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 700px) 46vw, 280px" alt="${esc(p.catalog.title)}" loading="lazy" decoding="async" width="480" height="480"></span>${badge}<b>${esc(p.catalog.title)}</b><span class="pf-price">${esc(V.fromPrice(p))}</span><span class="pf-qty">${esc(lowestNote(p))}</span></a>`;
 }
 
-const LOGOS = [
-  ['design-ohne-titel-14', "Bull's Kitchen", ''], ['design-ohne-titel-15', '', ''], ['design-ohne-titel-16', '', ' pf-invert'],
-  ['9', 'Damn Dog', ''], ['10', 'Efendi Bey', ''], ['11', 'Express-Verpackung', ''], ['12', 'Essen City', ''], ['13', 'TUAI Rooms', ''], ['14', 'KY &amp; Son', ''],
-];
 
 function blocks() {
-  const logo = hidden => LOGOS.map(([f, alt, cls]) => `      <img class="pf-logo${cls}" src="/Bilder/logos/${f}-440.webp" alt="${hidden ? '' : alt}" width="440" height="311" loading="lazy" decoding="async">`).join('\n');
+  // Kundenlogos aus data/site.json: einfarbig, optisch gleich groß (w/h in px)
+  const logo = hidden => site.kunden.map(k => `      <img class="pf-logo" src="/Bilder/logos/${esc(k.file)}-440.webp" alt="${hidden ? '' : esc(k.alt)}" width="${k.w}" height="${k.h}" style="--w:${k.w}px;--h:${k.h}px" loading="lazy" decoding="async">`).join('\n');
   const branche = b => {
     const list = products.filter(p => p.branchen.includes(b.id));
     // Bilder: zuerst Produkte, die nicht in jede Branche passen, damit sich die Kacheln unterscheiden

@@ -302,10 +302,9 @@ p { margin: 0; }
 .pf-marquee::before, .pf-marquee::after { content: ""; position: absolute; top: 0; bottom: 0; width: 12%; z-index: 1; pointer-events: none; }
 .pf-marquee::before { left: 0; background: linear-gradient(90deg, var(--paper), rgba(255, 255, 255, 0)); }
 .pf-marquee::after { right: 0; background: linear-gradient(270deg, var(--paper), rgba(255, 255, 255, 0)); }
-.pf-marquee-track { display: flex; align-items: center; width: max-content; will-change: transform; animation: pf-marquee 40s linear infinite; }
+.pf-marquee-track { display: flex; align-items: center; width: max-content; padding: 6px 0; will-change: transform; animation: pf-marquee 55s linear infinite; }
 .pf-logo-loop { display: contents; }
-.pf-logo { flex: none; height: 64px; width: 170px; padding: 0 24px; object-fit: contain; filter: grayscale(1); opacity: .55; }
-.pf-invert { filter: invert(1) grayscale(1); }
+.pf-logo { flex: none; width: var(--w); height: var(--h); margin: 0 34px; object-fit: contain; opacity: .9; }
 @keyframes pf-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 
 .pf-bento-5 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--s4); }
@@ -486,7 +485,7 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
   /* Kundenlogos */
   .pf-logos { padding: var(--s5) 0; }
   .pf-logos-title { margin-bottom: var(--s4); font-size: 12px; }
-  .pf-logo { height: 48px; width: 120px; padding: 0 14px; }
+  .pf-logo { width: calc(var(--w) * .72); height: calc(var(--h) * .72); margin: 0 20px; }
 
   /* Karten und Bestseller */
   .pf-rail { grid-auto-columns: 46%; gap: var(--s3); }
