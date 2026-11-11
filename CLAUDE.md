@@ -25,10 +25,19 @@
 - Check: spacing/padding, font size/weight/line-height, colors (exact hex), alignment, border-radius, shadows, image sizing
 
 ## Output Defaults
-- Single `index.html` file, all styles inline, unless user says otherwise
-- Tailwind CSS via CDN: `<script src="https://cdn.tailwindcss.com"></script>`
-- Placeholder images: `https://placehold.co/WIDTHxHEIGHT`
+- This is the live PackFactory site (static, GitHub Pages publishes `main`). Work inside the existing pages and shared files; do not start a new single-file Tailwind page.
+- No Tailwind CDN on the site. Shared code lives in `assets/`, `cart.js` and `data/`.
+- Placeholder images only for mockups, never on the live site.
 - Mobile-first responsive
+
+## PackFactory: Preise, Produkte, Bilder
+- **Redesign-Plan:** https://claude.ai/artifact/TY3XdANshBaC7fiRm71Tc2 (Schritte 1–5, Entscheidungen des Inhabers in Kapitel 11). Jeder Schritt als eigener Pull Request mit Netlify-Vorschau; live erst nach Freigabe.
+- **Produktdaten:** `data/products.json` ist die zentrale Quelle für Auswahl, Preise und Katalogkarten. `assets/pf-pricing.js` rechnet daraus Stück- und Gesamtpreise (ganze Zahlen: Stückpreise in 1/10.000 €, Gesamtpreise in Cent).
+- **Preise ändern:** Preis auf der Produktseite UND in `data/products.json` ändern, dann `node tools/qa/price-snapshot.js --update` und `node --test tools/qa/*.test.js`. Der Test vergleicht jede Kombination der Seite mit dem Rechenkern.
+- **Vor jedem Pull Request:** `node tools/qa/price-snapshot.js` (ohne `--update`) muss "unverändert" melden, außer Preise sollten sich ändern. Dazu `python -m unittest discover -s tools/seo -p 'test_*.py'`.
+- **Katalogkarten:** Feld `catalog` in `data/products.json`, danach `python tools/seo/build_catalog.py`.
+- **Bilder:** Original (JPEG/PNG) nach `Bilder/` legen, auf der Seite `/Bilder/web/<name>-960.webp` mit `srcset` auf `-480.webp` verwenden (Logos: `/Bilder/logos/<name>-440.webp`), dann `python tools/build_images.py`. Keine großen PNGs direkt einbinden.
+- **Nie erfinden:** keine Bewertungen, Zahlen, Zertifikate, Lieferzeiten oder Hersteller auf der Seite. Einkaufspreise und Lieferanten bleiben intern.
 
 ## Brand Assets
 - Always check the `brand_assets/` folder before designing. It may contain logos, color guides, style guides, or images.
