@@ -272,7 +272,7 @@ p { margin: 0; }
 
 /* Wechselndes Wort in der Überschrift */
 .pf-swap { display: block; }
-.pf-swap-word { display: inline-block; transition: opacity .35s var(--ease); }
+.pf-swap-word { display: inline-block; padding: 0 .04em .1em; margin-bottom: -.1em; background: linear-gradient(100deg, var(--pink-ink) 10%, var(--pink) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; transition: opacity .35s var(--ease); }
 .pf-swap-word.is-out { opacity: 0; }
 .pf-swap-word.is-in { opacity: 0; transition: none; }
 
