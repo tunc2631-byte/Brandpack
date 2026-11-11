@@ -38,6 +38,7 @@
 - **Neues Produkt:** Eintrag in `data/products.json` und Inhaltsdatei in `content/produkte/` anlegen, Kategorie und Branchen setzen, `node tools/build_site.js`, Sitemap ergänzen.
 - **Vor jedem Pull Request:** `node tools/qa/price-snapshot.js` (ohne `--update`) muss "unverändert" melden, außer Preise sollten sich ändern. Dazu `python -m unittest discover -s tools/seo -p 'test_*.py'`.
 - **Katalogkarten:** Feld `catalog` (Titel, Kategorie), `badge` und `branchen` in `data/products.json`, danach `node tools/build_site.js`. Der "ab"-Preis wird automatisch berechnet.
+- **Startseite, Einstieg und Kundenlogos:** `data/site.json`. `hero` legt das große Einstiegsprodukt fest (Produkt, Zeile, echte Kundendesigns mit Bild `Bilder/tuete-design-<name>.jpeg` und Farbpunkt), `kunden` die Logos im Laufband (einfarbige Originale `Bilder/kunde-<name>.png`, Anzeigegröße `w`/`h`). Danach `node tools/build_site.js` und `python tools/build_images.py`.
 - **Bilder:** Original (JPEG/PNG) nach `Bilder/` legen, auf der Seite `/Bilder/web/<name>-960.webp` mit `srcset` auf `-480.webp` verwenden (Logos: `/Bilder/logos/<name>-440.webp`), dann `python tools/build_images.py`. Keine großen PNGs direkt einbinden.
 - **Nie erfinden:** keine Bewertungen, Zahlen, Zertifikate, Lieferzeiten oder Hersteller auf der Seite. Einkaufspreise und Lieferanten bleiben intern.
 
