@@ -78,35 +78,12 @@
     swap.pfTimer = setInterval(function () { if (!document.hidden) swap.pfNext(); }, 2600);
   }
 
-  // Startbereich: Produkte gehen beim Scrollen auseinander und folgen am PC leicht der Maus
-  var hero = document.querySelector('.pf-hero');
-  var items = Array.prototype.slice.call(document.querySelectorAll('.pf-stage .pf-item'));
-  if (hero && items.length === 3 && !calm) {
-    var spread = [[-1, 0.3, -4], [0, -0.6, 0], [1, 0.3, 4]]; // Richtung x, y, Drehung
-    var scrollP = 0, mx = 0, my = 0, queued = false;
-    var draw = function () {
-      queued = false;
-      items.forEach(function (el, k) {
-        var s = spread[k];
-        el.style.setProperty('--tx', (s[0] * scrollP * 60 + mx * (k === 1 ? 8 : 14)).toFixed(1) + 'px');
-        el.style.setProperty('--ty', (s[1] * scrollP * 50 + my * (k === 1 ? 6 : 10)).toFixed(1) + 'px');
-        el.style.setProperty('--rot', (s[2] * scrollP + mx * (k - 1) * 1.5).toFixed(2) + 'deg');
-      });
-    };
-    var queue = function () { if (!queued) { queued = true; requestAnimationFrame(draw); } };
-    window.addEventListener('scroll', function () {
-      scrollP = Math.max(0, Math.min(1, window.scrollY / hero.offsetHeight));
-      queue();
-    }, { passive: true });
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      hero.addEventListener('pointermove', function (e) {
-        var r = hero.getBoundingClientRect();
-        mx = (e.clientX - r.left) / r.width * 2 - 1;
-        my = (e.clientY - r.top) / r.height * 2 - 1;
-        queue();
-      });
-      hero.addEventListener('pointerleave', function () { mx = 0; my = 0; queue(); });
-    }
+  // Dauerbewegungen (schwebende Produkte, Logo-Laufband) nur abspielen, solange sie im Bild sind
+  if ('IntersectionObserver' in window) {
+    var pause = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle('is-offscreen', !en.isIntersecting); });
+    });
+    ['.pf-hero', '.pf-logos'].forEach(function (sel) { var el = document.querySelector(sel); if (el) pause.observe(el); });
   }
 
   // WhatsApp-Knopf ausblenden, solange Startbereich, Kontaktbereich oder Footer sichtbar sind
