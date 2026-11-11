@@ -30,14 +30,6 @@ function roundHalfUp(num, den, decimals) {
   return Math.floor((2 * n + den) / (2 * den));
 }
 
-// Stückpreise, die heute auf der Seite stehen, aber nicht zum Gesamtpreis passen.
-// Der Gesamtpreis gilt. Eintrag entfernen, sobald die Anzeige korrigiert ist.
-const KNOWN_UNIT_DISPLAY = {
-  pommesschuetten: {
-    'M · 116 mm | 10.000 Stück': '0,138 € / Stück',   // 1.385 € / 10.000 = 0,1385 €
-    'XL · 178 mm | 15.000 Stück': '0,121 € / Stück',  // 1.805 € / 15.000 = 0,1203 €
-  },
-};
 
 test('jede Produktseite hat genau einen Eintrag in data/products.json', () => {
   const pages = fs.readdirSync(path.join(ROOT, 'produkte'))
@@ -69,11 +61,6 @@ for (const product of products) {
         continue;
       }
       assert.equal(q.totalCents, cents(shown.total), `${labels}: Gesamtpreis`);
-      const known = (KNOWN_UNIT_DISPLAY[product.slug] || {})[labels];
-      if (known) {
-        assert.equal(shown.per, known, `${labels}: bekannte Abweichung hat sich geändert`);
-        continue;
-      }
       const up = unitPrice(shown.per);
       assert.equal(up.per, product.unit, `${labels}: Einheit`);
       const [num, den] = q.unitFraction;
