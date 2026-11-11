@@ -78,28 +78,6 @@
     swap.pfTimer = setInterval(function () { if (!document.hidden) swap.pfNext(); }, 2600);
   }
 
-  // Startbereich: Video "Verpackung bekommt Branding" einmal abspielen, dann gebrandet stehen lassen.
-  // Bei "Bewegung reduzieren", Datensparmodus oder blockiertem Autoplay direkt das Endbild zeigen.
-  var video = document.querySelector('.pf-hero-video');
-  if (video) {
-    var small = window.matchMedia('(max-width: 700px)').matches;
-    var still = function () {
-      var img = document.createElement('img');
-      img.className = 'pf-hero-still'; img.alt = ''; img.width = 1920; img.height = 640;
-      img.src = small ? video.dataset.endSmall : video.dataset.end;
-      video.replaceWith(img);
-    };
-    var saveData = navigator.connection && navigator.connection.saveData;
-    if (calm || saveData) {
-      still();
-    } else {
-      video.poster = small ? video.dataset.startSmall : video.dataset.start;
-      video.addEventListener('ended', function () { video.parentNode.classList.add('is-done'); });
-      var p = video.play();
-      if (p && p.catch) p.catch(still);
-    }
-  }
-
   // Startbereich: Produkte gehen beim Scrollen auseinander und folgen am PC leicht der Maus
   var hero = document.querySelector('.pf-hero');
   var items = Array.prototype.slice.call(document.querySelectorAll('.pf-stage .pf-item'));
