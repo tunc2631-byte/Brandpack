@@ -158,8 +158,10 @@ p { margin: 0; }
 .pf-card { scroll-snap-align: start; display: flex; flex-direction: column; gap: 4px; padding: var(--s4); background: var(--paper); border-radius: var(--r-m); text-decoration: none; color: var(--ink); transition: transform .35s var(--ease); }
 .pf-card:hover { transform: translateY(-4px); }
 .pf-card:active { transform: scale(.98); }
-.pf-card-img { display: block; aspect-ratio: 1 / 1; background: var(--mist); border-radius: var(--r-s); margin-bottom: var(--s2); overflow: hidden; }
-.pf-card-img img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+/* Bildfläche weiß wie der Fotohintergrund: kein Mischmodus nötig, Karten bleiben beim Scrollen flüssig */
+.pf-card-img { display: block; aspect-ratio: 1 / 1; background: #fff; border-radius: var(--r-s); margin-bottom: var(--s2); overflow: hidden; }
+.pf-card-img img { width: 100%; height: 100%; object-fit: contain; }
+.pf-bestseller .pf-card { background: var(--mist); }
 .pf-card b { font-family: var(--font-display); font-size: 18px; letter-spacing: -.015em; }
 .pf-card { position: relative; }
 .pf-card .pf-price { font-size: 15px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
@@ -167,7 +169,7 @@ p { margin: 0; }
 .pf-badge { position: absolute; top: 22px; left: 22px; font-style: normal; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; background: var(--ink); color: #fff; border-radius: 100px; padding: 3px 9px; }
 .pf-badge-new { background: var(--pink-ink); }
 .pf-recent .pf-card { background: var(--mist); }
-.pf-recent .pf-card-img { background: var(--paper); }
+.pf-recent .pf-card-img { background: #fff; }
 
 .pf-bento { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); }
 .pf-bento .service-card { background: var(--mist); border-radius: var(--r-l); padding: var(--s5); display: flex; flex-direction: column; gap: var(--s2); }
@@ -253,12 +255,24 @@ p { margin: 0; }
 .pf-hero-cta { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--s5); margin-top: var(--s5); }
 .pf-stage { display: flex; justify-content: center; align-items: flex-end; margin: var(--s4) auto 0; max-width: 1000px; }
 .pf-item { width: 31%; display: block; }
-/* Produkte gleiten beim Laden einmal nacheinander ins Bild und bleiben dann stehen */
-.pf-item img { display: block; width: 100%; height: auto; animation: pf-rise 1.1s var(--ease) both; }
-.pf-item:nth-child(1) img { animation-delay: .1s; }
+/* Produkte gleiten beim Laden ein und schweben danach sanft. Nur transform, läuft auf der Grafikkarte. */
+.pf-item img { display: block; width: 100%; height: auto; will-change: transform; animation: pf-rise 1.1s var(--ease) both, pf-float 7s ease-in-out 1.4s infinite; }
+@keyframes pf-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.pf-hero.is-offscreen .pf-item img, .pf-logos.is-offscreen .pf-marquee-track { animation-play-state: paused; }
+/* Beim Scrollen gehen die Produkte leicht auseinander: direkt an die Scrollposition gekoppelt, ohne Skript, ohne Verzögerung */
+@supports (animation-timeline: scroll()) {
+  .pf-item { animation: linear both; animation-timeline: scroll(root); animation-range: 0 70vh; will-change: transform; }
+  .pf-item:nth-child(1) { animation-name: pf-spread-l; }
+  .pf-item:nth-child(2) { animation-name: pf-spread-m; }
+  .pf-item:nth-child(3) { animation-name: pf-spread-r; }
+  @keyframes pf-spread-l { to { transform: translate3d(-14%, 5%, 0) rotate(-3deg); } }
+  @keyframes pf-spread-m { to { transform: translate3d(0, -6%, 0) scale(1.03); } }
+  @keyframes pf-spread-r { to { transform: translate3d(14%, 5%, 0) rotate(3deg); } }
+}
+.pf-item:nth-child(1) img { animation-delay: .1s, 1.3s; }
 .pf-item:nth-child(2) { width: 38%; margin: 0 -3%; position: relative; z-index: 1; }
-.pf-item:nth-child(2) img { animation-delay: .25s; }
-.pf-item:nth-child(3) img { animation-delay: .4s; }
+.pf-item:nth-child(2) img { animation-delay: .25s, 1.8s; animation-duration: 1.1s, 8s; }
+.pf-item:nth-child(3) img { animation-delay: .4s, 2.2s; animation-duration: 1.1s, 6.5s; }
 
 /* Startbereich: Farbschimmer und Papierstruktur hinter Text und Produkten */
 .pf-hero { position: relative; isolation: isolate; }
@@ -280,14 +294,19 @@ p { margin: 0; }
 .pf-hero-points li { display: inline-flex; align-items: center; gap: 7px; }
 .pf-hero-points svg { color: var(--good); flex: none; }
 
-/* Kundenlogos: ruhiges Raster, einheitlich grau, farbig beim Drüberfahren */
-.pf-logos { padding: var(--s6) 0; border-bottom: 1px solid var(--line); }
-.pf-logos-title { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin-bottom: var(--s5); }
-.pf-logo-grid { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: var(--s4) var(--s5); align-items: center; }
-.pf-logo { display: block; width: 100%; height: 56px; object-fit: contain; filter: grayscale(1); opacity: .55; transition: opacity .3s var(--ease); }
+/* Kundenlogos: einheitlich grau im Laufband. Bewegung nur per transform (Grafikkarte),
+   weiche Ränder per Farbverlauf darüber statt teurer Maske. */
+.pf-logos { padding: var(--s6) 0 var(--s5); border-bottom: 1px solid var(--line); overflow: hidden; }
+.pf-logos-title { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin-bottom: var(--s4); }
+.pf-marquee { position: relative; overflow: hidden; }
+.pf-marquee::before, .pf-marquee::after { content: ""; position: absolute; top: 0; bottom: 0; width: 12%; z-index: 1; pointer-events: none; }
+.pf-marquee::before { left: 0; background: linear-gradient(90deg, var(--paper), rgba(255, 255, 255, 0)); }
+.pf-marquee::after { right: 0; background: linear-gradient(270deg, var(--paper), rgba(255, 255, 255, 0)); }
+.pf-marquee-track { display: flex; align-items: center; width: max-content; will-change: transform; animation: pf-marquee 40s linear infinite; }
+.pf-logo-loop { display: contents; }
+.pf-logo { flex: none; height: 64px; width: 170px; padding: 0 24px; object-fit: contain; filter: grayscale(1); opacity: .55; }
 .pf-invert { filter: invert(1) grayscale(1); }
-@media (hover: hover) { .pf-logo:hover { filter: none; opacity: 1; } .pf-invert:hover { filter: invert(1); } }
-@media (max-width: 960px) { .pf-logo-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+@keyframes pf-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 
 .pf-bento-5 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--s4); }
 .pf-tile { border-radius: var(--r-l); padding: var(--s5); background: var(--mist); display: flex; flex-direction: column; justify-content: flex-end; gap: var(--s2); min-height: 170px; }
@@ -347,7 +366,7 @@ p { margin: 0; }
 .pf-filter-state { font-size: 15px; color: var(--muted); margin-bottom: var(--s4); }
 .pf-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s4); }
 .pf-pcard { background: var(--mist); }
-.pf-pcard .pf-card-img { background: var(--paper); }
+.pf-pcard .pf-card-img { background: #fff; }
 .pf-empty { color: var(--muted); padding: var(--s6) 0; text-align: center; }
 @media (max-width: 1080px) { .pf-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .pf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s3); } .pf-card { padding: var(--s3); } .pf-card b { font-size: 16px; } .pf-badge { top: 16px; left: 16px; } }
@@ -436,12 +455,14 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .pf-marquee { overflow-x: auto; }
 }
 
 /* ── Handy: kompakter, Produkte früher sichtbar, weniger Scrollen ── */
 @media (max-width: 600px) {
   .pf-wrap { padding: 0 20px; }
   .nav-wrapper nav { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(245, 242, 236, .97); }
+  .pf-sticky { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(255, 255, 255, .97); }
   .pf-section { padding: 48px 0; }
   .pf-h2 { font-size: 26px; line-height: 1.15; margin-bottom: var(--s4); }
   .pf-lead { font-size: 17px; }
@@ -465,8 +486,7 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
   /* Kundenlogos */
   .pf-logos { padding: var(--s5) 0; }
   .pf-logos-title { margin-bottom: var(--s4); font-size: 12px; }
-  .pf-logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); }
-  .pf-logo { height: 44px; }
+  .pf-logo { height: 48px; width: 120px; padding: 0 14px; }
 
   /* Karten und Bestseller */
   .pf-rail { grid-auto-columns: 46%; gap: var(--s3); }

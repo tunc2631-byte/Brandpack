@@ -129,7 +129,7 @@ const LOGOS = [
 ];
 
 function blocks() {
-  const logos = LOGOS.map(([f, alt, cls]) => `      <img class="pf-logo${cls}" src="/Bilder/logos/${f}-440.webp" alt="${alt}" width="440" height="311" loading="lazy" decoding="async">`).join('\n');
+  const logo = hidden => LOGOS.map(([f, alt, cls]) => `      <img class="pf-logo${cls}" src="/Bilder/logos/${f}-440.webp" alt="${hidden ? '' : alt}" width="440" height="311" loading="lazy" decoding="async">`).join('\n');
   const branche = b => {
     const list = products.filter(p => p.branchen.includes(b.id));
     // Bilder: zuerst Produkte, die nicht in jede Branche passen, damit sich die Kacheln unterscheiden
@@ -138,7 +138,7 @@ function blocks() {
     return `      <button type="button" class="pf-branche" data-branche="${esc(b.id)}"><span class="pf-branche-pics">${pics}</span><b>${esc(b.label)}</b><span>${list.length} passende Produkte</span></button>`;
   };
   return {
-    logos,
+    logos: logo(false) + '\n      <span class="pf-logo-loop" aria-hidden="true">\n' + logo(true) + '\n      </span>',
     bestseller: site.bestseller.map(s => '      ' + productCard(bySlug[s], { badge: true })).join('\n'),
     branchen: site.branchen.map(branche).join('\n'),
     filter: `      <button type="button" class="pf-chip active" data-cat="alle" aria-pressed="true">Alle</button>\n` +
