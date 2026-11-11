@@ -4,6 +4,8 @@
     "url": "/produkte/tueten/",
     "name": "Papiertüten",
     "image": "/Bilder/web/papiertueten-shop-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Papiertüten",
       "tags": [
@@ -12,7 +14,12 @@
       "price": "0,1200",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "burgerbox",
+      "servietten",
+      "einschlagpapier",
+      "feuchttuecher"
+    ],
     "options": [
       {
         "key": "size",
@@ -20,24 +27,29 @@
         "choices": [
           {
             "id": "S",
-            "label": "S"
+            "label": "S",
+            "detail": "220 × 100 × 250 mm"
           },
           {
             "id": "M",
-            "label": "M"
+            "label": "M",
+            "detail": "250 × 150 × 260 mm"
           },
           {
             "id": "L",
-            "label": "L"
+            "label": "L",
+            "detail": "310 × 180 × 300 mm"
           },
           {
             "id": "XL",
-            "label": "XL"
+            "label": "XL",
+            "detail": "330 × 200 × 330 mm"
           },
           {
             "id": "Sondermaß",
             "label": "Sondermaß",
-            "onRequest": true
+            "onRequest": true,
+            "detail": "Abmessungen nach Wunsch"
           }
         ]
       },
@@ -47,11 +59,13 @@
         "choices": [
           {
             "id": "Brownkraft",
-            "label": "Brownkraft — Braun"
+            "label": "Braun",
+            "detail": "Brownkraft"
           },
           {
             "id": "Whitekraft",
-            "label": "Whitekraft — Weiß"
+            "label": "Weiß",
+            "detail": "Whitekraft"
           }
         ]
       },
@@ -65,9 +79,11 @@
           },
           {
             "id": "20000",
-            "label": "20.000 Stück"
+            "label": "20.000 Stück",
+            "tip": true
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
     "pricing": {
@@ -115,6 +131,8 @@
     "url": "/produkte/sleeves/",
     "name": "Sleeves",
     "image": "/Bilder/web/sleeves-shop-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Kaffeebecher Sleeves",
       "tags": [
@@ -123,25 +141,33 @@
       "price": "0,0546",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "kaffeebecher-single-wall",
+      "kaffeebecher-double-wall",
+      "servietten"
+    ],
     "options": [
       {
         "key": "size",
-        "label": "Becher-Größe",
+        "label": "Größe",
         "choices": [
           {
             "id": "8oz",
-            "label": "8 oz"
+            "label": "8 oz",
+            "detail": "240 ml · Ø 80 mm"
           },
           {
             "id": "12oz",
-            "label": "12 oz"
+            "label": "12 oz",
+            "detail": "350 ml · Ø 90 mm"
           },
           {
             "id": "16oz",
-            "label": "16 oz"
+            "label": "16 oz",
+            "detail": "450 ml · Ø 90 mm"
           }
-        ]
+        ],
+        "note": "Weitere Größen auf Anfrage möglich"
       },
       {
         "key": "material",
@@ -167,7 +193,8 @@
           },
           {
             "id": "20000",
-            "label": "20.000 Stück"
+            "label": "20.000 Stück",
+            "tip": true
           },
           {
             "id": "30000",
@@ -185,7 +212,8 @@
             "id": "100000",
             "label": "100.000 Stück"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
     "pricing": {
@@ -261,6 +289,8 @@
     "url": "/produkte/burgerbox/",
     "name": "Burgerbox",
     "image": "/Bilder/web/burgerbox-v4-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Burgerbox",
       "tags": [
@@ -269,7 +299,12 @@
       "price": "0,1150",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "tueten",
+      "servietten",
+      "fc-box",
+      "feuchttuecher"
+    ],
     "options": [
       {
         "key": "size",
@@ -277,17 +312,21 @@
         "choices": [
           {
             "id": "S",
-            "label": "S"
+            "label": "S",
+            "detail": "95 × 95 × 73 mm"
           },
           {
             "id": "M",
-            "label": "M"
+            "label": "M",
+            "detail": "114 × 113 × 89 mm"
           },
           {
             "id": "L",
-            "label": "L"
+            "label": "L",
+            "detail": "130 × 130 × 90 mm"
           }
-        ]
+        ],
+        "note": "Weitere Größen auf Anfrage möglich"
       },
       {
         "key": "material",
@@ -317,7 +356,8 @@
           },
           {
             "id": "15000",
-            "label": "15.000 Stück"
+            "label": "15.000 Stück",
+            "tip": true
           },
           {
             "id": "25000",
@@ -327,7 +367,8 @@
             "id": "40000",
             "label": "40.000 Stück"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
     "pricing": {
@@ -378,6 +419,8 @@
     "url": "/produkte/einschlagpapier/",
     "name": "Einschlagpapier mit Logo bedrucken",
     "image": "/Bilder/web/tablettpapier-960.webp",
+    "unit": "kg",
+    "qtyKey": "kg",
     "catalog": {
       "title": "Einschlagpapier",
       "tags": [
@@ -386,7 +429,12 @@
       "price": "7,00",
       "unit": "kg"
     },
-    "unit": "kg",
+    "related": [
+      "burgerbox",
+      "doenertueten",
+      "tueten",
+      "servietten"
+    ],
     "options": [
       {
         "key": "size",
@@ -394,15 +442,19 @@
         "choices": [
           {
             "id": "s",
-            "label": "S — 400×300 mm"
+            "label": "S",
+            "detail": "400 × 300 mm"
           },
           {
             "id": "m",
-            "label": "M — 400×500 mm"
+            "label": "M",
+            "detail": "400 × 500 mm"
           },
           {
             "id": "custom",
-            "label": "Sondergröße"
+            "label": "Sondergröße",
+            "custom": true,
+            "detail": "Breite und Höhe frei wählbar"
           }
         ]
       },
@@ -426,7 +478,7 @@
       },
       {
         "key": "kg",
-        "label": "Menge (kg)",
+        "label": "Menge",
         "choices": [
           {
             "id": "200",
@@ -434,7 +486,8 @@
           },
           {
             "id": "400",
-            "label": "400 kg"
+            "label": "400 kg",
+            "tip": true
           },
           {
             "id": "600",
@@ -444,9 +497,18 @@
             "id": "800",
             "label": "800 kg"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
+    "sheets": {
+      "by": "size",
+      "perKg": {
+        "s": 208.5,
+        "m": 125
+      },
+      "customArea": 25000000
+    },
     "pricing": {
       "basis": "unit",
       "by": [
@@ -483,6 +545,8 @@
     "url": "/produkte/broetchentueten/",
     "name": "Brötchentüten",
     "image": "/Bilder/web/broetchentueten-960.webp",
+    "unit": "kg",
+    "qtyKey": "kg",
     "catalog": {
       "title": "Brötchentüten",
       "tags": [
@@ -491,7 +555,12 @@
       "price": "7,00",
       "unit": "kg"
     },
-    "unit": "kg",
+    "related": [
+      "tueten",
+      "einschlagpapier",
+      "kuchenboxen",
+      "servietten"
+    ],
     "options": [
       {
         "key": "size",
@@ -499,23 +568,28 @@
         "choices": [
           {
             "id": "xs",
-            "label": "XS"
+            "label": "XS",
+            "detail": "120 × 50 × 250 mm"
           },
           {
             "id": "s",
-            "label": "S"
+            "label": "S",
+            "detail": "150 × 60 × 250 mm"
           },
           {
             "id": "m",
-            "label": "M"
+            "label": "M",
+            "detail": "150 × 55 × 290 mm"
           },
           {
             "id": "l",
-            "label": "L"
+            "label": "L",
+            "detail": "200 × 70 × 340 mm"
           },
           {
             "id": "xl",
-            "label": "XL"
+            "label": "XL",
+            "detail": "200 × 105 × 430 mm"
           }
         ]
       },
@@ -535,7 +609,7 @@
       },
       {
         "key": "kg",
-        "label": "Menge (kg)",
+        "label": "Menge",
         "choices": [
           {
             "id": "200",
@@ -543,7 +617,8 @@
           },
           {
             "id": "400",
-            "label": "400 kg"
+            "label": "400 kg",
+            "tip": true
           },
           {
             "id": "600",
@@ -553,9 +628,27 @@
             "id": "800",
             "label": "800 kg"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
+    "pieces": {
+      "by": "size",
+      "per200kg": {
+        "xs": 68900,
+        "s": 55500,
+        "m": 48500,
+        "l": 31300,
+        "xl": 23000
+      },
+      "grams": {
+        "xs": 2.9,
+        "s": 3.6,
+        "m": 4.12,
+        "l": 6.39,
+        "xl": 8.69
+      }
+    },
     "pricing": {
       "basis": "unit",
       "by": [
@@ -601,6 +694,8 @@
     "url": "/produkte/doenertueten/",
     "name": "Dönertüten mit Logo bedrucken",
     "image": "/Bilder/web/doenertueten-960.webp",
+    "unit": "kg",
+    "qtyKey": "kg",
     "catalog": {
       "title": "Dönertüten",
       "tags": [
@@ -609,7 +704,12 @@
       "price": "7,00",
       "unit": "kg"
     },
-    "unit": "kg",
+    "related": [
+      "doenerboxen",
+      "einschlagpapier",
+      "feuchttuecher",
+      "tueten"
+    ],
     "options": [
       {
         "key": "mat",
@@ -639,7 +739,8 @@
           },
           {
             "id": "400",
-            "label": "400 kg"
+            "label": "400 kg",
+            "tip": true
           },
           {
             "id": "600",
@@ -649,9 +750,14 @@
             "id": "800",
             "label": "800 kg"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
+    "pieces": {
+      "per200kg": 80000,
+      "grams": 2.5
+    },
     "pricing": {
       "basis": "unit",
       "by": [
@@ -688,6 +794,8 @@
     "url": "/produkte/kuru-pasta/",
     "name": "Kuru Pasta Kutusu",
     "image": "/Bilder/web/kurupasta-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Kuru Pasta Kutusu",
       "tags": [
@@ -696,7 +804,11 @@
       "price": "0,14",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "baklava-kutusu",
+      "kuchenboxen",
+      "tueten"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -704,11 +816,11 @@
         "choices": [
           {
             "id": "500g",
-            "label": "500g"
+            "label": "500 g"
           },
           {
             "id": "1000g",
-            "label": "1000g"
+            "label": "1.000 g"
           }
         ]
       },
@@ -722,9 +834,11 @@
           },
           {
             "id": "20000",
-            "label": "20.000 Stück"
+            "label": "20.000 Stück",
+            "tip": true
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
     "pricing": {
@@ -753,6 +867,8 @@
     "url": "/produkte/salatschalen/",
     "name": "Salatschalen",
     "image": "/Bilder/web/salatschalen-v4-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Salatschalen",
       "tags": [
@@ -761,7 +877,12 @@
       "price": "0,1415",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "tueten",
+      "servietten",
+      "feuchttuecher",
+      "takeaway-boxen"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -787,11 +908,13 @@
         "choices": [
           {
             "id": "weiss",
-            "label": "Weiß · Bristol+PE"
+            "label": "Weiß",
+            "detail": "Bristol + PE"
           },
           {
             "id": "braun",
-            "label": "Braun · Kraft+PE"
+            "label": "Braun",
+            "detail": "Kraft + PE"
           }
         ]
       },
@@ -805,11 +928,13 @@
           },
           {
             "id": "pp",
-            "label": "PP-Deckel"
+            "label": "PP-Deckel",
+            "detail": "für warme Speisen"
           },
           {
             "id": "rpet",
-            "label": "rPET-Deckel"
+            "label": "rPET-Deckel",
+            "detail": "für kalte Speisen"
           }
         ]
       },
@@ -823,7 +948,8 @@
           },
           {
             "id": "3000",
-            "label": "3.000 Stück"
+            "label": "3.000 Stück",
+            "tip": true
           },
           {
             "id": "4800",
@@ -849,7 +975,34 @@
             "id": "24000",
             "label": "24.000 Stück"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
+      }
+    ],
+    "hints": [
+      {
+        "by": [
+          "deckel",
+          "groesse"
+        ],
+        "table": {
+          "ohne": {
+            "750ml": "Preis ohne Deckel",
+            "1000ml": "Preis ohne Deckel",
+            "1300ml": "Preis ohne Deckel"
+          },
+          "pp": {
+            "750ml": "PP-Deckel +7,15 ct pro Stück · besser für wärmere Speisen (höhere Temperaturbeständigkeit)",
+            "1000ml": "PP-Deckel +7,15 ct pro Stück · besser für wärmere Speisen (höhere Temperaturbeständigkeit)",
+            "1300ml": "PP-Deckel +7,00 ct pro Stück · besser für wärmere Speisen (höhere Temperaturbeständigkeit)"
+          },
+          "rpet": {
+            "750ml": "rPET-Deckel +7,15 ct pro Stück · insbesondere für kalte Speisen geeignet",
+            "1000ml": "rPET-Deckel +7,15 ct pro Stück · insbesondere für kalte Speisen geeignet",
+            "1300ml": "rPET-Deckel +7,00 ct pro Stück · insbesondere für kalte Speisen geeignet"
+          }
+        },
+        "after": "deckel"
       }
     ],
     "pricing": {
@@ -926,6 +1079,8 @@
     "url": "/produkte/baklava-kutusu/",
     "name": "Baklava Kutusu",
     "image": "/Bilder/web/baklava-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Baklava Kutusu",
       "tags": [
@@ -934,7 +1089,11 @@
       "price": "0,1050",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "kuru-pasta",
+      "kuchenboxen",
+      "tueten"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -956,7 +1115,8 @@
             "id": "1500g",
             "label": "1.500 g"
           }
-        ]
+        ],
+        "note": "Für Baklava, Kekse & orientalische Süßwaren"
       },
       {
         "key": "menge",
@@ -968,9 +1128,11 @@
           },
           {
             "id": "20000",
-            "label": "20.000 Stück"
+            "label": "20.000 Stück",
+            "tip": true
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
     "pricing": {
@@ -1007,6 +1169,8 @@
     "url": "/produkte/kuchenboxen/",
     "name": "Kuchenboxen & Tortenunterlagen",
     "image": "/Bilder/web/kuchenbox-960.webp",
+    "unit": "Stück",
+    "qtyKey": null,
     "catalog": {
       "title": "Kuchenboxen",
       "tags": [
@@ -1015,7 +1179,15 @@
       "price": "0,41",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "baklava-kutusu",
+      "tueten",
+      "servietten",
+      "kaffeebecher-single-wall"
+    ],
+    "notes": [
+      "Mindestbestellung: 10.000 Stück · Größere Mengen auf Anfrage"
+    ],
     "options": [
       {
         "key": "typ",
@@ -1023,15 +1195,18 @@
         "choices": [
           {
             "id": "box",
-            "label": "Kuchenbox nur Box"
+            "label": "Kuchenbox",
+            "detail": "nur Box"
           },
           {
             "id": "mendil",
-            "label": "Mendil nur Unterlage"
+            "label": "Mendil",
+            "detail": "nur Unterlage"
           },
           {
             "id": "set",
-            "label": "Set SPAR Box + Mendil"
+            "label": "Set",
+            "detail": "Box + Mendil"
           }
         ]
       },
@@ -1041,25 +1216,62 @@
         "choices": [
           {
             "id": "no0",
-            "label": "No 0 · 18 cm"
+            "label": "No 0",
+            "detail": "18 cm"
           },
           {
             "id": "no1",
-            "label": "No 1 · 21 cm"
+            "label": "No 1",
+            "detail": "21 cm"
           },
           {
             "id": "no2",
-            "label": "No 2 · 25 cm"
+            "label": "No 2",
+            "detail": "25 cm"
           },
           {
             "id": "no3",
-            "label": "No 3 · 27 cm"
+            "label": "No 3",
+            "detail": "27 cm"
           },
           {
             "id": "no4",
-            "label": "No 4 · 29 cm"
+            "label": "No 4",
+            "detail": "29 cm"
           }
         ]
+      }
+    ],
+    "hints": [
+      {
+        "by": [
+          "typ",
+          "groesse"
+        ],
+        "table": {
+          "box": {
+            "no0": "Box 18 × 18 × 13 cm",
+            "no1": "Box 21 × 21 × 13 cm",
+            "no2": "Box 25 × 25 × 13 cm",
+            "no3": "Box 27 × 27 × 13 cm",
+            "no4": "Box 29 × 29 × 18 cm"
+          },
+          "mendil": {
+            "no0": "Unterlage 18 × 18 cm",
+            "no1": "Unterlage 21 × 21 cm",
+            "no2": "Unterlage 25 × 25 cm",
+            "no3": "Unterlage 27 × 27 cm",
+            "no4": "Unterlage 29 × 29 cm"
+          },
+          "set": {
+            "no0": "Box 18 × 18 × 13 cm + Mendil 18 × 18 cm",
+            "no1": "Box 21 × 21 × 13 cm + Mendil 21 × 21 cm",
+            "no2": "Box 25 × 25 × 13 cm + Mendil 25 × 25 cm",
+            "no3": "Box 27 × 27 × 13 cm + Mendil 27 × 27 cm",
+            "no4": "Box 29 × 29 × 18 cm + Mendil 29 × 29 cm"
+          }
+        },
+        "after": "groesse"
       }
     ],
     "pricing": {
@@ -1101,6 +1313,8 @@
     "url": "/produkte/pommesschuetten/",
     "name": "Pommesschütten",
     "image": "/Bilder/web/pommes-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Pommeschütten",
       "tags": [
@@ -1109,7 +1323,12 @@
       "price": "0,128",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "burgerbox",
+      "fc-box",
+      "servietten",
+      "tueten"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1117,19 +1336,23 @@
         "choices": [
           {
             "id": "s",
-            "label": "S · 95 mm"
+            "label": "S",
+            "detail": "Höhe 95 mm"
           },
           {
             "id": "m",
-            "label": "M · 116 mm"
+            "label": "M",
+            "detail": "Höhe 116 mm"
           },
           {
             "id": "l",
-            "label": "L · 140 mm"
+            "label": "L",
+            "detail": "Höhe 140 mm"
           },
           {
             "id": "xl",
-            "label": "XL · 178 mm"
+            "label": "XL",
+            "detail": "Höhe 178 mm"
           }
         ]
       },
@@ -1143,13 +1366,29 @@
           },
           {
             "id": "15000",
-            "label": "15.000 Stück"
+            "label": "15.000 Stück",
+            "tip": true
           },
           {
             "id": "30000",
             "label": "30.000 Stück"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
+      }
+    ],
+    "hints": [
+      {
+        "by": [
+          "groesse"
+        ],
+        "table": {
+          "s": "77 × 59 × 40 mm · Höhe 95 mm",
+          "m": "84 × 64 × 41 mm · Höhe 116 mm",
+          "l": "91 × 64 × 41 mm · Höhe 140 mm",
+          "xl": "104 × 71,5 × 48 mm · Höhe 178 mm"
+        },
+        "after": "groesse"
       }
     ],
     "pricing": {
@@ -1190,6 +1429,8 @@
     "url": "/produkte/fc-box/",
     "name": "FC Box",
     "image": "/Bilder/web/fcbox-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "FC Box",
       "tags": [
@@ -1198,7 +1439,15 @@
       "price": "0,092",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "burgerbox",
+      "pommesschuetten",
+      "tueten",
+      "servietten"
+    ],
+    "notes": [
+      "Material: Bristol (weiß). CKB und Brown Kraft auf Anfrage."
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1206,15 +1455,18 @@
         "choices": [
           {
             "id": "s",
-            "label": "S · 139×78×53"
+            "label": "S",
+            "detail": "139 × 78 × 53 mm"
           },
           {
             "id": "m",
-            "label": "M · 169×98×63"
+            "label": "M",
+            "detail": "169 × 98 × 63 mm"
           },
           {
             "id": "l",
-            "label": "L · 225×120×70"
+            "label": "L",
+            "detail": "225 × 120 × 70 mm"
           }
         ]
       },
@@ -1228,13 +1480,15 @@
           },
           {
             "id": "20000",
-            "label": "20.000 Stück"
+            "label": "20.000 Stück",
+            "tip": true
           },
           {
             "id": "30000",
             "label": "30.000 Stück"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
     "pricing": {
@@ -1270,6 +1524,8 @@
     "url": "/produkte/doenerboxen/",
     "name": "Dönerboxen / Asiaboxen",
     "image": "/Bilder/web/doenerbox-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Dönerboxen",
       "tags": [
@@ -1278,7 +1534,12 @@
       "price": "0,108",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "doenertueten",
+      "einschlagpapier",
+      "feuchttuecher",
+      "tueten"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1286,11 +1547,13 @@
         "choices": [
           {
             "id": "s",
-            "label": "S · 470 ml (16 oz)"
+            "label": "S",
+            "detail": "470 ml · 16 oz"
           },
           {
             "id": "m",
-            "label": "M · 750 ml (26 oz)"
+            "label": "M",
+            "detail": "750 ml · 26 oz"
           }
         ]
       },
@@ -1318,7 +1581,8 @@
           },
           {
             "id": "25000",
-            "label": "25.000 Stück"
+            "label": "25.000 Stück",
+            "tip": true
           },
           {
             "id": "40000",
@@ -1328,7 +1592,8 @@
             "id": "50000",
             "label": "50.000 Stück"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
     "pricing": {
@@ -1378,6 +1643,8 @@
     "url": "/produkte/takeaway-boxen/",
     "name": "Take-away Boxen",
     "image": "/Bilder/web/takeawaybox-960.webp",
+    "unit": "Stück",
+    "qtyKey": null,
     "catalog": {
       "title": "Take-away Boxen",
       "tags": [
@@ -1386,7 +1653,15 @@
       "price": "0,1581",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "tueten",
+      "salatschalen",
+      "servietten",
+      "feuchttuecher"
+    ],
+    "notes": [
+      "Mindestbestellmenge 10.000 Stück pro Größe"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1394,27 +1669,33 @@
         "choices": [
           {
             "id": "26",
-            "label": "26oz"
+            "label": "26 oz",
+            "detail": "113 × 90 × 63 mm"
           },
           {
             "id": "36",
-            "label": "36oz"
+            "label": "36 oz",
+            "detail": "150 × 120 × 55 mm"
           },
           {
             "id": "46",
-            "label": "46oz"
+            "label": "46 oz",
+            "detail": "151 × 119 × 64 mm"
           },
           {
             "id": "51",
-            "label": "51oz"
+            "label": "51 oz",
+            "detail": "197 × 140 × 48 mm"
           },
           {
             "id": "69",
-            "label": "69oz"
+            "label": "69 oz",
+            "detail": "195 × 138 × 63 mm"
           },
           {
             "id": "98",
-            "label": "98oz"
+            "label": "98 oz",
+            "detail": "197 × 140 × 89 mm"
           }
         ]
       },
@@ -1430,7 +1711,8 @@
             "id": "Kraft",
             "label": "Kraft (braun)"
           }
-        ]
+        ],
+        "note": "Gleicher Preis für Bristol & Kraft"
       }
     ],
     "pricing": {
@@ -1456,6 +1738,8 @@
     "url": "/produkte/kaffeebecher-single-wall/",
     "name": "Kaffeebecher Single Wall",
     "image": "/Bilder/web/kaffeebecher-sw-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Kaffeebecher Single Wall",
       "tags": [
@@ -1464,7 +1748,11 @@
       "price": "0,0943",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "sleeves",
+      "servietten",
+      "kuchenboxen"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1472,15 +1760,15 @@
         "choices": [
           {
             "id": "8",
-            "label": "8oz"
+            "label": "8 oz"
           },
           {
             "id": "12",
-            "label": "12oz"
+            "label": "12 oz"
           },
           {
             "id": "16",
-            "label": "16oz"
+            "label": "16 oz"
           }
         ]
       },
@@ -1494,13 +1782,15 @@
           },
           {
             "id": "30000",
-            "label": "30.000 Stück"
+            "label": "30.000 Stück",
+            "tip": true
           },
           {
             "id": "50000",
             "label": "50.000 Stück"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
     "pricing": {
@@ -1536,6 +1826,8 @@
     "url": "/produkte/kaffeebecher-double-wall/",
     "name": "Kaffeebecher Double Wall",
     "image": "/Bilder/web/kaffeebecher-dw-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Kaffeebecher Double Wall",
       "tags": [
@@ -1544,7 +1836,12 @@
       "price": "0,1160",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "kaffeebecher-single-wall",
+      "servietten",
+      "kuchenboxen",
+      "clear-cups"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1552,15 +1849,15 @@
         "choices": [
           {
             "id": "8",
-            "label": "8oz"
+            "label": "8 oz"
           },
           {
             "id": "12",
-            "label": "12oz"
+            "label": "12 oz"
           },
           {
             "id": "16",
-            "label": "16oz"
+            "label": "16 oz"
           }
         ]
       },
@@ -1574,13 +1871,15 @@
           },
           {
             "id": "30000",
-            "label": "30.000 Stück"
+            "label": "30.000 Stück",
+            "tip": true
           },
           {
             "id": "50000",
             "label": "50.000 Stück"
           }
-        ]
+        ],
+        "note": "Größere Mengen auf Anfrage möglich"
       }
     ],
     "pricing": {
@@ -1616,6 +1915,8 @@
     "url": "/produkte/clear-cups/",
     "name": "Clear Cups",
     "image": "/Bilder/web/clear-cups-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Clear Cups",
       "tags": [
@@ -1624,7 +1925,11 @@
       "price": "0,135",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "bubble-tea-cups",
+      "servietten",
+      "tueten"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1668,7 +1973,8 @@
           },
           {
             "id": "3200",
-            "label": "3.200 Stück"
+            "label": "3.200 Stück",
+            "tip": true
           },
           {
             "id": "4800",
@@ -1683,6 +1989,21 @@
             "label": "20.000 Stück"
           }
         ]
+      }
+    ],
+    "hints": [
+      {
+        "by": [
+          "menge"
+        ],
+        "table": {
+          "1600": "Tampondruck · einseitig, max. 45 × 45 mm",
+          "3200": "Tampondruck · einseitig, max. 45 × 45 mm",
+          "4800": "Tampondruck · einseitig, max. 45 × 45 mm",
+          "10000": "Großflächiger Rundumdruck · bis zu 2 Farben",
+          "20000": "Großflächiger Rundumdruck · bis zu 3 Farben"
+        },
+        "after": "menge"
       }
     ],
     "pricing": {
@@ -1758,6 +2079,8 @@
     "url": "/produkte/bubble-tea-cups/",
     "name": "Bubble Tea Cups",
     "image": "/Bilder/web/bubble-tea-cups-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Bubble Tea Cups",
       "tags": [
@@ -1766,7 +2089,11 @@
       "price": "0,173",
       "unit": "Stück"
     },
-    "unit": "Stück",
+    "related": [
+      "clear-cups",
+      "servietten",
+      "tueten"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1810,9 +2137,22 @@
           },
           {
             "id": "20000",
-            "label": "20.000 Stück"
+            "label": "20.000 Stück",
+            "tip": true
           }
         ]
+      }
+    ],
+    "hints": [
+      {
+        "by": [
+          "menge"
+        ],
+        "table": {
+          "10000": "Großflächiger Rundumdruck · bis zu 2 Farben",
+          "20000": "Großflächiger Rundumdruck · bis zu 3 Farben"
+        },
+        "after": "menge"
       }
     ],
     "pricing": {
@@ -1858,6 +2198,8 @@
     "url": "/produkte/servietten/",
     "name": "Servietten mit Logo bedrucken",
     "image": "/Bilder/web/servietten-960.webp",
+    "unit": "Stück",
+    "qtyKey": "stufe",
     "catalog": {
       "title": "Servietten mit Logo",
       "tags": [
@@ -1867,7 +2209,12 @@
       "unit": "Stück",
       "note": "Preis bei 144.000 Stück, Größe S"
     },
-    "unit": "Stück",
+    "related": [
+      "feuchttuecher",
+      "tueten",
+      "burgerbox",
+      "einschlagpapier"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1875,15 +2222,18 @@
         "choices": [
           {
             "id": "s",
-            "label": "S · 25×25 cm"
+            "label": "S",
+            "detail": "25 × 25 cm (ungefaltet)"
           },
           {
             "id": "m",
-            "label": "M · 33×33 cm"
+            "label": "M",
+            "detail": "33 × 33 cm (ungefaltet)"
           },
           {
             "id": "l",
-            "label": "L · 40×40 cm"
+            "label": "L",
+            "detail": "40 × 40 cm (ungefaltet)"
           }
         ]
       },
@@ -1893,18 +2243,19 @@
         "choices": [
           {
             "id": "0",
-            "label": "72.000 Stück"
+            "label": "30 Kartons"
           },
           {
             "id": "1",
-            "label": "120.000 Stück"
+            "label": "50 Kartons",
+            "tip": true
           },
           {
             "id": "2",
-            "label": "144.000 Stück"
+            "label": "60 Kartons"
           }
         ],
-        "dynamicLabel": true
+        "note": "Größere Mengen: individuelles Angebot anfragen"
       }
     ],
     "pricing": {
@@ -1960,6 +2311,8 @@
     "url": "/produkte/feuchttuecher/",
     "name": "Feuchttücher mit Logo",
     "image": "/Bilder/web/feuchttuecher-960.webp",
+    "unit": "Stück",
+    "qtyKey": "menge",
     "catalog": {
       "title": "Feuchttücher",
       "tags": [
@@ -1969,7 +2322,12 @@
       "unit": "Stück",
       "note": "Preis bei 50.000 Stück, Größe S"
     },
-    "unit": "Stück",
+    "related": [
+      "servietten",
+      "tueten",
+      "burgerbox",
+      "doenerboxen"
+    ],
     "options": [
       {
         "key": "groesse",
@@ -1977,15 +2335,18 @@
         "choices": [
           {
             "id": "s",
-            "label": "S · 6×8 cm"
+            "label": "S",
+            "detail": "6 × 8 cm"
           },
           {
             "id": "m",
-            "label": "M · 6×10 cm"
+            "label": "M",
+            "detail": "6 × 10 cm"
           },
           {
             "id": "l",
-            "label": "L · 6×12 cm"
+            "label": "L",
+            "detail": "6 × 12 cm"
           }
         ]
       },
@@ -1999,13 +2360,27 @@
           },
           {
             "id": "30000",
-            "label": "30.000 Stück"
+            "label": "30.000 Stück",
+            "tip": true
           },
           {
             "id": "50000",
             "label": "50.000 Stück"
           }
         ]
+      }
+    ],
+    "hints": [
+      {
+        "by": [
+          "menge"
+        ],
+        "table": {
+          "10000": "Flexodruck · 1–2 Druckfarben",
+          "30000": "Flexodruck · 1–2 Druckfarben",
+          "50000": "Flexodruck · 1–4 Druckfarben"
+        },
+        "after": "menge"
       }
     ],
     "pricing": {

@@ -3,152 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D&ouml;nert&uuml;ten individuell mit Logo bedrucken | PackFactory</title>
+  <title>Dönertüten individuell mit Logo bedrucken | PackFactory</title>
   <link rel="canonical" href="https://pack-factory.de/produkte/doenertueten/">
   <meta name="description" content="Individuelle D&ouml;nert&uuml;ten mit Ihrem Logo bedrucken lassen. 16 &times; 17 cm, 3 Papierarten, ab 200 kg. Jetzt anfragen.">
   <link rel="icon" type="image/png" href="/Bilder/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 92px; }
-    * { -webkit-tap-highlight-color: transparent; }
-    a, button { touch-action: manipulation; }
-    :root { --pink: #F07A8C; --pink-d: #d9697a; --dark: #1d1d1f; --muted: #6e6e73; --bg: #f5f5f7; --card: #F5F2EC; }
-
-    /* NAV */
-    .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 12px 20px; pointer-events: none; }
-    .nav-wrapper nav { background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04); pointer-events: all; max-width: 1200px; margin: 0 auto; border: 1px solid #E8E3DA; }
-    .nav-inner { padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px; }
-    .nav-logo { height: 150px; width: auto; }
-    .nav-links { flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap; }
-    .nav-links a { color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color .15s; }
-    .nav-links a:hover { color: var(--pink); }
-    .nav-right { flex-shrink: 0; display: flex; align-items: center; gap: 8px; }
-    .btn-pink { display: inline-block; text-decoration: none; font-weight: 700; border-radius: 10px; background: var(--pink); color: #fff; padding: 10px 22px; font-size: 14px; font-family: inherit; border: none; cursor: pointer; transition: background .18s, transform .2s cubic-bezier(.34,1.56,.64,1); }
-    .btn-pink:hover { background: var(--pink-d); transform: translateY(-1px); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all .28s cubic-bezier(.22,1,.36,1); }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: flex; position: fixed; inset: 0; background: #FAF9F7; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity .28s cubic-bezier(.22,1,.36,1); }
-    .mobile-menu.open { opacity: 1; pointer-events: all; }
-    .mobile-menu a { font-size: 24px; font-weight: 800; color: #1a1a1a; text-decoration: none; opacity: 0; transform: translateY(18px); transition: color .15s, opacity .32s cubic-bezier(.22,1,.36,1), transform .32s cubic-bezier(.22,1,.36,1); }
-    .mobile-menu.open a:nth-child(1) { opacity: 1; transform: none; transition-delay: .05s; }
-    .mobile-menu.open a:nth-child(2) { opacity: 1; transform: none; transition-delay: .09s; }
-    .mobile-menu.open a:nth-child(3) { opacity: 1; transform: none; transition-delay: .13s; }
-    .mobile-menu.open a:nth-child(4) { opacity: 1; transform: none; transition-delay: .17s; }
-    .mobile-menu.open a:nth-child(5) { opacity: 1; transform: none; transition-delay: .21s; }
-    .mobile-menu a:hover { color: var(--pink); }
-    @media (min-width: 769px) { .nav-wrapper { transition: padding .35s cubic-bezier(.22,1,.36,1); } .nav-wrapper.scrolled { padding: 6px 20px; } }
-    @media (max-width: 768px) { .nav-links, .btn-pink.nav-cta { display: none !important; } .hamburger { display: flex !important; } .nav-wrapper { padding: 0 !important; } .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,.08) !important; } .nav-logo { height: 90px !important; } .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; } body { padding-top: 72px; } }
-    @media (max-width: 480px) { .nav-logo { height: 75px !important; } .nav-inner { height: 64px !important; } body { padding-top: 64px; } }
-
-    /* PRODUCT HERO */
-    .product-hero { display: grid; grid-template-columns: 55% 45%; min-height: calc(100vh - 92px); }
-    @media (max-width: 960px) { .product-hero { grid-template-columns: 1fr; height: auto; } }
-
-    /* Image panel */
-    .img-panel { position: relative; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .img-panel img { width: 82%; max-width: 480px; object-fit: contain; user-select: none; pointer-events: none; display: block; }
-    .img-panel img.pulse { animation: imgPulse .28s ease; }
-    @keyframes imgPulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
-    .size-badge { position: absolute; bottom: 24px; left: 24px; background: rgba(29,29,31,.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: #fff; border-radius: 12px; padding: 10px 14px; }
-    .size-badge-s { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .06em; }
-    .size-badge-v { font-size: 20px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
-    .size-badge-d { font-size: 11px; color: rgba(255,255,255,.6); }
-    @media (max-width: 960px) { .img-panel { height: 60vw; min-height: 300px; } .img-panel img { width: 84%; height: 84%; } .size-badge { bottom: 14px; left: 14px; padding: 7px 11px; } .size-badge-v { font-size: 16px; } }
-
-    /* Configurator panel */
-    .config-panel { display: flex; flex-direction: column; justify-content: center; padding: 20px 36px 16px; overflow: visible; background: #fff; border-left: 1px solid #f0f0f0; }
-    @media (max-width: 1100px) { .config-panel { padding: 16px 24px 14px; } }
-    @media (max-width: 960px) { .config-panel { padding: 20px 20px; border-left: none; border-top: 1px solid #f0f0f0; } }
-    .breadcrumb { font-size: 12px; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-    .breadcrumb a { color: var(--muted); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--dark); }
-    .breadcrumb span { color: #c7c7cc; }
-    h1.product-title { font-size: clamp(26px, 3vw, 38px); font-weight: 900; letter-spacing: -.03em; color: var(--dark); line-height: 1.05; margin-bottom: 14px; }
-    .opt-group { margin-bottom: 14px; }
-    .opt-group-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
-    .opt-btns { display: flex; flex-wrap: wrap; gap: 7px; }
-    .opt { padding: 9px 18px; border-radius: 100px; border: 1.5px solid #d2d2d7; background: #fff; font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark); cursor: pointer; transition: border-color .12s, background .12s, color .12s; white-space: nowrap; }
-    .opt:hover { border-color: #8e8e93; }
-    .opt.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-    .dim-hint { font-size: 11px; color: var(--muted); font-weight: 600; margin-top: 5px; }
-    .stueck-hint { font-size: 12px; color: var(--muted); font-weight: 700; margin-top: 5px; }
-
-    /* Price */
-    .price-row { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 6px; }
-    .price-total { font-size: clamp(28px, 4vw, 42px); font-weight: 900; letter-spacing: -.03em; color: var(--dark); }
-    .price-per { font-size: 13px; color: var(--pink); font-weight: 700; }
-    .price-vat { font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
-
-    /* CTAs */
-    .btn-wa { display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff; font-weight: 700; font-size: 14px; padding: 13px 22px; border-radius: 12px; text-decoration: none; font-family: inherit; transition: background .18s, transform .2s cubic-bezier(.34,1.56,.64,1); }
-    .btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); }
-    .btn-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
-    .btn-sec { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid #d2d2d7; background: #fff; color: var(--dark); font-weight: 700; font-size: 13px; padding: 11px 18px; border-radius: 12px; text-decoration: none; font-family: inherit; transition: border-color .15s, background .15s; }
-    .btn-sec:hover { border-color: #8e8e93; background: #f5f5f7; }
-
-    /* DELIVERY STRIP */
-    .delivery-strip { background: var(--card); border-bottom: 1px solid #E8E3DA; display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; }
-    .delivery-item { display: flex; flex-direction: column; justify-content: center; padding: 12px 28px; border-right: 1px solid #E8E3DA; }
-    .delivery-item:last-child { border-right: none; }
-    @media (max-width: 640px) { .delivery-item { border-right: none; border-bottom: 1px solid #E8E3DA; padding: 10px 20px; } .delivery-item:last-child { border-bottom: none; } }
-    .delivery-label { font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
-    .delivery-value { font-size: 13px; font-weight: 800; color: var(--dark); }
-
-    /* SPECS */
-    .specs-section { background: var(--card); padding: 48px 20px; }
-    .specs-inner { max-width: 860px; margin: 0 auto; }
-    .specs-title { font-size: 22px; font-weight: 900; letter-spacing: -.02em; margin-bottom: 4px; }
-    .specs-sub { font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 20px; }
-    .specs-wrap { overflow-x: auto; }
-    .specs-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .specs-table th { background: #E8E3DA; color: var(--dark); font-weight: 800; padding: 10px 14px; text-align: left; white-space: nowrap; }
-    .specs-table td { padding: 9px 14px; border-bottom: 1px solid #E8E3DA; color: var(--dark); vertical-align: top; }
-    .specs-table tr:last-child td { border-bottom: none; }
-    .specs-table td:first-child { font-weight: 700; color: var(--muted); white-space: nowrap; }
-    .specs-footnote { font-size: 11px; color: var(--muted); font-weight: 600; margin-top: 14px; line-height: 1.5; }
-
-    /* SEO */
-    .seo-section { padding: 48px 20px; background: #fff; }
-    .seo-inner { max-width: 860px; margin: 0 auto; }
-    .seo-inner h2 { font-size: 20px; font-weight: 900; letter-spacing: -.02em; margin-bottom: 10px; }
-    .seo-inner h3 { font-size: 17px; font-weight: 800; color: var(--pink); margin: 32px 0 8px; }
-    .seo-lead { font-size: 15px; color: var(--muted); font-weight: 600; line-height: 1.6; margin-bottom: 14px; }
-    .seo-inner p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 8px; }
-    .seo-inner ul { padding-left: 18px; }
-    .seo-inner li { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
-    /* CONTACT */
-    .contact { background: var(--card); padding: 56px 20px; text-align: center; border-top: 1px solid #E8E3DA; }
-    .contact-title { font-size: clamp(22px, 3vw, 30px); font-weight: 900; letter-spacing: -.02em; margin-bottom: 8px; }
-    .contact-sub { font-size: 14px; color: var(--muted); font-weight: 600; margin-bottom: 24px; }
-    .contact-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .cbtn-wa { display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff; font-weight: 700; font-size: 14px; padding: 13px 24px; border-radius: 12px; text-decoration: none; font-family: inherit; transition: background .18s; }
-    .cbtn-wa:hover { background: #1ebe5d; }
-    .cbtn { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid #d2d2d7; background: #fff; color: var(--dark); font-weight: 700; font-size: 13px; padding: 12px 22px; border-radius: 12px; text-decoration: none; font-family: inherit; transition: border-color .15s, background .15s; }
-    .cbtn:hover { border-color: #8e8e93; background: #f5f5f7; }
-
-    /* FOOTER */
-    footer { background: #1d1d1f; color: rgba(255,255,255,.5); padding: 32px 20px; text-align: center; }
-    footer img { height: 48px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1); opacity: .7; }
-    .foot-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
-    .foot-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: 13px; font-weight: 600; transition: color .15s; }
-    .foot-links a:hover { color: #fff; }
-    footer p { font-size: 12px; }
-    .buying-guide h2 { font-size:26px;line-height:1.2;margin:0 0 18px; }
-    .buying-guide h3 { font-size:19px;line-height:1.3;margin:24px 0 10px; }
-    .buying-guide p { margin:0 0 16px; }
-    .buying-guide a { color:#8e3445;text-underline-offset:3px; }
-    .buying-guide a:focus-visible { outline:2px solid #8e3445;outline-offset:3px; }
-    .buying-guide a:hover { text-decoration-thickness:2px; }
-    .buying-guide a:active { opacity:.8; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/pf.css">
+  <script>document.documentElement.classList.add('pf-js');</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -170,14 +33,13 @@
 }
   </script>
 </head>
-<body>
+<body class="pf-page">
+<!-- Erzeugt von tools/build_site.js aus data/products.json und content/produkte/doenertueten.html. Nicht von Hand ändern. -->
 
 <div class="nav-wrapper" id="navWrapper">
-  <nav>
+  <nav aria-label="Hauptnavigation">
     <div class="nav-inner">
-      <a href="/" style="display:flex;align-items:center;flex-shrink:0;">
-        <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo">
-      </a>
+      <a href="/" class="nav-home"><img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo" width="900" height="637"></a>
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
@@ -186,8 +48,8 @@
         <a href="/#kontakt">Kontakt</a>
       </div>
       <div class="nav-right">
-        <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
+        <a href="/#produkte" class="pf-btn pf-btn-primary pf-btn-sm nav-cta">Jetzt bestellen</a>
+        <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Men&uuml;" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -198,249 +60,222 @@
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
-  <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
 
-<!-- HERO -->
-<section class="product-hero">
-  <!-- Image -->
-  <div class="img-panel">
-    <img id="product-img" src="/Bilder/web/doenertueten-960.webp" srcset="/Bilder/web/doenertueten-480.webp 480w, /Bilder/web/doenertueten-960.webp 960w" sizes="(max-width: 960px) 84vw, 480px" fetchpriority="high" alt="D&ouml;nert&uuml;ten mit Logo bedruckt">
-    <div class="size-badge">
-      <div class="size-badge-s">Gr&ouml;&szlig;e</div>
-      <div class="size-badge-v">16 &times; 17</div>
-      <div class="size-badge-d">cm</div>
+<main>
+<section class="pf-buy" aria-label="Produkt konfigurieren">
+  <div class="pf-gallery">
+    <div class="pf-shot">
+      <img id="product-img" src="/Bilder/web/doenertueten-960.webp" srcset="/Bilder/web/doenertueten-480.webp 480w, /Bilder/web/doenertueten-960.webp 960w" sizes="(max-width: 980px) 90vw, 560px" alt="Dönertüten mit Logo bedrucken mit Logo bedruckt" width="960" height="960" fetchpriority="high">
     </div>
   </div>
 
-  <!-- Configurator -->
-  <div class="config-panel">
-    <div class="breadcrumb">
-      <a href="/">PackFactory</a>
-      <span>&rsaquo;</span>
-      <a href="/#produkte">Produkte</a>
-      <span>&rsaquo;</span>
-      D&ouml;nert&uuml;ten
-    </div>
+  <div class="pf-panel config-panel">
+    <nav class="pf-crumbs" aria-label="Brotkrumen"><a href="/">PackFactory</a><span aria-hidden="true">›</span><a href="/#produkte">Produkte</a><span aria-hidden="true">›</span><span>Dönertüten</span></nav>
+    <h1 class="pf-title">Dönertüten mit Logo bedrucken</h1>
+    
+    <p class="pf-from">ab 5,20 €/kg · mit deinem Logo</p>
 
-    <h1 class="product-title">Dönertüten mit Logo bedrucken</h1>
-
-    <!-- Material -->
-    <div class="opt-group">
-      <div class="opt-group-label">Papier</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectMat('standard',this)">Standard</button>
-        <button class="opt" onclick="selectMat('fettabweisend',this)">Fettabweisend</button>
-        <button class="opt" onclick="selectMat('pe',this)">PE-coated</button>
+    <div class="pf-group" data-group="mat">
+      <div class="pf-label" id="pf-l-mat">Papier</div>
+      <div class="opt-btns pf-chips" role="group" aria-labelledby="pf-l-mat">
+        <button type="button" class="pf-opt active" aria-pressed="true" data-key="mat" data-id="standard"><b>Standard</b></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="mat" data-id="fettabweisend"><b>Fettabweisend</b></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="mat" data-id="pe"><b>PE-coated</b></button>
       </div>
+      <div class="pf-hints" data-hints="mat" aria-live="polite"></div>
     </div>
-
-    <!-- Menge -->
-    <div class="opt-group">
-      <div class="opt-group-label">Menge</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectKg(200,this)">200 kg</button>
-        <button class="opt" onclick="selectKg(400,this)">400 kg</button>
-        <button class="opt" onclick="selectKg(600,this)">600 kg</button>
-        <button class="opt" onclick="selectKg(800,this)">800 kg</button>
+    <div class="pf-group" data-group="kg">
+      <div class="pf-label" id="pf-l-kg">Menge<span class="pf-aside">Je mehr, desto günstiger</span></div>
+      <div class="opt-btns pf-tiers" role="group" aria-labelledby="pf-l-kg">
+        <button type="button" class="pf-opt pf-tier active" aria-pressed="true" data-key="kg" data-id="200"><b data-qty>200 kg</b><span><span data-unit>7,00 €/kg</span><em data-pct hidden>−0 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="kg" data-id="400"><i class="pf-tip">Unser Tipp</i><b data-qty>400 kg</b><span><span data-unit>6,00 €/kg</span><em data-pct>−14 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="kg" data-id="600"><b data-qty>600 kg</b><span><span data-unit>5,50 €/kg</span><em data-pct>−21 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="kg" data-id="800"><b data-qty>800 kg</b><span><span data-unit>5,20 €/kg</span><em data-pct>−26 %</em></span></button>
       </div>
-      <div class="stueck-hint" id="stueck-hint">ca. 80.000 St&uuml;ck &middot; 1,75 Ct./St&uuml;ck</div>
-      <div class="dim-hint" style="margin-top:2px;">Gr&ouml;&szlig;ere Mengen auf Anfrage m&ouml;glich</div>
+      <div class="pf-hints" data-hints="kg" aria-live="polite"><p class="pf-hint">ca. 80.000 Stück · 1,75 ct pro Stück</p></div>
+      <p class="pf-note">Größere Mengen auf Anfrage möglich</p>
     </div>
 
-    <!-- Price -->
-    <div class="price-row">
-      <span class="price-total" id="price-display">EUR 1.400,00</span>
-      <span class="price-per" id="price-per">7,00 &euro; / kg</span>
+    <div class="pf-sum" aria-live="polite">
+      <span class="pf-total" id="price-display">1.400,00 €</span>
+      <span class="pf-per" id="price-per">7,00 € pro kg</span>
+      <span class="pf-saved" id="pf-saved"></span>
+      <span class="pf-vat">Netto zzgl. MwSt. · inkl. individuellem Druck &amp; Design</span>
     </div>
-    <p class="price-vat">Alle Preise netto zzgl. MwSt.**</p>
 
-    <!-- CTAs -->
-    <button type="button" class="pf-cart-add" onclick="addCurrentToCart()">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      In den Warenkorb
-    </button>
-    <a id="wa-link" href="#" target="_blank" class="btn-wa">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Angebot via WhatsApp anfragen
-    </a>
-    <div class="btn-row">
-      <a href="tel:+491776990017" class="btn-sec btn-phone">Anrufen</a>
-      <a id="email-link" href="mailto:info@pack-factory.de" class="btn-sec">E-Mail</a>
+    <div class="pf-ctas" id="pf-ctas">
+      <button type="button" class="pf-btn pf-btn-primary" id="pf-add" onclick="addCurrentToCart()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>In den Warenkorb</button>
+      <a id="wa-link" class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20D%C3%B6nert%C3%BCten%20(Papier%3A%20Standard%2C%20200%20kg%2C%207%2C00%20%E2%82%AC%20pro%20kg%20netto%2C%20gesamt%201.400%2C00%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Direkt per WhatsApp anfragen</a>
     </div>
-  </div>
-</section>
+    <p class="pf-contact-line"><a href="tel:+491776990017">Anrufen: 0177 6990017</a><span aria-hidden="true">·</span><a id="email-link" href="mailto:info@pack-factory.de?subject=Anfrage%20D%C3%B6nert%C3%BCten&amp;body=Papier%3A%20Standard%0A200%20kg%0ASt%C3%BCckpreis%3A%207%2C00%20%E2%82%AC%20pro%20kg%20netto%0AGesamtpreis%3A%201.400%2C00%20%E2%82%AC%20netto">E-Mail schreiben</a></p>
 
-<!-- DELIVERY STRIP -->
-<div class="delivery-strip">
-  <div class="delivery-item">
-    <div class="delivery-label">Lieferzeit</div>
-    <div class="delivery-value">ca. 5&ndash;7 Wochen nach Druckfreigabe</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Versand</div>
-    <div class="delivery-value">auf Anfrage</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Mindestmenge</div>
-    <div class="delivery-value">200 kg</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Druck</div>
-    <div class="delivery-value">Flexodruck</div>
-  </div>
-</div>
-
-<!-- SPECS -->
-<section class="specs-section">
-  <div class="specs-inner">
-    <h2 class="specs-title">Technische Details</h2>
-    <p class="specs-sub">Alle Angaben f&uuml;r 16 &times; 17 cm</p>
-    <div class="specs-wrap">
-      <table class="specs-table">
-        <thead>
-          <tr>
-            <th>Eigenschaft</th>
-            <th>Standard</th>
-            <th>Fettabweisend</th>
-            <th>PE-coated</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Abmessungen</td>
-            <td>16 &times; 17 cm</td>
-            <td>16 &times; 17 cm</td>
-            <td>16 &times; 17 cm</td>
-          </tr>
-          <tr>
-            <td>Material</td>
-            <td>Kraftpapier</td>
-            <td>Pergamentersatzpapier</td>
-            <td>Papier + PE-Beschichtung</td>
-          </tr>
-          <tr>
-            <td>Materialst&auml;rke</td>
-            <td>40 g/m&sup2;</td>
-            <td>40 g/m&sup2;</td>
-            <td>35 g/m&sup2; + 6 PE</td>
-          </tr>
-          <tr>
-            <td>Druckmethode</td>
-            <td>Flexodruck</td>
-            <td>Flexodruck</td>
-            <td>Flexodruck</td>
-          </tr>
-          <tr>
-            <td>Anzahl Farben</td>
-            <td>1 &ndash; 4 Farben</td>
-            <td>1 &ndash; 4 Farben</td>
-            <td>1 &ndash; 4 Farben</td>
-          </tr>
-          <tr>
-            <td>Druckbereich</td>
-            <td>30 % des Druckbereichs*</td>
-            <td>30 % des Druckbereichs*</td>
-            <td>30 % des Druckbereichs*</td>
-          </tr>
-          <tr>
-            <td>Mindestbestellmenge</td>
-            <td>200 kg</td>
-            <td>200 kg</td>
-            <td>200 kg</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="specs-footnote">* Kalkulation basiert auf einer 30 % Druckfl&auml;che. 100 % Druckfl&auml;che (Volldruck) auf Anfrage m&ouml;glich.</p>
-    <p class="specs-footnote" style="margin-top:6px;">** Einmalige Einrichtungskosten k&ouml;nnen anfallen. Diese fallen nur beim ersten Auftrag an &mdash; nicht bei Nachbestellungen.</p>
-  </div>
-</section>
-
-<!-- SEO SECTION -->
-<section class="seo-section">
-  <div class="seo-inner">
-    <h2>D&ouml;nert&uuml;ten bedrucken lassen &mdash; Format 16 &times; 17 cm, ab 200 kg</h2>
-    <p class="seo-lead">Bedruckte D&ouml;nert&uuml;ten sind mehr als nur Verpackung &mdash; sie sind Ihr Markenzeichen bei jedem Verkauf. PackFactory produziert D&ouml;nert&uuml;ten im bew&auml;hrten Format 16 &times; 17 cm in drei Papierqualit&auml;ten, individuell bedruckt mit Ihrem Logo im Flexodruck, ab 200 kg Mindestmenge. Direkt vom Hersteller, transparent kalkuliert, ohne Zwischenh&auml;ndler.</p>
-
-    <h3>Was sind D&ouml;nert&uuml;ten und wof&uuml;r werden sie eingesetzt?</h3>
-    <p>D&ouml;nert&uuml;ten &mdash; auch Kebabt&uuml;ten, Imbiss&uuml;ten oder einfach Servierbeutel genannt &mdash; sind eine der am h&auml;ufigsten verwendeten Einzelverpackungen in der deutschen Gastronomie. Das Format 16 &times; 17 cm ist der branchenweite Standard und passt exakt f&uuml;r eine regul&auml;re D&ouml;nerportion, Durumrollen, Falafel-Wraps und &auml;hnliche Gerichte. Die konische T&uuml;tenform h&auml;lt den Inhalt sicher zusammen, sch&uuml;tzt die H&auml;nde des Kunden vor W&auml;rme und Fett und sorgt f&uuml;r ein ordentliches, professionelles Erscheinungsbild beim Ausgeben.</p>
-    <p>Allein in Deutschland gibt es mehr als 20.000 D&ouml;nerimbisse, Kebab-Shops und t&uuml;rkische Restaurants &mdash; eine der dichtesten Gastronomiedichten weltweit f&uuml;r ein einzelnes Gericht. In diesem hart umk&auml;mpften Markt ist professionelles Auftreten kein Luxus, sondern Notwendigkeit. Eine bedruckte T&uuml;te mit Ihrem Logo kostet kaum mehr als eine neutrale, signalisiert aber sofort Qualit&auml;t und Identit&auml;t &mdash; und bleibt beim Kunden in Erinnerung, lange nachdem der letzte Bissen gegessen ist.</p>
-    <p>Mit individuellem Flexodruck in 1&ndash;4 Farben wird jede ausgegebene D&ouml;nert&uuml;te zur mobilen Werbefl&auml;che. Jeder Kunde tr&auml;gt Ihr Logo durch die Fu&szlig;g&auml;ngerzone, ins B&uuml;ro, in die S-Bahn und nach Hause &mdash; ohne dass Sie daf&uuml;r extra zahlen. Keine andere Werbeform in der Gastronomie erreicht diese Reichweite zu diesem Preis.</p>
-
-    <h3>F&uuml;r welche Branchen eignen sich D&ouml;nert&uuml;ten?</h3>
-    <p>D&ouml;nert&uuml;ten werden &uuml;berall dort eingesetzt, wo warme, portionierte Speisen eingewickelt und zum Mitnehmen ausgegeben werden:</p>
-    <ul>
-      <li>D&ouml;nerl&auml;den, Kebab-Shops und Durum-Restaurants</li>
-      <li>Shawarma-, Falafel- und orientalische Imbisse</li>
-      <li>T&uuml;rkische, arabische und levantinische Restaurants</li>
-      <li>Systemgastronomie, Fast-Food-Ketten und Franchise-Betriebe</li>
-      <li>Food Trucks, Marktimbisse und Festivalst&auml;nde</li>
-      <li>Catering-Betriebe f&uuml;r Events, Firmenveranstaltungen und Au&szlig;enveranstaltungen</li>
-      <li>Supermarkt- und SB-Theken mit warmen Fertiggerichten</li>
-      <li>B&auml;ckereien und Snackbars mit Wraps und gef&uuml;llten Fladenbroten</li>
-      <li>Schulkantinen, Betriebskantinen und Mensabetriebe</li>
-      <li>Sportveranstaltungen, Konzerthallen und Freizeitparks</li>
-    </ul>
-
-    <h3>Welche Papierart ist die richtige f&uuml;r Ihren Betrieb?</h3>
-    <p><strong>Standard (Kraftpapier, 40 g/m&sup2;)</strong> &mdash; Die g&uuml;nstigste Option f&uuml;r Betriebe, deren D&ouml;ner oder Wraps eine moderate Fettmenge enthalten. Kraftpapier ist lebensmittelecht, rei&szlig;fest und saugf&auml;hig. Geeignet f&uuml;r Produkte, bei denen der Inhalt nicht so stark fettet, dass das Papier durchweicht. In Wei&szlig; oder Braun erh&auml;ltlich.</p>
-    <p><strong>Fettabweisendes Papier (Pergamentersatzpapier, 40 g/m&sup2;)</strong> &mdash; Die nat&uuml;rliche, nachhaltige Wahl f&uuml;r alle &ouml;l- und fetthaltigen Speisen. Pergamentersatzpapier ist kein beschichtetes Papier. Es entsteht durch intensive mechanische Verdichtung (Satinierung) der Zellulosefasern: Die Fasern werden so stark gepresst und verfilzt, dass sie von Natur aus fett- und &ouml;labweisend werden &mdash; ohne Chemikalien, ohne Kunststoffbeschichtung, ohne synthetische Zusatzstoffe. Das bedeutet: vollst&auml;ndig biologisch abbaubar, recycelbar nach herk&ouml;mmlichen Papierwegen, lebensmittelecht nach EU-Richtlinie 1935/2004. Mit 40 g/m&sup2; bietet es ausreichend Festigkeit und Griffigkeit f&uuml;r schwere, warme D&ouml;nerportionen. F&uuml;r Betriebe, die Wert auf Qualit&auml;t und Umweltverantwortung legen &mdash; die klare erste Wahl.</p>
-    <p><strong>PE-coated Papier (35 g/m&sup2; + 6 g/m&sup2; PE)</strong> &mdash; Maximale Barrierewirkung gegen Feuchtigkeit, So&szlig;en und Fl&uuml;ssigkeiten. Die aufgebrachte Polyethylenschicht macht das Papier vollst&auml;ndig wasserdicht &mdash; selbst bei sehr saftigen oder so&szlig;enreichen Gerichten h&auml;lt es jeden Durchdruck zuverl&auml;ssig aus. Ideal f&uuml;r Betriebe mit sehr nassen F&uuml;llungen, stark mariniertem Fleisch oder extra viel Knoblauchso&szlig;e. Das robusteste Material im Sortiment.</p>
-
-    <h3>Bedruckte D&ouml;nert&uuml;ten als Marketinginstrument</h3>
-    <p>In der Gastronomie entscheiden oft Kleinigkeiten dar&uuml;ber, welchen Betrieb Kunden weiterempfehlen, wiederholt aufsuchen oder auf Social Media teilen. Eine bedruckte T&uuml;te ist eine dieser Kleinigkeiten &mdash; mit messbarer Wirkung.</p>
-    <p><strong>Sichtbarkeit im &ouml;ffentlichen Raum:</strong> Jede T&uuml;te, die Ihren Betrieb verl&auml;sst, ist kostenlose Out-of-Home-Werbung. Kunden essen in Parks, auf B&auml;nken, im B&uuml;ro, in der Bahn &mdash; und tragen dabei Ihr Logo durch die Stadt. Bei tausenden ausgegebenen T&uuml;ten pro Monat ergibt das eine Reichweite, die kein Plakatbudget replizieren kann.</p>
-    <p><strong>Ersteindruck und Qualit&auml;tssignal:</strong> Eine bedruckte T&uuml;te signalisiert dem Kunden noch vor dem ersten Bissen: Dieser Betrieb denkt an Details. Das f&ouml;rdert Vertrauen &mdash; und Vertrauen f&ouml;rdert Wiederkauf und Weiterempfehlung.</p>
-    <p><strong>Social-Media-Potenzial:</strong> Food-Fotos auf Instagram, TikTok und Google Maps erreichen t&auml;glich Millionen Menschen. Eine markante, bedruckte Verpackung macht Ihren Betrieb auf jedem Foto erkennbar &mdash; auch wenn die Person das Bild gar nicht f&uuml;r Werbezwecke gemacht hat. Kostenlose Reichweite durch echte Kundenbeitr&auml;ge.</p>
-    <p><strong>Differenzierung vom Wettbewerb:</strong> In einer Stra&szlig;e mit mehreren D&ouml;nerimbissen haben alle dasselbe Produkt. Die Verpackung macht den Unterschied zwischen austauschbar und erinnerungsw&uuml;rdig.</p>
-
-    <h3>Nachhaltigkeit und Lebensmittelsicherheit</h3>
-    <p>Alle D&ouml;nert&uuml;ten von PackFactory sind lebensmittelecht und entsprechen den Anforderungen der EU-Verordnung 1935/2004 f&uuml;r Materialien mit Lebensmittelkontakt. Das bedeutet: keine Abgabe von Schadstoffen, keine Verunreinigung von Lebensmitteln durch das Verpackungsmaterial &mdash; sicher f&uuml;r Endverbraucher, rechtlich abgesichert f&uuml;r Betreiber.</p>
-    <p>Besonders die Variante mit Pergamentersatzpapier &uuml;berzeugt &ouml;kologisch: kein Plastik, keine Kunstharzbeschichtung, vollst&auml;ndig kompostierbar und nach herk&ouml;mmlichen Papierwegen recycelbar. Ein Argument, das bei umweltbewussten Endkunden zunehmend kaufentscheidend ist &mdash; und Ihren Betrieb als verantwortungsvoll positioniert.</p>
-
-    <h3>Warum PackFactory?</h3>
-    <p>Wir produzieren D&ouml;nert&uuml;ten direkt &mdash; ohne Zwischenh&auml;ndler, mit festem Kalkulationsrahmen und pers&ouml;nlicher Beratung:</p>
-    <ul>
-      <li><strong>Ab 200 kg Mindestbestellmenge</strong> &mdash; realisierbar f&uuml;r mittelgro&szlig;e und wachsende Betriebe</li>
-      <li><strong>Einrichtungskosten nur beim ersten Auftrag</strong> &mdash; alle Folgebestellungen ohne erneute Setup-Geb&uuml;hren</li>
-      <li><strong>Flexodruck, 1&ndash;4 Farben</strong> &mdash; wirtschaftlich f&uuml;r gro&szlig;e Auflagen, farbstark und dauerhaft</li>
-      <li><strong>Lieferzeit ca. 5&ndash;7 Wochen</strong> &mdash; planbar und zuverl&auml;ssig nach Auftragsbest&auml;tigung</li>
-      <li><strong>Kostenlose Beratung</strong> &mdash; bei Papierauswahl, Druckdaten und Mengenplanung</li>
-      <li><strong>Transparente Kilogrammpreise</strong> &mdash; keine versteckten Kosten, Preis direkt im Konfigurator sichtbar</li>
+    <ul class="pf-assure">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lieferzeit</b> ca. 5–7 Wochen nach Druckfreigabe</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Versand</b> auf Anfrage</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Mindestmenge</b> 200 kg</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Druck</b> Flexodruck</span></li>
     </ul>
   </div>
 </section>
 
-<!-- Buying guidance: factual statements sourced from this page's specification table. -->
-<section style="max-width:960px;margin:0 auto;padding:40px 24px;line-height:1.7;" class="buying-guide">
-    <h2>Welche Dönertüte passt zu deinem Betrieb?</h2>
-    <p>Das Standardformat ist 16 × 17 cm. Du kannst zwischen Standardpapier, fettabweisendem Papier und PE-beschichtetem Papier wählen. Welche Ausführung zu deinem Gericht passt, klären wir mit dir vor der Bestellung.</p>
-    <h3>Ab welcher Menge kann ich Dönertüten bedrucken lassen?</h3>
-    <p>Die Mindestbestellmenge beträgt 200 kg. Die Stückzahl hängt vom gewählten Papier ab; beachte die ungefähre Stückzahl im Konfigurator. Für eine Anfrage nenne uns Papierart, Menge und dein gewünschtes Druckmotiv.</p>
-    <h3>Wie wird mein Logo gedruckt?</h3>
-    <p>Die Spezifikation sieht Flexodruck mit 1 bis 4 Farben vor. Der angegebene Druckanteil beträgt 30 %. Den konkreten Druckbereich und dein Motiv stimmen wir vor dem Auftrag ab.</p>
-    <h3>Welche Verpackungen ergänzen die Dönertüten?</h3>
-    <p>Für weitere Gerichte findest du <a href="/produkte/doenerboxen/">Dönerboxen</a>, <a href="/produkte/einschlagpapier/">Einschlagpapier mit Logo</a> und <a href="/produkte/tueten/">bedruckte Papiertragetaschen</a>. <a href="/#kontakt">Beschreibe uns deinen Bedarf</a>, damit wir die Verpackungen gemeinsam abstimmen können.</p>
-</section>
-
-<!-- CONTACT -->
-<section class="contact">
-  <h2 class="contact-title">Bereit loszulegen?</h2>
-  <p class="contact-sub">Frag jetzt an &mdash; wir antworten innerhalb von 24 Stunden und k&uuml;mmern uns um alles Weitere.</p>
-  <div class="contact-btns">
-    <a id="contact-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20D%C3%B6nert%C3%BCten%20anfragen." target="_blank" class="cbtn-wa">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
-    <a href="tel:+491776990017" class="cbtn">Anrufen</a>
-    <a href="mailto:info@pack-factory.de" class="cbtn">E-Mail</a>
+<section class="pf-section pf-related" aria-labelledby="pf-related-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-related-h">Passt zu Dönertüten. <span>Alles im selben Look bestellen.</span></h2>
+    <div class="pf-rail">
+      <a class="pf-card" href="/produkte/doenerboxen/"><span class="pf-card-img"><img src="/Bilder/web/doenerbox-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Dönerboxen</b><span>ab 8,29 ct</span></a>
+      <a class="pf-card" href="/produkte/einschlagpapier/"><span class="pf-card-img"><img src="/Bilder/web/tablettpapier-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Einschlagpapier</b><span>ab 5,20 €/kg</span></a>
+      <a class="pf-card" href="/produkte/feuchttuecher/"><span class="pf-card-img"><img src="/Bilder/web/feuchttuecher-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Feuchttücher</b><span>ab 2,90 ct</span></a>
+      <a class="pf-card" href="/produkte/tueten/"><span class="pf-card-img"><img src="/Bilder/web/papiertueten-shop-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Papiertüten</b><span>ab 12,00 ct</span></a>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory">
+
+<section class="pf-section pf-details" aria-label="Details">
+  <div class="pf-wrap pf-narrow">
+      <details class="pf-acc" open><summary>Preise im Überblick</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table pf-price-table"><thead><tr><th scope="col">Papier</th><th scope="col">200 kg</th><th scope="col">400 kg</th><th scope="col">600 kg</th><th scope="col">800 kg</th></tr></thead><tbody>
+<tr><th scope="row">Standard</th><td><b>7,00 €/kg</b><small>1.400,00 €</small></td><td><b>6,00 €/kg</b><small>2.400,00 €</small></td><td><b>5,50 €/kg</b><small>3.300,00 €</small></td><td><b>5,20 €/kg</b><small>4.160,00 €</small></td></tr>
+<tr><th scope="row">Fettabweisend</th><td><b>7,50 €/kg</b><small>1.500,00 €</small></td><td><b>6,43 €/kg</b><small>2.572,00 €</small></td><td><b>5,89 €/kg</b><small>3.534,00 €</small></td><td><b>5,57 €/kg</b><small>4.456,00 €</small></td></tr>
+<tr><th scope="row">PE-coated</th><td><b>7,60 €/kg</b><small>1.520,00 €</small></td><td><b>6,51 €/kg</b><small>2.604,00 €</small></td><td><b>5,97 €/kg</b><small>3.582,00 €</small></td><td><b>5,65 €/kg</b><small>4.520,00 €</small></td></tr>
+</tbody></table></div>
+<p class="pf-small">Stückpreis pro kg und Gesamtpreis, netto zzgl. MwSt., inkl. individuellem Druck &amp; Design.</p></div></details>
+      <details class="pf-acc"><summary>Technische Daten</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table">
+<thead>
+<tr>
+<th>Eigenschaft</th>
+<th>Standard</th>
+<th>Fettabweisend</th>
+<th>PE-coated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abmessungen</td>
+<td>16 × 17 cm</td>
+<td>16 × 17 cm</td>
+<td>16 × 17 cm</td>
+</tr>
+<tr>
+<td>Material</td>
+<td>Kraftpapier</td>
+<td>Pergamentersatzpapier</td>
+<td>Papier + PE-Beschichtung</td>
+</tr>
+<tr>
+<td>Materialstärke</td>
+<td>40 g/m²</td>
+<td>40 g/m²</td>
+<td>35 g/m² + 6 PE</td>
+</tr>
+<tr>
+<td>Druckmethode</td>
+<td>Flexodruck</td>
+<td>Flexodruck</td>
+<td>Flexodruck</td>
+</tr>
+<tr>
+<td>Anzahl Farben</td>
+<td>1 – 4 Farben</td>
+<td>1 – 4 Farben</td>
+<td>1 – 4 Farben</td>
+</tr>
+<tr>
+<td>Druckbereich</td>
+<td>30 % des Druckbereichs*</td>
+<td>30 % des Druckbereichs*</td>
+<td>30 % des Druckbereichs*</td>
+</tr>
+<tr>
+<td>Mindestbestellmenge</td>
+<td>200 kg</td>
+<td>200 kg</td>
+<td>200 kg</td>
+</tr>
+</tbody>
+</table></div><div class="pf-small"><p>* Kalkulation basiert auf einer 30 % Druckfläche. 100 % Druckfläche (Volldruck) auf Anfrage möglich.</p>
+<p>** Einmalige Einrichtungskosten können anfallen. Diese fallen nur beim ersten Auftrag an — nicht bei Nachbestellungen.</p></div></div></details>
+      <details class="pf-acc"><summary>Auswahlhilfe</summary><div class="pf-acc-body pf-prose"><h2>Welche Dönertüte passt zu deinem Betrieb?</h2>
+<p>Das Standardformat ist 16 × 17 cm. Du kannst zwischen Standardpapier, fettabweisendem Papier und PE-beschichtetem Papier wählen. Welche Ausführung zu deinem Gericht passt, klären wir mit dir vor der Bestellung.</p>
+<h3>Ab welcher Menge kann ich Dönertüten bedrucken lassen?</h3>
+<p>Die Mindestbestellmenge beträgt 200 kg. Die Stückzahl hängt vom gewählten Papier ab; beachte die ungefähre Stückzahl im Konfigurator. Für eine Anfrage nenne uns Papierart, Menge und dein gewünschtes Druckmotiv.</p>
+<h3>Wie wird mein Logo gedruckt?</h3>
+<p>Die Spezifikation sieht Flexodruck mit 1 bis 4 Farben vor. Der angegebene Druckanteil beträgt 30 %. Den konkreten Druckbereich und dein Motiv stimmen wir vor dem Auftrag ab.</p>
+<h3>Welche Verpackungen ergänzen die Dönertüten?</h3>
+<p>Für weitere Gerichte findest du <a href="/produkte/doenerboxen/">Dönerboxen</a>, <a href="/produkte/einschlagpapier/">Einschlagpapier mit Logo</a> und <a href="/produkte/tueten/">bedruckte Papiertragetaschen</a>. <a href="/#kontakt">Beschreibe uns deinen Bedarf</a>, damit wir die Verpackungen gemeinsam abstimmen können.</p></div></details>
+  </div>
+</section>
+
+<section class="pf-section pf-story">
+  <div class="pf-wrap pf-narrow pf-prose">
+    <h2>Dönertüten bedrucken lassen — Format 16 × 17 cm, ab 200 kg</h2>
+<p class="seo-lead">Bedruckte Dönertüten sind mehr als nur Verpackung — sie sind Ihr Markenzeichen bei jedem Verkauf. PackFactory produziert Dönertüten im bewährten Format 16 × 17 cm in drei Papierqualitäten, individuell bedruckt mit Ihrem Logo im Flexodruck, ab 200 kg Mindestmenge. Direkt vom Hersteller, transparent kalkuliert, ohne Zwischenhändler.</p>
+<h3>Was sind Dönertüten und wofür werden sie eingesetzt?</h3>
+<p>Dönertüten — auch Kebabtüten, Imbissüten oder einfach Servierbeutel genannt — sind eine der am häufigsten verwendeten Einzelverpackungen in der deutschen Gastronomie. Das Format 16 × 17 cm ist der branchenweite Standard und passt exakt für eine reguläre Dönerportion, Durumrollen, Falafel-Wraps und ähnliche Gerichte. Die konische Tütenform hält den Inhalt sicher zusammen, schützt die Hände des Kunden vor Wärme und Fett und sorgt für ein ordentliches, professionelles Erscheinungsbild beim Ausgeben.</p>
+<p>Allein in Deutschland gibt es mehr als 20.000 Dönerimbisse, Kebab-Shops und türkische Restaurants — eine der dichtesten Gastronomiedichten weltweit für ein einzelnes Gericht. In diesem hart umkämpften Markt ist professionelles Auftreten kein Luxus, sondern Notwendigkeit. Eine bedruckte Tüte mit Ihrem Logo kostet kaum mehr als eine neutrale, signalisiert aber sofort Qualität und Identität — und bleibt beim Kunden in Erinnerung, lange nachdem der letzte Bissen gegessen ist.</p>
+<p>Mit individuellem Flexodruck in 1–4 Farben wird jede ausgegebene Dönertüte zur mobilen Werbefläche. Jeder Kunde trägt Ihr Logo durch die Fußgängerzone, ins Büro, in die S-Bahn und nach Hause — ohne dass Sie dafür extra zahlen. Keine andere Werbeform in der Gastronomie erreicht diese Reichweite zu diesem Preis.</p>
+<h3>Für welche Branchen eignen sich Dönertüten?</h3>
+<p>Dönertüten werden überall dort eingesetzt, wo warme, portionierte Speisen eingewickelt und zum Mitnehmen ausgegeben werden:</p>
+<ul>
+<li>Dönerläden, Kebab-Shops und Durum-Restaurants</li>
+<li>Shawarma-, Falafel- und orientalische Imbisse</li>
+<li>Türkische, arabische und levantinische Restaurants</li>
+<li>Systemgastronomie, Fast-Food-Ketten und Franchise-Betriebe</li>
+<li>Food Trucks, Marktimbisse und Festivalstände</li>
+<li>Catering-Betriebe für Events, Firmenveranstaltungen und Außenveranstaltungen</li>
+<li>Supermarkt- und SB-Theken mit warmen Fertiggerichten</li>
+<li>Bäckereien und Snackbars mit Wraps und gefüllten Fladenbroten</li>
+<li>Schulkantinen, Betriebskantinen und Mensabetriebe</li>
+<li>Sportveranstaltungen, Konzerthallen und Freizeitparks</li>
+</ul>
+<h3>Welche Papierart ist die richtige für Ihren Betrieb?</h3>
+<p><strong>Standard (Kraftpapier, 40 g/m²)</strong> — Die günstigste Option für Betriebe, deren Döner oder Wraps eine moderate Fettmenge enthalten. Kraftpapier ist lebensmittelecht, reißfest und saugfähig. Geeignet für Produkte, bei denen der Inhalt nicht so stark fettet, dass das Papier durchweicht. In Weiß oder Braun erhältlich.</p>
+<p><strong>Fettabweisendes Papier (Pergamentersatzpapier, 40 g/m²)</strong> — Die natürliche, nachhaltige Wahl für alle öl- und fetthaltigen Speisen. Pergamentersatzpapier ist kein beschichtetes Papier. Es entsteht durch intensive mechanische Verdichtung (Satinierung) der Zellulosefasern: Die Fasern werden so stark gepresst und verfilzt, dass sie von Natur aus fett- und ölabweisend werden — ohne Chemikalien, ohne Kunststoffbeschichtung, ohne synthetische Zusatzstoffe. Das bedeutet: vollständig biologisch abbaubar, recycelbar nach herkömmlichen Papierwegen, lebensmittelecht nach EU-Richtlinie 1935/2004. Mit 40 g/m² bietet es ausreichend Festigkeit und Griffigkeit für schwere, warme Dönerportionen. Für Betriebe, die Wert auf Qualität und Umweltverantwortung legen — die klare erste Wahl.</p>
+<p><strong>PE-coated Papier (35 g/m² + 6 g/m² PE)</strong> — Maximale Barrierewirkung gegen Feuchtigkeit, Soßen und Flüssigkeiten. Die aufgebrachte Polyethylenschicht macht das Papier vollständig wasserdicht — selbst bei sehr saftigen oder soßenreichen Gerichten hält es jeden Durchdruck zuverlässig aus. Ideal für Betriebe mit sehr nassen Füllungen, stark mariniertem Fleisch oder extra viel Knoblauchsoße. Das robusteste Material im Sortiment.</p>
+<h3>Bedruckte Dönertüten als Marketinginstrument</h3>
+<p>In der Gastronomie entscheiden oft Kleinigkeiten darüber, welchen Betrieb Kunden weiterempfehlen, wiederholt aufsuchen oder auf Social Media teilen. Eine bedruckte Tüte ist eine dieser Kleinigkeiten — mit messbarer Wirkung.</p>
+<p><strong>Sichtbarkeit im öffentlichen Raum:</strong> Jede Tüte, die Ihren Betrieb verlässt, ist kostenlose Out-of-Home-Werbung. Kunden essen in Parks, auf Bänken, im Büro, in der Bahn — und tragen dabei Ihr Logo durch die Stadt. Bei tausenden ausgegebenen Tüten pro Monat ergibt das eine Reichweite, die kein Plakatbudget replizieren kann.</p>
+<p><strong>Ersteindruck und Qualitätssignal:</strong> Eine bedruckte Tüte signalisiert dem Kunden noch vor dem ersten Bissen: Dieser Betrieb denkt an Details. Das fördert Vertrauen — und Vertrauen fördert Wiederkauf und Weiterempfehlung.</p>
+<p><strong>Social-Media-Potenzial:</strong> Food-Fotos auf Instagram, TikTok und Google Maps erreichen täglich Millionen Menschen. Eine markante, bedruckte Verpackung macht Ihren Betrieb auf jedem Foto erkennbar — auch wenn die Person das Bild gar nicht für Werbezwecke gemacht hat. Kostenlose Reichweite durch echte Kundenbeiträge.</p>
+<p><strong>Differenzierung vom Wettbewerb:</strong> In einer Straße mit mehreren Dönerimbissen haben alle dasselbe Produkt. Die Verpackung macht den Unterschied zwischen austauschbar und erinnerungswürdig.</p>
+<h3>Nachhaltigkeit und Lebensmittelsicherheit</h3>
+<p>Alle Dönertüten von PackFactory sind lebensmittelecht und entsprechen den Anforderungen der EU-Verordnung 1935/2004 für Materialien mit Lebensmittelkontakt. Das bedeutet: keine Abgabe von Schadstoffen, keine Verunreinigung von Lebensmitteln durch das Verpackungsmaterial — sicher für Endverbraucher, rechtlich abgesichert für Betreiber.</p>
+<p>Besonders die Variante mit Pergamentersatzpapier überzeugt ökologisch: kein Plastik, keine Kunstharzbeschichtung, vollständig kompostierbar und nach herkömmlichen Papierwegen recycelbar. Ein Argument, das bei umweltbewussten Endkunden zunehmend kaufentscheidend ist — und Ihren Betrieb als verantwortungsvoll positioniert.</p>
+<h3>Warum PackFactory?</h3>
+<p>Wir produzieren Dönertüten direkt — ohne Zwischenhändler, mit festem Kalkulationsrahmen und persönlicher Beratung:</p>
+<ul>
+<li><strong>Ab 200 kg Mindestbestellmenge</strong> — realisierbar für mittelgroße und wachsende Betriebe</li>
+<li><strong>Einrichtungskosten nur beim ersten Auftrag</strong> — alle Folgebestellungen ohne erneute Setup-Gebühren</li>
+<li><strong>Flexodruck, 1–4 Farben</strong> — wirtschaftlich für große Auflagen, farbstark und dauerhaft</li>
+<li><strong>Lieferzeit ca. 5–7 Wochen</strong> — planbar und zuverlässig nach Auftragsbestätigung</li>
+<li><strong>Kostenlose Beratung</strong> — bei Papierauswahl, Druckdaten und Mengenplanung</li>
+<li><strong>Transparente Kilogrammpreise</strong> — keine versteckten Kosten, Preis direkt im Konfigurator sichtbar</li>
+</ul>
+  </div>
+</section>
+
+<section class="pf-section pf-recent" id="pf-recent" hidden aria-labelledby="pf-recent-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-recent-h">Zuletzt angesehen.</h2>
+    <div class="pf-rail" id="pf-recent-list"></div>
+  </div>
+</section>
+
+<section class="pf-cta-band">
+  <div class="pf-wrap">
+    <h2>Bereit für deine eigene Verpackung?</h2>
+    <p>Frag jetzt an. Wir antworten innerhalb von 24 Stunden und gestalten deinen Entwurf kostenlos.</p>
+    <div class="pf-cta-row">
+      <a class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20D%C3%B6nert%C3%BCten%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+      <a class="pf-btn pf-btn-ghost" href="tel:+491776990017">Anrufen</a>
+      <a class="pf-btn pf-btn-ghost" href="mailto:info@pack-factory.de">E-Mail</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pf-footer">
+  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" width="900" height="637" loading="lazy">
   <div class="foot-links">
     <a href="/impressum/">Impressum</a>
     <a href="/datenschutz/">Datenschutz</a>
@@ -449,74 +284,18 @@
   <p>2025 PackFactory. Alle Rechte vorbehalten.</p>
 </footer>
 
-<script>
-  const PRICES = {
-    standard:      {200: 7.00, 400: 6.00, 600: 5.50, 800: 5.20},
-    fettabweisend: {200: 7.50, 400: 6.43, 600: 5.89, 800: 5.57},
-    pe:            {200: 7.60, 400: 6.51, 600: 5.97, 800: 5.65}
-  };
+<div class="pf-sticky" id="pf-sticky" aria-hidden="true">
+  <div class="pf-sticky-in">
+    <div class="pf-sticky-txt"><b id="pf-sticky-total">1.400,00 €</b><span id="pf-sticky-line">Dönertüten · 200 kg</span></div>
+    <a class="pf-btn pf-btn-wa pf-btn-icon" id="pf-sticky-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20D%C3%B6nert%C3%BCten%20(Papier%3A%20Standard%2C%20200%20kg%2C%207%2C00%20%E2%82%AC%20pro%20kg%20netto%2C%20gesamt%201.400%2C00%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener" aria-label="Per WhatsApp anfragen" tabindex="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <button type="button" class="pf-btn pf-btn-primary pf-btn-sm" onclick="addCurrentToCart()" tabindex="-1">In den Warenkorb</button>
+  </div>
+</div>
 
-  const G_PER_STUECK = 2.50;
-  const STK_200      = 80000;
-
-  var sel = {mat: 'standard', kg: 200};
-
-  function selectMat(val, btn) {
-    sel.mat = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    updateAll();
-  }
-
-  function selectKg(val, btn) {
-    sel.kg = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    updateAll();
-  }
-
-  function updateAll() {
-    var rate     = PRICES[sel.mat][sel.kg];
-    var total    = sel.kg * rate;
-    var stueck   = Math.round(STK_200 * sel.kg / 200);
-    var ctStueck = rate * G_PER_STUECK / 10;
-
-    document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
-    document.getElementById('price-per').textContent     = rate.toFixed(2).replace('.', ',') + ' \u20AC / kg';
-    document.getElementById('stueck-hint').textContent   =
-      'ca. ' + stueck.toLocaleString('de-DE') + ' St\u00FCck \u00B7 ' +
-      ctStueck.toFixed(2).replace('.', ',') + ' Ct./St\u00FCck';
-
-    var img = document.getElementById('product-img');
-    img.classList.remove('pulse'); void img.offsetWidth; img.classList.add('pulse');
-
-    var matLabel = {standard: 'Standard', fettabweisend: 'Fettabweisendes Papier', pe: 'PE-coated Papier'}[sel.mat];
-    var msg = 'Hallo, ich interessiere mich f\u00FCr D\u00F6nert\u00FCten (16 \u00D7 17 cm, ' + matLabel + ', ' + sel.kg + ' kg) und m\u00F6chte ein Angebot anfragen.';
-    document.getElementById('wa-link').href    = 'https://wa.me/491776990017?text=' + encodeURIComponent(msg);
-    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20D%C3%B6nert%C3%BCten&body=' + encodeURIComponent('Papier: ' + matLabel + '\nMenge: ' + sel.kg + ' kg');
-    window.PF_ITEM = { title: 'D\u00F6nert\u00FCten', desc: msg, priceTotal: document.getElementById('price-display').textContent, url: location.pathname };
-  }
-
-  function fmt(n) {
-    return n.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  }
-
-  var navWrapper = document.getElementById('navWrapper');
-  window.addEventListener('scroll', function() {
-    navWrapper.classList.toggle('scrolled', window.scrollY > 50);
-  }, {passive: true});
-
-  function toggleMenu() {
-    var m = document.getElementById('mobileMenu'), h = document.querySelector('.hamburger');
-    m.classList.toggle('open'); h.classList.toggle('open');
-    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.querySelector('.hamburger').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-</script>
+<script type="application/json" id="pf-data">{"product":{"slug":"doenertueten","url":"/produkte/doenertueten/","name":"Dönertüten mit Logo bedrucken","image":"/Bilder/web/doenertueten-960.webp","unit":"kg","qtyKey":"kg","catalog":{"title":"Dönertüten","tags":["papiertüten"],"price":"7,00","unit":"kg"},"related":["doenerboxen","einschlagpapier","feuchttuecher","tueten"],"options":[{"key":"mat","label":"Papier","choices":[{"id":"standard","label":"Standard"},{"id":"fettabweisend","label":"Fettabweisend"},{"id":"pe","label":"PE-coated"}]},{"key":"kg","label":"Menge","choices":[{"id":"200","label":"200 kg"},{"id":"400","label":"400 kg","tip":true},{"id":"600","label":"600 kg"},{"id":"800","label":"800 kg"}],"note":"Größere Mengen auf Anfrage möglich"}],"pieces":{"per200kg":80000,"grams":2.5},"pricing":{"basis":"unit","by":["mat","kg"],"table":{"standard":{"200":70000,"400":60000,"600":55000,"800":52000},"fettabweisend":{"200":75000,"400":64300,"600":58900,"800":55700},"pe":{"200":76000,"400":65100,"600":59700,"800":56500}},"qty":{"by":"kg"}}},"catalog":[{"slug":"tueten","url":"/produkte/tueten/","title":"Papiertüten","img":"/Bilder/web/papiertueten-shop-480.webp","from":"ab 12,00 ct"},{"slug":"sleeves","url":"/produkte/sleeves/","title":"Kaffeebecher Sleeves","img":"/Bilder/web/sleeves-shop-480.webp","from":"ab 2,59 ct"},{"slug":"burgerbox","url":"/produkte/burgerbox/","title":"Burgerbox","img":"/Bilder/web/burgerbox-v4-480.webp","from":"ab 11,50 ct"},{"slug":"einschlagpapier","url":"/produkte/einschlagpapier/","title":"Einschlagpapier","img":"/Bilder/web/tablettpapier-480.webp","from":"ab 5,20 €/kg"},{"slug":"broetchentueten","url":"/produkte/broetchentueten/","title":"Brötchentüten","img":"/Bilder/web/broetchentueten-480.webp","from":"ab 4,68 €/kg"},{"slug":"doenertueten","url":"/produkte/doenertueten/","title":"Dönertüten","img":"/Bilder/web/doenertueten-480.webp","from":"ab 5,20 €/kg"},{"slug":"kuru-pasta","url":"/produkte/kuru-pasta/","title":"Kuru Pasta Kutusu","img":"/Bilder/web/kurupasta-480.webp","from":"ab 11,10 ct"},{"slug":"salatschalen","url":"/produkte/salatschalen/","title":"Salatschalen","img":"/Bilder/web/salatschalen-v4-480.webp","from":"ab 14,15 ct"},{"slug":"baklava-kutusu","url":"/produkte/baklava-kutusu/","title":"Baklava Kutusu","img":"/Bilder/web/baklava-480.webp","from":"ab 8,10 ct"},{"slug":"kuchenboxen","url":"/produkte/kuchenboxen/","title":"Kuchenboxen","img":"/Bilder/web/kuchenbox-480.webp","from":"ab 16,00 ct"},{"slug":"pommesschuetten","url":"/produkte/pommesschuetten/","title":"Pommeschütten","img":"/Bilder/web/pommes-480.webp","from":"ab 5,92 ct"},{"slug":"fc-box","url":"/produkte/fc-box/","title":"FC Box","img":"/Bilder/web/fcbox-480.webp","from":"ab 9,20 ct"},{"slug":"doenerboxen","url":"/produkte/doenerboxen/","title":"Dönerboxen","img":"/Bilder/web/doenerbox-480.webp","from":"ab 8,29 ct"},{"slug":"takeaway-boxen","url":"/produkte/takeaway-boxen/","title":"Take-away Boxen","img":"/Bilder/web/takeawaybox-480.webp","from":"ab 15,81 ct"},{"slug":"kaffeebecher-single-wall","url":"/produkte/kaffeebecher-single-wall/","title":"Kaffeebecher Single Wall","img":"/Bilder/web/kaffeebecher-sw-480.webp","from":"ab 6,67 ct"},{"slug":"kaffeebecher-double-wall","url":"/produkte/kaffeebecher-double-wall/","title":"Kaffeebecher Double Wall","img":"/Bilder/web/kaffeebecher-dw-480.webp","from":"ab 10,15 ct"},{"slug":"clear-cups","url":"/produkte/clear-cups/","title":"Clear Cups","img":"/Bilder/web/clear-cups-480.webp","from":"ab 13,50 ct"},{"slug":"bubble-tea-cups","url":"/produkte/bubble-tea-cups/","title":"Bubble Tea Cups","img":"/Bilder/web/bubble-tea-cups-480.webp","from":"ab 17,30 ct"},{"slug":"servietten","url":"/produkte/servietten/","title":"Servietten mit Logo","img":"/Bilder/web/servietten-480.webp","from":"ab 1,95 ct"},{"slug":"feuchttuecher","url":"/produkte/feuchttuecher/","title":"Feuchttücher","img":"/Bilder/web/feuchttuecher-480.webp","from":"ab 2,90 ct"}]}</script>
+<script src="/assets/pf-pricing.js"></script>
+<script src="/assets/pf-view.js"></script>
+<script src="/assets/pf-product.js"></script>
 <script src="/cart.js"></script>
 </body>
 </html>

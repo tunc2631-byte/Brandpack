@@ -35,5 +35,7 @@ jobs:
           node-version: '22'
       - name: Preise aus data/products.json gegen den Schnappschuss der Seiten
         run: node --test tools/qa/*.test.js
+      - name: Produktseiten passen zu data/products.json und content/produkte
+        run: node tools/build_site.js --check
       - name: Alle verwendeten Web-Bilder vorhanden
         run: python3 tools/build_images.py --check

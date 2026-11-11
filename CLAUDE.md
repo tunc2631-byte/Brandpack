@@ -33,7 +33,9 @@
 ## PackFactory: Preise, Produkte, Bilder
 - **Redesign-Plan:** https://claude.ai/artifact/TY3XdANshBaC7fiRm71Tc2 (Schritte 1–5, Entscheidungen des Inhabers in Kapitel 11). Jeder Schritt als eigener Pull Request mit Netlify-Vorschau; live erst nach Freigabe.
 - **Produktdaten:** `data/products.json` ist die zentrale Quelle für Auswahl, Preise und Katalogkarten. `assets/pf-pricing.js` rechnet daraus Stück- und Gesamtpreise (ganze Zahlen: Stückpreise in 1/10.000 €, Gesamtpreise in Cent).
-- **Preise ändern:** Preis auf der Produktseite UND in `data/products.json` ändern, dann `node tools/qa/price-snapshot.js --update` und `node --test tools/qa/*.test.js`. Der Test vergleicht jede Kombination der Seite mit dem Rechenkern.
+- **Produktseiten nie von Hand ändern:** `produkte/*/index.html` wird von `node tools/build_site.js` erzeugt aus `data/products.json` (Auswahl, Preise, Hinweise, passende Produkte) und `content/produkte/<slug>.html` (Titel, Beschreibung, Texte, technische Daten, FAQ). Design: `assets/pf.css`, Verhalten: `assets/pf-product.js`, Texte für Preise und Anfragen: `assets/pf-view.js`.
+- **Preise ändern:** nur in `data/products.json`, dann `node tools/build_site.js`, `node tools/qa/price-snapshot.js` (zeigt genau die gewollten Änderungen) und danach `--update`, zuletzt `node --test tools/qa/*.test.js`.
+- **Neues Produkt:** Eintrag in `data/products.json` und Inhaltsdatei in `content/produkte/` anlegen, `node tools/build_site.js`, Sitemap ergänzen, `python tools/seo/build_catalog.py`.
 - **Vor jedem Pull Request:** `node tools/qa/price-snapshot.js` (ohne `--update`) muss "unverändert" melden, außer Preise sollten sich ändern. Dazu `python -m unittest discover -s tools/seo -p 'test_*.py'`.
 - **Katalogkarten:** Feld `catalog` in `data/products.json`, danach `python tools/seo/build_catalog.py`.
 - **Bilder:** Original (JPEG/PNG) nach `Bilder/` legen, auf der Seite `/Bilder/web/<name>-960.webp` mit `srcset` auf `-480.webp` verwenden (Logos: `/Bilder/logos/<name>-440.webp`), dann `python tools/build_images.py`. Keine großen PNGs direkt einbinden.

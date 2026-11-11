@@ -10,16 +10,16 @@ const PF = require(path.join(ROOT, 'assets', 'pf-pricing.js'));
 const products = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'products.json'), 'utf8'));
 const snapshot = JSON.parse(fs.readFileSync(path.join(__dirname, 'price-snapshot.json'), 'utf8'));
 
-// "EUR 1.584,00" -> 158400 (Cent)
+// "1.584,00 €" (oder früher "EUR 1.584,00") -> 158400 (Cent)
 function cents(text) {
-  const m = /^EUR ([\d.]+),(\d\d)$/.exec(text);
+  const m = /^(?:EUR )?([\d.]+),(\d\d)(?: €)?$/.exec(text);
   assert.ok(m, `Gesamtpreis nicht lesbar: ${text}`);
   return Number(m[1].replace(/\./g, '')) * 100 + Number(m[2]);
 }
 
-// "0,0943 € / Stück" | "2,20 ct / Stück" | "7,00 € / kg" | "0,1350 EUR / Stück"
+// "9,43 ct pro Stück" | "7,00 € pro kg" (früher auch "0,0943 € / Stück")
 function unitPrice(text) {
-  const m = /^(\d+),(\d+) (€|EUR|ct) \/ (Stück|kg)$/.exec(text);
+  const m = /^(\d+),(\d+) (€|EUR|ct) (?:\/|pro) (Stück|kg)$/.exec(text);
   assert.ok(m, `Stückpreis nicht lesbar: ${text}`);
   return { scaled: Number(m[1] + m[2]), decimals: m[2].length, cent: m[3] === 'ct', per: m[4] };
 }
@@ -49,12 +49,8 @@ for (const product of products) {
     assert.equal(combos.length, PF.combinations(product).length, 'Anzahl der Kombinationen');
     for (const [labels, shown] of combos) {
       const sel = {};
-      shown.auswahl.forEach((i, g) => {
-        const group = product.options[g];
-        const choice = group.choices[i];
-        if (!group.dynamicLabel) assert.equal(choice.label, labels.split(' | ')[g], `${product.slug}: Beschriftung in "${group.label}"`);
-        sel[group.key] = choice.id;
-      });
+      // Die Seiten werden aus data/products.json erzeugt; die Knöpfe stehen in derselben Reihenfolge.
+      shown.auswahl.forEach((i, g) => { sel[product.options[g].key] = product.options[g].choices[i].id; });
       const q = PF.quote(product, sel);
       if (shown.total === 'Preis auf Anfrage') {
         assert.ok(q.onRequest, `${labels}: sollte "Preis auf Anfrage" sein`);

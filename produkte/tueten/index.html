@@ -3,335 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Papiert&uuml;ten individuell mit Logo bedrucken | PackFactory</title>
+  <title>Papiertüten individuell mit Logo bedrucken | PackFactory</title>
   <link rel="canonical" href="https://pack-factory.de/produkte/tueten/">
   <meta name="description" content="Individuelle Papiert&uuml;ten mit deinem Logo bedrucken lassen. 4 Standardgr&ouml;&szlig;en, wei&szlig; oder braun, ab 10.000 St&uuml;ck, inkl. Designservice. Jetzt anfragen.">
   <link rel="icon" type="image/png" href="/Bilder/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 92px; }
-    * { -webkit-tap-highlight-color: transparent; }
-    a, button { touch-action: manipulation; }
-    :root {
-      --pink:   #F07A8C;
-      --pink-d: #d9697a;
-      --dark:   #1d1d1f;
-      --muted:  #6e6e73;
-      --bg:     #f5f5f7;
-      --card:   #F5F2EC;
-    }
-
-    /* ---------------------------------------
-       NAV  (identical to main site)
-    --------------------------------------- */
-    .nav-wrapper {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding: 12px 20px; pointer-events: none;
-    }
-    .nav-wrapper nav {
-      background: #F5F2EC; border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
-      pointer-events: all; max-width: 1200px;
-      margin: 0 auto; border: 1px solid #E8E3DA;
-    }
-    .nav-inner { padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px; }
-    .nav-logo { height: 150px; width: auto; }
-    .nav-links { flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap; }
-    .nav-links a { color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color .15s; }
-    .nav-links a:hover { color: var(--pink); }
-    .nav-right { flex-shrink: 0; display: flex; align-items: center; gap: 8px; }
-    .btn-pink {
-      display: inline-block; text-decoration: none; font-weight: 700;
-      border-radius: 10px; background: var(--pink); color: #fff;
-      padding: 10px 22px; font-size: 14px; font-family: inherit;
-      border: none; cursor: pointer;
-      transition: background .18s, transform .2s cubic-bezier(.34,1.56,.64,1);
-    }
-    .btn-pink:hover { background: var(--pink-d); transform: translateY(-1px); }
-
-    /* Hamburger */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all .28s cubic-bezier(.22,1,.36,1); }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Mobile menu */
-    .mobile-menu {
-      display: flex; position: fixed; inset: 0; background: #FAF9F7; z-index: 190;
-      flex-direction: column; align-items: center; justify-content: center; gap: 28px;
-      opacity: 0; pointer-events: none;
-      transition: opacity .28s cubic-bezier(.22,1,.36,1);
-    }
-    .mobile-menu.open { opacity: 1; pointer-events: all; }
-    .mobile-menu a { font-size: 24px; font-weight: 800; color: #1a1a1a; text-decoration: none; opacity: 0; transform: translateY(18px); transition: color .15s, opacity .32s cubic-bezier(.22,1,.36,1), transform .32s cubic-bezier(.22,1,.36,1); }
-    .mobile-menu.open a:nth-child(1) { opacity: 1; transform: none; transition-delay: .05s; }
-    .mobile-menu.open a:nth-child(2) { opacity: 1; transform: none; transition-delay: .09s; }
-    .mobile-menu.open a:nth-child(3) { opacity: 1; transform: none; transition-delay: .13s; }
-    .mobile-menu.open a:nth-child(4) { opacity: 1; transform: none; transition-delay: .17s; }
-    .mobile-menu.open a:nth-child(5) { opacity: 1; transform: none; transition-delay: .21s; }
-    .mobile-menu a:hover { color: var(--pink); }
-
-    /* Nav scroll shrink */
-    @media (min-width: 769px) {
-      .nav-wrapper { transition: padding .35s cubic-bezier(.22,1,.36,1); }
-      .nav-wrapper.scrolled { padding: 6px 20px; }
-    }
-    @media (max-width: 768px) {
-      .nav-links, .btn-pink.nav-cta { display: none !important; }
-      .hamburger { display: flex !important; }
-      .nav-wrapper { padding: 0 !important; }
-      .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,.08) !important; }
-      .nav-logo { height: 90px !important; }
-      .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; }
-      body { padding-top: 72px; }
-    }
-    @media (max-width: 480px) {
-      .nav-logo { height: 75px !important; }
-      .nav-inner { height: 64px !important; }
-      body { padding-top: 64px; }
-    }
-
-    /* ---------------------------------------
-       PRODUCT HERO  (2-column, fills viewport)
-    --------------------------------------- */
-    .product-hero {
-      display: grid;
-      grid-template-columns: 55% 45%;
-      min-height: calc(100vh - 92px);
-    }
-    @media (max-width: 960px) {
-      .product-hero {
-        grid-template-columns: 1fr;
-        height: auto;
-        max-height: none;
-      }
-    }
-
-    /* -- Image panel -- */
-    .img-panel {
-      position: relative;
-      background: #fff;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-    }
-    .img-panel img {
-      width: 70%; max-width: 420px;
-      object-fit: contain;
-      transition: filter .4s ease;
-      user-select: none; pointer-events: none;
-      display: block;
-    }
-    .img-panel img.pulse { animation: imgPulse .28s ease; }
-    @keyframes imgPulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
-
-    /* Size overlay badge */
-    .size-badge {
-      position: absolute; bottom: 24px; left: 24px;
-      background: rgba(29,29,31,.82);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      color: #fff; border-radius: 12px; padding: 10px 14px;
-    }
-    .size-badge-s { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .06em; }
-    .size-badge-v { font-size: 20px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
-    .size-badge-d { font-size: 11px; color: rgba(255,255,255,.6); }
-
-    @media (max-width: 960px) {
-      .img-panel { height: 60vw; min-height: 300px; }
-      .img-panel img { width: 84%; height: 84%; }
-      .size-badge { bottom: 14px; left: 14px; padding: 7px 11px; }
-      .size-badge-v { font-size: 16px; }
-    }
-
-    /* -- Configurator panel -- */
-    .config-panel {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 28px 36px 24px;
-      overflow-y: auto;
-      background: #fff;
-      border-left: 1px solid #f0f0f0;
-    }
-    @media (max-width: 1100px) { .config-panel { padding: 24px 24px 20px; } }
-    @media (max-width: 960px)  { .config-panel { padding: 24px 20px; border-left: none; border-top: 1px solid #f0f0f0; } }
-
-    .breadcrumb { font-size: 12px; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
-    .breadcrumb a { color: var(--muted); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--dark); }
-    .breadcrumb span { color: #c7c7cc; }
-
-    h1.product-title {
-      font-size: clamp(28px, 3vw, 42px);
-      font-weight: 900; letter-spacing: -.03em;
-      color: var(--dark); line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    /* Option groups */
-    .opt-group { margin-bottom: 14px; }
-    .opt-group-label {
-      font-size: 11px; font-weight: 700; color: var(--muted);
-      text-transform: uppercase; letter-spacing: .07em;
-      margin-bottom: 7px;
-    }
-    .opt-btns { display: flex; flex-wrap: wrap; gap: 7px; }
-    .opt {
-      padding: 9px 18px; border-radius: 100px;
-      border: 1.5px solid #d2d2d7; background: #fff;
-      font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark);
-      cursor: pointer; transition: border-color .12s, background .12s, color .12s;
-      white-space: nowrap;
-    }
-    .opt:hover { border-color: #8e8e93; }
-    .opt.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-
-    /* Sonderma\u00DF button variant */
-    .opt-custom { border-style: dashed; color: var(--muted); }
-    .opt-custom.active { background: var(--dark); color: #fff; border-style: solid; }
-
-    /* Inline dimension hint */
-    .dim-hint { font-size: 11px; color: var(--pink); font-weight: 700; margin-top: 5px; }
-
-
-    /* Price */
-    .price-row { display: flex; align-items: baseline; gap: 8px; margin: 14px 0 2px; flex-wrap: wrap; }
-    .price-total { font-size: clamp(24px, 2.5vw, 34px); font-weight: 900; color: var(--dark); letter-spacing: -.03em; line-height: 1; }
-    .price-per { font-size: 14px; color: var(--pink); font-weight: 700; }
-    .price-vat { font-size: 11px; color: #aeaeb2; margin-bottom: 14px; }
-
-    /* CTAs */
-    .btn-wa {
-      display: flex; align-items: center; justify-content: center; gap: 9px;
-      width: 100%; background: #25D366; color: #fff;
-      border: none; border-radius: 12px; padding: 15px 20px;
-      font-family: inherit; font-size: 15px; font-weight: 800;
-      cursor: pointer; text-decoration: none;
-      transition: opacity .15s, transform .15s;
-      margin-bottom: 8px;
-    }
-    .btn-wa:hover { opacity: .88; transform: scale(1.01); }
-    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-    .btn-sec {
-      display: flex; align-items: center; justify-content: center; gap: 6px;
-      background: #fff; border-radius: 12px; padding: 12px 16px;
-      font-family: inherit; font-size: 13px; font-weight: 700;
-      cursor: pointer; text-decoration: none;
-      transition: background .15s, color .15s;
-    }
-    .btn-phone { border: 2px solid var(--dark); color: var(--dark); }
-    .btn-phone:hover { background: var(--dark); color: #fff; }
-    .btn-email { border: 2px solid var(--pink); color: var(--pink); }
-    .btn-email:hover { background: var(--pink); color: #fff; }
-
-    /* ---------------------------------------
-       DELIVERY STRIP
-    --------------------------------------- */
-    .delivery-strip {
-      background: var(--card); border-bottom: 1px solid #E8E3DA;
-      display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap;
-    }
-    .delivery-item { display: flex; flex-direction: column; justify-content: center; padding: 12px 28px; border-right: 1px solid #E8E3DA; }
-    .delivery-item:last-child { border-right: none; }
-    @media (max-width: 640px) { .delivery-item { border-right: none; border-bottom: 1px solid #E8E3DA; padding: 10px 20px; } .delivery-item:last-child { border-bottom: none; } }
-    .delivery-label { font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
-    .delivery-value { font-size: 13px; font-weight: 800; color: var(--dark); }
-
-    /* ---------------------------------------
-       SERVICE SECTION  \u2014 "Wir k\u00FCmmern uns um alles"
-    --------------------------------------- */
-    .service-section { background: #fff; padding: 80px 24px; }
-    .service-inner { max-width: 1000px; margin: 0 auto; }
-    .section-eyebrow { font-size: 11px; font-weight: 700; color: var(--pink); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-    .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 900; color: var(--dark); letter-spacing: -.025em; line-height: 1.1; margin-bottom: 12px; }
-    .section-sub { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.65; margin-bottom: 52px; }
-
-    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    @media (max-width: 700px) { .service-grid { grid-template-columns: 1fr; gap: 16px; } }
-    .service-card {
-      background: var(--bg); border-radius: 20px; padding: 28px 24px;
-    }
-    .service-card-icon { display: none; }
-    .service-card-title { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
-    .service-card-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-    .service-card-tag {
-      display: inline-flex; align-items: center;
-      background: #e8f5e9; color: #2e7d32;
-      border-radius: 100px; padding: 4px 12px;
-      font-size: 11px; font-weight: 700; margin-top: 12px;
-    }
-
-    /* ---------------------------------------
-       SPECS TABLE
-    --------------------------------------- */
-    .specs-section {
-      background: #fff; padding: 80px 24px;
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-    }
-    .specs-inner { max-width: 1000px; margin: 0 auto; }
-    .specs-header { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
-    .specs-pink-bar { width: 4px; height: 32px; background: var(--pink); border-radius: 4px; flex-shrink: 0; }
-    .specs-title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--dark); letter-spacing: -.025em; }
-    .specs-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; margin-left: 18px; }
-    .specs-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .specs-table {
-      width: 100%; border-collapse: collapse; font-size: 13px;
-      background: #fff; border-radius: 16px; overflow: hidden;
-      min-width: 640px;
-      box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05);
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-    }
-    .specs-table thead tr { background: var(--dark); color: #fff; }
-    .specs-table th { padding: 13px 16px; font-size: 12px; font-weight: 600; text-align: center; letter-spacing: .02em; }
-    .specs-table th:first-child { text-align: left; }
-    .specs-table td { padding: 12px 16px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 13px; color: #3a3a3a; }
-    .specs-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); white-space: nowrap; }
-    .specs-table tr:last-child td { border-bottom: none; }
-    .specs-table tr:nth-child(even) td { background: #fafafa; }
-    .specs-footnote { font-size: 12px; color: var(--muted); margin-top: 14px; margin-left: 2px; }
-
-    /* ---------------------------------------
-       SEO / PRODUCT INFO SECTION
-    --------------------------------------- */
-    .seo-section { background: var(--bg); padding: 80px 24px; }
-    .seo-inner {
-      max-width: 860px; margin: 0 auto;
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-    }
-    .seo-inner h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--dark); letter-spacing: -.02em; margin-bottom: 10px; }
-    .seo-inner h3 { font-size: 17px; font-weight: 600; color: var(--pink); margin: 32px 0 8px; letter-spacing: -.01em; }
-    .seo-inner p { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 16px; }
-    .seo-inner ul { padding-left: 20px; margin-bottom: 16px; }
-    .seo-inner ul li { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 4px; }
-    .seo-inner ol { padding-left: 20px; margin-bottom: 16px; }
-    .seo-inner ol li { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 4px; }
-    .seo-lead { font-size: 17px !important; color: var(--dark) !important; font-weight: 600 !important; }
-
-    /* ---------------------------------------
-       CONTACT SECTION
-    --------------------------------------- */
-    .contact { background: var(--dark); padding: 80px 24px 100px; text-align: center; }
-    .contact-title { font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -.025em; margin-bottom: 10px; }
-    .contact-sub { color: rgba(255,255,255,.55); font-size: 17px; margin-bottom: 40px; line-height: 1.6; max-width: 520px; margin-left: auto; margin-right: auto; }
-    .contact-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .cbtn-wa { display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff; border-radius: 100px; padding: 15px 30px; font-size: 16px; font-weight: 800; text-decoration: none; transition: opacity .15s; }
-    .cbtn-wa:hover { opacity: .88; }
-    .cbtn { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); color: #fff; border-radius: 100px; padding: 15px 26px; font-size: 15px; font-weight: 700; text-decoration: none; transition: background .15s; }
-    .cbtn:hover { background: rgba(255,255,255,.18); }
-
-    /* ---------------------------------------
-       WA FLOAT + FOOTER
-    --------------------------------------- */
-
-    footer { background: var(--card); padding: 36px 24px; text-align: center; border-top: 1px solid #E8E3DA; }
-    footer img { height: 52px; margin-bottom: 12px; opacity: .45; }
-    .foot-links { display: flex; justify-content: center; gap: 18px; margin-bottom: 10px; }
-    .foot-links a { color: var(--muted); font-size: 12px; text-decoration: none; }
-    .foot-links a:hover { color: var(--dark); }
-    footer p { color: #aeaeb2; font-size: 11px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/pf.css">
+  <script>document.documentElement.classList.add('pf-js');</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -353,15 +33,13 @@
 }
   </script>
 </head>
-<body>
+<body class="pf-page">
+<!-- Erzeugt von tools/build_site.js aus data/products.json und content/produkte/tueten.html. Nicht von Hand ändern. -->
 
-<!-- -- NAV -- -->
 <div class="nav-wrapper" id="navWrapper">
-  <nav>
+  <nav aria-label="Hauptnavigation">
     <div class="nav-inner">
-      <a href="/" style="display:flex;align-items:center;flex-shrink:0;">
-        <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo">
-      </a>
+      <a href="/" class="nav-home"><img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo" width="900" height="637"></a>
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
@@ -370,8 +48,8 @@
         <a href="/#kontakt">Kontakt</a>
       </div>
       <div class="nav-right">
-        <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
+        <a href="/#produkte" class="pf-btn pf-btn-primary pf-btn-sm nav-cta">Jetzt bestellen</a>
+        <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Men&uuml;" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -382,290 +60,251 @@
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
-  <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
 
-<!-- -- PRODUCT HERO -- -->
-<section class="product-hero">
-
-  <!-- LEFT: Image -->
-  <div class="img-panel">
-    <img id="product-img"
-      src="/Bilder/web/papiertueten-shop-960.webp"
-      srcset="/Bilder/web/papiertueten-shop-480.webp 480w, /Bilder/web/papiertueten-shop-960.webp 960w"
-      sizes="(max-width: 960px) 84vw, 480px" fetchpriority="high"
-      alt="Papiert&uuml;ten mit Logo bedruckt">
-    <div class="size-badge">
-      <div class="size-badge-s">Auswahl</div>
-      <div class="size-badge-v" id="badge-size">S</div>
-      <div class="size-badge-d" id="badge-dim">220 x 100 x 250 mm</div>
+<main>
+<section class="pf-buy" aria-label="Produkt konfigurieren">
+  <div class="pf-gallery">
+    <div class="pf-shot">
+      <img id="product-img" src="/Bilder/web/papiertueten-shop-960.webp" srcset="/Bilder/web/papiertueten-shop-480.webp 480w, /Bilder/web/papiertueten-shop-960.webp 960w" sizes="(max-width: 980px) 90vw, 560px" alt="Papiertüten mit Logo bedruckt" width="960" height="960" fetchpriority="high">
     </div>
   </div>
 
-  <!-- RIGHT: Configurator -->
-  <div class="config-panel">
+  <div class="pf-panel config-panel">
+    <nav class="pf-crumbs" aria-label="Brotkrumen"><a href="/">PackFactory</a><span aria-hidden="true">›</span><a href="/#produkte">Produkte</a><span aria-hidden="true">›</span><span>Papiertüten</span></nav>
+    <h1 class="pf-title">Papiertüten</h1>
+    
+    <p class="pf-from">ab 12,00 ct pro Stück · mit deinem Logo</p>
 
-    <div class="breadcrumb">
-      <a href="/">PackFactory</a><span>&rsaquo;</span>
-      <a href="/#produkte">Produkte</a><span>&rsaquo;</span>
-      Papiert&uuml;ten
-    </div>
-
-    <h1 class="product-title">Papiert&uuml;ten</h1>
-
-    <!-- Gr&ouml;&szlig;e -->
-    <div class="opt-group">
-      <div class="opt-group-label">Gr&ouml;&szlig;e</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('size','S',this)">S</button>
-        <button class="opt" onclick="selectOpt('size','M',this)">M</button>
-        <button class="opt" onclick="selectOpt('size','L',this)">L</button>
-        <button class="opt" onclick="selectOpt('size','XL',this)">XL</button>
-        <button class="opt opt-custom" onclick="selectOpt('size','Sonderma&szlig;',this)">Sonderma&szlig;</button>
+    <div class="pf-group" data-group="size">
+      <div class="pf-label" id="pf-l-size">Größe</div>
+      <div class="opt-btns pf-chips" role="group" aria-labelledby="pf-l-size">
+        <button type="button" class="pf-opt active" aria-pressed="true" data-key="size" data-id="S"><b>S</b><span>220 × 100 × 250 mm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="size" data-id="M"><b>M</b><span>250 × 150 × 260 mm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="size" data-id="L"><b>L</b><span>310 × 180 × 300 mm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="size" data-id="XL"><b>XL</b><span>330 × 200 × 330 mm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="size" data-id="Sondermaß"><b>Sondermaß</b><span>Abmessungen nach Wunsch</span></button>
       </div>
-      <div class="dim-hint" id="dim-hint">220 x 100 x 250 mm</div>
+      <div class="pf-hints" data-hints="size" aria-live="polite"></div>
     </div>
-
-    <!-- Material -->
-    <div class="opt-group">
-      <div class="opt-group-label">Material</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('material','Brownkraft',this)">Brownkraft &mdash; Braun</button>
-        <button class="opt" onclick="selectOpt('material','Whitekraft',this)">Whitekraft &mdash; Wei&szlig;</button>
+    <div class="pf-group" data-group="material">
+      <div class="pf-label" id="pf-l-material">Material</div>
+      <div class="opt-btns pf-chips" role="group" aria-labelledby="pf-l-material">
+        <button type="button" class="pf-opt active" aria-pressed="true" data-key="material" data-id="Brownkraft"><b>Braun</b><span>Brownkraft</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="material" data-id="Whitekraft"><b>Weiß</b><span>Whitekraft</span></button>
       </div>
+      <div class="pf-hints" data-hints="material" aria-live="polite"></div>
     </div>
-
-    <!-- Menge -->
-    <div class="opt-group">
-      <div class="opt-group-label">Menge</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('menge',10000,this)">10.000 St&uuml;ck</button>
-        <button class="opt" onclick="selectOpt('menge',20000,this)">20.000 St&uuml;ck</button>
+    <div class="pf-group" data-group="menge">
+      <div class="pf-label" id="pf-l-menge">Menge<span class="pf-aside">Je mehr, desto günstiger</span></div>
+      <div class="opt-btns pf-tiers" role="group" aria-labelledby="pf-l-menge">
+        <button type="button" class="pf-opt pf-tier active" aria-pressed="true" data-key="menge" data-id="10000"><b data-qty>10.000 Stück</b><span><span data-unit>13,50 ct</span><em data-pct hidden>−0 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="menge" data-id="20000"><i class="pf-tip">Unser Tipp</i><b data-qty>20.000 Stück</b><span><span data-unit>12,00 ct</span><em data-pct>−11 %</em></span></button>
       </div>
-      <div class="dim-hint">Gr&ouml;&szlig;ere Mengen auf Anfrage m&ouml;glich</div>
+      <div class="pf-hints" data-hints="menge" aria-live="polite"></div>
+      <p class="pf-note">Größere Mengen auf Anfrage möglich</p>
     </div>
 
-    <!-- Price -->
-    <div class="price-row">
-      <span class="price-total" id="price-display">EUR 1.350,00</span>
-      <span class="price-per" id="price-per">0,1350 &euro; / St&uuml;ck</span>
-    </div>
-    <p class="price-vat">Zzgl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
-
-    <!-- CTAs -->
-    <button type="button" class="pf-cart-add" onclick="addCurrentToCart()">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      In den Warenkorb
-    </button>
-    <a id="wa-link" href="#" target="_blank" class="btn-wa">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Angebot via WhatsApp anfragen
-    </a>
-    <div class="btn-row">
-      <a href="tel:+491776990017" class="btn-sec btn-phone">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        Anrufen
-      </a>
-      <a id="email-link" href="mailto:info@pack-factory.de" class="btn-sec btn-email">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        E-Mail
-      </a>
+    <div class="pf-sum" aria-live="polite">
+      <span class="pf-total" id="price-display">1.350,00 €</span>
+      <span class="pf-per" id="price-per">13,50 ct pro Stück</span>
+      <span class="pf-saved" id="pf-saved"></span>
+      <span class="pf-vat">Netto zzgl. MwSt. · inkl. individuellem Druck &amp; Design</span>
     </div>
 
-
-  </div>
-</section>
-
-<!-- -- DELIVERY STRIP -- -->
-<div class="delivery-strip">
-  <div class="delivery-item">
-    <div class="delivery-label">Lieferzeit</div>
-    <div class="delivery-value">ca. 5&ndash;7 Wochen nach Druckfreigabe</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Produktion</div>
-    <div class="delivery-value">Erst nach deiner Freigabe</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Designservice</div>
-    <div class="delivery-value">Kostenlos inklusive</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Lagerung &amp; Logistik</div>
-    <div class="delivery-value">Auf Wunsch verf&uuml;gbar</div>
-  </div>
-</div>
-
-<!-- -- SERVICE SECTION -- -->
-<section class="service-section">
-  <div class="service-inner">
-    <p class="section-eyebrow">Dein Verpackungspartner</p>
-    <h2 class="section-title">Wir k&uuml;mmern uns um alles.</h2>
-    <p class="section-sub">Du bestellst nicht einfach eine T&uuml;te &mdash; du bekommst einen kompletten Service. Von der Idee bis zur Lieferung &uuml;bernehmen wir jeden Schritt f&uuml;r dich.</p>
-
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="service-card-title">Design aus einer Hand</div>
-        <div class="service-card-desc">Kein eigenes Design n&ouml;tig. Schick uns dein Logo &mdash; wir gestalten die gesamte Verpackung professionell f&uuml;r dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand.</div>
-        <span class="service-card-tag">Kostenlos inklusive</span>
-      </div>
-      <div class="service-card">
-        <div class="service-card-title">Pers&ouml;nliche Beratung</div>
-        <div class="service-card-desc">Unsicher welche Gr&ouml;&szlig;e, welches Material oder welche Menge? Wir beraten dich pers&ouml;nlich &mdash; per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner.</div>
-        <span class="service-card-tag">Kostenlos &amp; unverbindlich</span>
-      </div>
-      <div class="service-card">
-        <div class="service-card-title">Lagerung &amp; Logistik</div>
-        <div class="service-card-desc">Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine gro&szlig;en Lagermengen, kein eigener Lagerplatz &mdash; wir &uuml;bernehmen die Logistik f&uuml;r dich.</div>
-        <span class="service-card-tag">Auf Anfrage verf&uuml;gbar</span>
-      </div>
+    <div class="pf-ctas" id="pf-ctas">
+      <button type="button" class="pf-btn pf-btn-primary" id="pf-add" onclick="addCurrentToCart()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>In den Warenkorb</button>
+      <a id="wa-link" class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Papiert%C3%BCten%20(Gr%C3%B6%C3%9Fe%3A%20S%20(220%20%C3%97%20100%20%C3%97%20250%20mm)%2C%20Material%3A%20Braun%20(Brownkraft)%2C%2010.000%20St%C3%BCck%2C%2013%2C50%20ct%20pro%20St%C3%BCck%20netto%2C%20gesamt%201.350%2C00%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Direkt per WhatsApp anfragen</a>
     </div>
-  </div>
-</section>
+    <p class="pf-contact-line"><a href="tel:+491776990017">Anrufen: 0177 6990017</a><span aria-hidden="true">·</span><a id="email-link" href="mailto:info@pack-factory.de?subject=Anfrage%20Papiert%C3%BCten&amp;body=Gr%C3%B6%C3%9Fe%3A%20S%20(220%20%C3%97%20100%20%C3%97%20250%20mm)%0AMaterial%3A%20Braun%20(Brownkraft)%0A10.000%20St%C3%BCck%0ASt%C3%BCckpreis%3A%2013%2C50%20ct%20pro%20St%C3%BCck%20netto%0AGesamtpreis%3A%201.350%2C00%20%E2%82%AC%20netto">E-Mail schreiben</a></p>
 
-<!-- -- SPECS TABLE -- -->
-<section class="specs-section">
-  <div class="specs-inner">
-    <div class="specs-header">
-      <div class="specs-pink-bar"></div>
-      <h2 class="specs-title">Technische Spezifikationen</h2>
-    </div>
-    <p class="specs-sub">Alle Angaben pro Gr&ouml;&szlig;envariante</p>
-    <div class="specs-wrap">
-      <table class="specs-table">
-        <thead>
-          <tr>
-            <th>Eigenschaft</th>
-            <th>S</th>
-            <th>M</th>
-            <th>L</th>
-            <th>XL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Abmessungen (mm)</td>
-            <td>220&times;100&times;250</td>
-            <td>250&times;150&times;260</td>
-            <td>310&times;180&times;300</td>
-            <td>330&times;200&times;330</td>
-          </tr>
-          <tr>
-            <td>Farbe</td>
-            <td>Wei&szlig; / Braun</td>
-            <td>Wei&szlig; / Braun</td>
-            <td>Wei&szlig; / Braun</td>
-            <td>Wei&szlig; / Braun</td>
-          </tr>
-          <tr>
-            <td>Material</td>
-            <td>Wei&szlig;es Papier / Kraft</td>
-            <td>Wei&szlig;es Papier / Kraft</td>
-            <td>Wei&szlig;es Papier / Kraft</td>
-            <td>Wei&szlig;es Papier / Kraft</td>
-          </tr>
-          <tr>
-            <td>Druckmethode</td>
-            <td>Flexodruck</td>
-            <td>Flexodruck</td>
-            <td>Flexodruck</td>
-            <td>Flexodruck</td>
-          </tr>
-          <tr>
-            <td>Anzahl Farben</td>
-            <td>1&ndash;4 Farben</td>
-            <td>1&ndash;4 Farben</td>
-            <td>1&ndash;4 Farben</td>
-            <td>1&ndash;4 Farben</td>
-          </tr>
-          <tr>
-            <td>Druckbereich</td>
-            <td>30 % *</td>
-            <td>30 % *</td>
-            <td>30 % *</td>
-            <td>30 % *</td>
-          </tr>
-          <tr>
-            <td>Mindestbestellmenge</td>
-            <td>10.000</td>
-            <td>10.000</td>
-            <td>10.000</td>
-            <td>10.000</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="specs-footnote">* Der Druckbereich bezieht sich auf den bedruckbaren Anteil der T&uuml;tenoberfl&auml;che. Bei h&ouml;heren Deckungsgraden ist eine individuelle Abstimmung erforderlich.</p>
-    <p class="specs-footnote">** Je nach Druckfarben und Motiv k&ouml;nnen einmalige Einrichtungskosten anfallen. Diese fallen nur beim ersten Auftrag an &mdash; nicht bei Nachbestellungen.</p>
-  </div>
-</section>
-
-<!-- -- SEO / PRODUCT INFO -- -->
-<section class="seo-section">
-  <div class="seo-inner">
-    <h2>Papiert&uuml;ten bedrucken lassen &mdash; individuell mit Ihrem Logo</h2>
-    <p class="seo-lead">Individuell bedruckte Papiert&uuml;ten sind die vielseitigste und meistgenutzte Verpackung in Gastronomie, Einzelhandel und Lebensmittelbranche. Sie transportieren nicht nur Waren &mdash; sie tragen Ihr Logo in die &Ouml;ffentlichkeit. Bei PackFactory erhalten Sie Papiert&uuml;ten in vier Standardgr&ouml;&szlig;en von S bis XL, in Wei&szlig; oder Braun, vollst&auml;ndig angepasst an Ihre Marke.</p>
-
-    <h3>Was sind Papiert&uuml;ten und wof&uuml;r werden sie verwendet?</h3>
-    <p>Papiert&uuml;ten &mdash; ob mit Flachgriff, Kordelgriff oder grifflos &mdash; sind die universellste Verpackungsform f&uuml;r das Ausgeben, Transportieren und Pr&auml;sentieren von Produkten. Sie sind stabil, lebensmittelecht, recycelbar und in nahezu jedem Format erh&auml;ltlich. Ob warme Speisen zum Mitnehmen, eingekaufte Waren oder Gesch&auml;ftsgeschenke &mdash; eine Papiert&uuml;te erf&uuml;llt alle Anforderungen und l&auml;sst sich gleichzeitig vollfl&auml;chig mit Ihrem Corporate Design bedrucken.</p>
-    <p>Die Standardgr&ouml;&szlig;en reichen von S (220 &times; 100 &times; 250 mm) bis XL (330 &times; 200 &times; 330 mm). F&uuml;r Sonderanforderungen sind zus&auml;tzliche Formate auf Anfrage m&ouml;glich.</p>
-
-    <h3>F&uuml;r welche Branchen eignen sich Papiert&uuml;ten?</h3>
-    <p>Papiert&uuml;ten geh&ouml;ren zu den am breitesten eingesetzten Verpackungen &uuml;berhaupt. Typische Einsatzbereiche:</p>
-    <ul>
-      <li>D&ouml;nerl&auml;den, Kebab-Shops, Imbisse und orientalische Restaurants</li>
-      <li>Burger-Restaurants, Fast-Food-Ketten und Systemgastronomie</li>
-      <li>B&auml;ckereien, Konditoreien und Caf&eacute;s</li>
-      <li>Pizzerien und Pasta-Restaurants mit Take-away</li>
-      <li>Asiatische Restaurants, Woks und Sushi-Bars</li>
-      <li>Food Trucks, Marktimbisse und Streetfood-Betriebe</li>
-      <li>Eisdielen, Bubble-Tea-Shops, Dessert-Bars</li>
-      <li>Einzelhandel, Boutiquen und Modegesch&auml;fte</li>
-      <li>Apotheken, Drogerien und Kosmetikstudios</li>
-      <li>Lebensmittelgesch&auml;fte, Delikatessenl&auml;den und Bio-Supermarkte</li>
-      <li>Messen, Kongresse und Promotion-Aktionen</li>
-      <li>Hotelshops, Resorts und Duty-Free-Bereiche</li>
-    </ul>
-
-    <h3>Papiert&uuml;ten als kostenlose Werbung</h3>
-    <p>Jede Bestellung verl&auml;sst Ihren Betrieb in einer T&uuml;te. Warum diese Fl&auml;che ungenutzt lassen? Jeder Kunde, der Ihre bedruckte T&uuml;te durch die Stadt tr&auml;gt, macht kostenlos Werbung f&uuml;r Ihr Unternehmen &mdash; auf der Stra&szlig;e, im B&uuml;ro, im Supermarkt. Ein professionelles Design erh&ouml;ht den Wiedererkennungswert, vermittelt Qualit&auml;t und sorgt daf&uuml;r, dass Kunden Ihren Betrieb im Ged&auml;chtnis behalten. Die T&uuml;te ist die einzige Werbefl&auml;che, f&uuml;r die Ihr Kunde schon bezahlt hat &mdash; nutzen Sie sie.</p>
-
-    <h3>Materialien und Ausf&uuml;hrungen</h3>
-    <p><strong>Whitekraft (wei&szlig;es Kraftpapier)</strong> &mdash; glatte, helle Oberfl&auml;che f&uuml;r brillante Farben und kontraststarke Designs. Die erste Wahl f&uuml;r moderne, farbintensive Markenauftritte.</p>
-    <p><strong>Brownkraft (braunes Kraftpapier)</strong> &mdash; nat&uuml;rliche, warme Optik f&uuml;r Betriebe mit einem nachhaltigen oder handwerklichen Markenbild. Besonders beliebt in der Gastronomie und bei Bio-Produkten.</p>
-    <p>Beide Materialien sind lebensmittelecht, stabil und vollst&auml;ndig recycelbar. Griffoptionen (Flachgriff, Kordelgriff, grifflos) und Grammaturen je nach Einsatzbereich auf Anfrage.</p>
-
-    <h3>Nachhaltigkeit als Wettbewerbsvorteil</h3>
-    <p>Immer mehr Kunden entscheiden sich bewusst f&uuml;r Betriebe mit nachhaltigen Verpackungen. Papiert&uuml;ten sind recycelbar, biologisch abbaubar und werden von Kunden deutlich positiver wahrgenommen als Kunststoffbeutel. Ein nachhaltiges Verpackungskonzept ist kein Kostenfaktor &mdash; es ist ein Kommunikationsmittel, das Ihr Markenbild st&auml;rkt.</p>
-
-    <h3>Warum PackFactory?</h3>
-    <ul>
-      <li><strong>4 Standardgr&ouml;&szlig;en von S bis XL</strong> &mdash; und individuelle Sonderma&szlig;e auf Anfrage</li>
-      <li><strong>Einrichtungskosten nur beim ersten Auftrag</strong> &mdash; alle Nachbestellungen g&uuml;nstiger</li>
-      <li><strong>Mehrere Druckoptionen</strong> &mdash; Flexodruck f&uuml;r gro&szlig;e Auflagen, Offsetdruck f&uuml;r detailreiche Designs</li>
-      <li><strong>Direkt vom Hersteller</strong> &mdash; ohne Zwischenh&auml;ndler, mit transparenten Preisen</li>
-      <li><strong>Pers&ouml;nliche Beratung</strong> &mdash; wir helfen bei der Auswahl des richtigen Formats, Materials und Drucks</li>
+    <ul class="pf-assure">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lieferzeit</b> ca. 5–7 Wochen nach Druckfreigabe</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Produktion</b> Erst nach deiner Freigabe</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Designservice</b> Kostenlos inklusive</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lagerung & Logistik</b> Auf Wunsch verfügbar</span></li>
     </ul>
   </div>
 </section>
 
-<!-- -- CONTACT -- -->
-<section class="contact">
-  <h2 class="contact-title">Bereit loszulegen?</h2>
-  <p class="contact-sub">Frag jetzt an &mdash; wir antworten innerhalb von 24 Stunden und k&uuml;mmern uns um alles Weitere.</p>
-  <div class="contact-btns">
-    <a id="contact-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20Papiert%C3%BCten%20anfragen." target="_blank" class="cbtn-wa">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
-    <a href="tel:+491776990017" class="cbtn">Anrufen</a>
-    <a href="mailto:info@pack-factory.de" class="cbtn">E-Mail</a>
+<section class="pf-section pf-related" aria-labelledby="pf-related-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-related-h">Passt zu Papiertüten. <span>Alles im selben Look bestellen.</span></h2>
+    <div class="pf-rail">
+      <a class="pf-card" href="/produkte/burgerbox/"><span class="pf-card-img"><img src="/Bilder/web/burgerbox-v4-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Burgerbox</b><span>ab 11,50 ct</span></a>
+      <a class="pf-card" href="/produkte/servietten/"><span class="pf-card-img"><img src="/Bilder/web/servietten-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Servietten mit Logo</b><span>ab 1,95 ct</span></a>
+      <a class="pf-card" href="/produkte/einschlagpapier/"><span class="pf-card-img"><img src="/Bilder/web/tablettpapier-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Einschlagpapier</b><span>ab 5,20 €/kg</span></a>
+      <a class="pf-card" href="/produkte/feuchttuecher/"><span class="pf-card-img"><img src="/Bilder/web/feuchttuecher-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Feuchttücher</b><span>ab 2,90 ct</span></a>
+    </div>
   </div>
 </section>
 
-<!-- -- FOOTER -- -->
-<footer>
-  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory">
+<section class="pf-section pf-service">
+  <div class="pf-wrap">
+    <h2 class="pf-h2">Wir kümmern uns um alles. <span>Von der Idee bis zur Lieferung.</span></h2>
+    <div class="pf-bento">
+      <div class="service-card">
+<div class="service-card-title">Design aus einer Hand</div>
+<div class="service-card-desc">Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die gesamte Verpackung professionell für dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand.</div>
+<span class="service-card-tag">Kostenlos inklusive</span>
+</div>
+<div class="service-card">
+<div class="service-card-title">Persönliche Beratung</div>
+<div class="service-card-desc">Unsicher welche Größe, welches Material oder welche Menge? Wir beraten dich persönlich — per WhatsApp, Telefon oder E-Mail. Kein anonymer Shop, echte Ansprechpartner.</div>
+<span class="service-card-tag">Kostenlos &amp; unverbindlich</span>
+</div>
+<div class="service-card">
+<div class="service-card-title">Lagerung &amp; Logistik</div>
+<div class="service-card-desc">Auf Wunsch lagern wir deine Verpackungen ein und liefern sie nach Bedarf aus. Keine großen Lagermengen, kein eigener Lagerplatz — wir übernehmen die Logistik für dich.</div>
+<span class="service-card-tag">Auf Anfrage verfügbar</span>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="pf-section pf-details" aria-label="Details">
+  <div class="pf-wrap pf-narrow">
+      <details class="pf-acc" open><summary>Preise im Überblick</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table pf-price-table"><thead><tr><th scope="col">Größe</th><th scope="col">Material</th><th scope="col">10.000 Stück</th><th scope="col">20.000 Stück</th></tr></thead><tbody>
+<tr><th scope="row">S<small>220 × 100 × 250 mm</small></th><th scope="row">Braun<small>Brownkraft</small></th><td><b>13,50 ct</b><small>1.350,00 €</small></td><td><b>12,00 ct</b><small>2.400,00 €</small></td></tr>
+<tr><th scope="row">S<small>220 × 100 × 250 mm</small></th><th scope="row">Weiß<small>Whitekraft</small></th><td><b>14,85 ct</b><small>1.485,00 €</small></td><td><b>13,20 ct</b><small>2.640,00 €</small></td></tr>
+<tr><th scope="row">M<small>250 × 150 × 260 mm</small></th><th scope="row">Braun<small>Brownkraft</small></th><td><b>15,50 ct</b><small>1.550,00 €</small></td><td><b>14,90 ct</b><small>2.980,00 €</small></td></tr>
+<tr><th scope="row">M<small>250 × 150 × 260 mm</small></th><th scope="row">Weiß<small>Whitekraft</small></th><td><b>17,05 ct</b><small>1.705,00 €</small></td><td><b>16,39 ct</b><small>3.278,00 €</small></td></tr>
+<tr><th scope="row">L<small>310 × 180 × 300 mm</small></th><th scope="row">Braun<small>Brownkraft</small></th><td><b>18,40 ct</b><small>1.840,00 €</small></td><td><b>17,30 ct</b><small>3.460,00 €</small></td></tr>
+<tr><th scope="row">L<small>310 × 180 × 300 mm</small></th><th scope="row">Weiß<small>Whitekraft</small></th><td><b>20,24 ct</b><small>2.024,00 €</small></td><td><b>19,03 ct</b><small>3.806,00 €</small></td></tr>
+<tr><th scope="row">XL<small>330 × 200 × 330 mm</small></th><th scope="row">Braun<small>Brownkraft</small></th><td><b>19,90 ct</b><small>1.990,00 €</small></td><td><b>18,20 ct</b><small>3.640,00 €</small></td></tr>
+<tr><th scope="row">XL<small>330 × 200 × 330 mm</small></th><th scope="row">Weiß<small>Whitekraft</small></th><td><b>21,89 ct</b><small>2.189,00 €</small></td><td><b>20,02 ct</b><small>4.004,00 €</small></td></tr>
+</tbody></table></div>
+<p class="pf-small">Stückpreis und Gesamtpreis, netto zzgl. MwSt., inkl. individuellem Druck &amp; Design.</p></div></details>
+      <details class="pf-acc"><summary>Technische Daten</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table">
+<thead>
+<tr>
+<th>Eigenschaft</th>
+<th>S</th>
+<th>M</th>
+<th>L</th>
+<th>XL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abmessungen (mm)</td>
+<td>220×100×250</td>
+<td>250×150×260</td>
+<td>310×180×300</td>
+<td>330×200×330</td>
+</tr>
+<tr>
+<td>Farbe</td>
+<td>Weiß / Braun</td>
+<td>Weiß / Braun</td>
+<td>Weiß / Braun</td>
+<td>Weiß / Braun</td>
+</tr>
+<tr>
+<td>Material</td>
+<td>Weißes Papier / Kraft</td>
+<td>Weißes Papier / Kraft</td>
+<td>Weißes Papier / Kraft</td>
+<td>Weißes Papier / Kraft</td>
+</tr>
+<tr>
+<td>Druckmethode</td>
+<td>Flexodruck</td>
+<td>Flexodruck</td>
+<td>Flexodruck</td>
+<td>Flexodruck</td>
+</tr>
+<tr>
+<td>Anzahl Farben</td>
+<td>1–4 Farben</td>
+<td>1–4 Farben</td>
+<td>1–4 Farben</td>
+<td>1–4 Farben</td>
+</tr>
+<tr>
+<td>Druckbereich</td>
+<td>30 % *</td>
+<td>30 % *</td>
+<td>30 % *</td>
+<td>30 % *</td>
+</tr>
+<tr>
+<td>Mindestbestellmenge</td>
+<td>10.000</td>
+<td>10.000</td>
+<td>10.000</td>
+<td>10.000</td>
+</tr>
+</tbody>
+</table></div><div class="pf-small"><p>* Der Druckbereich bezieht sich auf den bedruckbaren Anteil der Tütenoberfläche. Bei höheren Deckungsgraden ist eine individuelle Abstimmung erforderlich.</p>
+<p>** Je nach Druckfarben und Motiv können einmalige Einrichtungskosten anfallen. Diese fallen nur beim ersten Auftrag an — nicht bei Nachbestellungen.</p></div></div></details>
+  </div>
+</section>
+
+<section class="pf-section pf-story">
+  <div class="pf-wrap pf-narrow pf-prose">
+    <h2>Papiertüten bedrucken lassen — individuell mit Ihrem Logo</h2>
+<p class="seo-lead">Individuell bedruckte Papiertüten sind die vielseitigste und meistgenutzte Verpackung in Gastronomie, Einzelhandel und Lebensmittelbranche. Sie transportieren nicht nur Waren — sie tragen Ihr Logo in die Öffentlichkeit. Bei PackFactory erhalten Sie Papiertüten in vier Standardgrößen von S bis XL, in Weiß oder Braun, vollständig angepasst an Ihre Marke.</p>
+<h3>Was sind Papiertüten und wofür werden sie verwendet?</h3>
+<p>Papiertüten — ob mit Flachgriff, Kordelgriff oder grifflos — sind die universellste Verpackungsform für das Ausgeben, Transportieren und Präsentieren von Produkten. Sie sind stabil, lebensmittelecht, recycelbar und in nahezu jedem Format erhältlich. Ob warme Speisen zum Mitnehmen, eingekaufte Waren oder Geschäftsgeschenke — eine Papiertüte erfüllt alle Anforderungen und lässt sich gleichzeitig vollflächig mit Ihrem Corporate Design bedrucken.</p>
+<p>Die Standardgrößen reichen von S (220 × 100 × 250 mm) bis XL (330 × 200 × 330 mm). Für Sonderanforderungen sind zusätzliche Formate auf Anfrage möglich.</p>
+<h3>Für welche Branchen eignen sich Papiertüten?</h3>
+<p>Papiertüten gehören zu den am breitesten eingesetzten Verpackungen überhaupt. Typische Einsatzbereiche:</p>
+<ul>
+<li>Dönerläden, Kebab-Shops, Imbisse und orientalische Restaurants</li>
+<li>Burger-Restaurants, Fast-Food-Ketten und Systemgastronomie</li>
+<li>Bäckereien, Konditoreien und Cafés</li>
+<li>Pizzerien und Pasta-Restaurants mit Take-away</li>
+<li>Asiatische Restaurants, Woks und Sushi-Bars</li>
+<li>Food Trucks, Marktimbisse und Streetfood-Betriebe</li>
+<li>Eisdielen, Bubble-Tea-Shops, Dessert-Bars</li>
+<li>Einzelhandel, Boutiquen und Modegeschäfte</li>
+<li>Apotheken, Drogerien und Kosmetikstudios</li>
+<li>Lebensmittelgeschäfte, Delikatessenläden und Bio-Supermarkte</li>
+<li>Messen, Kongresse und Promotion-Aktionen</li>
+<li>Hotelshops, Resorts und Duty-Free-Bereiche</li>
+</ul>
+<h3>Papiertüten als kostenlose Werbung</h3>
+<p>Jede Bestellung verlässt Ihren Betrieb in einer Tüte. Warum diese Fläche ungenutzt lassen? Jeder Kunde, der Ihre bedruckte Tüte durch die Stadt trägt, macht kostenlos Werbung für Ihr Unternehmen — auf der Straße, im Büro, im Supermarkt. Ein professionelles Design erhöht den Wiedererkennungswert, vermittelt Qualität und sorgt dafür, dass Kunden Ihren Betrieb im Gedächtnis behalten. Die Tüte ist die einzige Werbefläche, für die Ihr Kunde schon bezahlt hat — nutzen Sie sie.</p>
+<h3>Materialien und Ausführungen</h3>
+<p><strong>Whitekraft (weißes Kraftpapier)</strong> — glatte, helle Oberfläche für brillante Farben und kontraststarke Designs. Die erste Wahl für moderne, farbintensive Markenauftritte.</p>
+<p><strong>Brownkraft (braunes Kraftpapier)</strong> — natürliche, warme Optik für Betriebe mit einem nachhaltigen oder handwerklichen Markenbild. Besonders beliebt in der Gastronomie und bei Bio-Produkten.</p>
+<p>Beide Materialien sind lebensmittelecht, stabil und vollständig recycelbar. Griffoptionen (Flachgriff, Kordelgriff, grifflos) und Grammaturen je nach Einsatzbereich auf Anfrage.</p>
+<h3>Nachhaltigkeit als Wettbewerbsvorteil</h3>
+<p>Immer mehr Kunden entscheiden sich bewusst für Betriebe mit nachhaltigen Verpackungen. Papiertüten sind recycelbar, biologisch abbaubar und werden von Kunden deutlich positiver wahrgenommen als Kunststoffbeutel. Ein nachhaltiges Verpackungskonzept ist kein Kostenfaktor — es ist ein Kommunikationsmittel, das Ihr Markenbild stärkt.</p>
+<h3>Warum PackFactory?</h3>
+<ul>
+<li><strong>4 Standardgrößen von S bis XL</strong> — und individuelle Sondermaße auf Anfrage</li>
+<li><strong>Einrichtungskosten nur beim ersten Auftrag</strong> — alle Nachbestellungen günstiger</li>
+<li><strong>Mehrere Druckoptionen</strong> — Flexodruck für große Auflagen, Offsetdruck für detailreiche Designs</li>
+<li><strong>Direkt vom Hersteller</strong> — ohne Zwischenhändler, mit transparenten Preisen</li>
+<li><strong>Persönliche Beratung</strong> — wir helfen bei der Auswahl des richtigen Formats, Materials und Drucks</li>
+</ul>
+  </div>
+</section>
+
+<section class="pf-section pf-recent" id="pf-recent" hidden aria-labelledby="pf-recent-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-recent-h">Zuletzt angesehen.</h2>
+    <div class="pf-rail" id="pf-recent-list"></div>
+  </div>
+</section>
+
+<section class="pf-cta-band">
+  <div class="pf-wrap">
+    <h2>Bereit für deine eigene Verpackung?</h2>
+    <p>Frag jetzt an. Wir antworten innerhalb von 24 Stunden und gestalten deinen Entwurf kostenlos.</p>
+    <div class="pf-cta-row">
+      <a class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20Papiert%C3%BCten%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+      <a class="pf-btn pf-btn-ghost" href="tel:+491776990017">Anrufen</a>
+      <a class="pf-btn pf-btn-ghost" href="mailto:info@pack-factory.de">E-Mail</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pf-footer">
+  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" width="900" height="637" loading="lazy">
   <div class="foot-links">
     <a href="/impressum/">Impressum</a>
     <a href="/datenschutz/">Datenschutz</a>
@@ -674,90 +313,18 @@
   <p>2025 PackFactory. Alle Rechte vorbehalten.</p>
 </footer>
 
+<div class="pf-sticky" id="pf-sticky" aria-hidden="true">
+  <div class="pf-sticky-in">
+    <div class="pf-sticky-txt"><b id="pf-sticky-total">1.350,00 €</b><span id="pf-sticky-line">Papiertüten · 10.000 Stück</span></div>
+    <a class="pf-btn pf-btn-wa pf-btn-icon" id="pf-sticky-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Papiert%C3%BCten%20(Gr%C3%B6%C3%9Fe%3A%20S%20(220%20%C3%97%20100%20%C3%97%20250%20mm)%2C%20Material%3A%20Braun%20(Brownkraft)%2C%2010.000%20St%C3%BCck%2C%2013%2C50%20ct%20pro%20St%C3%BCck%20netto%2C%20gesamt%201.350%2C00%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener" aria-label="Per WhatsApp anfragen" tabindex="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <button type="button" class="pf-btn pf-btn-primary pf-btn-sm" onclick="addCurrentToCart()" tabindex="-1">In den Warenkorb</button>
+  </div>
+</div>
 
-<script>
-  // Stueckpreise Brownkraft in Hundertstel-Cent (1350 = 13,5 ct); Whitekraft kostet 10 % mehr
-  const pricePerPiece = {
-    'S':  { 10000:1350, 20000:1200 },
-    'M':  { 10000:1550, 20000:1490 },
-    'L':  { 10000:1840, 20000:1730 },
-    'XL': { 10000:1990, 20000:1820 }
-  };
-  const WHITE_SURCHARGE_PCT = 10;
-  const dimensions = {
-    'S':'220 x 100 x 250 mm', 'M':'250 x 150 x 260 mm',
-    'L':'310 x 180 x 300 mm', 'XL':'330 x 200 x 330 mm',
-    'Sonderma\u00DF':'Individuelle Abmessungen'
-  };
-  const sel = { size:'S', material:'Brownkraft', menge:10000 };
-
-  function selectOpt(key, val, btn) {
-    sel[key] = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    updateAll();
-  }
-
-  function updateAll() {
-    const img = document.getElementById('product-img');
-
-    // Image feedback
-    img.classList.remove('pulse');
-    void img.offsetWidth;
-    img.classList.add('pulse');
-
-    // Badge + inline dim
-    const isSonder = sel.size === 'Sonderma\u00DF';
-    document.getElementById('badge-size').textContent = sel.size;
-    document.getElementById('badge-dim').textContent = isSonder ? 'Nach Wunsch' : dimensions[sel.size];
-    document.getElementById('dim-hint').textContent = isSonder ? 'Abmessungen nach Wunsch \u2014 Preis auf Anfrage' : dimensions[sel.size];
-
-    // Price
-    if (isSonder) {
-      document.getElementById('price-display').textContent = 'Preis auf Anfrage';
-      document.getElementById('price-per').textContent = 'Sonderma\u00DF \u2014 individuelles Angebot';
-    } else {
-      let pp = pricePerPiece[sel.size][sel.menge];
-      if (sel.material === 'Whitekraft') pp = pp * (100 + WHITE_SURCHARGE_PCT) / 100;
-      const total = pp * sel.menge / 10000;
-      document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
-      document.getElementById('price-per').textContent = (pp / 10000).toFixed(4).replace('.',',') + ' EUR / St\u00FCck';
-    }
-
-    // WhatsApp & email
-    const mengeText = isSonder ? 'Sonderma\u00DF' : sel.menge.toLocaleString('de-DE') + ' Stueck';
-    const dimText = isSonder ? 'Sonderma\u00DF nach Wunsch' : dimensions[sel.size];
-    const msg = encodeURIComponent('Hallo, ich interessiere mich fuer Papiertueten (' + sel.size + ', ' + dimText + ', ' + sel.material + ', ' + mengeText + ') und moechte ein Angebot anfragen.');
-    document.getElementById('wa-link').href = 'https://wa.me/491776990017?text=' + msg;
-    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Papiertueten&body=Groesse%3A%20' + sel.size + '%0AAbmessung%3A%20' + encodeURIComponent(dimText) + '%0AMaterial%3A%20' + sel.material + '%0AMenge%3A%20' + mengeText;
-    window.PF_ITEM = { title: 'Papiert\u00FCten', desc: decodeURIComponent(msg), priceTotal: document.getElementById('price-display').textContent, url: location.pathname };
-  }
-
-  function fmt(n) {
-    return n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-
-  // Nav scroll shrink
-  const navWrapper = document.getElementById('navWrapper');
-  window.addEventListener('scroll', () => {
-    navWrapper.classList.toggle('scrolled', window.scrollY > 50);
-  }, { passive: true });
-
-  // Mobile menu
-  function toggleMenu() {
-    const m = document.getElementById('mobileMenu');
-    const h = document.querySelector('.hamburger');
-    m.classList.toggle('open'); h.classList.toggle('open');
-    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.querySelector('.hamburger').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  updateAll();
-</script>
+<script type="application/json" id="pf-data">{"product":{"slug":"tueten","url":"/produkte/tueten/","name":"Papiertüten","image":"/Bilder/web/papiertueten-shop-960.webp","unit":"Stück","qtyKey":"menge","catalog":{"title":"Papiertüten","tags":["papiertüten"],"price":"0,1200","unit":"Stück"},"related":["burgerbox","servietten","einschlagpapier","feuchttuecher"],"options":[{"key":"size","label":"Größe","choices":[{"id":"S","label":"S","detail":"220 × 100 × 250 mm"},{"id":"M","label":"M","detail":"250 × 150 × 260 mm"},{"id":"L","label":"L","detail":"310 × 180 × 300 mm"},{"id":"XL","label":"XL","detail":"330 × 200 × 330 mm"},{"id":"Sondermaß","label":"Sondermaß","onRequest":true,"detail":"Abmessungen nach Wunsch"}]},{"key":"material","label":"Material","choices":[{"id":"Brownkraft","label":"Braun","detail":"Brownkraft"},{"id":"Whitekraft","label":"Weiß","detail":"Whitekraft"}]},{"key":"menge","label":"Menge","choices":[{"id":"10000","label":"10.000 Stück"},{"id":"20000","label":"20.000 Stück","tip":true}],"note":"Größere Mengen auf Anfrage möglich"}],"pricing":{"basis":"unit","by":["size","menge"],"table":{"S":{"10000":1350,"20000":1200},"M":{"10000":1550,"20000":1490},"L":{"10000":1840,"20000":1730},"XL":{"10000":1990,"20000":1820}},"modifiers":[{"type":"factor","by":"material","per":100,"table":{"Brownkraft":100,"Whitekraft":110}}],"qty":{"by":"menge"}}},"catalog":[{"slug":"tueten","url":"/produkte/tueten/","title":"Papiertüten","img":"/Bilder/web/papiertueten-shop-480.webp","from":"ab 12,00 ct"},{"slug":"sleeves","url":"/produkte/sleeves/","title":"Kaffeebecher Sleeves","img":"/Bilder/web/sleeves-shop-480.webp","from":"ab 2,59 ct"},{"slug":"burgerbox","url":"/produkte/burgerbox/","title":"Burgerbox","img":"/Bilder/web/burgerbox-v4-480.webp","from":"ab 11,50 ct"},{"slug":"einschlagpapier","url":"/produkte/einschlagpapier/","title":"Einschlagpapier","img":"/Bilder/web/tablettpapier-480.webp","from":"ab 5,20 €/kg"},{"slug":"broetchentueten","url":"/produkte/broetchentueten/","title":"Brötchentüten","img":"/Bilder/web/broetchentueten-480.webp","from":"ab 4,68 €/kg"},{"slug":"doenertueten","url":"/produkte/doenertueten/","title":"Dönertüten","img":"/Bilder/web/doenertueten-480.webp","from":"ab 5,20 €/kg"},{"slug":"kuru-pasta","url":"/produkte/kuru-pasta/","title":"Kuru Pasta Kutusu","img":"/Bilder/web/kurupasta-480.webp","from":"ab 11,10 ct"},{"slug":"salatschalen","url":"/produkte/salatschalen/","title":"Salatschalen","img":"/Bilder/web/salatschalen-v4-480.webp","from":"ab 14,15 ct"},{"slug":"baklava-kutusu","url":"/produkte/baklava-kutusu/","title":"Baklava Kutusu","img":"/Bilder/web/baklava-480.webp","from":"ab 8,10 ct"},{"slug":"kuchenboxen","url":"/produkte/kuchenboxen/","title":"Kuchenboxen","img":"/Bilder/web/kuchenbox-480.webp","from":"ab 16,00 ct"},{"slug":"pommesschuetten","url":"/produkte/pommesschuetten/","title":"Pommeschütten","img":"/Bilder/web/pommes-480.webp","from":"ab 5,92 ct"},{"slug":"fc-box","url":"/produkte/fc-box/","title":"FC Box","img":"/Bilder/web/fcbox-480.webp","from":"ab 9,20 ct"},{"slug":"doenerboxen","url":"/produkte/doenerboxen/","title":"Dönerboxen","img":"/Bilder/web/doenerbox-480.webp","from":"ab 8,29 ct"},{"slug":"takeaway-boxen","url":"/produkte/takeaway-boxen/","title":"Take-away Boxen","img":"/Bilder/web/takeawaybox-480.webp","from":"ab 15,81 ct"},{"slug":"kaffeebecher-single-wall","url":"/produkte/kaffeebecher-single-wall/","title":"Kaffeebecher Single Wall","img":"/Bilder/web/kaffeebecher-sw-480.webp","from":"ab 6,67 ct"},{"slug":"kaffeebecher-double-wall","url":"/produkte/kaffeebecher-double-wall/","title":"Kaffeebecher Double Wall","img":"/Bilder/web/kaffeebecher-dw-480.webp","from":"ab 10,15 ct"},{"slug":"clear-cups","url":"/produkte/clear-cups/","title":"Clear Cups","img":"/Bilder/web/clear-cups-480.webp","from":"ab 13,50 ct"},{"slug":"bubble-tea-cups","url":"/produkte/bubble-tea-cups/","title":"Bubble Tea Cups","img":"/Bilder/web/bubble-tea-cups-480.webp","from":"ab 17,30 ct"},{"slug":"servietten","url":"/produkte/servietten/","title":"Servietten mit Logo","img":"/Bilder/web/servietten-480.webp","from":"ab 1,95 ct"},{"slug":"feuchttuecher","url":"/produkte/feuchttuecher/","title":"Feuchttücher","img":"/Bilder/web/feuchttuecher-480.webp","from":"ab 2,90 ct"}]}</script>
+<script src="/assets/pf-pricing.js"></script>
+<script src="/assets/pf-view.js"></script>
+<script src="/assets/pf-product.js"></script>
 <script src="/cart.js"></script>
 </body>
 </html>

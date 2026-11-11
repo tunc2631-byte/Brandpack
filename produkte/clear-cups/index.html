@@ -9,156 +9,9 @@
   <link rel="icon" type="image/png" href="/Bilder/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 92px; }
-    * { -webkit-tap-highlight-color: transparent; }
-    a, button { touch-action: manipulation; }
-    :root { --pink: #F07A8C; --pink-d: #d9697a; --dark: #1d1d1f; --muted: #6e6e73; --bg: #f5f5f7; --card: #F5F2EC; }
-
-    /* NAV */
-    .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 12px 20px; pointer-events: none; }
-    .nav-wrapper nav { background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04); pointer-events: all; max-width: 1200px; margin: 0 auto; border: 1px solid #E8E3DA; }
-    .nav-inner { padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px; }
-    .nav-logo { height: 150px; width: auto; }
-    .nav-links { flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap; }
-    .nav-links a { color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color .15s; }
-    .nav-links a:hover { color: var(--pink); }
-    .nav-right { flex-shrink: 0; display: flex; align-items: center; gap: 8px; }
-    .btn-pink { display: inline-block; text-decoration: none; font-weight: 700; border-radius: 10px; background: var(--pink); color: #fff; padding: 10px 22px; font-size: 14px; font-family: inherit; border: none; cursor: pointer; transition: background .18s, transform .2s cubic-bezier(.34,1.56,.64,1); }
-    .btn-pink:hover { background: var(--pink-d); transform: translateY(-1px); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all .28s cubic-bezier(.22,1,.36,1); }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: flex; position: fixed; inset: 0; background: #FAF9F7; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity .28s cubic-bezier(.22,1,.36,1); }
-    .mobile-menu.open { opacity: 1; pointer-events: all; }
-    .mobile-menu a { font-size: 24px; font-weight: 800; color: #1a1a1a; text-decoration: none; opacity: 0; transform: translateY(18px); transition: color .15s, opacity .32s cubic-bezier(.22,1,.36,1), transform .32s cubic-bezier(.22,1,.36,1); }
-    .mobile-menu.open a:nth-child(1) { opacity: 1; transform: none; transition-delay: .05s; }
-    .mobile-menu.open a:nth-child(2) { opacity: 1; transform: none; transition-delay: .09s; }
-    .mobile-menu.open a:nth-child(3) { opacity: 1; transform: none; transition-delay: .13s; }
-    .mobile-menu.open a:nth-child(4) { opacity: 1; transform: none; transition-delay: .17s; }
-    .mobile-menu.open a:nth-child(5) { opacity: 1; transform: none; transition-delay: .21s; }
-    .mobile-menu a:hover { color: var(--pink); }
-    @media (min-width: 769px) { .nav-wrapper { transition: padding .35s cubic-bezier(.22,1,.36,1); } .nav-wrapper.scrolled { padding: 6px 20px; } }
-    @media (max-width: 768px) { .nav-links, .btn-pink.nav-cta { display: none !important; } .hamburger { display: flex !important; } .nav-wrapper { padding: 0 !important; } .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,.08) !important; } .nav-logo { height: 90px !important; } .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; } body { padding-top: 72px; } }
-    @media (max-width: 480px) { .nav-logo { height: 75px !important; } .nav-inner { height: 64px !important; } body { padding-top: 64px; } }
-
-    /* HERO */
-    .product-hero { display: grid; grid-template-columns: 55% 45%; min-height: calc(100vh - 92px); }
-    @media (max-width: 960px) { .product-hero { grid-template-columns: 1fr; height: auto; } }
-    .img-panel { position: relative; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .img-panel img { width: 82%; max-width: 480px; object-fit: contain; user-select: none; pointer-events: none; display: block; }
-    .img-panel img.pulse { animation: imgPulse .28s ease; }
-    @keyframes imgPulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.04);} }
-    .size-badge { position: absolute; bottom: 24px; left: 24px; background: rgba(29,29,31,.82); backdrop-filter: blur(12px); color: #fff; border-radius: 12px; padding: 10px 14px; }
-    .size-badge-s { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .06em; }
-    .size-badge-v { font-size: 22px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
-    .size-badge-d { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 2px; }
-    @media (max-width: 960px) { .img-panel { height: 60vw; min-height: 300px; } .img-panel img { width: 84%; height: 84%; } .size-badge { bottom: 14px; left: 14px; padding: 7px 11px; } .size-badge-v { font-size: 17px; } }
-    .config-panel { display: flex; flex-direction: column; justify-content: center; padding: 20px 36px 16px; background: #fff; border-left: 1px solid #f0f0f0; }
-    @media (max-width: 1100px) { .config-panel { padding: 16px 24px 14px; } }
-    @media (max-width: 960px) { .config-panel { padding: 20px; border-left: none; border-top: 1px solid #f0f0f0; } }
-    .breadcrumb { font-size: 12px; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-    .breadcrumb a { color: var(--muted); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--dark); }
-    .breadcrumb span { color: #c7c7cc; }
-    h1.product-title { font-size: clamp(26px, 3vw, 38px); font-weight: 900; letter-spacing: -.03em; color: var(--dark); line-height: 1.05; margin-bottom: 4px; }
-    .product-subtitle { font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
-    .opt-group { margin-bottom: 14px; }
-    .opt-group-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
-    .opt-btns { display: flex; flex-wrap: wrap; gap: 7px; }
-    .opt { padding: 9px 18px; border-radius: 100px; border: 1.5px solid #d2d2d7; background: #fff; font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark); cursor: pointer; transition: border-color .12s, background .12s, color .12s; white-space: nowrap; }
-    .opt:hover { border-color: #8e8e93; }
-    .opt.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-    .dim-hint { font-size: 11px; color: var(--pink); font-weight: 700; margin-top: 4px; }
-    .price-row { display: flex; align-items: baseline; gap: 8px; margin: 10px 0 2px; flex-wrap: wrap; }
-    .price-total { font-size: clamp(22px, 2.5vw, 30px); font-weight: 900; color: var(--dark); letter-spacing: -.03em; }
-    .price-per { font-size: 13px; color: var(--pink); font-weight: 700; }
-    .price-vat { font-size: 11px; color: #aeaeb2; margin-bottom: 10px; }
-    .btn-wa { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; background: #25D366; color: #fff; border: none; border-radius: 12px; padding: 13px 20px; font-family: inherit; font-size: 14px; font-weight: 800; cursor: pointer; text-decoration: none; transition: opacity .15s, transform .15s; margin-bottom: 7px; }
-    .btn-wa:hover { opacity: .88; transform: scale(1.01); }
-    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-    .btn-sec { display: flex; align-items: center; justify-content: center; gap: 6px; background: #fff; border-radius: 12px; padding: 10px 16px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .15s, color .15s; }
-    .btn-phone { border: 2px solid var(--dark); color: var(--dark); }
-    .btn-phone:hover { background: var(--dark); color: #fff; }
-    .btn-email { border: 2px solid var(--pink); color: var(--pink); }
-    .btn-email:hover { background: var(--pink); color: #fff; }
-
-    /* DELIVERY STRIP */
-    .delivery-strip { background: var(--card); border-bottom: 1px solid #E8E3DA; display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; }
-    .delivery-item { display: flex; flex-direction: column; justify-content: center; padding: 12px 28px; border-right: 1px solid #E8E3DA; }
-    .delivery-item:last-child { border-right: none; }
-    @media (max-width: 640px) { .delivery-item { border-right: none; border-bottom: 1px solid #E8E3DA; padding: 10px 20px; } .delivery-item:last-child { border-bottom: none; } }
-    .delivery-label { font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
-    .delivery-value { font-size: 13px; font-weight: 800; color: var(--dark); }
-
-    /* SERVICE */
-    .service-section { background: #fff; padding: 80px 24px; }
-    .service-inner { max-width: 1000px; margin: 0 auto; }
-    .section-eyebrow { font-size: 11px; font-weight: 700; color: var(--pink); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-    .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 900; color: var(--dark); letter-spacing: -.025em; line-height: 1.1; margin-bottom: 12px; }
-    .section-sub { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.65; margin-bottom: 52px; }
-    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    @media (max-width: 700px) { .service-grid { grid-template-columns: 1fr; gap: 16px; } }
-    .service-card { background: var(--bg); border-radius: 20px; padding: 28px 24px; }
-    .service-card-title { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
-    .service-card-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-    .service-card-tag { display: inline-flex; align-items: center; background: #e8f5e9; color: #2e7d32; border-radius: 100px; padding: 4px 12px; font-size: 11px; font-weight: 700; margin-top: 12px; }
-
-    /* SPECS */
-    .specs-section { background: #fff; padding: 80px 24px; }
-    .specs-inner { max-width: 900px; margin: 0 auto; }
-    .specs-header { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
-    .specs-pink-bar { width: 4px; height: 32px; background: var(--pink); border-radius: 4px; flex-shrink: 0; }
-    .specs-title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--dark); letter-spacing: -.025em; }
-    .specs-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; margin-left: 18px; }
-    .specs-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .specs-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 16px; overflow: hidden; min-width: 640px; box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05); }
-    .specs-table thead tr { background: var(--dark); color: #fff; }
-    .specs-table th { padding: 13px 14px; font-size: 12px; font-weight: 600; text-align: center; letter-spacing: .02em; }
-    .specs-table th:first-child { text-align: left; }
-    .specs-table td { padding: 11px 14px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 13px; color: #3a3a3a; }
-    .specs-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); white-space: nowrap; }
-    .specs-table tr:last-child td { border-bottom: none; }
-    .specs-table tr:nth-child(even) td { background: #fafafa; }
-    .specs-footnote { font-size: 12px; color: var(--muted); margin-top: 14px; }
-    .specs-table-label { font-size: 13px; font-weight: 800; color: var(--dark); margin: 0 0 10px; }
-    .specs-wrap + .specs-table-label { margin-top: 28px; }
-    .specs-table-details { min-width: 0; }
-    .specs-table-details td { text-align: left; }
-    .specs-table-details td:first-child { white-space: normal; width: 42%; }
-
-    /* SEO */
-    .seo-section { background: var(--bg); padding: 80px 24px; }
-    .seo-inner { max-width: 860px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif; }
-    .seo-inner h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--dark); letter-spacing: -.02em; margin-bottom: 10px; }
-    .seo-inner h3 { font-size: 17px; font-weight: 600; color: var(--pink); margin: 32px 0 8px; letter-spacing: -.01em; }
-    .seo-inner p { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 16px; }
-    .seo-inner ul { padding-left: 20px; margin-bottom: 16px; }
-    .seo-inner ul li { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 4px; }
-    .seo-lead { font-size: 17px !important; color: var(--dark) !important; font-weight: 600 !important; }
-
-    /* CONTACT */
-    .contact { background: var(--dark); padding: 80px 24px 100px; text-align: center; }
-    .contact-title { font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -.025em; margin-bottom: 10px; }
-    .contact-sub { color: rgba(255,255,255,.55); font-size: 17px; margin-bottom: 40px; line-height: 1.6; max-width: 520px; margin-left: auto; margin-right: auto; }
-    .contact-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .cbtn-wa { display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff; border-radius: 100px; padding: 15px 30px; font-size: 16px; font-weight: 800; text-decoration: none; transition: opacity .15s; }
-    .cbtn-wa:hover { opacity: .88; }
-    .cbtn { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); color: #fff; border-radius: 100px; padding: 15px 26px; font-size: 15px; font-weight: 700; text-decoration: none; transition: background .15s; }
-    .cbtn:hover { background: rgba(255,255,255,.18); }
-
-    footer { background: var(--card); padding: 36px 24px; text-align: center; border-top: 1px solid #E8E3DA; }
-    footer img { height: 52px; margin-bottom: 12px; opacity: .45; }
-    .foot-links { display: flex; justify-content: center; gap: 18px; margin-bottom: 10px; }
-    .foot-links a { color: var(--muted); font-size: 12px; text-decoration: none; }
-    .foot-links a:hover { color: var(--dark); }
-    footer p { color: #aeaeb2; font-size: 11px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/pf.css">
+  <script>document.documentElement.classList.add('pf-js');</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -180,15 +33,13 @@
 }
   </script>
 </head>
-<body>
+<body class="pf-page">
+<!-- Erzeugt von tools/build_site.js aus data/products.json und content/produkte/clear-cups.html. Nicht von Hand ändern. -->
 
-<!-- NAV -->
 <div class="nav-wrapper" id="navWrapper">
-  <nav>
+  <nav aria-label="Hauptnavigation">
     <div class="nav-inner">
-      <a href="/" style="display:flex;align-items:center;flex-shrink:0;">
-        <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo">
-      </a>
+      <a href="/" class="nav-home"><img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo" width="900" height="637"></a>
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
@@ -197,8 +48,8 @@
         <a href="/#kontakt">Kontakt</a>
       </div>
       <div class="nav-right">
-        <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
+        <a href="/#produkte" class="pf-btn pf-btn-primary pf-btn-sm nav-cta">Jetzt bestellen</a>
+        <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Men&uuml;" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -209,275 +60,193 @@
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
-  <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
 
-<!-- PRODUCT HERO -->
-<section class="product-hero">
-  <div class="img-panel">
-    <img id="product-img" src="/Bilder/web/clear-cups-960.webp" srcset="/Bilder/web/clear-cups-480.webp 480w, /Bilder/web/clear-cups-960.webp 960w" sizes="(max-width: 960px) 84vw, 480px" fetchpriority="high" alt="Clear Cups transparent, individuell bedruckt mit Logo">
-    <div class="size-badge">
-      <div class="size-badge-s">Gr&ouml;&szlig;e</div>
-      <div class="size-badge-v" id="badge-size">300 ml</div>
-      <div class="size-badge-d" id="badge-lid">Ohne Deckel</div>
+<main>
+<section class="pf-buy" aria-label="Produkt konfigurieren">
+  <div class="pf-gallery">
+    <div class="pf-shot">
+      <img id="product-img" src="/Bilder/web/clear-cups-960.webp" srcset="/Bilder/web/clear-cups-480.webp 480w, /Bilder/web/clear-cups-960.webp 960w" sizes="(max-width: 980px) 90vw, 560px" alt="Clear Cups mit Logo bedruckt" width="960" height="960" fetchpriority="high">
     </div>
   </div>
 
-  <div class="config-panel">
-    <div class="breadcrumb">
-      <a href="/">PackFactory</a><span>&rsaquo;</span>
-      <a href="/#produkte">Produkte</a><span>&rsaquo;</span>
-      Clear Cups
-    </div>
+  <div class="pf-panel config-panel">
+    <nav class="pf-crumbs" aria-label="Brotkrumen"><a href="/">PackFactory</a><span aria-hidden="true">›</span><a href="/#produkte">Produkte</a><span aria-hidden="true">›</span><span>Clear Cups</span></nav>
+    <h1 class="pf-title">Clear Cups</h1>
+    <p class="pf-sub">Transparente Becher aus PET oder R-PET — für Eiskaffee, Smoothies &amp; Kaltgetränke</p>
+    <p class="pf-from">ab 13,50 ct pro Stück · mit deinem Logo</p>
 
-    <h1 class="product-title">Clear Cups</h1>
-    <p class="product-subtitle">Transparente Becher aus PET oder R-PET &mdash; f&uuml;r Eiskaffee, Smoothies &amp; Kaltgetr&auml;nke</p>
-
-    <!-- Groesse -->
-    <div class="opt-group">
-      <div class="opt-group-label">Gr&ouml;&szlig;e</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('groesse','300',this)">300 ml</button>
-        <button class="opt" onclick="selectOpt('groesse','400',this)">400 ml</button>
-        <button class="opt" onclick="selectOpt('groesse','500',this)">500 ml</button>
+    <div class="pf-group" data-group="groesse">
+      <div class="pf-label" id="pf-l-groesse">Größe</div>
+      <div class="opt-btns pf-chips" role="group" aria-labelledby="pf-l-groesse">
+        <button type="button" class="pf-opt active" aria-pressed="true" data-key="groesse" data-id="300"><b>300 ml</b></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="groesse" data-id="400"><b>400 ml</b></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="groesse" data-id="500"><b>500 ml</b></button>
       </div>
+      <div class="pf-hints" data-hints="groesse" aria-live="polite"></div>
     </div>
-
-    <!-- Deckel -->
-    <div class="opt-group">
-      <div class="opt-group-label">Deckel</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('deckel','ohne',this)">Ohne Deckel</button>
-        <button class="opt" onclick="selectOpt('deckel','mit',this)">Mit Deckel</button>
+    <div class="pf-group" data-group="deckel">
+      <div class="pf-label" id="pf-l-deckel">Deckel</div>
+      <div class="opt-btns pf-chips" role="group" aria-labelledby="pf-l-deckel">
+        <button type="button" class="pf-opt active" aria-pressed="true" data-key="deckel" data-id="ohne"><b>Ohne Deckel</b></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="deckel" data-id="mit"><b>Mit Deckel</b></button>
       </div>
+      <div class="pf-hints" data-hints="deckel" aria-live="polite"></div>
     </div>
-
-    <!-- Menge -->
-    <div class="opt-group">
-      <div class="opt-group-label">Menge</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('menge',1600,this)">1.600 St&uuml;ck</button>
-        <button class="opt" onclick="selectOpt('menge',3200,this)">3.200 St&uuml;ck</button>
-        <button class="opt" onclick="selectOpt('menge',4800,this)">4.800 St&uuml;ck</button>
-        <button class="opt" onclick="selectOpt('menge',10000,this)">10.000 St&uuml;ck</button>
-        <button class="opt" onclick="selectOpt('menge',20000,this)">20.000 St&uuml;ck</button>
+    <div class="pf-group" data-group="menge">
+      <div class="pf-label" id="pf-l-menge">Menge<span class="pf-aside">Je mehr, desto günstiger</span></div>
+      <div class="opt-btns pf-tiers" role="group" aria-labelledby="pf-l-menge">
+        <button type="button" class="pf-opt pf-tier active" aria-pressed="true" data-key="menge" data-id="1600"><b data-qty>1.600 Stück</b><span><span data-unit>26,90 ct</span><em data-pct hidden>−0 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="menge" data-id="3200"><i class="pf-tip">Unser Tipp</i><b data-qty>3.200 Stück</b><span><span data-unit>20,90 ct</span><em data-pct>−22 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="menge" data-id="4800"><b data-qty>4.800 Stück</b><span><span data-unit>18,90 ct</span><em data-pct>−30 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="menge" data-id="10000"><b data-qty>10.000 Stück</b><span><span data-unit>15,50 ct</span><em data-pct>−42 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="menge" data-id="20000"><b data-qty>20.000 Stück</b><span><span data-unit>13,50 ct</span><em data-pct>−50 %</em></span></button>
       </div>
-      <div class="dim-hint" id="print-hint">Tampondruck &middot; einseitig, max. 45 &times; 45 mm</div>
+      <div class="pf-hints" data-hints="menge" aria-live="polite"><p class="pf-hint">Tampondruck · einseitig, max. 45 × 45 mm</p></div>
     </div>
 
-    <!-- Price -->
-    <div class="price-row">
-      <span class="price-total" id="price-display">EUR 430,40</span>
-      <span class="price-per" id="price-per">0,269 &euro; / St&uuml;ck</span>
-    </div>
-    <p class="price-vat">Zzgl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
-
-    <button type="button" class="pf-cart-add" onclick="addCurrentToCart()">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      In den Warenkorb
-    </button>
-    <a id="wa-link" href="https://wa.me/491776990017" target="_blank" class="btn-wa">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Angebot via WhatsApp anfragen
-    </a>
-    <div class="btn-row">
-      <a href="tel:+491776990017" class="btn-sec btn-phone">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        Anrufen
-      </a>
-      <a id="email-link" href="mailto:info@pack-factory.de" class="btn-sec btn-email">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        E-Mail
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- DELIVERY STRIP -->
-<div class="delivery-strip">
-  <div class="delivery-item">
-    <div class="delivery-label">Lieferzeit</div>
-    <div class="delivery-value">ca. 5&ndash;7 Wochen nach Druckfreigabe</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Produktion</div>
-    <div class="delivery-value">Erst nach deiner Freigabe</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Designservice</div>
-    <div class="delivery-value">Kostenlos inklusive</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Material</div>
-    <div class="delivery-value">PET oder R-PET</div>
-  </div>
-</div>
-
-<!-- SERVICE -->
-<section class="service-section">
-  <div class="service-inner">
-    <p class="section-eyebrow">Dein Verpackungspartner</p>
-    <h2 class="section-title">Wir k&uuml;mmern uns um alles.</h2>
-    <p class="section-sub">Von der Designidee bis zur Lieferung &uuml;bernehmen wir jeden Schritt &mdash; inkl. individuellem Logo-Druck und kostenlosem Designservice.</p>
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="service-card-title">3 Gr&ouml;&szlig;en, Deckel optional</div>
-        <div class="service-card-desc">Transparente Clear Cups in 300, 400 und 500 ml &mdash; ideal f&uuml;r Eiskaffee, Iced Latte, Smoothies und S&auml;fte. Passende Deckel kannst du optional dazu bestellen.</div>
-        <span class="service-card-tag">300 ml &middot; 400 ml &middot; 500 ml</span>
-      </div>
-      <div class="service-card">
-        <div class="service-card-title">Tampon- oder Rundumdruck</div>
-        <div class="service-card-desc">Von 1.600 bis 4.800 St&uuml;ck einseitiger Tampondruck (max. 45 &times; 45 mm). Ab 10.000 St&uuml;ck gro&szlig;fl&auml;chiger Rundumdruck mit bis zu 2 Farben, bei 20.000 St&uuml;ck mit bis zu 3 Farben.</div>
-        <span class="service-card-tag">Ab 1.600 St&uuml;ck</span>
-      </div>
-      <div class="service-card">
-        <div class="service-card-title">Design &amp; Druckfreigabe</div>
-        <div class="service-card-desc">Kein eigenes Design n&ouml;tig. Wir erstellen einen individuellen Entwurf und stellen dir vor Produktionsbeginn eine Druckfreigabe bereit &mdash; produziert wird erst nach deiner Freigabe.</div>
-        <span class="service-card-tag">Kostenlos inklusive</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SPECS -->
-<section class="specs-section">
-  <div class="specs-inner">
-    <div class="specs-header">
-      <div class="specs-pink-bar"></div>
-      <h2 class="specs-title">Preise im &Uuml;berblick</h2>
-    </div>
-    <p class="specs-sub">St&uuml;ckpreise netto zzgl. MwSt. &middot; inkl. individuellem Druck</p>
-
-    <h3 class="specs-table-label">Ohne Deckel</h3>
-    <div class="specs-wrap">
-      <table class="specs-table">
-        <thead>
-          <tr>
-            <th>Menge</th>
-            <th>Druck</th>
-            <th>300 ml</th>
-            <th>400 ml</th>
-            <th>500 ml</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1.600 St.</td><td>Tampondruck, einseitig</td><td>0,269 &euro;</td><td>0,273 &euro;</td><td>0,279 &euro;</td></tr>
-          <tr><td>3.200 St.</td><td>Tampondruck, einseitig</td><td>0,209 &euro;</td><td>0,213 &euro;</td><td>0,219 &euro;</td></tr>
-          <tr><td>4.800 St.</td><td>Tampondruck, einseitig</td><td>0,189 &euro;</td><td>0,193 &euro;</td><td>0,199 &euro;</td></tr>
-          <tr><td>10.000 St.</td><td>Rundumdruck, bis 2 Farben</td><td>0,155 &euro;</td><td>0,174 &euro;</td><td>0,179 &euro;</td></tr>
-          <tr><td>20.000 St.</td><td>Rundumdruck, bis 3 Farben</td><td>0,135 &euro;</td><td>0,155 &euro;</td><td>0,159 &euro;</td></tr>
-        </tbody>
-      </table>
+    <div class="pf-sum" aria-live="polite">
+      <span class="pf-total" id="price-display">430,40 €</span>
+      <span class="pf-per" id="price-per">26,90 ct pro Stück</span>
+      <span class="pf-saved" id="pf-saved"></span>
+      <span class="pf-vat">Netto zzgl. MwSt. · inkl. individuellem Druck &amp; Design</span>
     </div>
 
-    <h3 class="specs-table-label">Mit Deckel</h3>
-    <div class="specs-wrap">
-      <table class="specs-table">
-        <thead>
-          <tr>
-            <th>Menge</th>
-            <th>Druck</th>
-            <th>300 ml</th>
-            <th>400 ml</th>
-            <th>500 ml</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1.600 St.</td><td>Tampondruck, einseitig</td><td>0,313 &euro;</td><td>0,317 &euro;</td><td>0,323 &euro;</td></tr>
-          <tr><td>3.200 St.</td><td>Tampondruck, einseitig</td><td>0,253 &euro;</td><td>0,257 &euro;</td><td>0,263 &euro;</td></tr>
-          <tr><td>4.800 St.</td><td>Tampondruck, einseitig</td><td>0,233 &euro;</td><td>0,237 &euro;</td><td>0,243 &euro;</td></tr>
-          <tr><td>10.000 St.</td><td>Rundumdruck, bis 2 Farben</td><td>0,181 &euro;</td><td>0,200 &euro;</td><td>0,205 &euro;</td></tr>
-          <tr><td>20.000 St.</td><td>Rundumdruck, bis 3 Farben</td><td>0,161 &euro;</td><td>0,181 &euro;</td><td>0,185 &euro;</td></tr>
-        </tbody>
-      </table>
+    <div class="pf-ctas" id="pf-ctas">
+      <button type="button" class="pf-btn pf-btn-primary" id="pf-add" onclick="addCurrentToCart()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>In den Warenkorb</button>
+      <a id="wa-link" class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Clear%20Cups%20(Gr%C3%B6%C3%9Fe%3A%20300%20ml%2C%20Deckel%3A%20Ohne%20Deckel%2C%201.600%20St%C3%BCck%2C%2026%2C90%20ct%20pro%20St%C3%BCck%20netto%2C%20gesamt%20430%2C40%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Direkt per WhatsApp anfragen</a>
     </div>
-    <p class="specs-footnote">* Mindestbestellmenge 1.600 St&uuml;ck &middot; 800 St&uuml;ck pro Karton &middot; alle Preise netto pro St&uuml;ck zzgl. MwSt.</p>
-  </div>
-</section>
+    <p class="pf-contact-line"><a href="tel:+491776990017">Anrufen: 0177 6990017</a><span aria-hidden="true">·</span><a id="email-link" href="mailto:info@pack-factory.de?subject=Anfrage%20Clear%20Cups&amp;body=Gr%C3%B6%C3%9Fe%3A%20300%20ml%0ADeckel%3A%20Ohne%20Deckel%0A1.600%20St%C3%BCck%0ASt%C3%BCckpreis%3A%2026%2C90%20ct%20pro%20St%C3%BCck%20netto%0AGesamtpreis%3A%20430%2C40%20%E2%82%AC%20netto">E-Mail schreiben</a></p>
 
-<!-- DETAILS -->
-<section class="specs-section" style="padding-top:0;">
-  <div class="specs-inner">
-    <div class="specs-header">
-      <div class="specs-pink-bar"></div>
-      <h2 class="specs-title">Produktdetails</h2>
-    </div>
-    <p class="specs-sub">Clear Cups</p>
-    <div class="specs-wrap">
-      <table class="specs-table specs-table-details">
-        <thead>
-          <tr><th>Eigenschaft</th><th>Angabe</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Material</td><td>PET oder R-PET</td></tr>
-          <tr><td>PLA</td><td>Nein</td></tr>
-          <tr><td>Farbe</td><td>Transparent</td></tr>
-          <tr><td>Verwendung</td><td>Kaltgetr&auml;nke</td></tr>
-          <tr><td>Gr&ouml;&szlig;en</td><td>300 ml, 400 ml, 500 ml</td></tr>
-          <tr><td>Mindestbestellmenge</td><td>1.600 St&uuml;ck</td></tr>
-          <tr><td>St&uuml;ck pro Karton</td><td>800 St&uuml;ck</td></tr>
-          <tr><td>Druckfarben</td><td>1 bis 3 Farben, abh&auml;ngig von der Bestellmenge</td></tr>
-          <tr><td>Druck bei 1.600&ndash;4.800 St&uuml;ck</td><td>Tampondruck, einseitig, maximal 45 &times; 45 mm</td></tr>
-          <tr><td>Druck ab 10.000 St&uuml;ck</td><td>Gro&szlig;fl&auml;chiger Rundumdruck</td></tr>
-          <tr><td>Druckfarben bei 10.000 St&uuml;ck</td><td>Bis zu 2 Farben</td></tr>
-          <tr><td>Druckfarben bei 20.000 St&uuml;ck</td><td>Bis zu 3 Farben</td></tr>
-          <tr><td>Deckel</td><td>Optional ausw&auml;hlbar</td></tr>
-          <tr><td>Designservice</td><td>Kostenlos</td></tr>
-          <tr><td>Produktionsbeginn</td><td>Nach Druckfreigabe</td></tr>
-          <tr><td>Lieferzeit</td><td>Ca. 5&ndash;7 Wochen</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- SEO -->
-<section class="seo-section">
-  <div class="seo-inner">
-    <h2>Individuell bedruckte Clear Cups f&uuml;r deine Marke</h2>
-    <p class="seo-lead">Unsere transparenten Clear Cups aus PET oder R-PET eignen sich ideal f&uuml;r Eiskaffee, Iced Latte, Smoothies, S&auml;fte und andere Kaltgetr&auml;nke.</p>
-    <p>Mit deinem individuellen Logo werden die Becher zum perfekten Markenauftritt f&uuml;r Caf&eacute;s, Restaurants, Bars und Take-away-Konzepte.</p>
-    <p>Bereits ab 1.600 St&uuml;ck bieten wir individuell bedruckte Clear Cups an. Bei kleineren Bestellmengen erfolgt der Druck einseitig, ab 10.000 St&uuml;ck ist auch ein gro&szlig;fl&auml;chiger Rundumdruck m&ouml;glich.</p>
-    <p>Passende Deckel k&ouml;nnen optional dazu bestellt werden.</p>
-
-    <h3>Einseitiger Tampondruck oder Rundumdruck?</h3>
-    <ul>
-      <li><strong>1.600 bis 4.800 St&uuml;ck</strong> &mdash; Tampondruck, einseitig, Druckfl&auml;che maximal 45 &times; 45 mm</li>
-      <li><strong>10.000 St&uuml;ck</strong> &mdash; gro&szlig;fl&auml;chiger Rundumdruck mit bis zu 2 Farben</li>
-      <li><strong>20.000 St&uuml;ck</strong> &mdash; gro&szlig;fl&auml;chiger Rundumdruck mit bis zu 3 Farben</li>
-    </ul>
-
-    <h3>Kostenloses Design &amp; Druckfreigabe</h3>
-    <p>Dein Design ist bei uns kostenlos. Wir erstellen einen individuellen Entwurf und stellen vor Produktionsbeginn eine Druckfreigabe bereit. Erst nach deiner Freigabe beginnt die Produktion.</p>
-    <p>Die Lieferzeit betr&auml;gt ca. 5&ndash;7 Wochen nach Druckfreigabe.</p>
-
-    <h3>Warum PackFactory?</h3>
-    <ul>
-      <li><strong>3 Gr&ouml;&szlig;en</strong> &mdash; 300 ml, 400 ml, 500 ml</li>
-      <li><strong>Mit oder ohne Deckel</strong> &mdash; Deckel optional ausw&auml;hlbar</li>
-      <li><strong>5 Mengenstufen</strong> &mdash; 1.600 / 3.200 / 4.800 / 10.000 / 20.000 St&uuml;ck</li>
-      <li><strong>Kostenloser Designservice</strong> &mdash; wir gestalten, du gibst frei</li>
-      <li><strong>Lieferzeit ca. 5&ndash;7 Wochen</strong> &mdash; nach Druckfreigabe</li>
+    <ul class="pf-assure">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lieferzeit</b> ca. 5–7 Wochen nach Druckfreigabe</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Produktion</b> Erst nach deiner Freigabe</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Designservice</b> Kostenlos inklusive</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Material</b> PET oder R-PET</span></li>
     </ul>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact">
-  <h2 class="contact-title">Bereit loszulegen?</h2>
-  <p class="contact-sub">Frag jetzt an &mdash; wir antworten innerhalb von 24 Stunden.</p>
-  <div class="contact-btns">
-    <a href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20Clear%20Cups%20anfragen." target="_blank" class="cbtn-wa">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
-    <a href="tel:+491776990017" class="cbtn">Anrufen</a>
-    <a href="mailto:info@pack-factory.de" class="cbtn">E-Mail</a>
+<section class="pf-section pf-related" aria-labelledby="pf-related-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-related-h">Passt zu Clear Cups. <span>Alles im selben Look bestellen.</span></h2>
+    <div class="pf-rail">
+      <a class="pf-card" href="/produkte/bubble-tea-cups/"><span class="pf-card-img"><img src="/Bilder/web/bubble-tea-cups-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Bubble Tea Cups</b><span>ab 17,30 ct</span></a>
+      <a class="pf-card" href="/produkte/servietten/"><span class="pf-card-img"><img src="/Bilder/web/servietten-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Servietten mit Logo</b><span>ab 1,95 ct</span></a>
+      <a class="pf-card" href="/produkte/tueten/"><span class="pf-card-img"><img src="/Bilder/web/papiertueten-shop-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Papiertüten</b><span>ab 12,00 ct</span></a>
+    </div>
   </div>
 </section>
 
-<footer>
-  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory">
+<section class="pf-section pf-service">
+  <div class="pf-wrap">
+    <h2 class="pf-h2">Wir kümmern uns um alles. <span>Von der Idee bis zur Lieferung.</span></h2>
+    <div class="pf-bento">
+      <div class="service-card">
+<div class="service-card-title">3 Größen, Deckel optional</div>
+<div class="service-card-desc">Transparente Clear Cups in 300, 400 und 500 ml — ideal für Eiskaffee, Iced Latte, Smoothies und Säfte. Passende Deckel kannst du optional dazu bestellen.</div>
+<span class="service-card-tag">300 ml · 400 ml · 500 ml</span>
+</div>
+<div class="service-card">
+<div class="service-card-title">Tampon- oder Rundumdruck</div>
+<div class="service-card-desc">Von 1.600 bis 4.800 Stück einseitiger Tampondruck (max. 45 × 45 mm). Ab 10.000 Stück großflächiger Rundumdruck mit bis zu 2 Farben, bei 20.000 Stück mit bis zu 3 Farben.</div>
+<span class="service-card-tag">Ab 1.600 Stück</span>
+</div>
+<div class="service-card">
+<div class="service-card-title">Design &amp; Druckfreigabe</div>
+<div class="service-card-desc">Kein eigenes Design nötig. Wir erstellen einen individuellen Entwurf und stellen dir vor Produktionsbeginn eine Druckfreigabe bereit — produziert wird erst nach deiner Freigabe.</div>
+<span class="service-card-tag">Kostenlos inklusive</span>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="pf-section pf-details" aria-label="Details">
+  <div class="pf-wrap pf-narrow">
+      <details class="pf-acc" open><summary>Preise im Überblick</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table pf-price-table"><thead><tr><th scope="col">Größe</th><th scope="col">Deckel</th><th scope="col">1.600 Stück</th><th scope="col">3.200 Stück</th><th scope="col">4.800 Stück</th><th scope="col">10.000 Stück</th><th scope="col">20.000 Stück</th></tr></thead><tbody>
+<tr><th scope="row">300 ml</th><th scope="row">Ohne Deckel</th><td><b>26,90 ct</b><small>430,40 €</small></td><td><b>20,90 ct</b><small>668,80 €</small></td><td><b>18,90 ct</b><small>907,20 €</small></td><td><b>15,50 ct</b><small>1.550,00 €</small></td><td><b>13,50 ct</b><small>2.700,00 €</small></td></tr>
+<tr><th scope="row">300 ml</th><th scope="row">Mit Deckel</th><td><b>31,30 ct</b><small>500,80 €</small></td><td><b>25,30 ct</b><small>809,60 €</small></td><td><b>23,30 ct</b><small>1.118,40 €</small></td><td><b>18,10 ct</b><small>1.810,00 €</small></td><td><b>16,10 ct</b><small>3.220,00 €</small></td></tr>
+<tr><th scope="row">400 ml</th><th scope="row">Ohne Deckel</th><td><b>27,30 ct</b><small>436,80 €</small></td><td><b>21,30 ct</b><small>681,60 €</small></td><td><b>19,30 ct</b><small>926,40 €</small></td><td><b>17,40 ct</b><small>1.740,00 €</small></td><td><b>15,50 ct</b><small>3.100,00 €</small></td></tr>
+<tr><th scope="row">400 ml</th><th scope="row">Mit Deckel</th><td><b>31,70 ct</b><small>507,20 €</small></td><td><b>25,70 ct</b><small>822,40 €</small></td><td><b>23,70 ct</b><small>1.137,60 €</small></td><td><b>20,00 ct</b><small>2.000,00 €</small></td><td><b>18,10 ct</b><small>3.620,00 €</small></td></tr>
+<tr><th scope="row">500 ml</th><th scope="row">Ohne Deckel</th><td><b>27,90 ct</b><small>446,40 €</small></td><td><b>21,90 ct</b><small>700,80 €</small></td><td><b>19,90 ct</b><small>955,20 €</small></td><td><b>17,90 ct</b><small>1.790,00 €</small></td><td><b>15,90 ct</b><small>3.180,00 €</small></td></tr>
+<tr><th scope="row">500 ml</th><th scope="row">Mit Deckel</th><td><b>32,30 ct</b><small>516,80 €</small></td><td><b>26,30 ct</b><small>841,60 €</small></td><td><b>24,30 ct</b><small>1.166,40 €</small></td><td><b>20,50 ct</b><small>2.050,00 €</small></td><td><b>18,50 ct</b><small>3.700,00 €</small></td></tr>
+</tbody></table></div>
+<p class="pf-small">Stückpreis und Gesamtpreis, netto zzgl. MwSt., inkl. individuellem Druck &amp; Design.</p></div></details>
+      <details class="pf-acc"><summary>Technische Daten</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table">
+<thead>
+<tr><th>Eigenschaft</th><th>Angabe</th></tr>
+</thead>
+<tbody>
+<tr><td>Material</td><td>PET oder R-PET</td></tr>
+<tr><td>PLA</td><td>Nein</td></tr>
+<tr><td>Farbe</td><td>Transparent</td></tr>
+<tr><td>Verwendung</td><td>Kaltgetränke</td></tr>
+<tr><td>Größen</td><td>300 ml, 400 ml, 500 ml</td></tr>
+<tr><td>Mindestbestellmenge</td><td>1.600 Stück</td></tr>
+<tr><td>Stück pro Karton</td><td>800 Stück</td></tr>
+<tr><td>Druckfarben</td><td>1 bis 3 Farben, abhängig von der Bestellmenge</td></tr>
+<tr><td>Druck bei 1.600–4.800 Stück</td><td>Tampondruck, einseitig, maximal 45 × 45 mm</td></tr>
+<tr><td>Druck ab 10.000 Stück</td><td>Großflächiger Rundumdruck</td></tr>
+<tr><td>Druckfarben bei 10.000 Stück</td><td>Bis zu 2 Farben</td></tr>
+<tr><td>Druckfarben bei 20.000 Stück</td><td>Bis zu 3 Farben</td></tr>
+<tr><td>Deckel</td><td>Optional auswählbar</td></tr>
+<tr><td>Designservice</td><td>Kostenlos</td></tr>
+<tr><td>Produktionsbeginn</td><td>Nach Druckfreigabe</td></tr>
+<tr><td>Lieferzeit</td><td>Ca. 5–7 Wochen</td></tr>
+</tbody>
+</table></div><div class="pf-small"><p>* Mindestbestellmenge 1.600 Stück · 800 Stück pro Karton · alle Preise netto pro Stück zzgl. MwSt.</p></div></div></details>
+  </div>
+</section>
+
+<section class="pf-section pf-story">
+  <div class="pf-wrap pf-narrow pf-prose">
+    <h2>Individuell bedruckte Clear Cups für deine Marke</h2>
+<p class="seo-lead">Unsere transparenten Clear Cups aus PET oder R-PET eignen sich ideal für Eiskaffee, Iced Latte, Smoothies, Säfte und andere Kaltgetränke.</p>
+<p>Mit deinem individuellen Logo werden die Becher zum perfekten Markenauftritt für Cafés, Restaurants, Bars und Take-away-Konzepte.</p>
+<p>Bereits ab 1.600 Stück bieten wir individuell bedruckte Clear Cups an. Bei kleineren Bestellmengen erfolgt der Druck einseitig, ab 10.000 Stück ist auch ein großflächiger Rundumdruck möglich.</p>
+<p>Passende Deckel können optional dazu bestellt werden.</p>
+<h3>Einseitiger Tampondruck oder Rundumdruck?</h3>
+<ul>
+<li><strong>1.600 bis 4.800 Stück</strong> — Tampondruck, einseitig, Druckfläche maximal 45 × 45 mm</li>
+<li><strong>10.000 Stück</strong> — großflächiger Rundumdruck mit bis zu 2 Farben</li>
+<li><strong>20.000 Stück</strong> — großflächiger Rundumdruck mit bis zu 3 Farben</li>
+</ul>
+<h3>Kostenloses Design &amp; Druckfreigabe</h3>
+<p>Dein Design ist bei uns kostenlos. Wir erstellen einen individuellen Entwurf und stellen vor Produktionsbeginn eine Druckfreigabe bereit. Erst nach deiner Freigabe beginnt die Produktion.</p>
+<p>Die Lieferzeit beträgt ca. 5–7 Wochen nach Druckfreigabe.</p>
+<h3>Warum PackFactory?</h3>
+<ul>
+<li><strong>3 Größen</strong> — 300 ml, 400 ml, 500 ml</li>
+<li><strong>Mit oder ohne Deckel</strong> — Deckel optional auswählbar</li>
+<li><strong>5 Mengenstufen</strong> — 1.600 / 3.200 / 4.800 / 10.000 / 20.000 Stück</li>
+<li><strong>Kostenloser Designservice</strong> — wir gestalten, du gibst frei</li>
+<li><strong>Lieferzeit ca. 5–7 Wochen</strong> — nach Druckfreigabe</li>
+</ul>
+  </div>
+</section>
+
+<section class="pf-section pf-recent" id="pf-recent" hidden aria-labelledby="pf-recent-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-recent-h">Zuletzt angesehen.</h2>
+    <div class="pf-rail" id="pf-recent-list"></div>
+  </div>
+</section>
+
+<section class="pf-cta-band">
+  <div class="pf-wrap">
+    <h2>Bereit für deine eigene Verpackung?</h2>
+    <p>Frag jetzt an. Wir antworten innerhalb von 24 Stunden und gestalten deinen Entwurf kostenlos.</p>
+    <div class="pf-cta-row">
+      <a class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20Clear%20Cups%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+      <a class="pf-btn pf-btn-ghost" href="tel:+491776990017">Anrufen</a>
+      <a class="pf-btn pf-btn-ghost" href="mailto:info@pack-factory.de">E-Mail</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pf-footer">
+  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" width="900" height="637" loading="lazy">
   <div class="foot-links">
     <a href="/impressum/">Impressum</a>
     <a href="/datenschutz/">Datenschutz</a>
@@ -486,84 +255,18 @@
   <p>2025 PackFactory. Alle Rechte vorbehalten.</p>
 </footer>
 
-<script>
-  // Stueckpreise netto: PRICES[deckel][menge][groesse]
-  var PRICES = {
-    ohne: {
-      1600:  { '300': 0.269, '400': 0.273, '500': 0.279 },
-      3200:  { '300': 0.209, '400': 0.213, '500': 0.219 },
-      4800:  { '300': 0.189, '400': 0.193, '500': 0.199 },
-      10000: { '300': 0.155, '400': 0.174, '500': 0.179 },
-      20000: { '300': 0.135, '400': 0.155, '500': 0.159 }
-    },
-    mit: {
-      1600:  { '300': 0.313, '400': 0.317, '500': 0.323 },
-      3200:  { '300': 0.253, '400': 0.257, '500': 0.263 },
-      4800:  { '300': 0.233, '400': 0.237, '500': 0.243 },
-      10000: { '300': 0.181, '400': 0.200, '500': 0.205 },
-      20000: { '300': 0.161, '400': 0.181, '500': 0.185 }
-    }
-  };
+<div class="pf-sticky" id="pf-sticky" aria-hidden="true">
+  <div class="pf-sticky-in">
+    <div class="pf-sticky-txt"><b id="pf-sticky-total">430,40 €</b><span id="pf-sticky-line">Clear Cups · 1.600 Stück</span></div>
+    <a class="pf-btn pf-btn-wa pf-btn-icon" id="pf-sticky-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Clear%20Cups%20(Gr%C3%B6%C3%9Fe%3A%20300%20ml%2C%20Deckel%3A%20Ohne%20Deckel%2C%201.600%20St%C3%BCck%2C%2026%2C90%20ct%20pro%20St%C3%BCck%20netto%2C%20gesamt%20430%2C40%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener" aria-label="Per WhatsApp anfragen" tabindex="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <button type="button" class="pf-btn pf-btn-primary pf-btn-sm" onclick="addCurrentToCart()" tabindex="-1">In den Warenkorb</button>
+  </div>
+</div>
 
-  var DECKEL = { ohne: 'Ohne Deckel', mit: 'Mit Deckel' };
-
-  function printInfo(menge) {
-    if (menge >= 20000) return 'Gro\xdffl\xe4chiger Rundumdruck \xb7 bis zu 3 Farben';
-    if (menge >= 10000) return 'Gro\xdffl\xe4chiger Rundumdruck \xb7 bis zu 2 Farben';
-    return 'Tampondruck \xb7 einseitig, max. 45 \xd7 45 mm';
-  }
-
-  var sel = { groesse: '300', deckel: 'ohne', menge: 1600 };
-
-  function selectOpt(key, val, btn) {
-    sel[key] = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    updateAll();
-    var img = document.getElementById('product-img');
-    img.classList.remove('pulse'); void img.offsetWidth; img.classList.add('pulse');
-  }
-
-  function updateAll() {
-    var vk = PRICES[sel.deckel][sel.menge][sel.groesse];
-    var total = Math.round(vk * sel.menge * 100) / 100;
-    var size = sel.groesse + ' ml';
-    var lid = DECKEL[sel.deckel];
-    var druck = printInfo(sel.menge);
-    document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
-    document.getElementById('price-per').textContent     = vk.toFixed(3).replace('.', ',') + ' € / St\xfcck';
-    document.getElementById('badge-size').textContent = size;
-    document.getElementById('badge-lid').textContent  = lid;
-    document.getElementById('print-hint').textContent = druck;
-
-    var msg = 'Hallo, ich interessiere mich f\xfcr Clear Cups (' + size + ', ' + lid + ', ' + sel.menge.toLocaleString('de-DE') + ' St\xfcck) und m\xf6chte ein Angebot anfragen.';
-    document.getElementById('wa-link').href    = 'https://wa.me/491776990017?text=' + encodeURIComponent(msg);
-    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Clear%20Cups&body=' + encodeURIComponent('Gr\xf6\xdfe: ' + size + '\nDeckel: ' + lid + '\nMenge: ' + sel.menge.toLocaleString('de-DE') + ' St\xfcck\nDruck: ' + druck);
-    window.PF_ITEM = { title: 'Clear Cups', desc: msg, priceTotal: document.getElementById('price-display').textContent, url: location.pathname };
-  }
-
-  function fmt(n) {
-    return n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-
-  var navWrapper = document.getElementById('navWrapper');
-  window.addEventListener('scroll', function() {
-    navWrapper.classList.toggle('scrolled', window.scrollY > 50);
-  }, { passive: true });
-
-  function toggleMenu() {
-    var m = document.getElementById('mobileMenu'), h = document.querySelector('.hamburger');
-    m.classList.toggle('open'); h.classList.toggle('open');
-    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.querySelector('.hamburger').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  updateAll();
-</script>
+<script type="application/json" id="pf-data">{"product":{"slug":"clear-cups","url":"/produkte/clear-cups/","name":"Clear Cups","image":"/Bilder/web/clear-cups-960.webp","unit":"Stück","qtyKey":"menge","catalog":{"title":"Clear Cups","tags":["pappbecher"],"price":"0,135","unit":"Stück"},"related":["bubble-tea-cups","servietten","tueten"],"options":[{"key":"groesse","label":"Größe","choices":[{"id":"300","label":"300 ml"},{"id":"400","label":"400 ml"},{"id":"500","label":"500 ml"}]},{"key":"deckel","label":"Deckel","choices":[{"id":"ohne","label":"Ohne Deckel"},{"id":"mit","label":"Mit Deckel"}]},{"key":"menge","label":"Menge","choices":[{"id":"1600","label":"1.600 Stück"},{"id":"3200","label":"3.200 Stück","tip":true},{"id":"4800","label":"4.800 Stück"},{"id":"10000","label":"10.000 Stück"},{"id":"20000","label":"20.000 Stück"}]}],"hints":[{"by":["menge"],"table":{"1600":"Tampondruck · einseitig, max. 45 × 45 mm","3200":"Tampondruck · einseitig, max. 45 × 45 mm","4800":"Tampondruck · einseitig, max. 45 × 45 mm","10000":"Großflächiger Rundumdruck · bis zu 2 Farben","20000":"Großflächiger Rundumdruck · bis zu 3 Farben"},"after":"menge"}],"pricing":{"basis":"unit","by":["deckel","menge","groesse"],"table":{"ohne":{"1600":{"300":2690,"400":2730,"500":2790},"3200":{"300":2090,"400":2130,"500":2190},"4800":{"300":1890,"400":1930,"500":1990},"10000":{"300":1550,"400":1740,"500":1790},"20000":{"300":1350,"400":1550,"500":1590}},"mit":{"1600":{"300":3130,"400":3170,"500":3230},"3200":{"300":2530,"400":2570,"500":2630},"4800":{"300":2330,"400":2370,"500":2430},"10000":{"300":1810,"400":2000,"500":2050},"20000":{"300":1610,"400":1810,"500":1850}}},"qty":{"by":"menge"}}},"catalog":[{"slug":"tueten","url":"/produkte/tueten/","title":"Papiertüten","img":"/Bilder/web/papiertueten-shop-480.webp","from":"ab 12,00 ct"},{"slug":"sleeves","url":"/produkte/sleeves/","title":"Kaffeebecher Sleeves","img":"/Bilder/web/sleeves-shop-480.webp","from":"ab 2,59 ct"},{"slug":"burgerbox","url":"/produkte/burgerbox/","title":"Burgerbox","img":"/Bilder/web/burgerbox-v4-480.webp","from":"ab 11,50 ct"},{"slug":"einschlagpapier","url":"/produkte/einschlagpapier/","title":"Einschlagpapier","img":"/Bilder/web/tablettpapier-480.webp","from":"ab 5,20 €/kg"},{"slug":"broetchentueten","url":"/produkte/broetchentueten/","title":"Brötchentüten","img":"/Bilder/web/broetchentueten-480.webp","from":"ab 4,68 €/kg"},{"slug":"doenertueten","url":"/produkte/doenertueten/","title":"Dönertüten","img":"/Bilder/web/doenertueten-480.webp","from":"ab 5,20 €/kg"},{"slug":"kuru-pasta","url":"/produkte/kuru-pasta/","title":"Kuru Pasta Kutusu","img":"/Bilder/web/kurupasta-480.webp","from":"ab 11,10 ct"},{"slug":"salatschalen","url":"/produkte/salatschalen/","title":"Salatschalen","img":"/Bilder/web/salatschalen-v4-480.webp","from":"ab 14,15 ct"},{"slug":"baklava-kutusu","url":"/produkte/baklava-kutusu/","title":"Baklava Kutusu","img":"/Bilder/web/baklava-480.webp","from":"ab 8,10 ct"},{"slug":"kuchenboxen","url":"/produkte/kuchenboxen/","title":"Kuchenboxen","img":"/Bilder/web/kuchenbox-480.webp","from":"ab 16,00 ct"},{"slug":"pommesschuetten","url":"/produkte/pommesschuetten/","title":"Pommeschütten","img":"/Bilder/web/pommes-480.webp","from":"ab 5,92 ct"},{"slug":"fc-box","url":"/produkte/fc-box/","title":"FC Box","img":"/Bilder/web/fcbox-480.webp","from":"ab 9,20 ct"},{"slug":"doenerboxen","url":"/produkte/doenerboxen/","title":"Dönerboxen","img":"/Bilder/web/doenerbox-480.webp","from":"ab 8,29 ct"},{"slug":"takeaway-boxen","url":"/produkte/takeaway-boxen/","title":"Take-away Boxen","img":"/Bilder/web/takeawaybox-480.webp","from":"ab 15,81 ct"},{"slug":"kaffeebecher-single-wall","url":"/produkte/kaffeebecher-single-wall/","title":"Kaffeebecher Single Wall","img":"/Bilder/web/kaffeebecher-sw-480.webp","from":"ab 6,67 ct"},{"slug":"kaffeebecher-double-wall","url":"/produkte/kaffeebecher-double-wall/","title":"Kaffeebecher Double Wall","img":"/Bilder/web/kaffeebecher-dw-480.webp","from":"ab 10,15 ct"},{"slug":"clear-cups","url":"/produkte/clear-cups/","title":"Clear Cups","img":"/Bilder/web/clear-cups-480.webp","from":"ab 13,50 ct"},{"slug":"bubble-tea-cups","url":"/produkte/bubble-tea-cups/","title":"Bubble Tea Cups","img":"/Bilder/web/bubble-tea-cups-480.webp","from":"ab 17,30 ct"},{"slug":"servietten","url":"/produkte/servietten/","title":"Servietten mit Logo","img":"/Bilder/web/servietten-480.webp","from":"ab 1,95 ct"},{"slug":"feuchttuecher","url":"/produkte/feuchttuecher/","title":"Feuchttücher","img":"/Bilder/web/feuchttuecher-480.webp","from":"ab 2,90 ct"}]}</script>
+<script src="/assets/pf-pricing.js"></script>
+<script src="/assets/pf-view.js"></script>
+<script src="/assets/pf-product.js"></script>
 <script src="/cart.js"></script>
 </body>
 </html>
