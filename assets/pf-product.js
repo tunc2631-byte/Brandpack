@@ -119,20 +119,4 @@
     localStorage.setItem(KEY, JSON.stringify([p.slug].concat(list).slice(0, 12)));
   } catch (e) { /* ohne Speicher keine Liste */ }
 
-  // Navigation
-  var nav = document.getElementById('navWrapper');
-  window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 24); }, { passive: true });
-  window.toggleMenu = function () {
-    var m = document.getElementById('mobileMenu'), h = $('.hamburger');
-    var open = !m.classList.contains('open');
-    m.classList.toggle('open', open); h.classList.toggle('open', open);
-    h.setAttribute('aria-expanded', String(open));
-    document.body.style.overflow = open ? 'hidden' : '';
-  };
-  window.closeMenu = function () {
-    document.getElementById('mobileMenu').classList.remove('open');
-    $('.hamburger').classList.remove('open');
-    $('.hamburger').setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  };
 })();

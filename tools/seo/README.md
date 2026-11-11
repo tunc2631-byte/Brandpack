@@ -47,8 +47,8 @@ reports as public Actions artifacts or paste them into public pull requests.
    public source, source hash, specifications and open verification questions.
    Extraction does NOT constitute supplier certification or owner approval.
 4. Catalogue cards come from the `catalog` field in `data/products.json`. After editing, run
-   `python tools/seo/build_catalog.py`. Commit both source and generated HTML;
-   tests detect drift. Hero cards must also be reviewed if those products change.
+   `node tools/build_site.js` (it builds every page, the homepage catalogue included).
+   Commit both source and generated HTML; CI (`build_site.js --check`) detects drift.
 5. Prepare a feature branch. Run tests, inspect desktop/mobile and configurators.
 6. Open a pull request. `SEO checks` runs automatically on the initial feature
    branch and PRs against main. It needs no secrets and never deploys. It is a

@@ -66,16 +66,19 @@ for (const product of products) {
   });
 }
 
-test('jeder "ab"-Preis im Katalog gibt es beim Produkt wirklich', () => {
+test('jeder "ab"-Preis auf der Startseite ist der günstigste Stückpreis des Produkts', () => {
+  const V = require(path.join(ROOT, 'assets', 'pf-view.js'));
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const catalog = html.split('<!-- catalog:start -->')[1].split('<!-- catalog:end -->')[0];
   for (const p of products) {
-    const m = /^(\d+),(\d+)$/.exec(p.catalog.price);
-    assert.ok(m, `${p.slug}: Katalogpreis ${p.catalog.price}`);
-    const decimals = m[2].length, shown = Number(m[1] + m[2]);
-    const hit = PF.combinations(p).some(sel => {
+    const card = new RegExp(`href="${p.url}"[^]*?<span class="pf-price">([^<]+)</span>`).exec(catalog);
+    assert.ok(card, `${p.slug}: keine Katalogkarte`);
+    assert.equal(card[1], V.fromPrice(p), `${p.slug}: Katalogpreis`);
+    const best = PF.lowest(p).quote.unit;
+    for (const sel of PF.combinations(p)) {
       const q = PF.quote(p, sel);
-      return !q.onRequest && roundHalfUp(q.unitFraction[0], q.unitFraction[1], decimals) === shown;
-    });
-    assert.ok(hit, `${p.slug}: "ab €${p.catalog.price}" kommt in keiner Kombination vor`);
+      assert.ok(q.onRequest || q.unit >= best, `${p.slug}: günstiger als "ab"-Preis`);
+    }
   }
 });
 
