@@ -51,7 +51,60 @@
     });
   });
 
-  // WhatsApp-Knopf ausblenden, solange Kontaktbereich oder Footer sichtbar sind (dort gibt es WhatsApp schon)
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Startbereich: wechselndes Wort in der Überschrift (Tüte, Box, Schale …)
+  var swap = document.querySelector('.pf-swap');
+  if (swap && !calm) {
+    var words = swap.dataset.words.split('|');
+    var word = swap.querySelector('.pf-swap-word');
+    var i = words.length - 1;
+    setInterval(function () {
+      if (document.hidden) return;
+      i = (i + 1) % words.length;
+      word.classList.add('is-out');
+      setTimeout(function () {
+        word.textContent = words[i];
+        word.classList.remove('is-out');
+        word.classList.add('is-in');
+        void word.offsetWidth; // Startposition übernehmen, dann einblenden
+        word.classList.remove('is-in');
+      }, 380);
+    }, 2400);
+  }
+
+  // Startbereich: Produkte gehen beim Scrollen auseinander und folgen am PC leicht der Maus
+  var hero = document.querySelector('.pf-hero');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.pf-stage .pf-item'));
+  if (hero && items.length === 3 && !calm) {
+    var spread = [[-1, 0.3, -4], [0, -0.6, 0], [1, 0.3, 4]]; // Richtung x, y, Drehung
+    var scrollP = 0, mx = 0, my = 0, queued = false;
+    var draw = function () {
+      queued = false;
+      items.forEach(function (el, k) {
+        var s = spread[k];
+        el.style.setProperty('--tx', (s[0] * scrollP * 60 + mx * (k === 1 ? 8 : 14)).toFixed(1) + 'px');
+        el.style.setProperty('--ty', (s[1] * scrollP * 50 + my * (k === 1 ? 6 : 10)).toFixed(1) + 'px');
+        el.style.setProperty('--rot', (s[2] * scrollP + mx * (k - 1) * 1.5).toFixed(2) + 'deg');
+      });
+    };
+    var queue = function () { if (!queued) { queued = true; requestAnimationFrame(draw); } };
+    window.addEventListener('scroll', function () {
+      scrollP = Math.max(0, Math.min(1, window.scrollY / hero.offsetHeight));
+      queue();
+    }, { passive: true });
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        mx = (e.clientX - r.left) / r.width * 2 - 1;
+        my = (e.clientY - r.top) / r.height * 2 - 1;
+        queue();
+      });
+      hero.addEventListener('pointerleave', function () { mx = 0; my = 0; queue(); });
+    }
+  }
+
+  // WhatsApp-Knopf ausblenden, solange Startbereich, Kontaktbereich oder Footer sichtbar sind
   var fab = document.querySelector('.pf-wa-float');
   if (fab && 'IntersectionObserver' in window) {
     var seen = new Set();
@@ -59,7 +112,7 @@
       entries.forEach(function (en) { if (en.isIntersecting) seen.add(en.target); else seen.delete(en.target); });
       fab.classList.toggle('is-hidden', seen.size > 0);
     });
-    ['kontakt'].map(function (id) { return document.getElementById(id); }).concat([document.querySelector('.pf-footer')])
+    ['kontakt'].map(function (id) { return document.getElementById(id); }).concat([document.querySelector('.pf-hero'), document.querySelector('.pf-footer')])
       .forEach(function (el) { if (el) io.observe(el); });
   }
 
