@@ -1,0 +1,2039 @@
+[
+  {
+    "slug": "tueten",
+    "url": "/produkte/tueten/",
+    "name": "Papiertüten",
+    "image": "/Bilder/web/papiertueten-shop-960.webp",
+    "catalog": {
+      "title": "Papiertüten",
+      "tags": [
+        "papiertüten"
+      ],
+      "price": "0,1200",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "size",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "S",
+            "label": "S"
+          },
+          {
+            "id": "M",
+            "label": "M"
+          },
+          {
+            "id": "L",
+            "label": "L"
+          },
+          {
+            "id": "XL",
+            "label": "XL"
+          },
+          {
+            "id": "Sondermaß",
+            "label": "Sondermaß",
+            "onRequest": true
+          }
+        ]
+      },
+      {
+        "key": "material",
+        "label": "Material",
+        "choices": [
+          {
+            "id": "Brownkraft",
+            "label": "Brownkraft — Braun"
+          },
+          {
+            "id": "Whitekraft",
+            "label": "Whitekraft — Weiß"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "20000",
+            "label": "20.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "size",
+        "menge"
+      ],
+      "table": {
+        "S": {
+          "10000": 1350,
+          "20000": 1200
+        },
+        "M": {
+          "10000": 1550,
+          "20000": 1490
+        },
+        "L": {
+          "10000": 1840,
+          "20000": 1730
+        },
+        "XL": {
+          "10000": 1990,
+          "20000": 1820
+        }
+      },
+      "modifiers": [
+        {
+          "type": "factor",
+          "by": "material",
+          "per": 100,
+          "table": {
+            "Brownkraft": 100,
+            "Whitekraft": 110
+          }
+        }
+      ],
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "sleeves",
+    "url": "/produkte/sleeves/",
+    "name": "Sleeves",
+    "image": "/Bilder/web/sleeves-shop-960.webp",
+    "catalog": {
+      "title": "Kaffeebecher Sleeves",
+      "tags": [
+        "pappbecher"
+      ],
+      "price": "0,0546",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "size",
+        "label": "Becher-Größe",
+        "choices": [
+          {
+            "id": "8oz",
+            "label": "8 oz"
+          },
+          {
+            "id": "12oz",
+            "label": "12 oz"
+          },
+          {
+            "id": "16oz",
+            "label": "16 oz"
+          }
+        ]
+      },
+      {
+        "key": "material",
+        "label": "Material",
+        "choices": [
+          {
+            "id": "braun",
+            "label": "Brauner Kraftkarton"
+          },
+          {
+            "id": "weiss",
+            "label": "Bristolpapier (Weiß)"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "20000",
+            "label": "20.000 Stück"
+          },
+          {
+            "id": "30000",
+            "label": "30.000 Stück"
+          },
+          {
+            "id": "50000",
+            "label": "50.000 Stück"
+          },
+          {
+            "id": "75000",
+            "label": "75.000 Stück"
+          },
+          {
+            "id": "100000",
+            "label": "100.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "size",
+        "material",
+        "menge"
+      ],
+      "table": {
+        "8oz": {
+          "braun": {
+            "10000": 546,
+            "20000": 411,
+            "30000": 330,
+            "50000": 283,
+            "75000": 271,
+            "100000": 259
+          },
+          "weiss": {
+            "10000": 578,
+            "20000": 446,
+            "30000": 358,
+            "50000": 311,
+            "75000": 299,
+            "100000": 286
+          }
+        },
+        "12oz": {
+          "braun": {
+            "10000": 593,
+            "20000": 454,
+            "30000": 358,
+            "50000": 330,
+            "75000": 314,
+            "100000": 298
+          },
+          "weiss": {
+            "10000": 648,
+            "20000": 488,
+            "30000": 393,
+            "50000": 363,
+            "75000": 346,
+            "100000": 330
+          }
+        },
+        "16oz": {
+          "braun": {
+            "10000": 593,
+            "20000": 454,
+            "30000": 358,
+            "50000": 330,
+            "75000": 314,
+            "100000": 298
+          },
+          "weiss": {
+            "10000": 648,
+            "20000": 488,
+            "30000": 393,
+            "50000": 363,
+            "75000": 346,
+            "100000": 330
+          }
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "burgerbox",
+    "url": "/produkte/burgerbox/",
+    "name": "Burgerbox",
+    "image": "/Bilder/web/burgerbox-v4-960.webp",
+    "catalog": {
+      "title": "Burgerbox",
+      "tags": [
+        "papierboxen"
+      ],
+      "price": "0,1150",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "size",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "S",
+            "label": "S"
+          },
+          {
+            "id": "M",
+            "label": "M"
+          },
+          {
+            "id": "L",
+            "label": "L"
+          }
+        ]
+      },
+      {
+        "key": "material",
+        "label": "Material",
+        "choices": [
+          {
+            "id": "bristol",
+            "label": "Bristol (Weiß)"
+          },
+          {
+            "id": "kraft",
+            "label": "Kraftpapier (Braun)"
+          },
+          {
+            "id": "ckb",
+            "label": "CKB (Innen Weiß / Außen Braun)"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "15000",
+            "label": "15.000 Stück"
+          },
+          {
+            "id": "25000",
+            "label": "25.000 Stück"
+          },
+          {
+            "id": "40000",
+            "label": "40.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "size",
+        "menge"
+      ],
+      "table": {
+        "S": {
+          "10000": 1500,
+          "15000": 1320,
+          "25000": 1260,
+          "40000": 1150
+        },
+        "M": {
+          "10000": 1610,
+          "15000": 1550,
+          "25000": 1420,
+          "40000": 1270
+        },
+        "L": {
+          "10000": 2080,
+          "15000": 1700,
+          "25000": 1550,
+          "40000": 1420
+        }
+      },
+      "modifiers": [
+        {
+          "type": "factor",
+          "by": "material",
+          "per": 1000,
+          "table": {
+            "bristol": 1000,
+            "kraft": 1055,
+            "ckb": 1080
+          }
+        }
+      ],
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "einschlagpapier",
+    "url": "/produkte/einschlagpapier/",
+    "name": "Einschlagpapier mit Logo bedrucken",
+    "image": "/Bilder/web/tablettpapier-960.webp",
+    "catalog": {
+      "title": "Einschlagpapier",
+      "tags": [
+        "papier"
+      ],
+      "price": "7,00",
+      "unit": "kg"
+    },
+    "unit": "kg",
+    "options": [
+      {
+        "key": "size",
+        "label": "Format",
+        "choices": [
+          {
+            "id": "s",
+            "label": "S — 400×300 mm"
+          },
+          {
+            "id": "m",
+            "label": "M — 400×500 mm"
+          },
+          {
+            "id": "custom",
+            "label": "Sondergröße"
+          }
+        ]
+      },
+      {
+        "key": "mat",
+        "label": "Papierart",
+        "choices": [
+          {
+            "id": "standard",
+            "label": "Standard"
+          },
+          {
+            "id": "fettabweisend",
+            "label": "Fettabweisendes Papier"
+          },
+          {
+            "id": "pe",
+            "label": "PE-coated Papier"
+          }
+        ]
+      },
+      {
+        "key": "kg",
+        "label": "Menge (kg)",
+        "choices": [
+          {
+            "id": "200",
+            "label": "200 kg"
+          },
+          {
+            "id": "400",
+            "label": "400 kg"
+          },
+          {
+            "id": "600",
+            "label": "600 kg"
+          },
+          {
+            "id": "800",
+            "label": "800 kg"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "mat",
+        "kg"
+      ],
+      "table": {
+        "standard": {
+          "200": 70000,
+          "400": 60000,
+          "600": 55000,
+          "800": 52000
+        },
+        "fettabweisend": {
+          "200": 75000,
+          "400": 64300,
+          "600": 58900,
+          "800": 55700
+        },
+        "pe": {
+          "200": 76000,
+          "400": 65100,
+          "600": 59700,
+          "800": 56500
+        }
+      },
+      "qty": {
+        "by": "kg"
+      }
+    }
+  },
+  {
+    "slug": "broetchentueten",
+    "url": "/produkte/broetchentueten/",
+    "name": "Brötchentüten",
+    "image": "/Bilder/web/broetchentueten-960.webp",
+    "catalog": {
+      "title": "Brötchentüten",
+      "tags": [
+        "papiertüten"
+      ],
+      "price": "7,00",
+      "unit": "kg"
+    },
+    "unit": "kg",
+    "options": [
+      {
+        "key": "size",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "xs",
+            "label": "XS"
+          },
+          {
+            "id": "s",
+            "label": "S"
+          },
+          {
+            "id": "m",
+            "label": "M"
+          },
+          {
+            "id": "l",
+            "label": "L"
+          },
+          {
+            "id": "xl",
+            "label": "XL"
+          }
+        ]
+      },
+      {
+        "key": "mat",
+        "label": "Papierart",
+        "choices": [
+          {
+            "id": "standard",
+            "label": "Standard"
+          },
+          {
+            "id": "fettabweisend",
+            "label": "Fettabweisendes Papier"
+          }
+        ]
+      },
+      {
+        "key": "kg",
+        "label": "Menge (kg)",
+        "choices": [
+          {
+            "id": "200",
+            "label": "200 kg"
+          },
+          {
+            "id": "400",
+            "label": "400 kg"
+          },
+          {
+            "id": "600",
+            "label": "600 kg"
+          },
+          {
+            "id": "800",
+            "label": "800 kg"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "mat",
+        "kg"
+      ],
+      "table": {
+        "standard": {
+          "200": 70000,
+          "400": 60000,
+          "600": 55000,
+          "800": 52000
+        },
+        "fettabweisend": {
+          "200": 75000,
+          "400": 64300,
+          "600": 58900,
+          "800": 55700
+        }
+      },
+      "modifiers": [
+        {
+          "type": "factor",
+          "by": "size",
+          "per": 1000,
+          "round": 100,
+          "table": {
+            "xs": 1000,
+            "s": 1000,
+            "m": 1000,
+            "l": 1000,
+            "xl": 900
+          }
+        }
+      ],
+      "qty": {
+        "by": "kg"
+      }
+    }
+  },
+  {
+    "slug": "doenertueten",
+    "url": "/produkte/doenertueten/",
+    "name": "Dönertüten mit Logo bedrucken",
+    "image": "/Bilder/web/doenertueten-960.webp",
+    "catalog": {
+      "title": "Dönertüten",
+      "tags": [
+        "papiertüten"
+      ],
+      "price": "7,00",
+      "unit": "kg"
+    },
+    "unit": "kg",
+    "options": [
+      {
+        "key": "mat",
+        "label": "Papier",
+        "choices": [
+          {
+            "id": "standard",
+            "label": "Standard"
+          },
+          {
+            "id": "fettabweisend",
+            "label": "Fettabweisend"
+          },
+          {
+            "id": "pe",
+            "label": "PE-coated"
+          }
+        ]
+      },
+      {
+        "key": "kg",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "200",
+            "label": "200 kg"
+          },
+          {
+            "id": "400",
+            "label": "400 kg"
+          },
+          {
+            "id": "600",
+            "label": "600 kg"
+          },
+          {
+            "id": "800",
+            "label": "800 kg"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "mat",
+        "kg"
+      ],
+      "table": {
+        "standard": {
+          "200": 70000,
+          "400": 60000,
+          "600": 55000,
+          "800": 52000
+        },
+        "fettabweisend": {
+          "200": 75000,
+          "400": 64300,
+          "600": 58900,
+          "800": 55700
+        },
+        "pe": {
+          "200": 76000,
+          "400": 65100,
+          "600": 59700,
+          "800": 56500
+        }
+      },
+      "qty": {
+        "by": "kg"
+      }
+    }
+  },
+  {
+    "slug": "kuru-pasta",
+    "url": "/produkte/kuru-pasta/",
+    "name": "Kuru Pasta Kutusu",
+    "image": "/Bilder/web/kurupasta-960.webp",
+    "catalog": {
+      "title": "Kuru Pasta Kutusu",
+      "tags": [
+        "papierboxen"
+      ],
+      "price": "0,14",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Füllmenge",
+        "choices": [
+          {
+            "id": "500g",
+            "label": "500g"
+          },
+          {
+            "id": "1000g",
+            "label": "1000g"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "20000",
+            "label": "20.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "total",
+      "by": [
+        "groesse",
+        "menge"
+      ],
+      "table": {
+        "500g": {
+          "10000": 141000,
+          "20000": 222000
+        },
+        "1000g": {
+          "10000": 221000,
+          "20000": 384000
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "salatschalen",
+    "url": "/produkte/salatschalen/",
+    "name": "Salatschalen",
+    "image": "/Bilder/web/salatschalen-v4-960.webp",
+    "catalog": {
+      "title": "Salatschalen",
+      "tags": [
+        "pappschalen"
+      ],
+      "price": "0,1415",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "750ml",
+            "label": "750 ml"
+          },
+          {
+            "id": "1000ml",
+            "label": "1.000 ml"
+          },
+          {
+            "id": "1300ml",
+            "label": "1.300 ml"
+          }
+        ]
+      },
+      {
+        "key": "material",
+        "label": "Material",
+        "choices": [
+          {
+            "id": "weiss",
+            "label": "Weiß · Bristol+PE"
+          },
+          {
+            "id": "braun",
+            "label": "Braun · Kraft+PE"
+          }
+        ]
+      },
+      {
+        "key": "deckel",
+        "label": "Deckel",
+        "choices": [
+          {
+            "id": "ohne",
+            "label": "Ohne Deckel"
+          },
+          {
+            "id": "pp",
+            "label": "PP-Deckel"
+          },
+          {
+            "id": "rpet",
+            "label": "rPET-Deckel"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "2100",
+            "label": "2.100 Stück"
+          },
+          {
+            "id": "3000",
+            "label": "3.000 Stück"
+          },
+          {
+            "id": "4800",
+            "label": "4.800 Stück"
+          },
+          {
+            "id": "6000",
+            "label": "6.000 Stück"
+          },
+          {
+            "id": "9600",
+            "label": "9.600 Stück"
+          },
+          {
+            "id": "14400",
+            "label": "14.400 Stück"
+          },
+          {
+            "id": "19200",
+            "label": "19.200 Stück"
+          },
+          {
+            "id": "24000",
+            "label": "24.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "groesse",
+        "menge"
+      ],
+      "table": {
+        "750ml": {
+          "2100": 2385,
+          "3000": 2147,
+          "4800": 1841,
+          "6000": 1730,
+          "9600": 1681,
+          "14400": 1537,
+          "19200": 1471,
+          "24000": 1415
+        },
+        "1000ml": {
+          "2100": 2515,
+          "3000": 2277,
+          "4800": 1961,
+          "6000": 1850,
+          "9600": 1811,
+          "14400": 1667,
+          "19200": 1591,
+          "24000": 1535
+        },
+        "1300ml": {
+          "2100": 2635,
+          "3000": 2397,
+          "4800": 2081,
+          "6000": 2000,
+          "9600": 1941,
+          "14400": 1777,
+          "19200": 1721,
+          "24000": 1675
+        }
+      },
+      "modifiers": [
+        {
+          "type": "add",
+          "by": [
+            "deckel",
+            "groesse"
+          ],
+          "table": {
+            "ohne": {
+              "750ml": 0,
+              "1000ml": 0,
+              "1300ml": 0
+            },
+            "pp": {
+              "750ml": 715,
+              "1000ml": 715,
+              "1300ml": 700
+            },
+            "rpet": {
+              "750ml": 715,
+              "1000ml": 715,
+              "1300ml": 700
+            }
+          }
+        }
+      ],
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "baklava-kutusu",
+    "url": "/produkte/baklava-kutusu/",
+    "name": "Baklava Kutusu",
+    "image": "/Bilder/web/baklava-960.webp",
+    "catalog": {
+      "title": "Baklava Kutusu",
+      "tags": [
+        "papierboxen"
+      ],
+      "price": "0,1050",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "250g",
+            "label": "250 g"
+          },
+          {
+            "id": "500g",
+            "label": "500 g"
+          },
+          {
+            "id": "1000g",
+            "label": "1.000 g"
+          },
+          {
+            "id": "1500g",
+            "label": "1.500 g"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "20000",
+            "label": "20.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "total",
+      "by": [
+        "groesse",
+        "menge"
+      ],
+      "table": {
+        "250g": {
+          "10000": 105000,
+          "20000": 162000
+        },
+        "500g": {
+          "10000": 127000,
+          "20000": 198000
+        },
+        "1000g": {
+          "10000": 192000,
+          "20000": 334000
+        },
+        "1500g": {
+          "10000": 347000,
+          "20000": 624000
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "kuchenboxen",
+    "url": "/produkte/kuchenboxen/",
+    "name": "Kuchenboxen & Tortenunterlagen",
+    "image": "/Bilder/web/kuchenbox-960.webp",
+    "catalog": {
+      "title": "Kuchenboxen",
+      "tags": [
+        "papierboxen"
+      ],
+      "price": "0,41",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "typ",
+        "label": "Ausführung",
+        "choices": [
+          {
+            "id": "box",
+            "label": "Kuchenbox nur Box"
+          },
+          {
+            "id": "mendil",
+            "label": "Mendil nur Unterlage"
+          },
+          {
+            "id": "set",
+            "label": "Set SPAR Box + Mendil"
+          }
+        ]
+      },
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "no0",
+            "label": "No 0 · 18 cm"
+          },
+          {
+            "id": "no1",
+            "label": "No 1 · 21 cm"
+          },
+          {
+            "id": "no2",
+            "label": "No 2 · 25 cm"
+          },
+          {
+            "id": "no3",
+            "label": "No 3 · 27 cm"
+          },
+          {
+            "id": "no4",
+            "label": "No 4 · 29 cm"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "typ",
+        "groesse"
+      ],
+      "table": {
+        "box": {
+          "no0": 4100,
+          "no1": 4600,
+          "no2": 5100,
+          "no3": 5700,
+          "no4": 6300
+        },
+        "mendil": {
+          "no0": 1600,
+          "no1": 2100,
+          "no2": 2600,
+          "no3": 3200,
+          "no4": 4000
+        },
+        "set": {
+          "no0": 5700,
+          "no1": 6700,
+          "no2": 7700,
+          "no3": 8900,
+          "no4": 10300
+        }
+      },
+      "qty": {
+        "fixed": 10000
+      }
+    }
+  },
+  {
+    "slug": "pommesschuetten",
+    "url": "/produkte/pommesschuetten/",
+    "name": "Pommesschütten",
+    "image": "/Bilder/web/pommes-960.webp",
+    "catalog": {
+      "title": "Pommeschütten",
+      "tags": [
+        "papierboxen"
+      ],
+      "price": "0,128",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "s",
+            "label": "S · 95 mm"
+          },
+          {
+            "id": "m",
+            "label": "M · 116 mm"
+          },
+          {
+            "id": "l",
+            "label": "L · 140 mm"
+          },
+          {
+            "id": "xl",
+            "label": "XL · 178 mm"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "15000",
+            "label": "15.000 Stück"
+          },
+          {
+            "id": "30000",
+            "label": "30.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "total",
+      "by": [
+        "groesse",
+        "menge"
+      ],
+      "table": {
+        "s": {
+          "10000": 127900,
+          "15000": 135000,
+          "30000": 177600
+        },
+        "m": {
+          "10000": 138500,
+          "15000": 145500,
+          "30000": 200400
+        },
+        "l": {
+          "10000": 144300,
+          "15000": 151400,
+          "30000": 211000
+        },
+        "xl": {
+          "10000": 173400,
+          "15000": 180500,
+          "30000": 291100
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "fc-box",
+    "url": "/produkte/fc-box/",
+    "name": "FC Box",
+    "image": "/Bilder/web/fcbox-960.webp",
+    "catalog": {
+      "title": "FC Box",
+      "tags": [
+        "papierboxen"
+      ],
+      "price": "0,092",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "s",
+            "label": "S · 139×78×53"
+          },
+          {
+            "id": "m",
+            "label": "M · 169×98×63"
+          },
+          {
+            "id": "l",
+            "label": "L · 225×120×70"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "20000",
+            "label": "20.000 Stück"
+          },
+          {
+            "id": "30000",
+            "label": "30.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "groesse",
+        "menge"
+      ],
+      "table": {
+        "s": {
+          "10000": 1050,
+          "20000": 1000,
+          "30000": 920
+        },
+        "m": {
+          "10000": 1350,
+          "20000": 1300,
+          "30000": 1220
+        },
+        "l": {
+          "10000": 1660,
+          "20000": 1610,
+          "30000": 1530
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "doenerboxen",
+    "url": "/produkte/doenerboxen/",
+    "name": "Dönerboxen / Asiaboxen",
+    "image": "/Bilder/web/doenerbox-960.webp",
+    "catalog": {
+      "title": "Dönerboxen",
+      "tags": [
+        "papierboxen"
+      ],
+      "price": "0,108",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "s",
+            "label": "S · 470 ml (16 oz)"
+          },
+          {
+            "id": "m",
+            "label": "M · 750 ml (26 oz)"
+          }
+        ]
+      },
+      {
+        "key": "material",
+        "label": "Material",
+        "choices": [
+          {
+            "id": "bristol",
+            "label": "Bristol (Weiß)"
+          },
+          {
+            "id": "kraft",
+            "label": "Kraft (Braun)"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "15000",
+            "label": "15.000 Stück"
+          },
+          {
+            "id": "25000",
+            "label": "25.000 Stück"
+          },
+          {
+            "id": "40000",
+            "label": "40.000 Stück"
+          },
+          {
+            "id": "50000",
+            "label": "50.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "groesse",
+        "material",
+        "menge"
+      ],
+      "table": {
+        "s": {
+          "bristol": {
+            "15000": 1079,
+            "25000": 973,
+            "40000": 867,
+            "50000": 829
+          },
+          "kraft": {
+            "15000": 1195,
+            "25000": 1079,
+            "40000": 983,
+            "50000": 945
+          }
+        },
+        "m": {
+          "bristol": {
+            "15000": 1150,
+            "25000": 1059,
+            "40000": 950,
+            "50000": 912
+          },
+          "kraft": {
+            "15000": 1341,
+            "25000": 1228,
+            "40000": 1120,
+            "50000": 1075
+          }
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "takeaway-boxen",
+    "url": "/produkte/takeaway-boxen/",
+    "name": "Take-away Boxen",
+    "image": "/Bilder/web/takeawaybox-960.webp",
+    "catalog": {
+      "title": "Take-away Boxen",
+      "tags": [
+        "papierboxen"
+      ],
+      "price": "0,1581",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "26",
+            "label": "26oz"
+          },
+          {
+            "id": "36",
+            "label": "36oz"
+          },
+          {
+            "id": "46",
+            "label": "46oz"
+          },
+          {
+            "id": "51",
+            "label": "51oz"
+          },
+          {
+            "id": "69",
+            "label": "69oz"
+          },
+          {
+            "id": "98",
+            "label": "98oz"
+          }
+        ]
+      },
+      {
+        "key": "material",
+        "label": "Material",
+        "choices": [
+          {
+            "id": "Bristol",
+            "label": "Bristol (weiß)"
+          },
+          {
+            "id": "Kraft",
+            "label": "Kraft (braun)"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "total",
+      "by": [
+        "groesse"
+      ],
+      "table": {
+        "26": 158050,
+        "36": 194300,
+        "46": 200100,
+        "51": 210250,
+        "69": 298700,
+        "98": 326250
+      },
+      "qty": {
+        "fixed": 10000
+      }
+    }
+  },
+  {
+    "slug": "kaffeebecher-single-wall",
+    "url": "/produkte/kaffeebecher-single-wall/",
+    "name": "Kaffeebecher Single Wall",
+    "image": "/Bilder/web/kaffeebecher-sw-960.webp",
+    "catalog": {
+      "title": "Kaffeebecher Single Wall",
+      "tags": [
+        "pappbecher"
+      ],
+      "price": "0,0943",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "8",
+            "label": "8oz"
+          },
+          {
+            "id": "12",
+            "label": "12oz"
+          },
+          {
+            "id": "16",
+            "label": "16oz"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "30000",
+            "label": "30.000 Stück"
+          },
+          {
+            "id": "50000",
+            "label": "50.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "total",
+      "by": [
+        "groesse",
+        "menge"
+      ],
+      "table": {
+        "8": {
+          "10000": 94250,
+          "30000": 217500,
+          "50000": 333500
+        },
+        "12": {
+          "10000": 116000,
+          "30000": 304500,
+          "50000": 485750
+        },
+        "16": {
+          "10000": 131250,
+          "30000": 375000,
+          "50000": 593750
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "kaffeebecher-double-wall",
+    "url": "/produkte/kaffeebecher-double-wall/",
+    "name": "Kaffeebecher Double Wall",
+    "image": "/Bilder/web/kaffeebecher-dw-960.webp",
+    "catalog": {
+      "title": "Kaffeebecher Double Wall",
+      "tags": [
+        "pappbecher"
+      ],
+      "price": "0,1160",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "8",
+            "label": "8oz"
+          },
+          {
+            "id": "12",
+            "label": "12oz"
+          },
+          {
+            "id": "16",
+            "label": "16oz"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "30000",
+            "label": "30.000 Stück"
+          },
+          {
+            "id": "50000",
+            "label": "50.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "total",
+      "by": [
+        "groesse",
+        "menge"
+      ],
+      "table": {
+        "8": {
+          "10000": 116000,
+          "30000": 326250,
+          "50000": 507500
+        },
+        "12": {
+          "10000": 136250,
+          "30000": 354375,
+          "50000": 568750
+        },
+        "16": {
+          "10000": 166250,
+          "30000": 453750,
+          "50000": 725000
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "clear-cups",
+    "url": "/produkte/clear-cups/",
+    "name": "Clear Cups",
+    "image": "/Bilder/web/clear-cups-960.webp",
+    "catalog": {
+      "title": "Clear Cups",
+      "tags": [
+        "pappbecher"
+      ],
+      "price": "0,135",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "300",
+            "label": "300 ml"
+          },
+          {
+            "id": "400",
+            "label": "400 ml"
+          },
+          {
+            "id": "500",
+            "label": "500 ml"
+          }
+        ]
+      },
+      {
+        "key": "deckel",
+        "label": "Deckel",
+        "choices": [
+          {
+            "id": "ohne",
+            "label": "Ohne Deckel"
+          },
+          {
+            "id": "mit",
+            "label": "Mit Deckel"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "1600",
+            "label": "1.600 Stück"
+          },
+          {
+            "id": "3200",
+            "label": "3.200 Stück"
+          },
+          {
+            "id": "4800",
+            "label": "4.800 Stück"
+          },
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "20000",
+            "label": "20.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "deckel",
+        "menge",
+        "groesse"
+      ],
+      "table": {
+        "ohne": {
+          "1600": {
+            "300": 2690,
+            "400": 2730,
+            "500": 2790
+          },
+          "3200": {
+            "300": 2090,
+            "400": 2130,
+            "500": 2190
+          },
+          "4800": {
+            "300": 1890,
+            "400": 1930,
+            "500": 1990
+          },
+          "10000": {
+            "300": 1550,
+            "400": 1740,
+            "500": 1790
+          },
+          "20000": {
+            "300": 1350,
+            "400": 1550,
+            "500": 1590
+          }
+        },
+        "mit": {
+          "1600": {
+            "300": 3130,
+            "400": 3170,
+            "500": 3230
+          },
+          "3200": {
+            "300": 2530,
+            "400": 2570,
+            "500": 2630
+          },
+          "4800": {
+            "300": 2330,
+            "400": 2370,
+            "500": 2430
+          },
+          "10000": {
+            "300": 1810,
+            "400": 2000,
+            "500": 2050
+          },
+          "20000": {
+            "300": 1610,
+            "400": 1810,
+            "500": 1850
+          }
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "bubble-tea-cups",
+    "url": "/produkte/bubble-tea-cups/",
+    "name": "Bubble Tea Cups",
+    "image": "/Bilder/web/bubble-tea-cups-960.webp",
+    "catalog": {
+      "title": "Bubble Tea Cups",
+      "tags": [
+        "pappbecher"
+      ],
+      "price": "0,173",
+      "unit": "Stück"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "12",
+            "label": "12 oz"
+          },
+          {
+            "id": "16",
+            "label": "16 oz"
+          },
+          {
+            "id": "18",
+            "label": "18 oz"
+          }
+        ]
+      },
+      {
+        "key": "deckel",
+        "label": "Deckel",
+        "choices": [
+          {
+            "id": "ohne",
+            "label": "Ohne Deckel"
+          },
+          {
+            "id": "mit",
+            "label": "Mit Deckel"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "20000",
+            "label": "20.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "deckel",
+        "menge",
+        "groesse"
+      ],
+      "table": {
+        "ohne": {
+          "10000": {
+            "12": 2130,
+            "16": 2160,
+            "18": 2210
+          },
+          "20000": {
+            "12": 1730,
+            "16": 1760,
+            "18": 1810
+          }
+        },
+        "mit": {
+          "10000": {
+            "12": 2480,
+            "16": 2510,
+            "18": 2560
+          },
+          "20000": {
+            "12": 1980,
+            "16": 2010,
+            "18": 2060
+          }
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  },
+  {
+    "slug": "servietten",
+    "url": "/produkte/servietten/",
+    "name": "Servietten mit Logo bedrucken",
+    "image": "/Bilder/web/servietten-960.webp",
+    "catalog": {
+      "title": "Servietten mit Logo",
+      "tags": [
+        "papier"
+      ],
+      "price": "0,0195",
+      "unit": "Stück",
+      "note": "Preis bei 144.000 Stück, Größe S"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "s",
+            "label": "S · 25×25 cm"
+          },
+          {
+            "id": "m",
+            "label": "M · 33×33 cm"
+          },
+          {
+            "id": "l",
+            "label": "L · 40×40 cm"
+          }
+        ]
+      },
+      {
+        "key": "stufe",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "0",
+            "label": "72.000 Stück"
+          },
+          {
+            "id": "1",
+            "label": "120.000 Stück"
+          },
+          {
+            "id": "2",
+            "label": "144.000 Stück"
+          }
+        ],
+        "dynamicLabel": true
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "groesse",
+        "stufe"
+      ],
+      "table": {
+        "s": {
+          "0": 220,
+          "1": 205,
+          "2": 195
+        },
+        "m": {
+          "0": 250,
+          "1": 245,
+          "2": 235
+        },
+        "l": {
+          "0": 450,
+          "1": 445,
+          "2": 420
+        }
+      },
+      "qty": {
+        "by": [
+          "groesse",
+          "stufe"
+        ],
+        "table": {
+          "s": {
+            "0": 72000,
+            "1": 120000,
+            "2": 144000
+          },
+          "m": {
+            "0": 72000,
+            "1": 120000,
+            "2": 144000
+          },
+          "l": {
+            "0": 36000,
+            "1": 60000,
+            "2": 72000
+          }
+        }
+      }
+    }
+  },
+  {
+    "slug": "feuchttuecher",
+    "url": "/produkte/feuchttuecher/",
+    "name": "Feuchttücher mit Logo",
+    "image": "/Bilder/web/feuchttuecher-960.webp",
+    "catalog": {
+      "title": "Feuchttücher",
+      "tags": [
+        "zubehör"
+      ],
+      "price": "0,029",
+      "unit": "Stück",
+      "note": "Preis bei 50.000 Stück, Größe S"
+    },
+    "unit": "Stück",
+    "options": [
+      {
+        "key": "groesse",
+        "label": "Größe",
+        "choices": [
+          {
+            "id": "s",
+            "label": "S · 6×8 cm"
+          },
+          {
+            "id": "m",
+            "label": "M · 6×10 cm"
+          },
+          {
+            "id": "l",
+            "label": "L · 6×12 cm"
+          }
+        ]
+      },
+      {
+        "key": "menge",
+        "label": "Menge",
+        "choices": [
+          {
+            "id": "10000",
+            "label": "10.000 Stück"
+          },
+          {
+            "id": "30000",
+            "label": "30.000 Stück"
+          },
+          {
+            "id": "50000",
+            "label": "50.000 Stück"
+          }
+        ]
+      }
+    ],
+    "pricing": {
+      "basis": "unit",
+      "by": [
+        "groesse",
+        "menge"
+      ],
+      "table": {
+        "s": {
+          "10000": 790,
+          "30000": 410,
+          "50000": 290
+        },
+        "m": {
+          "10000": 830,
+          "30000": 450,
+          "50000": 330
+        },
+        "l": {
+          "10000": 870,
+          "30000": 480,
+          "50000": 370
+        }
+      },
+      "qty": {
+        "by": "menge"
+      }
+    }
+  }
+]

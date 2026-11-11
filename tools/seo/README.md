@@ -46,7 +46,7 @@ reports as public Actions artifacts or paste them into public pull requests.
 3. Use `data/product-evidence.json` as evidence inventory. It records original
    public source, source hash, specifications and open verification questions.
    Extraction does NOT constitute supplier certification or owner approval.
-4. Use `data/catalog.json` for catalogue cards. After editing, run
+4. Catalogue cards come from the `catalog` field in `data/products.json`. After editing, run
    `python tools/seo/build_catalog.py`. Commit both source and generated HTML;
    tests detect drift. Hero cards must also be reviewed if those products change.
 5. Prepare a feature branch. Run tests, inspect desktop/mobile and configurators.
