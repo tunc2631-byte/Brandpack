@@ -247,7 +247,7 @@ p { margin: 0; }
 .pf-new b { color: var(--pink-ink); }
 .pf-new:hover { transform: translateY(-1px); }
 .pf-new:active { transform: scale(.98); }
-.pf-hero-title { font-size: clamp(42px, 7.4vw, 88px); font-weight: 700; letter-spacing: -.045em; line-height: 1.0; }
+.pf-hero-title { font-size: clamp(42px, 7vw, 80px); font-weight: 700; letter-spacing: -.045em; line-height: 1.0; }
 .pf-hero-sub { font-size: clamp(18px, 2.2vw, 22px); line-height: 1.45; color: var(--muted); max-width: 640px; margin: var(--s5) auto 0; }
 .pf-hero-cta { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--s5); margin-top: var(--s6); }
 .pf-stage { display: flex; justify-content: center; align-items: flex-end; margin: var(--s6) auto 0; max-width: 1100px; }
@@ -264,19 +264,17 @@ p { margin: 0; }
 .pf-hero > .pf-wrap { position: relative; }
 .pf-hero-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(60% 45% at 50% 92%, rgba(240, 122, 140, .30), transparent 70%),
-    radial-gradient(38% 34% at 14% 18%, rgba(245, 242, 236, .95), transparent 70%),
-    radial-gradient(34% 30% at 88% 30%, rgba(240, 122, 140, .12), transparent 70%),
-    radial-gradient(70% 50% at 50% 100%, rgba(255, 255, 255, .9), transparent 80%),
+    radial-gradient(55% 40% at 50% 88%, rgba(255, 255, 255, .95), transparent 72%),
+    radial-gradient(40% 36% at 12% 16%, rgba(255, 255, 255, .7), transparent 70%),
     var(--mist); }
 .pf-hero-bg::after { content: ""; position: absolute; inset: 0; opacity: .35; mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .5 0 0 0 0 .45 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
 /* Wechselndes Wort in der Überschrift */
-.pf-swap { display: inline-block; position: relative; vertical-align: top; clip-path: inset(0 -.2em); padding: 0 .04em .12em; margin-bottom: -.12em; }
-.pf-swap-word { display: inline-block; background: linear-gradient(100deg, var(--pink-ink) 10%, var(--pink) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; transition: transform .5s var(--ease), opacity .4s var(--ease); }
-.pf-swap-word.is-out { transform: translateY(-45%); opacity: 0; }
-.pf-swap-word.is-in { transform: translateY(45%); opacity: 0; transition: none; }
+.pf-swap { display: block; }
+.pf-swap-word { display: inline-block; transition: opacity .35s var(--ease); }
+.pf-swap-word.is-out { opacity: 0; }
+.pf-swap-word.is-in { opacity: 0; transition: none; }
 
 /* Vorteile unter den Knöpfen */
 .pf-hero-points { list-style: none; margin: var(--s5) 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; font-size: 15px; font-weight: 500; color: var(--ink); }
@@ -460,7 +458,6 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
   .pf-stage { margin: var(--s5) -6% 0; max-width: none; }
   .pf-item { width: 36%; }
   .pf-item:nth-child(2) { width: 44%; margin: 0 -5%; }
-  .pf-swap { display: block; }
   .pf-hero-points { font-size: 12.5px; gap: 6px 10px; margin-top: var(--s4); }
   .pf-hero-points li { gap: 4px; white-space: nowrap; }
   .pf-hero-points svg { width: 12px; height: 12px; }
