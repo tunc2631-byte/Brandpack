@@ -3,6 +3,8 @@
 Jede Seite verweist auf Bilder der Form
     /Bilder/web/<name>-<breite>.webp      (Produkt- und Seitenbilder)
     /Bilder/logos/<name>-<breite>.webp    (Kundenlogos, Transparenz bleibt)
+    /Bilder/frei/<name>-<breite>.webp     (freigestellt: weißer Hintergrund wird durchsichtig,
+                                           für Bilder auf farbigem Grund, z. B. im Startbereich)
 Das Skript sucht dazu das Original <name>.(jpeg|jpg|png|webp) in Bilder/ oder
 im Projektordner (Groß-/Kleinschreibung und Leerzeichen egal) und schreibt die
 fehlenden oder veralteten Dateien.
@@ -15,9 +17,9 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-REF = re.compile(r'/Bilder/(web|logos)/([a-z0-9-]+)-(\d+)\.webp')
+REF = re.compile(r'/Bilder/(web|logos|frei)/([a-z0-9-]+)-(\d+)\.webp')
 SOURCE_DIRS = [ROOT / 'Bilder', ROOT]
-QUALITY = {'web': 82, 'logos': 86}
+QUALITY = {'web': 82, 'logos': 86, 'frei': 84}
 
 
 def slug(name):
@@ -44,9 +46,31 @@ def references():
     return sorted(refs)
 
 
+def white_to_alpha(im):
+    """Weiß wird durchsichtig, Schatten bleiben halbdurchsichtig grau. Auf jedem
+    hellen Hintergrund sieht das Bild dann aus wie mit mix-blend-mode: multiply,
+    funktioniert aber auch dort, wo der Browser das nicht kann (Safari auf dem iPhone)."""
+    import numpy as np
+    from PIL import Image
+    rgb = np.asarray(im.convert('RGB')).astype(np.float32)
+    inv = 255.0 - rgb
+    a = np.clip((inv.max(axis=2) - 3.0) * 255.0 / 252.0, 0, 255)  # fast Weiß zählt als Weiß
+    safe = np.where(a > 0, a, 1.0)[..., None]
+    col = np.clip(255.0 - inv * 255.0 / safe, 0, 255)
+    out = np.dstack([col, a]).astype(np.uint8)
+    return Image.fromarray(out, 'RGBA')
+
+
 def render(src, kind, width, out):
     from PIL import Image  # nur zum Erzeugen nötig, nicht für --check
     im = Image.open(src)
+    if kind == 'frei':
+        im = white_to_alpha(im)
+        if im.width > width:
+            im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        im.save(out, 'WEBP', quality=QUALITY[kind], method=6)
+        return
     keep_alpha = kind == 'logos' and im.mode in ('RGBA', 'LA', 'P')
     im = im.convert('RGBA' if keep_alpha else 'RGB')
     if im.width > width:
