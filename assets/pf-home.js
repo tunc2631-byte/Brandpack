@@ -4,7 +4,7 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var state = { cat: 'alle', branche: null };
   var labels = {};
-  $$('.pf-branche').forEach(function (b) { labels[b.dataset.branche] = b.querySelector('b').textContent; });
+  $$('[data-branche]').forEach(function (b) { labels[b.dataset.branche] = b.querySelector('b').textContent; });
 
   function apply() {
     var shown = 0;
@@ -19,7 +19,7 @@
       c.classList.toggle('active', on);
       c.setAttribute('aria-pressed', String(on));
     });
-    $$('.pf-branche').forEach(function (b) {
+    $$('[data-branche]').forEach(function (b) {
       var on = b.dataset.branche === state.branche;
       b.classList.toggle('active', on);
       b.setAttribute('aria-pressed', String(on));
@@ -41,7 +41,7 @@
   $$('.pf-chip').forEach(function (c) {
     c.addEventListener('click', function () { state.cat = c.dataset.cat; apply(); });
   });
-  $$('.pf-branche').forEach(function (b) {
+  $$('[data-branche]').forEach(function (b) {
     b.setAttribute('aria-pressed', 'false');
     b.addEventListener('click', function () {
       state.branche = state.branche === b.dataset.branche ? null : b.dataset.branche;
@@ -52,11 +52,6 @@
   });
 
   var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Kategorie-Leiste: springt zu "Alle Produkte" und filtert dort
-  $$('[data-cat-jump]').forEach(function (a) {
-    a.addEventListener('click', function () { state.cat = a.dataset.catJump; state.branche = null; apply(); });
-  });
 
   // Einstieg: Kundendesigns der Tüte wechseln von selbst; ein Klick auf einen Farbpunkt wählt fest aus
   var heroEl = document.querySelector('.pf-hero');

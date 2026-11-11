@@ -278,10 +278,12 @@ p { margin: 0; }
 /* ── Kategorien: direkter Weg in den Shop ── */
 .pf-cats { background: var(--mist); padding: var(--s5) 0; }
 .pf-cat-row { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--s4); }
-.pf-cat { display: flex; flex-direction: column; align-items: center; gap: 2px; text-decoration: none; color: var(--ink); text-align: center; transition: transform .3s var(--spring); }
+.pf-cats-title { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: var(--s4); }
+.pf-cat { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 0; border: 0; background: none; font: inherit; cursor: pointer; text-decoration: none; color: var(--ink); text-align: center; -webkit-tap-highlight-color: transparent; transition: transform .3s var(--spring); }
+.pf-cat.active .pf-cat-img { box-shadow: 0 0 0 2px var(--pink-ink); }
 .pf-cat-img { display: block; width: 100%; max-width: 132px; aspect-ratio: 1 / 1; background: #fff; border-radius: var(--r-m); overflow: hidden; margin-bottom: var(--s2); }
 .pf-cat-img img { width: 100%; height: 100%; object-fit: contain; }
-.pf-cat b { font-size: 16px; font-weight: 600; }
+.pf-cat b { font-size: 15px; font-weight: 600; line-height: 1.25; }
 .pf-cat > span:last-child { font-size: 13px; color: var(--muted); }
 .pf-cat:hover { transform: translateY(-3px); }
 .pf-cat:active { transform: scale(.97); }
@@ -292,7 +294,8 @@ p { margin: 0; }
   .pf-shop-hero .pf-hero-cta { justify-content: center; }
   .pf-cat-row { display: flex; gap: var(--s3); overflow-x: auto; margin: 0 -20px; padding: 0 20px 4px; scroll-snap-type: x proximity; scrollbar-width: none; }
   .pf-cat-row::-webkit-scrollbar { display: none; }
-  .pf-cat { flex: none; width: 92px; scroll-snap-align: start; }
+  .pf-cat { flex: none; width: 104px; scroll-snap-align: start; }
+  .pf-cat-row { padding-top: 3px; }
 }
 
 .pf-hero { position: relative; isolation: isolate; }
@@ -326,26 +329,6 @@ p { margin: 0; }
 .pf-bento-5 .pf-tile-a { grid-column: span 4; min-height: 240px; }
 @media (max-width: 860px) { .pf-bento-5 .pf-tile, .pf-bento-5 .pf-tile-a { grid-column: span 6; min-height: 0; } }
 
-.pf-branchen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); }
-.pf-branche { text-align: left; font: inherit; color: var(--ink); background: var(--mist); border: 0; border-radius: var(--r-l); padding: var(--s5); cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: transform .3s var(--spring); }
-.pf-branche:hover { transform: translateY(-3px); }
-.pf-branche:active { transform: scale(.98); }
-.pf-branche.active { box-shadow: inset 0 0 0 2px var(--pink-ink); }
-.pf-branche b { font-family: var(--font-display); font-size: 22px; letter-spacing: -.02em; }
-.pf-branche > span:last-child { font-size: 14px; color: var(--muted); }
-.pf-branche-pics { display: flex; margin-bottom: var(--s4); }
-.pf-branche-pics img { width: 76px; height: 76px; border-radius: 50%; background: var(--paper); object-fit: contain; padding: 4px; mix-blend-mode: normal; box-shadow: 0 0 0 3px var(--mist); }
-.pf-branche-pics img + img { margin-left: -16px; }
-@media (max-width: 860px) { .pf-branchen { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) {
-  .pf-branchen { grid-template-columns: 1fr; gap: var(--s3); }
-  .pf-branche { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: var(--s4); align-items: center; padding: var(--s4); }
-  .pf-branche-pics { grid-row: span 2; margin-bottom: 0; }
-  .pf-branche-pics img { width: 52px; height: 52px; }
-  .pf-branche-pics img + img { margin-left: -14px; }
-  .pf-branche b { font-size: 19px; align-self: end; }
-  .pf-branche > span:last-child { align-self: start; }
-}
 
 .pf-design-band { background: var(--mist); }
 .pf-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); align-items: start; }
@@ -486,7 +469,7 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
   .pf-shop-hero .pf-hero-cta .pf-btn { width: auto; }
   .pf-designs { width: min(76vw, 320px); }
   .pf-cats { padding: var(--s4) 0; }
-  .pf-cat b { font-size: 14px; }
+  .pf-cat b { font-size: 13px; }
   .pf-cat > span:last-child { font-size: 12px; }
   .pf-hero-cta { flex-direction: column; gap: var(--s3); margin-top: var(--s5); }
   .pf-hero-cta .pf-btn { width: 100%; max-width: 340px; }

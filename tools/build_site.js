@@ -127,12 +127,10 @@ function productCard(p, opts) {
 function blocks() {
   // Kundenlogos aus data/site.json: einfarbig, optisch gleich groß (w/h in px)
   const logo = hidden => site.kunden.map(k => `      <img class="pf-logo" src="/Bilder/logos/${esc(k.file)}-440.webp" alt="${hidden ? '' : esc(k.alt)}" width="${k.w}" height="${k.h}" style="--w:${k.w}px;--h:${k.h}px" loading="lazy" decoding="async">`).join('\n');
+  // Branchen-Leiste: ein Tipp filtert "Alle Produkte" nach Branche (Bild: branchen[].bild in data/site.json)
   const branche = b => {
-    const list = products.filter(p => p.branchen.includes(b.id));
-    // Bilder: zuerst Produkte, die nicht in jede Branche passen, damit sich die Kacheln unterscheiden
-    const everywhere = p => site.branchen.every(x => p.branchen.includes(x.id));
-    const pics = list.filter(p => !everywhere(p)).concat(list.filter(everywhere)).slice(0, 3).map(p => `<img src="${esc(small(p.image))}" alt="" loading="lazy" decoding="async" width="480" height="480">`).join('');
-    return `      <button type="button" class="pf-branche" data-branche="${esc(b.id)}"><span class="pf-branche-pics">${pics}</span><b>${esc(b.label)}</b><span>${list.length} passende Produkte</span></button>`;
+    const n = products.filter(p => p.branchen.includes(b.id)).length;
+    return `      <button type="button" class="pf-cat" data-branche="${esc(b.id)}" aria-pressed="false"><span class="pf-cat-img"><img src="${esc(small(bySlug[b.bild].image))}" alt="" width="480" height="480" loading="lazy" decoding="async"></span><b>${esc(b.label)}</b><span>${n} Produkte</span></button>`;
   };
   // Einstieg: ein Produkt groß wie bei Apple, mit echten Kundendesigns zum Durchschalten (data/site.json → hero)
   const h = site.hero, hp = bySlug[h.slug];
@@ -162,13 +160,8 @@ ${h.designs.map(swatch).join('\n')}
     </div>
   </div>
 </section>`;
-  const kategorie = c => {
-    const list = products.filter(p => p.catalog.tags.includes(c.id));
-    return `      <a class="pf-cat" href="#produkte" data-cat-jump="${esc(c.id)}"><span class="pf-cat-img"><img src="${esc(small(list[0].image))}" alt="" width="480" height="480" loading="lazy" decoding="async"></span><b>${esc(c.label)}</b><span>${list.length} ${list.length === 1 ? 'Produkt' : 'Produkte'}</span></a>`;
-  };
   return {
     hero,
-    kategorien: site.categories.map(kategorie).join('\n'),
     logos: logo(false) + '\n      <span class="pf-logo-loop" aria-hidden="true">\n' + logo(true) + '\n      </span>',
     bestseller: site.bestseller.map(s => '      ' + productCard(bySlug[s], { badge: true })).join('\n'),
     branchen: site.branchen.map(branche).join('\n'),

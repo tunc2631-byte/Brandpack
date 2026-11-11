@@ -56,27 +56,33 @@
   "branchen": [
     {
       "id": "burger",
-      "label": "Burgerladen"
+      "label": "Burgerladen",
+      "bild": "burgerbox"
     },
     {
       "id": "cafe",
-      "label": "Café & Bäckerei"
+      "label": "Café & Bäckerei",
+      "bild": "kaffeebecher-single-wall"
     },
     {
       "id": "doener",
-      "label": "Döner & Imbiss"
+      "label": "Döner & Imbiss",
+      "bild": "doenerboxen"
     },
     {
       "id": "bubbletea",
-      "label": "Bubble Tea & Drinks"
+      "label": "Bubble Tea & Drinks",
+      "bild": "bubble-tea-cups"
     },
     {
       "id": "bowls",
-      "label": "Bowls & Lieferdienst"
+      "label": "Bowls & Lieferdienst",
+      "bild": "salatschalen"
     },
     {
       "id": "suess",
-      "label": "Konditorei & Süßes"
+      "label": "Konditorei & Süßes",
+      "bild": "kuchenboxen"
     }
   ],
   "bestseller": [
