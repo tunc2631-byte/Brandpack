@@ -9,163 +9,8 @@
   <link rel="icon" type="image/png" href="/Bilder/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 92px; }
-    * { -webkit-tap-highlight-color: transparent; }
-    a, button { touch-action: manipulation; }
-    :root { --pink: #F07A8C; --pink-d: #d9697a; --dark: #1d1d1f; --muted: #6e6e73; --bg: #f5f5f7; --card: #F5F2EC; }
-
-    /* NAV */
-    .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 12px 20px; pointer-events: none; }
-    .nav-wrapper nav { background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04); pointer-events: all; max-width: 1200px; margin: 0 auto; border: 1px solid #E8E3DA; }
-    .nav-inner { padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px; }
-    .nav-logo { height: 150px; width: auto; }
-    .nav-links { flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap; }
-    .nav-links a { color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color .15s; }
-    .nav-links a:hover { color: var(--pink); }
-    .nav-right { flex-shrink: 0; display: flex; align-items: center; gap: 8px; }
-    .btn-pink { display: inline-block; text-decoration: none; font-weight: 700; border-radius: 10px; background: var(--pink); color: #fff; padding: 10px 22px; font-size: 14px; font-family: inherit; border: none; cursor: pointer; transition: background .18s, transform .2s cubic-bezier(.34,1.56,.64,1); }
-    .btn-pink:hover { background: var(--pink-d); transform: translateY(-1px); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all .28s cubic-bezier(.22,1,.36,1); }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: flex; position: fixed; inset: 0; background: #FAF9F7; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity .28s cubic-bezier(.22,1,.36,1); }
-    .mobile-menu.open { opacity: 1; pointer-events: all; }
-    .mobile-menu a { font-size: 24px; font-weight: 800; color: #1a1a1a; text-decoration: none; opacity: 0; transform: translateY(18px); transition: color .15s, opacity .32s cubic-bezier(.22,1,.36,1), transform .32s cubic-bezier(.22,1,.36,1); }
-    .mobile-menu.open a:nth-child(1) { opacity: 1; transform: none; transition-delay: .05s; }
-    .mobile-menu.open a:nth-child(2) { opacity: 1; transform: none; transition-delay: .09s; }
-    .mobile-menu.open a:nth-child(3) { opacity: 1; transform: none; transition-delay: .13s; }
-    .mobile-menu.open a:nth-child(4) { opacity: 1; transform: none; transition-delay: .17s; }
-    .mobile-menu.open a:nth-child(5) { opacity: 1; transform: none; transition-delay: .21s; }
-    .mobile-menu a:hover { color: var(--pink); }
-    @media (min-width: 769px) { .nav-wrapper { transition: padding .35s cubic-bezier(.22,1,.36,1); } .nav-wrapper.scrolled { padding: 6px 20px; } }
-    @media (max-width: 768px) { .nav-links, .btn-pink.nav-cta { display: none !important; } .hamburger { display: flex !important; } .nav-wrapper { padding: 0 !important; } .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,.08) !important; } .nav-logo { height: 90px !important; } .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; } body { padding-top: 72px; } }
-    @media (max-width: 480px) { .nav-logo { height: 75px !important; } .nav-inner { height: 64px !important; } body { padding-top: 64px; } }
-
-    /* HERO */
-    .product-hero { display: grid; grid-template-columns: 55% 45%; min-height: calc(100vh - 92px); }
-    @media (max-width: 960px) { .product-hero { grid-template-columns: 1fr; height: auto; } }
-    .img-panel { position: relative; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .img-panel img { width: 82%; max-width: 480px; object-fit: contain; user-select: none; pointer-events: none; display: block; }
-    .img-panel img.pulse { animation: imgPulse .28s ease; }
-    @keyframes imgPulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.04);} }
-    .size-badge { position: absolute; bottom: 24px; left: 24px; background: rgba(29,29,31,.82); backdrop-filter: blur(12px); color: #fff; border-radius: 12px; padding: 10px 14px; }
-    .size-badge-s { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .06em; }
-    .size-badge-v { font-size: 18px; font-weight: 900; letter-spacing: -.02em; line-height: 1.15; }
-    .size-badge-d { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 1px; }
-    @media (max-width: 960px) { .img-panel { height: 60vw; min-height: 300px; } .img-panel img { width: 84%; height: 84%; } .size-badge { bottom: 14px; left: 14px; padding: 7px 11px; } .size-badge-v { font-size: 14px; } }
-    .config-panel { display: flex; flex-direction: column; justify-content: center; padding: 20px 36px 16px; background: #fff; border-left: 1px solid #f0f0f0; }
-    @media (max-width: 1100px) { .config-panel { padding: 16px 24px 14px; } }
-    @media (max-width: 960px) { .config-panel { padding: 20px; border-left: none; border-top: 1px solid #f0f0f0; } }
-    .breadcrumb { font-size: 12px; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-    .breadcrumb a { color: var(--muted); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--dark); }
-    .breadcrumb span { color: #c7c7cc; }
-    h1.product-title { font-size: clamp(26px, 3vw, 38px); font-weight: 900; letter-spacing: -.03em; color: var(--dark); line-height: 1.05; margin-bottom: 14px; }
-    .opt-group { margin-bottom: 14px; }
-    .opt-group-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
-    .opt-btns { display: flex; flex-wrap: wrap; gap: 7px; }
-
-    /* TYP BUTTONS \u2014 larger, special styling */
-    .typ-btn { padding: 11px 20px; border-radius: 14px; border: 2px solid #d2d2d7; background: #fff; font-family: inherit; font-size: 13px; font-weight: 800; color: var(--dark); cursor: pointer; transition: border-color .12s, background .12s, color .12s, transform .15s; text-align: center; }
-    .typ-btn:hover { border-color: #8e8e93; transform: translateY(-1px); }
-    .typ-btn.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-    .typ-btn-sub { font-size: 10px; font-weight: 600; opacity: .7; display: block; margin-top: 1px; }
-    .typ-btns { display: flex; gap: 8px; }
-    .set-badge { display: inline-block; background: var(--pink); color: #fff; border-radius: 100px; font-size: 9px; font-weight: 800; padding: 2px 7px; vertical-align: middle; margin-left: 4px; letter-spacing: .04em; }
-
-    .opt { padding: 9px 16px; border-radius: 100px; border: 1.5px solid #d2d2d7; background: #fff; font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark); cursor: pointer; transition: border-color .12s, background .12s, color .12s; white-space: nowrap; }
-    .opt:hover { border-color: #8e8e93; }
-    .opt.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-    .dim-hint { font-size: 11px; color: var(--pink); font-weight: 700; margin-top: 4px; }
-    .menge-info { display: flex; align-items: center; gap: 8px; background: #f5f5f7; border-radius: 10px; padding: 9px 14px; margin-bottom: 14px; }
-    .menge-info-icon { font-size: 16px; }
-    .menge-info-text { font-size: 12px; color: var(--muted); font-weight: 700; }
-    .price-row { display: flex; align-items: baseline; gap: 8px; margin: 10px 0 2px; flex-wrap: wrap; }
-    .price-total { font-size: clamp(22px, 2.5vw, 30px); font-weight: 900; color: var(--dark); letter-spacing: -.03em; }
-    .price-per { font-size: 13px; color: var(--pink); font-weight: 700; }
-    .price-vat { font-size: 11px; color: #aeaeb2; margin-bottom: 10px; }
-    .btn-wa { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; background: #25D366; color: #fff; border: none; border-radius: 12px; padding: 13px 20px; font-family: inherit; font-size: 14px; font-weight: 800; cursor: pointer; text-decoration: none; transition: opacity .15s, transform .15s; margin-bottom: 7px; }
-    .btn-wa:hover { opacity: .88; transform: scale(1.01); }
-    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-    .btn-sec { display: flex; align-items: center; justify-content: center; gap: 6px; background: #fff; border-radius: 12px; padding: 10px 16px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .15s, color .15s; }
-    .btn-phone { border: 2px solid var(--dark); color: var(--dark); }
-    .btn-phone:hover { background: var(--dark); color: #fff; }
-    .btn-email { border: 2px solid var(--pink); color: var(--pink); }
-    .btn-email:hover { background: var(--pink); color: #fff; }
-
-    /* DELIVERY STRIP */
-    .delivery-strip { background: var(--card); border-bottom: 1px solid #E8E3DA; display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; }
-    .delivery-item { display: flex; flex-direction: column; justify-content: center; padding: 12px 28px; border-right: 1px solid #E8E3DA; }
-    .delivery-item:last-child { border-right: none; }
-    @media (max-width: 640px) { .delivery-item { border-right: none; border-bottom: 1px solid #E8E3DA; padding: 10px 20px; } .delivery-item:last-child { border-bottom: none; } }
-    .delivery-label { font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
-    .delivery-value { font-size: 13px; font-weight: 800; color: var(--dark); }
-
-    /* SERVICE */
-    .service-section { background: #fff; padding: 80px 24px; }
-    .service-inner { max-width: 1000px; margin: 0 auto; }
-    .section-eyebrow { font-size: 11px; font-weight: 700; color: var(--pink); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-    .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 900; color: var(--dark); letter-spacing: -.025em; line-height: 1.1; margin-bottom: 12px; }
-    .section-sub { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.65; margin-bottom: 52px; }
-    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    @media (max-width: 700px) { .service-grid { grid-template-columns: 1fr; gap: 16px; } }
-    .service-card { background: var(--bg); border-radius: 20px; padding: 28px 24px; }
-    .service-card-title { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
-    .service-card-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-    .service-card-tag { display: inline-flex; align-items: center; background: #e8f5e9; color: #2e7d32; border-radius: 100px; padding: 4px 12px; font-size: 11px; font-weight: 700; margin-top: 12px; }
-
-    /* SPECS */
-    .specs-section { background: #fff; padding: 80px 24px; }
-    .specs-inner { max-width: 960px; margin: 0 auto; }
-    .specs-header { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
-    .specs-pink-bar { width: 4px; height: 32px; background: var(--pink); border-radius: 4px; flex-shrink: 0; }
-    .specs-title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--dark); letter-spacing: -.025em; }
-    .specs-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; margin-left: 18px; }
-    .specs-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .specs-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 16px; overflow: hidden; min-width: 560px; box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05); }
-    .specs-table thead tr { background: var(--dark); color: #fff; }
-    .specs-table th { padding: 13px 14px; font-size: 12px; font-weight: 600; text-align: center; letter-spacing: .02em; }
-    .specs-table th:first-child { text-align: left; }
-    .specs-table td { padding: 11px 14px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 13px; color: #3a3a3a; }
-    .specs-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); white-space: nowrap; }
-    .specs-table tr:last-child td { border-bottom: none; }
-    .specs-table tr:nth-child(even) td { background: #fafafa; }
-    .specs-table .row-highlight td { background: #fff8f9 !important; color: var(--pink); font-weight: 700; }
-    .specs-footnote { font-size: 12px; color: var(--muted); margin-top: 14px; }
-
-    /* SEO */
-    .seo-section { background: var(--bg); padding: 80px 24px; }
-    .seo-inner { max-width: 860px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif; }
-    .seo-inner h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--dark); letter-spacing: -.02em; margin-bottom: 10px; }
-    .seo-inner h3 { font-size: 17px; font-weight: 600; color: var(--pink); margin: 32px 0 8px; letter-spacing: -.01em; }
-    .seo-inner p { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 16px; }
-    .seo-inner ul { padding-left: 20px; margin-bottom: 16px; }
-    .seo-inner ul li { font-size: 15px; color: #4a4a4a; line-height: 1.8; margin-bottom: 4px; }
-    .seo-lead { font-size: 17px !important; color: var(--dark) !important; font-weight: 600 !important; }
-
-    /* CONTACT */
-    .contact { background: var(--dark); padding: 80px 24px 100px; text-align: center; }
-    .contact-title { font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -.025em; margin-bottom: 10px; }
-    .contact-sub { color: rgba(255,255,255,.55); font-size: 17px; margin-bottom: 40px; line-height: 1.6; max-width: 520px; margin-left: auto; margin-right: auto; }
-    .contact-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .cbtn-wa { display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff; border-radius: 100px; padding: 15px 30px; font-size: 16px; font-weight: 800; text-decoration: none; transition: opacity .15s; }
-    .cbtn-wa:hover { opacity: .88; }
-    .cbtn { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); color: #fff; border-radius: 100px; padding: 15px 26px; font-size: 15px; font-weight: 700; text-decoration: none; transition: background .15s; }
-    .cbtn:hover { background: rgba(255,255,255,.18); }
-
-    footer { background: var(--card); padding: 36px 24px; text-align: center; border-top: 1px solid #E8E3DA; }
-    footer img { height: 52px; margin-bottom: 12px; opacity: .45; }
-    .foot-links { display: flex; justify-content: center; gap: 18px; margin-bottom: 10px; }
-    .foot-links a { color: var(--muted); font-size: 12px; text-decoration: none; }
-    .foot-links a:hover { color: var(--dark); }
-    footer p { color: #aeaeb2; font-size: 11px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/pf.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -187,15 +32,13 @@
 }
   </script>
 </head>
-<body>
+<body class="pf-page">
+<!-- Erzeugt von tools/build_site.js aus data/products.json und content/produkte/kuchenboxen.html. Nicht von Hand ändern. -->
 
-<!-- NAV -->
 <div class="nav-wrapper" id="navWrapper">
-  <nav>
+  <nav aria-label="Hauptnavigation">
     <div class="nav-inner">
-      <a href="/" style="display:flex;align-items:center;flex-shrink:0;">
-        <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo">
-      </a>
+      <a href="/" class="nav-home"><img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo" width="900" height="637"></a>
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
@@ -204,8 +47,8 @@
         <a href="/#kontakt">Kontakt</a>
       </div>
       <div class="nav-right">
-        <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
+        <a href="/#produkte" class="pf-btn pf-btn-primary pf-btn-sm nav-cta">Jetzt bestellen</a>
+        <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Men&uuml;" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -216,231 +59,199 @@
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
-  <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
 
-<!-- PRODUCT HERO -->
-<section class="product-hero">
-  <div class="img-panel">
-    <img id="product-img" src="/Bilder/kuchenbox.jpeg" alt="Kuchenbox mit Logo bedruckt">
-    <div class="size-badge">
-      <div class="size-badge-s">Ausgew&auml;hlt</div>
-      <div class="size-badge-v" id="badge-typ">Kuchenbox</div>
-      <div class="size-badge-d" id="badge-dim">18 &times; 18 &times; 13 cm</div>
+<main>
+<section class="pf-buy" aria-label="Produkt konfigurieren">
+  <div class="pf-gallery">
+    <div class="pf-shot">
+      <img id="product-img" src="/Bilder/web/kuchenbox-960.webp" srcset="/Bilder/web/kuchenbox-480.webp 480w, /Bilder/web/kuchenbox-960.webp 960w" sizes="(max-width: 980px) 90vw, 560px" alt="Kuchenboxen &amp; Tortenunterlagen mit Logo bedruckt" width="960" height="960" fetchpriority="high">
     </div>
   </div>
 
-  <div class="config-panel">
-    <div class="breadcrumb">
-      <a href="/">PackFactory</a><span>&rsaquo;</span>
-      <a href="/#produkte">Produkte</a><span>&rsaquo;</span>
-      Kuchenboxen
-    </div>
-
-    <h1 class="product-title">Kuchenboxen &amp; Tortenunterlagen</h1>
-
-    <!-- Typ -->
-    <div class="opt-group">
-      <div class="opt-group-label">Ausf&uuml;hrung</div>
-      <div class="typ-btns">
-        <button class="typ-btn active" onclick="selectTyp('box',this)">
-          Kuchenbox
-          <span class="typ-btn-sub">nur Box</span>
-        </button>
-        <button class="typ-btn" onclick="selectTyp('mendil',this)">
-          Mendil
-          <span class="typ-btn-sub">nur Unterlage</span>
-        </button>
-        <button class="typ-btn" onclick="selectTyp('set',this)">
-          Set <span class="set-badge">SPAR</span>
-          <span class="typ-btn-sub">Box + Mendil</span>
-        </button>
+  <div class="pf-panel config-panel">
+    <nav class="pf-crumbs" aria-label="Brotkrumen"><a href="/">PackFactory</a><span aria-hidden="true">›</span><a href="/#produkte">Produkte</a><span aria-hidden="true">›</span><span>Kuchenboxen</span></nav>
+    <h1 class="pf-title">Kuchenboxen &amp; Tortenunterlagen</h1>
+    
+    <p class="pf-from">ab 16,00 ct pro Stück · mit deinem Logo</p>
+    <p class="pf-note pf-note-top">Mindestbestellung: 10.000 Stück · Größere Mengen auf Anfrage</p>
+    <div class="pf-group" data-group="typ">
+      <div class="pf-label" id="pf-l-typ">Ausführung</div>
+      <div class="opt-btns pf-chips" role="group" aria-labelledby="pf-l-typ">
+        <button type="button" class="pf-opt active" aria-pressed="true" data-key="typ" data-id="box"><b>Kuchenbox</b><span>nur Box</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="typ" data-id="mendil"><b>Mendil</b><span>nur Unterlage</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="typ" data-id="set"><b>Set</b><span>Box + Mendil</span></button>
       </div>
+      <div class="pf-hints" data-hints="typ" aria-live="polite"></div>
     </div>
-
-    <!-- Groesse -->
-    <div class="opt-group">
-      <div class="opt-group-label">Gr&ouml;&szlig;e</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectOpt('groesse','no0',this)">No 0 &middot; 18 cm</button>
-        <button class="opt" onclick="selectOpt('groesse','no1',this)">No 1 &middot; 21 cm</button>
-        <button class="opt" onclick="selectOpt('groesse','no2',this)">No 2 &middot; 25 cm</button>
-        <button class="opt" onclick="selectOpt('groesse','no3',this)">No 3 &middot; 27 cm</button>
-        <button class="opt" onclick="selectOpt('groesse','no4',this)">No 4 &middot; 29 cm</button>
+    <div class="pf-group" data-group="groesse">
+      <div class="pf-label" id="pf-l-groesse">Größe</div>
+      <div class="opt-btns pf-chips" role="group" aria-labelledby="pf-l-groesse">
+        <button type="button" class="pf-opt active" aria-pressed="true" data-key="groesse" data-id="no0"><b>No 0</b><span>18 cm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="groesse" data-id="no1"><b>No 1</b><span>21 cm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="groesse" data-id="no2"><b>No 2</b><span>25 cm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="groesse" data-id="no3"><b>No 3</b><span>27 cm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="groesse" data-id="no4"><b>No 4</b><span>29 cm</span></button>
       </div>
-      <div class="dim-hint" id="dim-hint">18 &times; 18 &times; 13 cm &middot; H&ouml;he 13 cm</div>
+      <div class="pf-hints" data-hints="groesse" aria-live="polite"><p class="pf-hint">Box 18 × 18 × 13 cm</p></div>
     </div>
 
-    <!-- Menge Info -->
-    <div class="menge-info">
-      <span class="menge-info-icon">&#128230;</span>
-      <span class="menge-info-text">Mindestbestellung: 10.000 St&uuml;ck &middot; Gr&ouml;&szlig;ere Mengen auf Anfrage</span>
+    <div class="pf-sum" aria-live="polite">
+      <span class="pf-total" id="price-display">4.100,00 €</span>
+      <span class="pf-per" id="price-per">41,00 ct pro Stück</span>
+      <span class="pf-saved" id="pf-saved"></span>
+      <span class="pf-vat">Netto zzgl. MwSt. · inkl. individuellem Druck &amp; Design</span>
     </div>
 
-    <!-- Price -->
-    <div class="price-row">
-      <span class="price-total" id="price-display">EUR 4.100,00</span>
-      <span class="price-per" id="price-per">0,41 &euro; / St&uuml;ck</span>
+    <div class="pf-ctas" id="pf-ctas">
+      <button type="button" class="pf-btn pf-btn-primary" id="pf-add" onclick="addCurrentToCart()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>In den Warenkorb</button>
+      <a id="wa-link" class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Kuchenboxen%20(Ausf%C3%BChrung%3A%20Kuchenbox%20(nur%20Box)%2C%20Gr%C3%B6%C3%9Fe%3A%20No%200%20(18%20cm)%2C%2010.000%20St%C3%BCck%2C%2041%2C00%20ct%20pro%20St%C3%BCck%20netto%2C%20gesamt%204.100%2C00%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Direkt per WhatsApp anfragen</a>
     </div>
-    <p class="price-vat">Zzgl. MwSt. &middot; Inkl. individuellem Druck &amp; Design</p>
+    <p class="pf-contact-line"><a href="tel:+491776990017">Anrufen: 0177 6990017</a><span aria-hidden="true">·</span><a id="email-link" href="mailto:info@pack-factory.de?subject=Anfrage%20Kuchenboxen&amp;body=Ausf%C3%BChrung%3A%20Kuchenbox%20(nur%20Box)%0AGr%C3%B6%C3%9Fe%3A%20No%200%20(18%20cm)%0A10.000%20St%C3%BCck%0ASt%C3%BCckpreis%3A%2041%2C00%20ct%20pro%20St%C3%BCck%20netto%0AGesamtpreis%3A%204.100%2C00%20%E2%82%AC%20netto">E-Mail schreiben</a></p>
 
-    <button type="button" class="pf-cart-add" onclick="addCurrentToCart()">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      In den Warenkorb
-    </button>
-    <a id="wa-link" href="https://wa.me/491776990017" target="_blank" class="btn-wa">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Angebot via WhatsApp anfragen
-    </a>
-    <div class="btn-row">
-      <a href="tel:+491776990017" class="btn-sec btn-phone">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        Anrufen
-      </a>
-      <a id="email-link" href="mailto:info@pack-factory.de" class="btn-sec btn-email">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        E-Mail
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- DELIVERY STRIP -->
-<div class="delivery-strip">
-  <div class="delivery-item">
-    <div class="delivery-label">Lieferzeit</div>
-    <div class="delivery-value">ca. 5&ndash;7 Wochen nach Druckfreigabe</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Produktion</div>
-    <div class="delivery-value">Erst nach deiner Freigabe</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Designservice</div>
-    <div class="delivery-value">Kostenlos inklusive</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Mindestbestellung</div>
-    <div class="delivery-value">10.000 St&uuml;ck</div>
-  </div>
-</div>
-
-<!-- SERVICE -->
-<section class="service-section">
-  <div class="service-inner">
-    <p class="section-eyebrow">Dein Verpackungspartner</p>
-    <h2 class="section-title">Wir k&uuml;mmern uns um alles.</h2>
-    <p class="section-sub">Box, Mendil oder beides als Set &mdash; du bekommst alles aus einer Hand, inklusive individuellem Logo-Druck und kostenlosem Designservice.</p>
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="service-card-title">Design aus einer Hand</div>
-        <div class="service-card-desc">Kein eigenes Design n&ouml;tig. Schick uns dein Logo &mdash; wir gestalten die Kuchenbox professionell f&uuml;r dich.</div>
-        <span class="service-card-tag">Kostenlos inklusive</span>
-      </div>
-      <div class="service-card">
-        <div class="service-card-title">Box + Mendil als Set</div>
-        <div class="service-card-desc">Bestelle Box und Tortenunterlage zusammen &mdash; Versandvorteil bleibt bei dir, du sparst gegen&uuml;ber Einzelbestellung.</div>
-        <span class="service-card-tag">Versandvorteil im Set</span>
-      </div>
-      <div class="service-card">
-        <div class="service-card-title">Lagerung &amp; Logistik</div>
-        <div class="service-card-desc">Auf Wunsch lagern wir deine Verpackungen und liefern nach Bedarf. Kein eigener Lagerplatz n&ouml;tig.</div>
-        <span class="service-card-tag">Auf Anfrage verf&uuml;gbar</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SPECS -->
-<section class="specs-section">
-  <div class="specs-inner">
-    <div class="specs-header">
-      <div class="specs-pink-bar"></div>
-      <h2 class="specs-title">Preise &amp; Ma&szlig;e im &Uuml;berblick</h2>
-    </div>
-    <p class="specs-sub">Alle Preise netto &middot; 10.000 St&uuml;ck &middot; Inkl. individuellem CMYK-Druck</p>
-    <div class="specs-wrap">
-      <table class="specs-table">
-        <thead>
-          <tr>
-            <th>Produkt</th>
-            <th>No 0</th>
-            <th>No 1</th>
-            <th>No 2</th>
-            <th>No 3</th>
-            <th>No 4</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Box Ma&szlig;e</td><td>18&times;18&times;13</td><td>21&times;21&times;13</td><td>25&times;25&times;13</td><td>27&times;27&times;13</td><td>29&times;29&times;18</td></tr>
-          <tr><td>Mendil Ma&szlig;e</td><td>18&times;18 cm</td><td>21&times;21 cm</td><td>25&times;25 cm</td><td>27&times;27 cm</td><td>29&times;29 cm</td></tr>
-          <tr class="row-highlight"><td>VK Box / St&uuml;ck</td><td>0,41 &euro;</td><td>0,46 &euro;</td><td>0,51 &euro;</td><td>0,57 &euro;</td><td>0,63 &euro;</td></tr>
-          <tr><td>Gesamtpreis Box</td><td>4.100 &euro;</td><td>4.600 &euro;</td><td>5.100 &euro;</td><td>5.700 &euro;</td><td>6.300 &euro;</td></tr>
-          <tr class="row-highlight"><td>VK Mendil / St&uuml;ck</td><td>0,16 &euro;</td><td>0,21 &euro;</td><td>0,26 &euro;</td><td>0,32 &euro;</td><td>0,40 &euro;</td></tr>
-          <tr><td>Gesamtpreis Mendil</td><td>1.600 &euro;</td><td>2.100 &euro;</td><td>2.600 &euro;</td><td>3.200 &euro;</td><td>4.000 &euro;</td></tr>
-          <tr class="row-highlight"><td>VK Set / St&uuml;ck</td><td>0,57 &euro;</td><td>0,67 &euro;</td><td>0,77 &euro;</td><td>0,89 &euro;</td><td>1,03 &euro;</td></tr>
-          <tr><td>Gesamtpreis Set</td><td>5.700 &euro;</td><td>6.700 &euro;</td><td>7.700 &euro;</td><td>8.900 &euro;</td><td>10.300 &euro;</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="specs-footnote">* Alle Preise netto zzgl. MwSt. &middot; Einmalige Einrichtungskosten k&ouml;nnen beim ersten Auftrag anfallen.</p>
-  </div>
-</section>
-
-<!-- SEO -->
-<section class="seo-section">
-  <div class="seo-inner">
-    <h2>Kuchenboxen bedrucken lassen &mdash; 5 Gr&ouml;&szlig;en, Box &amp; Mendil, ab 10.000 St&uuml;ck</h2>
-    <p class="seo-lead">B&auml;ckereien, Konditoreien und Tortenshops brauchen eine Verpackung, die zur Qualit&auml;t ihrer Produkte passt. PackFactory produziert bedruckte Kuchenboxen in 5 Gr&ouml;&szlig;en von 18 bis 29 cm &mdash; wahlweise als Box, als Tortenunterlage (Mendil) oder als Set, mit CMYK Vollfarb-Druck, ab 10.000 St&uuml;ck.</p>
-
-    <h3>Kuchenbox und Mendil &mdash; was ist der Unterschied?</h3>
-    <p>Die <strong>Kuchenbox</strong> ist die Faltschachtel, die die Torte oder den Kuchen nach au&szlig;en sch&uuml;tzt und Ihr Branding pr&auml;sentiert. Sie ist in f&uuml;nf Gr&ouml;&szlig;en erh&auml;ltlich, von der kompakten 18&times;18-cm-Box bis zur gro&szlig;en 29&times;29-cm-Box f&uuml;r Hochzeitstorten.</p>
-    <p>Die <strong>Tortenunterlage (Mendil)</strong> ist die stabile Pappe, auf der die Torte direkt steht &mdash; sie verhindert, dass der Boden der Torte direkten Kontakt mit der Box hat, stabilisiert die Torte beim Transport und kann ebenfalls mit Ihrem Logo bedruckt werden. Box und Mendil zusammen ergeben ein vollst&auml;ndiges, professionelles Tortenverpackungs-Set.</p>
-
-    <h3>F&uuml;r welche Betriebe sind Kuchenboxen geeignet?</h3>
-    <ul>
-      <li>B&auml;ckereien und Konditoreien mit Torten- und Kuchenangebot</li>
-      <li>Tortenshops und Cakery-Konzepte (Custom Cakes, Wedding Cakes)</li>
-      <li>Caf&eacute;s mit Take-away-Tortensortiment</li>
-      <li>Catering-Unternehmen f&uuml;r Events und Hochzeiten</li>
-      <li>Online-Tortenshops mit Versand (stabile Verpackung erforderlich)</li>
-      <li>T&uuml;rkische und orientalische B&auml;ckereien mit Tortenangebot</li>
-      <li>Wochenmarkth&auml;ndler mit Kuchen- und Geb&auml;ckspezialit&auml;ten</li>
-    </ul>
-
-    <h3>No 0 bis No 4 &mdash; die richtige Gr&ouml;&szlig;e f&uuml;r jede Torte</h3>
-    <p>Die <strong>No 0 (18&times;18&times;13 cm)</strong> ist ideal f&uuml;r Einzelportionen, Minik&uuml;chen und kleine Geburtstagstorten. Die <strong>No 1 (21&times;21&times;13 cm)</strong> passt f&uuml;r klassische 20-cm-Torten &mdash; das Standardformat f&uuml;r Geburtstage. Die <strong>No 2 (25&times;25&times;13 cm)</strong> und <strong>No 3 (27&times;27&times;13 cm)</strong> decken mittlere bis gro&szlig;e Torten ab. Die <strong>No 4 (29&times;29&times;18 cm)</strong> mit der erh&ouml;hten H&ouml;he von 18 cm ist das richtige Format f&uuml;r mehrstielige Hochzeitstorten und besonders hohe Kreationen.</p>
-
-    <h3>Set-Vorteil: Box + Mendil g&uuml;nstiger kombiniert</h3>
-    <p>Wer sowohl Box als auch Mendil ben&ouml;tigt, profitiert vom Set-Angebot: Der Versand beider Produkte wird kombiniert abgewickelt, der Versandvorteil bleibt direkt bei Ihnen. Gegen&uuml;ber der Einzelbestellung sparen Sie pro Bestellung je nach Gr&ouml;&szlig;e bis zu 350 &euro;.</p>
-
-    <h3>Warum PackFactory?</h3>
-    <ul>
-      <li><strong>5 Gr&ouml;&szlig;en</strong> &mdash; von 18 cm bis 29 cm, f&uuml;r jede Tortenform</li>
-      <li><strong>3 Ausf&uuml;hrungen</strong> &mdash; nur Box, nur Mendil oder als Set</li>
-      <li><strong>CMYK Vollfarb-Druck</strong> &mdash; fotorealistische Qualit&auml;t, brillante Farben</li>
-      <li><strong>Kostenloser Designservice</strong> &mdash; wir gestalten, du gibst frei</li>
-      <li><strong>Lieferzeit ca. 5&ndash;7 Wochen</strong> &mdash; nach Druckfreigabe, inkl. Versand</li>
+    <ul class="pf-assure">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lieferzeit</b> ca. 5–7 Wochen nach Druckfreigabe</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Produktion</b> Erst nach deiner Freigabe</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Designservice</b> Kostenlos inklusive</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Mindestbestellung</b> 10.000 Stück</span></li>
     </ul>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact">
-  <h2 class="contact-title">Bereit loszulegen?</h2>
-  <p class="contact-sub">Frag jetzt an &mdash; wir antworten innerhalb von 24 Stunden und k&uuml;mmern uns um alles Weitere.</p>
-  <div class="contact-btns">
-    <a href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20Kuchenboxen%20anfragen." target="_blank" class="cbtn-wa">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
-    <a href="tel:+491776990017" class="cbtn">Anrufen</a>
-    <a href="mailto:info@pack-factory.de" class="cbtn">E-Mail</a>
+<section class="pf-section pf-related" aria-labelledby="pf-related-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-related-h">Passt zu Kuchenboxen. <span>Alles im selben Look bestellen.</span></h2>
+    <div class="pf-rail">
+      <a class="pf-card" href="/produkte/baklava-kutusu/"><span class="pf-card-img"><img src="/Bilder/web/baklava-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Baklava Kutusu</b><span>ab 8,10 ct</span></a>
+      <a class="pf-card" href="/produkte/tueten/"><span class="pf-card-img"><img src="/Bilder/web/papiertueten-shop-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Papiertüten</b><span>ab 12,00 ct</span></a>
+      <a class="pf-card" href="/produkte/servietten/"><span class="pf-card-img"><img src="/Bilder/web/servietten-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Servietten mit Logo</b><span>ab 1,95 ct</span></a>
+      <a class="pf-card" href="/produkte/kaffeebecher-single-wall/"><span class="pf-card-img"><img src="/Bilder/web/kaffeebecher-sw-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Kaffeebecher Single Wall</b><span>ab 6,67 ct</span></a>
+    </div>
   </div>
 </section>
 
-<footer>
-  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory">
+<section class="pf-section pf-service">
+  <div class="pf-wrap">
+    <h2 class="pf-h2">Wir kümmern uns um alles. <span>Von der Idee bis zur Lieferung.</span></h2>
+    <div class="pf-bento">
+      <div class="service-card">
+<div class="service-card-title">Design aus einer Hand</div>
+<div class="service-card-desc">Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten die Kuchenbox professionell für dich.</div>
+<span class="service-card-tag">Kostenlos inklusive</span>
+</div>
+<div class="service-card">
+<div class="service-card-title">Box + Mendil als Set</div>
+<div class="service-card-desc">Bestelle Box und Tortenunterlage zusammen — Versandvorteil bleibt bei dir, du sparst gegenüber Einzelbestellung.</div>
+<span class="service-card-tag">Versandvorteil im Set</span>
+</div>
+<div class="service-card">
+<div class="service-card-title">Lagerung &amp; Logistik</div>
+<div class="service-card-desc">Auf Wunsch lagern wir deine Verpackungen und liefern nach Bedarf. Kein eigener Lagerplatz nötig.</div>
+<span class="service-card-tag">Auf Anfrage verfügbar</span>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="pf-section pf-details" aria-label="Details">
+  <div class="pf-wrap pf-narrow">
+      <details class="pf-acc" open><summary>Preise im Überblick</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table pf-price-table"><thead><tr><th scope="col">Ausführung</th><th scope="col">Größe</th><th scope="col">Preis</th></tr></thead><tbody>
+<tr><th scope="row">Kuchenbox<small>nur Box</small></th><th scope="row">No 0<small>18 cm</small></th><td><b>41,00 ct</b><small>4.100,00 €</small></td></tr>
+<tr><th scope="row">Kuchenbox<small>nur Box</small></th><th scope="row">No 1<small>21 cm</small></th><td><b>46,00 ct</b><small>4.600,00 €</small></td></tr>
+<tr><th scope="row">Kuchenbox<small>nur Box</small></th><th scope="row">No 2<small>25 cm</small></th><td><b>51,00 ct</b><small>5.100,00 €</small></td></tr>
+<tr><th scope="row">Kuchenbox<small>nur Box</small></th><th scope="row">No 3<small>27 cm</small></th><td><b>57,00 ct</b><small>5.700,00 €</small></td></tr>
+<tr><th scope="row">Kuchenbox<small>nur Box</small></th><th scope="row">No 4<small>29 cm</small></th><td><b>63,00 ct</b><small>6.300,00 €</small></td></tr>
+<tr><th scope="row">Mendil<small>nur Unterlage</small></th><th scope="row">No 0<small>18 cm</small></th><td><b>16,00 ct</b><small>1.600,00 €</small></td></tr>
+<tr><th scope="row">Mendil<small>nur Unterlage</small></th><th scope="row">No 1<small>21 cm</small></th><td><b>21,00 ct</b><small>2.100,00 €</small></td></tr>
+<tr><th scope="row">Mendil<small>nur Unterlage</small></th><th scope="row">No 2<small>25 cm</small></th><td><b>26,00 ct</b><small>2.600,00 €</small></td></tr>
+<tr><th scope="row">Mendil<small>nur Unterlage</small></th><th scope="row">No 3<small>27 cm</small></th><td><b>32,00 ct</b><small>3.200,00 €</small></td></tr>
+<tr><th scope="row">Mendil<small>nur Unterlage</small></th><th scope="row">No 4<small>29 cm</small></th><td><b>40,00 ct</b><small>4.000,00 €</small></td></tr>
+<tr><th scope="row">Set<small>Box + Mendil</small></th><th scope="row">No 0<small>18 cm</small></th><td><b>57,00 ct</b><small>5.700,00 €</small></td></tr>
+<tr><th scope="row">Set<small>Box + Mendil</small></th><th scope="row">No 1<small>21 cm</small></th><td><b>67,00 ct</b><small>6.700,00 €</small></td></tr>
+<tr><th scope="row">Set<small>Box + Mendil</small></th><th scope="row">No 2<small>25 cm</small></th><td><b>77,00 ct</b><small>7.700,00 €</small></td></tr>
+<tr><th scope="row">Set<small>Box + Mendil</small></th><th scope="row">No 3<small>27 cm</small></th><td><b>89,00 ct</b><small>8.900,00 €</small></td></tr>
+<tr><th scope="row">Set<small>Box + Mendil</small></th><th scope="row">No 4<small>29 cm</small></th><td><b>103,00 ct</b><small>10.300,00 €</small></td></tr>
+</tbody></table></div>
+<p class="pf-small">Stückpreis und Gesamtpreis, netto zzgl. MwSt., inkl. individuellem Druck &amp; Design.</p></div></details>
+      <details class="pf-acc"><summary>Technische Daten</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table">
+<thead>
+<tr>
+<th>Produkt</th>
+<th>No 0</th>
+<th>No 1</th>
+<th>No 2</th>
+<th>No 3</th>
+<th>No 4</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Box Maße</td><td>18×18×13</td><td>21×21×13</td><td>25×25×13</td><td>27×27×13</td><td>29×29×18</td></tr>
+<tr><td>Mendil Maße</td><td>18×18 cm</td><td>21×21 cm</td><td>25×25 cm</td><td>27×27 cm</td><td>29×29 cm</td></tr>
+
+
+
+
+
+
+</tbody>
+</table></div><div class="pf-small"><p>* Alle Preise netto zzgl. MwSt. · Einmalige Einrichtungskosten können beim ersten Auftrag anfallen.</p></div></div></details>
+  </div>
+</section>
+
+<section class="pf-section pf-story">
+  <div class="pf-wrap pf-narrow pf-prose">
+    <h2>Kuchenboxen bedrucken lassen — 5 Größen, Box &amp; Mendil, ab 10.000 Stück</h2>
+<p class="seo-lead">Bäckereien, Konditoreien und Tortenshops brauchen eine Verpackung, die zur Qualität ihrer Produkte passt. PackFactory produziert bedruckte Kuchenboxen in 5 Größen von 18 bis 29 cm — wahlweise als Box, als Tortenunterlage (Mendil) oder als Set, mit CMYK Vollfarb-Druck, ab 10.000 Stück.</p>
+<h3>Kuchenbox und Mendil — was ist der Unterschied?</h3>
+<p>Die <strong>Kuchenbox</strong> ist die Faltschachtel, die die Torte oder den Kuchen nach außen schützt und Ihr Branding präsentiert. Sie ist in fünf Größen erhältlich, von der kompakten 18×18-cm-Box bis zur großen 29×29-cm-Box für Hochzeitstorten.</p>
+<p>Die <strong>Tortenunterlage (Mendil)</strong> ist die stabile Pappe, auf der die Torte direkt steht — sie verhindert, dass der Boden der Torte direkten Kontakt mit der Box hat, stabilisiert die Torte beim Transport und kann ebenfalls mit Ihrem Logo bedruckt werden. Box und Mendil zusammen ergeben ein vollständiges, professionelles Tortenverpackungs-Set.</p>
+<h3>Für welche Betriebe sind Kuchenboxen geeignet?</h3>
+<ul>
+<li>Bäckereien und Konditoreien mit Torten- und Kuchenangebot</li>
+<li>Tortenshops und Cakery-Konzepte (Custom Cakes, Wedding Cakes)</li>
+<li>Cafés mit Take-away-Tortensortiment</li>
+<li>Catering-Unternehmen für Events und Hochzeiten</li>
+<li>Online-Tortenshops mit Versand (stabile Verpackung erforderlich)</li>
+<li>Türkische und orientalische Bäckereien mit Tortenangebot</li>
+<li>Wochenmarkthändler mit Kuchen- und Gebäckspezialitäten</li>
+</ul>
+<h3>No 0 bis No 4 — die richtige Größe für jede Torte</h3>
+<p>Die <strong>No 0 (18×18×13 cm)</strong> ist ideal für Einzelportionen, Miniküchen und kleine Geburtstagstorten. Die <strong>No 1 (21×21×13 cm)</strong> passt für klassische 20-cm-Torten — das Standardformat für Geburtstage. Die <strong>No 2 (25×25×13 cm)</strong> und <strong>No 3 (27×27×13 cm)</strong> decken mittlere bis große Torten ab. Die <strong>No 4 (29×29×18 cm)</strong> mit der erhöhten Höhe von 18 cm ist das richtige Format für mehrstielige Hochzeitstorten und besonders hohe Kreationen.</p>
+<h3>Set-Vorteil: Box + Mendil günstiger kombiniert</h3>
+<p>Wer sowohl Box als auch Mendil benötigt, profitiert vom Set-Angebot: Der Versand beider Produkte wird kombiniert abgewickelt, der Versandvorteil bleibt direkt bei Ihnen. Gegenüber der Einzelbestellung sparen Sie pro Bestellung je nach Größe bis zu 350 €.</p>
+<h3>Warum PackFactory?</h3>
+<ul>
+<li><strong>5 Größen</strong> — von 18 cm bis 29 cm, für jede Tortenform</li>
+<li><strong>3 Ausführungen</strong> — nur Box, nur Mendil oder als Set</li>
+<li><strong>CMYK Vollfarb-Druck</strong> — fotorealistische Qualität, brillante Farben</li>
+<li><strong>Kostenloser Designservice</strong> — wir gestalten, du gibst frei</li>
+<li><strong>Lieferzeit ca. 5–7 Wochen</strong> — nach Druckfreigabe, inkl. Versand</li>
+</ul>
+  </div>
+</section>
+
+<section class="pf-section pf-recent" id="pf-recent" hidden aria-labelledby="pf-recent-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-recent-h">Zuletzt angesehen.</h2>
+    <div class="pf-rail" id="pf-recent-list"></div>
+  </div>
+</section>
+
+<section class="pf-cta-band">
+  <div class="pf-wrap">
+    <h2>Bereit für deine eigene Verpackung?</h2>
+    <p>Frag jetzt an. Wir antworten innerhalb von 24 Stunden und gestalten deinen Entwurf kostenlos.</p>
+    <div class="pf-cta-row">
+      <a class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20Kuchenboxen%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+      <a class="pf-btn pf-btn-ghost" href="tel:+491776990017">Anrufen</a>
+      <a class="pf-btn pf-btn-ghost" href="mailto:info@pack-factory.de">E-Mail</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pf-footer">
+  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" width="900" height="637" loading="lazy">
   <div class="foot-links">
     <a href="/impressum/">Impressum</a>
     <a href="/datenschutz/">Datenschutz</a>
@@ -449,75 +260,18 @@
   <p>2025 PackFactory. Alle Rechte vorbehalten.</p>
 </footer>
 
-<script>
-  var PRICES = {
-    box:    { no0: { vk: 0.41, total: 4100 }, no1: { vk: 0.46, total: 4600 }, no2: { vk: 0.51, total: 5100 }, no3: { vk: 0.57, total: 5700 }, no4: { vk: 0.63, total: 6300 } },
-    mendil: { no0: { vk: 0.16, total: 1600 }, no1: { vk: 0.21, total: 2100 }, no2: { vk: 0.26, total: 2600 }, no3: { vk: 0.32, total: 3200 }, no4: { vk: 0.40, total: 4000 } },
-    set:    { no0: { vk: 0.57, total: 5700 }, no1: { vk: 0.67, total: 6700 }, no2: { vk: 0.77, total: 7700 }, no3: { vk: 0.89, total: 8900 }, no4: { vk: 1.03, total: 10300 } }
-  };
+<div class="pf-sticky" id="pf-sticky" aria-hidden="true">
+  <div class="pf-sticky-in">
+    <div class="pf-sticky-txt"><b id="pf-sticky-total">4.100,00 €</b><span id="pf-sticky-line">Kuchenboxen · 10.000 Stück</span></div>
+    <a class="pf-btn pf-btn-wa pf-btn-icon" id="pf-sticky-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Kuchenboxen%20(Ausf%C3%BChrung%3A%20Kuchenbox%20(nur%20Box)%2C%20Gr%C3%B6%C3%9Fe%3A%20No%200%20(18%20cm)%2C%2010.000%20St%C3%BCck%2C%2041%2C00%20ct%20pro%20St%C3%BCck%20netto%2C%20gesamt%204.100%2C00%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener" aria-label="Per WhatsApp anfragen" tabindex="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <button type="button" class="pf-btn pf-btn-primary pf-btn-sm" onclick="addCurrentToCart()" tabindex="-1">In den Warenkorb</button>
+  </div>
+</div>
 
-  var DIMS_BOX    = { no0: '18 \xd7 18 \xd7 13 cm', no1: '21 \xd7 21 \xd7 13 cm', no2: '25 \xd7 25 \xd7 13 cm', no3: '27 \xd7 27 \xd7 13 cm', no4: '29 \xd7 29 \xd7 18 cm' };
-  var DIMS_MENDIL = { no0: '18 \xd7 18 cm', no1: '21 \xd7 21 cm', no2: '25 \xd7 25 cm', no3: '27 \xd7 27 cm', no4: '29 \xd7 29 cm' };
-  var TYP_LABELS  = { box: 'Kuchenbox', mendil: 'Mendil (Unterlage)', set: 'Set: Box + Mendil' };
-
-  var sel = { typ: 'box', groesse: 'no0' };
-
-  function selectTyp(val, btn) {
-    sel.typ = val;
-    document.querySelectorAll('.typ-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    updateAll();
-  }
-
-  function selectOpt(key, val, btn) {
-    sel[key] = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    updateAll();
-  }
-
-  function updateAll() {
-    var p = PRICES[sel.typ][sel.groesse];
-    document.getElementById('price-display').textContent = 'EUR ' + fmt(p.total);
-    document.getElementById('price-per').textContent = p.vk.toFixed(2).replace('.', ',') + ' \u20AC / St\u00FCck';
-
-    var dim = sel.typ === 'mendil' ? DIMS_MENDIL[sel.groesse] : DIMS_BOX[sel.groesse];
-    document.getElementById('badge-typ').textContent = TYP_LABELS[sel.typ];
-    document.getElementById('badge-dim').textContent = sel.typ === 'set' ? DIMS_BOX[sel.groesse] + ' + Mendil' : dim;
-
-    var hintText = sel.typ === 'mendil' ? DIMS_MENDIL[sel.groesse] : DIMS_BOX[sel.groesse];
-    if (sel.typ === 'set') hintText = DIMS_BOX[sel.groesse] + ' inkl. passender Tortenunterlage';
-    document.getElementById('dim-hint').textContent = hintText;
-
-    var sizeNr = sel.groesse.replace('no', 'No ');
-    var msg = 'Hallo, ich interessiere mich f\u00FCr ' + TYP_LABELS[sel.typ] + ' Gr\u00F6\u00DFe ' + sizeNr + ' und m\u00F6chte ein Angebot anfragen.';
-    document.getElementById('wa-link').href    = 'https://wa.me/491776990017?text=' + encodeURIComponent(msg);
-    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Kuchenbox&body=' + encodeURIComponent('Ausf\u00FChrung: ' + TYP_LABELS[sel.typ] + '\nGr\u00F6\u00DFe: ' + sizeNr + '\nMenge: 10.000 St\u00FCck');
-    window.PF_ITEM = { title: 'Kuchenboxen', desc: msg, priceTotal: document.getElementById('price-display').textContent, url: location.pathname };
-  }
-
-  function fmt(n) {
-    return n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-
-  var navWrapper = document.getElementById('navWrapper');
-  window.addEventListener('scroll', function() {
-    navWrapper.classList.toggle('scrolled', window.scrollY > 50);
-  }, { passive: true });
-
-  function toggleMenu() {
-    var m = document.getElementById('mobileMenu'), h = document.querySelector('.hamburger');
-    m.classList.toggle('open'); h.classList.toggle('open');
-    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.querySelector('.hamburger').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  updateAll();
-</script>
+<script type="application/json" id="pf-data">{"product":{"slug":"kuchenboxen","url":"/produkte/kuchenboxen/","name":"Kuchenboxen & Tortenunterlagen","image":"/Bilder/web/kuchenbox-960.webp","unit":"Stück","qtyKey":null,"catalog":{"title":"Kuchenboxen","tags":["papierboxen"],"price":"0,41","unit":"Stück"},"related":["baklava-kutusu","tueten","servietten","kaffeebecher-single-wall"],"notes":["Mindestbestellung: 10.000 Stück · Größere Mengen auf Anfrage"],"options":[{"key":"typ","label":"Ausführung","choices":[{"id":"box","label":"Kuchenbox","detail":"nur Box"},{"id":"mendil","label":"Mendil","detail":"nur Unterlage"},{"id":"set","label":"Set","detail":"Box + Mendil"}]},{"key":"groesse","label":"Größe","choices":[{"id":"no0","label":"No 0","detail":"18 cm"},{"id":"no1","label":"No 1","detail":"21 cm"},{"id":"no2","label":"No 2","detail":"25 cm"},{"id":"no3","label":"No 3","detail":"27 cm"},{"id":"no4","label":"No 4","detail":"29 cm"}]}],"hints":[{"by":["typ","groesse"],"table":{"box":{"no0":"Box 18 × 18 × 13 cm","no1":"Box 21 × 21 × 13 cm","no2":"Box 25 × 25 × 13 cm","no3":"Box 27 × 27 × 13 cm","no4":"Box 29 × 29 × 18 cm"},"mendil":{"no0":"Unterlage 18 × 18 cm","no1":"Unterlage 21 × 21 cm","no2":"Unterlage 25 × 25 cm","no3":"Unterlage 27 × 27 cm","no4":"Unterlage 29 × 29 cm"},"set":{"no0":"Box 18 × 18 × 13 cm + Mendil 18 × 18 cm","no1":"Box 21 × 21 × 13 cm + Mendil 21 × 21 cm","no2":"Box 25 × 25 × 13 cm + Mendil 25 × 25 cm","no3":"Box 27 × 27 × 13 cm + Mendil 27 × 27 cm","no4":"Box 29 × 29 × 18 cm + Mendil 29 × 29 cm"}},"after":"groesse"}],"pricing":{"basis":"unit","by":["typ","groesse"],"table":{"box":{"no0":4100,"no1":4600,"no2":5100,"no3":5700,"no4":6300},"mendil":{"no0":1600,"no1":2100,"no2":2600,"no3":3200,"no4":4000},"set":{"no0":5700,"no1":6700,"no2":7700,"no3":8900,"no4":10300}},"qty":{"fixed":10000}}},"catalog":[{"slug":"tueten","url":"/produkte/tueten/","title":"Papiertüten","img":"/Bilder/web/papiertueten-shop-480.webp","from":"ab 12,00 ct"},{"slug":"sleeves","url":"/produkte/sleeves/","title":"Kaffeebecher Sleeves","img":"/Bilder/web/sleeves-shop-480.webp","from":"ab 2,59 ct"},{"slug":"burgerbox","url":"/produkte/burgerbox/","title":"Burgerbox","img":"/Bilder/web/burgerbox-v4-480.webp","from":"ab 11,50 ct"},{"slug":"einschlagpapier","url":"/produkte/einschlagpapier/","title":"Einschlagpapier","img":"/Bilder/web/tablettpapier-480.webp","from":"ab 5,20 €/kg"},{"slug":"broetchentueten","url":"/produkte/broetchentueten/","title":"Brötchentüten","img":"/Bilder/web/broetchentueten-480.webp","from":"ab 4,68 €/kg"},{"slug":"doenertueten","url":"/produkte/doenertueten/","title":"Dönertüten","img":"/Bilder/web/doenertueten-480.webp","from":"ab 5,20 €/kg"},{"slug":"kuru-pasta","url":"/produkte/kuru-pasta/","title":"Kuru Pasta Kutusu","img":"/Bilder/web/kurupasta-480.webp","from":"ab 11,10 ct"},{"slug":"salatschalen","url":"/produkte/salatschalen/","title":"Salatschalen","img":"/Bilder/web/salatschalen-v4-480.webp","from":"ab 14,15 ct"},{"slug":"baklava-kutusu","url":"/produkte/baklava-kutusu/","title":"Baklava Kutusu","img":"/Bilder/web/baklava-480.webp","from":"ab 8,10 ct"},{"slug":"kuchenboxen","url":"/produkte/kuchenboxen/","title":"Kuchenboxen","img":"/Bilder/web/kuchenbox-480.webp","from":"ab 16,00 ct"},{"slug":"pommesschuetten","url":"/produkte/pommesschuetten/","title":"Pommeschütten","img":"/Bilder/web/pommes-480.webp","from":"ab 5,92 ct"},{"slug":"fc-box","url":"/produkte/fc-box/","title":"FC Box","img":"/Bilder/web/fcbox-480.webp","from":"ab 9,20 ct"},{"slug":"doenerboxen","url":"/produkte/doenerboxen/","title":"Dönerboxen","img":"/Bilder/web/doenerbox-480.webp","from":"ab 8,29 ct"},{"slug":"takeaway-boxen","url":"/produkte/takeaway-boxen/","title":"Take-away Boxen","img":"/Bilder/web/takeawaybox-480.webp","from":"ab 15,81 ct"},{"slug":"kaffeebecher-single-wall","url":"/produkte/kaffeebecher-single-wall/","title":"Kaffeebecher Single Wall","img":"/Bilder/web/kaffeebecher-sw-480.webp","from":"ab 6,67 ct"},{"slug":"kaffeebecher-double-wall","url":"/produkte/kaffeebecher-double-wall/","title":"Kaffeebecher Double Wall","img":"/Bilder/web/kaffeebecher-dw-480.webp","from":"ab 10,15 ct"},{"slug":"clear-cups","url":"/produkte/clear-cups/","title":"Clear Cups","img":"/Bilder/web/clear-cups-480.webp","from":"ab 13,50 ct"},{"slug":"bubble-tea-cups","url":"/produkte/bubble-tea-cups/","title":"Bubble Tea Cups","img":"/Bilder/web/bubble-tea-cups-480.webp","from":"ab 17,30 ct"},{"slug":"servietten","url":"/produkte/servietten/","title":"Servietten mit Logo","img":"/Bilder/web/servietten-480.webp","from":"ab 1,95 ct"},{"slug":"feuchttuecher","url":"/produkte/feuchttuecher/","title":"Feuchttücher","img":"/Bilder/web/feuchttuecher-480.webp","from":"ab 2,90 ct"}]}</script>
+<script src="/assets/pf-pricing.js"></script>
+<script src="/assets/pf-view.js"></script>
+<script src="/assets/pf-product.js"></script>
 <script src="/cart.js"></script>
 </body>
 </html>

@@ -9,181 +9,8 @@
   <link rel="icon" type="image/png" href="/Bilder/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: #1d1d1f; -webkit-font-smoothing: antialiased; overflow-x: hidden; padding-top: 92px; }
-    * { -webkit-tap-highlight-color: transparent; }
-    a, button { touch-action: manipulation; }
-    :root {
-      --pink:   #F07A8C;
-      --pink-d: #d9697a;
-      --dark:   #1d1d1f;
-      --muted:  #6e6e73;
-      --bg:     #f5f5f7;
-      --card:   #F5F2EC;
-    }
-
-    /* NAV */
-    .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 12px 20px; pointer-events: none; }
-    .nav-wrapper nav { background: #F5F2EC; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04); pointer-events: all; max-width: 1200px; margin: 0 auto; border: 1px solid #E8E3DA; }
-    .nav-inner { padding: 0 28px; display: flex; align-items: center; height: 68px; gap: 16px; }
-    .nav-logo { height: 150px; width: auto; }
-    .nav-links { flex: 1; display: flex; justify-content: center; align-items: center; gap: 28px; white-space: nowrap; }
-    .nav-links a { color: #3a3a3a; text-decoration: none; font-size: 15px; font-weight: 600; transition: color .15s; }
-    .nav-links a:hover { color: var(--pink); }
-    .nav-right { flex-shrink: 0; display: flex; align-items: center; gap: 8px; }
-    .btn-pink { display: inline-block; text-decoration: none; font-weight: 700; border-radius: 10px; background: var(--pink); color: #fff; padding: 10px 22px; font-size: 14px; font-family: inherit; border: none; cursor: pointer; transition: background .18s, transform .2s cubic-bezier(.34,1.56,.64,1); }
-    .btn-pink:hover { background: var(--pink-d); transform: translateY(-1px); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #1a1a1a; border-radius: 2px; transition: all .28s cubic-bezier(.22,1,.36,1); }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: flex; position: fixed; inset: 0; background: #FAF9F7; z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity .28s cubic-bezier(.22,1,.36,1); }
-    .mobile-menu.open { opacity: 1; pointer-events: all; }
-    .mobile-menu a { font-size: 24px; font-weight: 800; color: #1a1a1a; text-decoration: none; opacity: 0; transform: translateY(18px); transition: color .15s, opacity .32s cubic-bezier(.22,1,.36,1), transform .32s cubic-bezier(.22,1,.36,1); }
-    .mobile-menu.open a:nth-child(1) { opacity: 1; transform: none; transition-delay: .05s; }
-    .mobile-menu.open a:nth-child(2) { opacity: 1; transform: none; transition-delay: .09s; }
-    .mobile-menu.open a:nth-child(3) { opacity: 1; transform: none; transition-delay: .13s; }
-    .mobile-menu.open a:nth-child(4) { opacity: 1; transform: none; transition-delay: .17s; }
-    .mobile-menu.open a:nth-child(5) { opacity: 1; transform: none; transition-delay: .21s; }
-    .mobile-menu a:hover { color: var(--pink); }
-    @media (min-width: 769px) { .nav-wrapper { transition: padding .35s cubic-bezier(.22,1,.36,1); } .nav-wrapper.scrolled { padding: 6px 20px; } }
-    @media (max-width: 768px) { .nav-links, .btn-pink.nav-cta { display: none !important; } .hamburger { display: flex !important; } .nav-wrapper { padding: 0 !important; } .nav-wrapper nav { border-radius: 0 !important; box-shadow: 0 1px 6px rgba(0,0,0,.08) !important; } .nav-logo { height: 90px !important; } .nav-inner { height: 72px !important; padding: 0 20px !important; justify-content: space-between; } body { padding-top: 72px; } }
-    @media (max-width: 480px) { .nav-logo { height: 75px !important; } .nav-inner { height: 64px !important; } body { padding-top: 64px; } }
-
-    /* PRODUCT HERO */
-    .product-hero { display: grid; grid-template-columns: 55% 45%; min-height: calc(100vh - 92px); }
-    @media (max-width: 960px) { .product-hero { grid-template-columns: 1fr; height: auto; } }
-
-    /* Image panel */
-    .img-panel { position: relative; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .img-panel img { width: 82%; max-width: 480px; object-fit: contain; user-select: none; pointer-events: none; display: block; }
-    .img-panel img.pulse { animation: imgPulse .28s ease; }
-    @keyframes imgPulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
-    .size-badge { position: absolute; bottom: 24px; left: 24px; background: rgba(29,29,31,.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: #fff; border-radius: 12px; padding: 10px 14px; }
-    .size-badge-s { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .06em; }
-    .size-badge-v { font-size: 20px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
-    .size-badge-d { font-size: 11px; color: rgba(255,255,255,.6); }
-    @media (max-width: 960px) { .img-panel { height: 60vw; min-height: 300px; } .img-panel img { width: 84%; height: 84%; } .size-badge { bottom: 14px; left: 14px; padding: 7px 11px; } .size-badge-v { font-size: 16px; } }
-
-    /* Configurator panel */
-    .config-panel { display: flex; flex-direction: column; justify-content: center; padding: 20px 36px 16px; overflow: visible; background: #fff; border-left: 1px solid #f0f0f0; }
-    @media (max-width: 1100px) { .config-panel { padding: 16px 24px 14px; } }
-    @media (max-width: 960px) { .config-panel { padding: 20px 20px; border-left: none; border-top: 1px solid #f0f0f0; } }
-    .breadcrumb { font-size: 12px; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-    .breadcrumb a { color: var(--muted); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--dark); }
-    .breadcrumb span { color: #c7c7cc; }
-    h1.product-title { font-size: clamp(26px, 3vw, 38px); font-weight: 900; letter-spacing: -.03em; color: var(--dark); line-height: 1.05; margin-bottom: 14px; }
-    .opt-group { margin-bottom: 14px; }
-    .opt-group-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
-    .opt-btns { display: flex; flex-wrap: wrap; gap: 7px; }
-    .opt { padding: 9px 18px; border-radius: 100px; border: 1.5px solid #d2d2d7; background: #fff; font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark); cursor: pointer; transition: border-color .12s, background .12s, color .12s; white-space: nowrap; }
-    .opt:hover { border-color: #8e8e93; }
-    .opt.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-    .opt-custom { border-style: dashed; }
-    .opt-custom.active { background: var(--dark); color: #fff; border-style: solid; }
-
-    /* Custom size inputs */
-    .custom-size-wrap { display: none; margin-top: 8px; }
-    .custom-size-wrap.visible { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
-    .custom-size-field { display: flex; flex-direction: column; gap: 3px; }
-    .custom-size-field label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-    .custom-size-field input { width: 110px; padding: 8px 12px; border: 1.5px solid #d2d2d7; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 700; color: var(--dark); background: #fff; outline: none; transition: border-color .12s; }
-    .custom-size-field input:focus { border-color: var(--dark); }
-
-    .dim-hint { font-size: 11px; color: var(--pink); font-weight: 700; margin-top: 5px; }
-    .blatt-hint { font-size: 11px; color: var(--muted); font-weight: 700; margin-top: 5px; }
-    .price-row { display: flex; align-items: baseline; gap: 8px; margin: 10px 0 2px; flex-wrap: wrap; }
-    .price-total { font-size: clamp(22px, 2.5vw, 30px); font-weight: 900; color: var(--dark); letter-spacing: -.03em; line-height: 1; }
-    .price-per { font-size: 13px; color: var(--pink); font-weight: 700; }
-    .price-vat { font-size: 11px; color: #aeaeb2; margin-bottom: 10px; }
-    .btn-wa { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; background: #25D366; color: #fff; border: none; border-radius: 12px; padding: 13px 20px; font-family: inherit; font-size: 14px; font-weight: 800; cursor: pointer; text-decoration: none; transition: opacity .15s, transform .15s; margin-bottom: 7px; }
-    .btn-wa:hover { opacity: .88; transform: scale(1.01); }
-    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-    .btn-sec { display: flex; align-items: center; justify-content: center; gap: 6px; background: #fff; border-radius: 12px; padding: 10px 16px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .15s, color .15s; }
-    .btn-phone { border: 2px solid var(--dark); color: var(--dark); }
-    .btn-phone:hover { background: var(--dark); color: #fff; }
-    .btn-email { border: 2px solid var(--pink); color: var(--pink); }
-    .btn-email:hover { background: var(--pink); color: #fff; }
-
-    /* Delivery strip */
-    .delivery-strip { background: var(--card); border-bottom: 1px solid #E8E3DA; display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; }
-    .delivery-item { display: flex; flex-direction: column; justify-content: center; padding: 12px 28px; border-right: 1px solid #E8E3DA; }
-    .delivery-item:last-child { border-right: none; }
-    @media (max-width: 640px) { .delivery-item { border-right: none; border-bottom: 1px solid #E8E3DA; padding: 10px 20px; } .delivery-item:last-child { border-bottom: none; } }
-    .delivery-label { font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
-    .delivery-value { font-size: 13px; font-weight: 800; color: var(--dark); }
-
-    /* Service section */
-    .service-section { background: #fff; padding: 80px 24px; }
-    .service-inner { max-width: 1000px; margin: 0 auto; }
-    .section-eyebrow { font-size: 11px; font-weight: 700; color: var(--pink); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-    .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 900; color: var(--dark); letter-spacing: -.025em; line-height: 1.1; margin-bottom: 12px; }
-    .section-sub { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.65; margin-bottom: 52px; }
-    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    @media (max-width: 700px) { .service-grid { grid-template-columns: 1fr; gap: 16px; } }
-    .service-card { background: var(--bg); border-radius: 20px; padding: 28px 24px; }
-    .service-card-title { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
-    .service-card-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-    .service-card-tag { display: inline-flex; align-items: center; background: #e8f5e9; color: #2e7d32; border-radius: 100px; padding: 4px 12px; font-size: 11px; font-weight: 700; margin-top: 12px; }
-
-    /* Specs table */
-    .specs-section { background: #fff; padding: 80px 24px; }
-    .specs-inner { max-width: 1000px; margin: 0 auto; }
-    .specs-header { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
-    .specs-pink-bar { width: 4px; height: 32px; background: var(--pink); border-radius: 4px; flex-shrink: 0; }
-    .specs-title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--dark); letter-spacing: -.025em; }
-    .specs-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; margin-left: 18px; }
-    .specs-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .specs-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; font-family: inherit; }
-    .specs-table thead tr { background: var(--dark); color: #fff; }
-    .specs-table th { padding: 13px 16px; font-size: 12px; font-weight: 600; text-align: center; letter-spacing: .02em; }
-    .specs-table th:first-child { text-align: left; }
-    .specs-table td { padding: 12px 16px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 13px; color: #3a3a3a; }
-    .specs-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); white-space: nowrap; }
-    .specs-table tr:last-child td { border-bottom: none; }
-    .specs-table tr:nth-child(even) td { background: #fafafa; }
-    .specs-footnote { font-size: 12px; color: var(--muted); margin-top: 14px; margin-left: 2px; }
-
-    /* SEO section */
-    .seo-section { background: var(--bg); padding: 80px 24px; }
-    .seo-inner { max-width: 800px; margin: 0 auto; }
-    .seo-section h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 900; color: var(--dark); letter-spacing: -.025em; margin-bottom: 16px; }
-    .seo-section h3 { font-size: 18px; font-weight: 800; color: var(--pink); margin: 32px 0 10px; }
-    .seo-lead { font-size: 17px; color: var(--dark); line-height: 1.7; margin-bottom: 16px; }
-    .seo-section p { font-size: 15px; color: #3a3a3a; line-height: 1.75; margin-bottom: 14px; }
-    .seo-section ul { padding-left: 20px; margin-bottom: 14px; }
-    .seo-section li { font-size: 15px; color: #3a3a3a; line-height: 1.75; }
-
-    /* Contact */
-    .contact { background: var(--dark); padding: 80px 24px; text-align: center; }
-    .contact-title { font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: #fff; letter-spacing: -.03em; margin-bottom: 12px; }
-    .contact-sub { font-size: 16px; color: rgba(255,255,255,.6); max-width: 480px; margin: 0 auto 36px; line-height: 1.6; }
-    .contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .cbtn-wa { display: flex; align-items: center; gap: 8px; background: #25D366; color: #fff; border-radius: 12px; padding: 14px 28px; font-family: inherit; font-size: 15px; font-weight: 800; text-decoration: none; transition: opacity .15s; }
-    .cbtn-wa:hover { opacity: .88; }
-    .cbtn { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); color: #fff; border-radius: 12px; padding: 14px 28px; font-family: inherit; font-size: 15px; font-weight: 800; text-decoration: none; border: 1.5px solid rgba(255,255,255,.2); transition: background .15s; }
-    .cbtn:hover { background: rgba(255,255,255,.18); }
-
-    /* Footer */
-    footer { background: #f5f5f7; border-top: 1px solid #e5e5ea; padding: 40px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
-    footer img { height: 48px; width: auto; opacity: .7; }
-    .foot-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
-    .foot-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 600; }
-    .foot-links a:hover { color: var(--dark); }
-    footer p { font-size: 12px; color: #aeaeb2; }
-    .buying-guide h2 { font-size:26px;line-height:1.2;margin:0 0 18px; }
-    .buying-guide h3 { font-size:19px;line-height:1.3;margin:24px 0 10px; }
-    .buying-guide p { margin:0 0 16px; }
-    .buying-guide a { color:#8e3445;text-underline-offset:3px; }
-    .buying-guide a:focus-visible { outline:2px solid #8e3445;outline-offset:3px; }
-    .buying-guide a:hover { text-decoration-thickness:2px; }
-    .buying-guide a:active { opacity:.8; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/pf.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -205,14 +32,13 @@
 }
   </script>
 </head>
-<body>
+<body class="pf-page">
+<!-- Erzeugt von tools/build_site.js aus data/products.json und content/produkte/einschlagpapier.html. Nicht von Hand ändern. -->
 
 <div class="nav-wrapper" id="navWrapper">
-  <nav>
+  <nav aria-label="Hauptnavigation">
     <div class="nav-inner">
-      <a href="/" style="display:flex;align-items:center;flex-shrink:0;">
-        <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo">
-      </a>
+      <a href="/" class="nav-home"><img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo" width="900" height="637"></a>
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
@@ -221,8 +47,8 @@
         <a href="/#kontakt">Kontakt</a>
       </div>
       <div class="nav-right">
-        <a href="/#produkte" class="btn-pink nav-cta">Jetzt bestellen</a>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
+        <a href="/#produkte" class="pf-btn pf-btn-primary pf-btn-sm nav-cta">Jetzt bestellen</a>
+        <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Men&uuml;" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -233,325 +59,275 @@
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
-  <a href="/#produkte" class="btn-pink" style="margin-top:8px;" onclick="closeMenu()">Jetzt bestellen</a>
 </div>
 
-<!-- PRODUCT HERO -->
-<section class="product-hero">
-
-  <!-- LEFT: Image -->
-  <div class="img-panel">
-    <img id="product-img" src="/Bilder/Tablettpapier.jpeg" alt="Einschlagpapier mit Logo bedruckt">
-    <div class="size-badge">
-      <div class="size-badge-s">Format</div>
-      <div class="size-badge-v" id="badge-size">S</div>
-      <div class="size-badge-d" id="badge-dim">400 &times; 300 mm</div>
+<main>
+<section class="pf-buy" aria-label="Produkt konfigurieren">
+  <div class="pf-gallery">
+    <div class="pf-shot">
+      <img id="product-img" src="/Bilder/web/tablettpapier-960.webp" srcset="/Bilder/web/tablettpapier-480.webp 480w, /Bilder/web/tablettpapier-960.webp 960w" sizes="(max-width: 980px) 90vw, 560px" alt="Einschlagpapier mit Logo bedrucken mit Logo bedruckt" width="960" height="960" fetchpriority="high">
     </div>
   </div>
 
-  <!-- RIGHT: Configurator -->
-  <div class="config-panel">
+  <div class="pf-panel config-panel">
+    <nav class="pf-crumbs" aria-label="Brotkrumen"><a href="/">PackFactory</a><span aria-hidden="true">›</span><a href="/#produkte">Produkte</a><span aria-hidden="true">›</span><span>Einschlagpapier</span></nav>
+    <h1 class="pf-title">Einschlagpapier mit Logo bedrucken</h1>
+    
+    <p class="pf-from">ab 5,20 €/kg · mit deinem Logo</p>
 
-    <div class="breadcrumb">
-      <a href="/">PackFactory</a><span>&rsaquo;</span>
-      <a href="/#produkte">Produkte</a><span>&rsaquo;</span>
-      Einschlagpapier
-    </div>
-
-    <h1 class="product-title">Einschlagpapier mit Logo bedrucken</h1>
-
-    <!-- Format -->
-    <div class="opt-group">
-      <div class="opt-group-label">Format</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectSize('s',this)">S &mdash; 400&times;300 mm</button>
-        <button class="opt" onclick="selectSize('m',this)">M &mdash; 400&times;500 mm</button>
-        <button class="opt opt-custom" onclick="selectSize('custom',this)">Sondergr&ouml;&szlig;e</button>
+    <div class="pf-group" data-group="size">
+      <div class="pf-label" id="pf-l-size">Format</div>
+      <div class="opt-btns pf-chips" role="group" aria-labelledby="pf-l-size">
+        <button type="button" class="pf-opt active" aria-pressed="true" data-key="size" data-id="s"><b>S</b><span>400 × 300 mm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="size" data-id="m"><b>M</b><span>400 × 500 mm</span></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="size" data-id="custom"><b>Sondergröße</b><span>Breite und Höhe frei wählbar</span></button>
       </div>
-      <div class="custom-size-wrap" id="custom-size-wrap">
-        <div class="custom-size-field">
-          <label>Breite (mm)</label>
-          <input type="number" id="input-breite" min="50" max="1000" placeholder="z.B. 500" oninput="onCustomInput()">
-        </div>
-        <div class="custom-size-field">
-          <label>H&ouml;he (mm)</label>
-          <input type="number" id="input-hoehe" min="50" max="1000" placeholder="z.B. 400" oninput="onCustomInput()">
-        </div>
+      <div class="pf-custom" data-custom hidden>
+        <label>Breite (mm)<input type="number" inputmode="numeric" min="50" max="1000" id="pf-width" placeholder="z. B. 500"></label>
+        <label>Höhe (mm)<input type="number" inputmode="numeric" min="50" max="1000" id="pf-height" placeholder="z. B. 400"></label>
       </div>
-      <div class="dim-hint" id="dim-hint">ca. 41.700 Blatt / 200 kg</div>
+      <div class="pf-hints" data-hints="size" aria-live="polite"></div>
     </div>
-
-    <!-- Papierart -->
-    <div class="opt-group">
-      <div class="opt-group-label">Papierart</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectMat('standard',this)">Standard</button>
-        <button class="opt" onclick="selectMat('fettabweisend',this)">Fettabweisendes Papier</button>
-        <button class="opt" onclick="selectMat('pe',this)">PE-coated Papier</button>
+    <div class="pf-group" data-group="mat">
+      <div class="pf-label" id="pf-l-mat">Papierart</div>
+      <div class="opt-btns pf-chips" role="group" aria-labelledby="pf-l-mat">
+        <button type="button" class="pf-opt active" aria-pressed="true" data-key="mat" data-id="standard"><b>Standard</b></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="mat" data-id="fettabweisend"><b>Fettabweisendes Papier</b></button>
+        <button type="button" class="pf-opt" aria-pressed="false" data-key="mat" data-id="pe"><b>PE-coated Papier</b></button>
       </div>
+      <div class="pf-hints" data-hints="mat" aria-live="polite"></div>
     </div>
-
-    <!-- Menge -->
-    <div class="opt-group">
-      <div class="opt-group-label">Menge (kg)</div>
-      <div class="opt-btns">
-        <button class="opt active" onclick="selectKg(200,this)">200 kg</button>
-        <button class="opt" onclick="selectKg(400,this)">400 kg</button>
-        <button class="opt" onclick="selectKg(600,this)">600 kg</button>
-        <button class="opt" onclick="selectKg(800,this)">800 kg</button>
+    <div class="pf-group" data-group="kg">
+      <div class="pf-label" id="pf-l-kg">Menge<span class="pf-aside">Je mehr, desto günstiger</span></div>
+      <div class="opt-btns pf-tiers" role="group" aria-labelledby="pf-l-kg">
+        <button type="button" class="pf-opt pf-tier active" aria-pressed="true" data-key="kg" data-id="200"><b data-qty>200 kg</b><span><span data-unit>7,00 €/kg</span><em data-pct hidden>−0 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="kg" data-id="400"><i class="pf-tip">Unser Tipp</i><b data-qty>400 kg</b><span><span data-unit>6,00 €/kg</span><em data-pct>−14 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="kg" data-id="600"><b data-qty>600 kg</b><span><span data-unit>5,50 €/kg</span><em data-pct>−21 %</em></span></button>
+        <button type="button" class="pf-opt pf-tier" aria-pressed="false" data-key="kg" data-id="800"><b data-qty>800 kg</b><span><span data-unit>5,20 €/kg</span><em data-pct>−26 %</em></span></button>
       </div>
-      <div class="blatt-hint" id="blatt-hint">ca. 41.700 Blatt</div>
-      <div class="dim-hint" style="margin-top:2px;">Gr&ouml;&szlig;ere Mengen auf Anfrage m&ouml;glich</div>
+      <div class="pf-hints" data-hints="kg" aria-live="polite"><p class="pf-hint">ca. 41.700 Blatt</p></div>
+      <p class="pf-note">Größere Mengen auf Anfrage möglich</p>
     </div>
 
-    <!-- Price -->
-    <div class="price-row">
-      <span class="price-total" id="price-display">EUR 1.400,00</span>
-      <span class="price-per" id="price-per">7,00 &euro; / kg</span>
-    </div>
-    <p class="price-vat">Zzgl. MwSt. &middot; Inkl. individuellem Druck</p>
-
-    <!-- CTAs -->
-    <button type="button" class="pf-cart-add" onclick="addCurrentToCart()">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      In den Warenkorb
-    </button>
-    <a id="wa-link" href="#" target="_blank" class="btn-wa">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Angebot via WhatsApp anfragen
-    </a>
-    <div class="btn-row">
-      <a href="tel:+491776990017" class="btn-sec btn-phone">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        Anrufen
-      </a>
-      <a id="email-link" href="mailto:info@pack-factory.de" class="btn-sec btn-email">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        E-Mail
-      </a>
+    <div class="pf-sum" aria-live="polite">
+      <span class="pf-total" id="price-display">1.400,00 €</span>
+      <span class="pf-per" id="price-per">7,00 € pro kg</span>
+      <span class="pf-saved" id="pf-saved"></span>
+      <span class="pf-vat">Netto zzgl. MwSt. · inkl. individuellem Druck &amp; Design</span>
     </div>
 
-  </div>
-</section>
-
-<!-- DELIVERY STRIP -->
-<div class="delivery-strip">
-  <div class="delivery-item">
-    <div class="delivery-label">Lieferzeit</div>
-    <div class="delivery-value">ca. 5&ndash;7 Wochen nach Druckfreigabe</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Produktion</div>
-    <div class="delivery-value">Erst nach deiner Freigabe</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Designservice</div>
-    <div class="delivery-value">Kostenlos inklusive</div>
-  </div>
-  <div class="delivery-item">
-    <div class="delivery-label">Lagerung &amp; Logistik</div>
-    <div class="delivery-value">Auf Wunsch verf&uuml;gbar</div>
-  </div>
-</div>
-
-<!-- SERVICE SECTION -->
-<section class="service-section">
-  <div class="service-inner">
-    <p class="section-eyebrow">Dein Verpackungspartner</p>
-    <h2 class="section-title">Wir k&uuml;mmern uns um alles.</h2>
-    <p class="section-sub">Du bestellst nicht einfach Papier &mdash; du bekommst einen kompletten Service. Von der Idee bis zur Lieferung &uuml;bernehmen wir jeden Schritt f&uuml;r dich.</p>
-
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="service-card-title">Design aus einer Hand</div>
-        <div class="service-card-desc">Kein eigenes Design n&ouml;tig. Schick uns dein Logo &mdash; wir gestalten das gesamte Druckbild professionell f&uuml;r dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand.</div>
-        <span class="service-card-tag">Kostenlos inklusive</span>
-      </div>
-      <div class="service-card">
-        <div class="service-card-title">Sonderformate jederzeit m&ouml;glich</div>
-        <div class="service-card-desc">Individuelle Formate und Sondergr&ouml;&szlig;en sind kein Problem. Gib einfach deine Wunschma&szlig;e ein &mdash; wir berechnen Preis und Blattmenge automatisch f&uuml;r dich.</div>
-        <span class="service-card-tag">Auf Anfrage</span>
-      </div>
-      <div class="service-card">
-        <div class="service-card-title">Lagerung &amp; Logistik</div>
-        <div class="service-card-desc">Auf Wunsch lagern wir dein Einschlagpapier ein und liefern es nach Bedarf aus. Kein eigener Lagerplatz n&ouml;tig &mdash; wir &uuml;bernehmen die Logistik f&uuml;r dich.</div>
-        <span class="service-card-tag">Auf Anfrage verf&uuml;gbar</span>
-      </div>
+    <div class="pf-ctas" id="pf-ctas">
+      <button type="button" class="pf-btn pf-btn-primary" id="pf-add" onclick="addCurrentToCart()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>In den Warenkorb</button>
+      <a id="wa-link" class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Einschlagpapier%20(Format%3A%20S%20(400%20%C3%97%20300%20mm)%2C%20Papierart%3A%20Standard%2C%20200%20kg%2C%207%2C00%20%E2%82%AC%20pro%20kg%20netto%2C%20gesamt%201.400%2C00%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Direkt per WhatsApp anfragen</a>
     </div>
-  </div>
-</section>
+    <p class="pf-contact-line"><a href="tel:+491776990017">Anrufen: 0177 6990017</a><span aria-hidden="true">·</span><a id="email-link" href="mailto:info@pack-factory.de?subject=Anfrage%20Einschlagpapier&amp;body=Format%3A%20S%20(400%20%C3%97%20300%20mm)%0APapierart%3A%20Standard%0A200%20kg%0ASt%C3%BCckpreis%3A%207%2C00%20%E2%82%AC%20pro%20kg%20netto%0AGesamtpreis%3A%201.400%2C00%20%E2%82%AC%20netto">E-Mail schreiben</a></p>
 
-<!-- SPECS TABLE -->
-<section class="specs-section">
-  <div class="specs-inner">
-    <div class="specs-header">
-      <div class="specs-pink-bar"></div>
-      <h2 class="specs-title">Technische Spezifikationen</h2>
-    </div>
-    <p class="specs-sub">Alle Angaben pro Papiertyp</p>
-    <div class="specs-wrap">
-      <table class="specs-table">
-        <thead>
-          <tr>
-            <th>Eigenschaft</th>
-            <th>Standard</th>
-            <th>Fettabweisendes Papier</th>
-            <th>PE-coated Papier</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>L&auml;nge &times; Breite</td>
-            <td>400&times;300 mm (S)<br>400&times;500 mm (M)<br>Sondergr&ouml;&szlig;e auf Anfrage</td>
-            <td>400&times;300 mm (S)<br>400&times;500 mm (M)<br>Sondergr&ouml;&szlig;e auf Anfrage</td>
-            <td>400&times;300 mm (S)<br>400&times;500 mm (M)<br>Sondergr&ouml;&szlig;e auf Anfrage</td>
-          </tr>
-          <tr>
-            <td>Farbe</td>
-            <td>Wei&szlig; / Braun</td>
-            <td>Wei&szlig; / Braun</td>
-            <td>Wei&szlig; / Braun</td>
-          </tr>
-          <tr>
-            <td>Material</td>
-            <td>Kraftpapier</td>
-            <td>Pergamentersatzpapier</td>
-            <td>Papier + PE-Beschichtung</td>
-          </tr>
-          <tr>
-            <td>Papiersst&auml;rke</td>
-            <td>40 g/m&sup2;</td>
-            <td>40 g/m&sup2;</td>
-            <td>35 g/m&sup2; + 6 PE</td>
-          </tr>
-          <tr>
-            <td>Druckmethode</td>
-            <td>Flexodruck</td>
-            <td>Flexodruck</td>
-            <td>Flexodruck</td>
-          </tr>
-          <tr>
-            <td>Anzahl Farben</td>
-            <td>1 &ndash; 3 Farben</td>
-            <td>1 &ndash; 3 Farben</td>
-            <td>1 &ndash; 3 Farben</td>
-          </tr>
-          <tr>
-            <td>Druckbereich</td>
-            <td>30 % des Druckbereichs*</td>
-            <td>30 % des Druckbereichs*</td>
-            <td>30 % des Druckbereichs*</td>
-          </tr>
-          <tr>
-            <td>Mindestbestellmenge</td>
-            <td>200 kg</td>
-            <td>200 kg</td>
-            <td>200 kg</td>
-          </tr>
-          <tr>
-            <td>Anzahl pro Box</td>
-            <td>10 kg</td>
-            <td>10 kg</td>
-            <td>10 kg</td>
-          </tr>
-          <tr>
-            <td>Max. pro Palette</td>
-            <td>500 kg</td>
-            <td>500 kg</td>
-            <td>500 kg</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="specs-footnote">* Kalkulation basiert auf einer 30&nbsp;% Druckfl&auml;che. 100&nbsp;% Druckfl&auml;che (Volldruck) auf Anfrage m&ouml;glich.</p>
-    <p class="specs-footnote" style="margin-top:6px;">** Einmalige Einrichtungskosten k&ouml;nnen anfallen. Diese fallen nur beim ersten Auftrag an &mdash; nicht bei Nachbestellungen.</p>
-    <p class="specs-footnote" style="margin-top:6px;">&#9432; H&ouml;here Grammaturen bis zu <strong>135 g/m&sup2;</strong> sind auf Anfrage m&ouml;glich.</p>
-  </div>
-</section>
-
-<!-- SEO SECTION -->
-<section class="seo-section">
-  <div class="seo-inner">
-    <h2>Einschlagpapier bedrucken lassen &mdash; Sonderma&szlig;e, 3 Papierarten, ab 200 kg</h2>
-    <p class="seo-lead">Bedrucktes Einschlagpapier ist die vielseitigste Verpackungsform f&uuml;r Gastronomie und Lebensmittelhandel: Es wickelt, unterlegt, serviert und wirbt gleichzeitig. PackFactory produziert Einschlagpapier in zwei Standardformaten sowie beliebigen Sonderma&szlig;en &mdash; in drei Papierqualit&auml;ten, ab 200 kg Mindestmenge, mit transparentem Kilogrammpreis direkt im Konfigurator.</p>
-
-    <h3>Was ist Einschlagpapier und wof&uuml;r wird es verwendet?</h3>
-    <p>Einschlagpapier &mdash; auch als Wrappapier, Wickelpapier, Servierpapier, Tablettpapier oder Unterlagepapier bekannt &mdash; ist ein einseitig bedruckbares Papier im Bogenformat f&uuml;r den direkten Lebensmittelkontakt. Es wird eingesetzt zum Einwickeln von Speisen (D&ouml;ner, Burger, Sandwich, Gyros, Fisch), zum Unterlegen von Tabletts, Servierk&ouml;rben und Ablagefl&auml;chen, zum Servieren von Pommes und Frittiergut sowie als Trennlage zwischen Lebensmitteln in K&uuml;hltheken und Verpackungen.</p>
-    <p>Das Standardformat S (400 &times; 300 mm) eignet sich f&uuml;r Sandwiches, belegte Br&ouml;tchen und kleinere Portionen. Das Format M (400 &times; 500 mm) deckt gr&ouml;&szlig;ere Portionen ab &mdash; D&ouml;ner, Burrito, Gyros, Fried Chicken, XXL-Burger. Wer ein anderes Ma&szlig; ben&ouml;tigt, gibt einfach Breite und H&ouml;he in den Konfigurator ein &mdash; Blattanzahl und Preis werden sofort ohne versteckte Aufschl&auml;ge berechnet.</p>
-    <p>Gegen&uuml;ber T&uuml;ten und Faltschachteln hat Einschlagpapier einen klaren betrieblichen Vorteil: Es ist das universellste Werkzeug in der Gastronomieverpackung. Ein einziger Artikel deckt zahlreiche Verwendungszwecke ab, l&auml;sst sich flach und platzsparend lagern und blitzschnell einsetzen &mdash; ohne umst&auml;ndliches &Ouml;ffnen, Auffalten oder Zusammenbauen. F&uuml;r Betriebe mit gro&szlig;em Durchsatz ist das ein entscheidender Effizienzfaktor.</p>
-
-    <h3>F&uuml;r welche Branchen eignet sich Einschlagpapier?</h3>
-    <p>Einschlagpapier ist eine der meistverwendeten Verpackungsformen in der gesamten Lebensmittelbranche &mdash; kaum ein Segment, das es nicht nutzt:</p>
-    <ul>
-      <li>D&ouml;nerl&auml;den, Kebab-Shops, Durum- und Wrap-Restaurants</li>
-      <li>Burger-Restaurants, Fast-Food-Ketten und Imbisse aller Art</li>
-      <li>Fish &amp; Chips, Pommes-Stationen und Frittier-Imbisse</li>
-      <li>B&auml;ckereien, Konditoreien und Caf&eacute;s mit Snack-Angebot</li>
-      <li>Pizzerien und italienische Restaurants (z. B. Pizza al taglio)</li>
-      <li>Griechische Restaurants: Gyros, Souvlaki, Pita</li>
-      <li>Asiatische Imbisse, Wokst&auml;nde und Sushi-L&auml;den</li>
-      <li>Marktst&auml;nde, Wochenm&auml;rkte und Bauernm&auml;rkte</li>
-      <li>Lebensmittelhandel und Delikatessengesch&auml;fte mit Bedienungstheke</li>
-      <li>Catering-Betriebe f&uuml;r Events, Festivals und Firmenveranstaltungen</li>
-      <li>Schulkantinen, Betriebsrestaurants und Mensabetriebe</li>
-      <li>Food Trucks und mobile K&uuml;chen jeder Art</li>
-    </ul>
-
-    <h3>Drei Papierarten &mdash; welche passt f&uuml;r Ihre Speisen?</h3>
-    <p><strong>Standard (Kraftpapier, 40 g/m&sup2;)</strong> &mdash; Die g&uuml;nstigste und am breitesten einsetzbare Option. Kraftpapier ist robust, lebensmittelecht und saugf&auml;hig. Ideal f&uuml;r trockene oder leicht feuchte Speisen: Sandwiches, Br&ouml;tchen, Geb&auml;ck, Pommes ohne &Uuml;berschuss&ouml;l, Tablett-Unterlagen und Trennlagen. Erh&auml;ltlich in Wei&szlig; (sauber und modern) und Braun (nat&uuml;rlich und rustikal).</p>
-    <p><strong>Fettabweisendes Papier (Pergamentersatzpapier, 40 g/m&sup2;)</strong> &mdash; Keine Beschichtung, keine Chemie &mdash; reine Natur. Pergamentersatzpapier entsteht durch intensive mechanische Verdichtung (Satinierung) der Zellulosefasern: Die Fasern werden so stark geformt und verfilzt, dass das fertige Papier von Natur aus fett- und &ouml;labweisend ist &mdash; ohne Polyethylen, ohne Silikonbeschichtung, ohne Fluorcarbon-Verbindungen. Das bedeutet: vollst&auml;ndig biologisch abbaubar, recycelbar wie gew&ouml;hnliches Papier, lebensmittelecht nach EU-Verordnung 1935/2004. F&uuml;r D&ouml;ner, Kebab, Pommes, Fried Chicken, gebratene Snacks und alles, was &ouml;l- oder fetthaltig ist &mdash; die erste, nachhaltige Wahl.</p>
-    <p><strong>PE-coated Papier (35 g/m&sup2; + 6 g/m&sup2; PE)</strong> &mdash; Die st&auml;rkste Feuchtigkeitsbarriere im Sortiment. Die aufgebrachte Polyethylenschicht macht das Papier vollst&auml;ndig wasserdicht &mdash; auch bei sehr saftigen Gerichten, reichlichen So&szlig;en und Fl&uuml;ssigkeiten h&auml;lt es zuverl&auml;ssig dicht. Ideal f&uuml;r Gerichte mit viel So&szlig;e, mariniertes Fleisch, Gyros mit Tzatziki oder stark feuchte asiatische Gerichte. Das robusteste und feuchtigkeitsresistenteste Material im Sortiment.</p>
-
-    <h3>Sonderma&szlig;e &mdash; individuell, ohne Aufpreis</h3>
-    <p>Nicht jedes Gericht, nicht jede Portion und nicht jede Betriebsanforderung passt in ein Standardformat. Ein gro&szlig;es Brath&auml;hnchen, ein &uuml;berlanger D&ouml;ner, ein besonders breiter Tabletteinsatz &mdash; f&uuml;r all das bietet PackFactory Einschlagpapier in beliebigen Sonderma&szlig;en ohne Aufpreis. Geben Sie Breite und H&ouml;he in Zentimetern direkt in den Konfigurator ein: Preis und Blattanzahl werden sofort berechnet &mdash; vollst&auml;ndig transparent, ohne versteckte Kalkulation.</p>
-    <p>Wichtig zu wissen: Einschlagpapier wird in Kilogramm kalkuliert und geliefert, nicht in St&uuml;ck. Der Konfigurator berechnet automatisch, wie viele Bl&auml;tter Sie bei einer bestimmten Menge und Gr&ouml;&szlig;e erhalten &mdash; so k&ouml;nnen Sie genau planen, wann Sie neue Ware bestellen m&uuml;ssen.</p>
-
-    <h3>Einschlagpapier als Marketinginstrument</h3>
-    <p>Einschlagpapier hat einen entscheidenden Vorteil gegen&uuml;ber klassischen Werbemedien: Es ist exakt dort, wo der Kunde ist &mdash; direkt in seinen H&auml;nden, w&auml;hrend er isst. Keine Streuverluste, kein Zeitfenster, kein Skip-Button. Ihr Logo liegt w&ouml;rtlich auf dem Tisch.</p>
-    <p>In einer Zeit, in der Food-Fotos auf Instagram, TikTok und Google Maps t&auml;glich Millionen von Aufrufen erzeugen, ist eine optisch auff&auml;llige, markenkonforme Verpackung ein echter Wettbewerbsvorteil. G&auml;ste fotografieren ihre Mahlzeiten &mdash; immer h&auml;ufiger, immer &ouml;ffentlicher. Wenn Ihre Verpackung auf diesem Foto zu sehen ist, erreichen Sie kostenfrei neue potenzielle Kunden, die sonst nie auf Ihren Betrieb gesto&szlig;en w&auml;ren.</p>
-    <p>Auch f&uuml;r die Kundenbindung ist professionelle Verpackung ein untersch&auml;tzter Faktor: Kunden, die wahrnehmen, dass ein Betrieb auf Details wie Verpackungsdesign achtet, &uuml;bertragen diesen Qualit&auml;tsanspruch unbewusst auf das Essen selbst. Das ist Markenkommunikation &mdash; ohne ein einziges Wort zu sagen.</p>
-
-    <h3>Warum PackFactory?</h3>
-    <ul>
-      <li><strong>Ab 200 kg Mindestbestellmenge</strong> &mdash; realisierbar f&uuml;r mittelgro&szlig;e und gro&szlig;e Betriebe</li>
-      <li><strong>Einrichtungskosten nur beim ersten Auftrag</strong> &mdash; alle Nachbestellungen ohne erneute Setup-Geb&uuml;hren</li>
-      <li><strong>Flexodruck, 1&ndash;3 Farben</strong> &mdash; wirtschaftlich f&uuml;r gro&szlig;e Auflagen</li>
-      <li><strong>Sonderma&szlig;e ohne Aufpreis</strong> &mdash; Konfigurator berechnet automatisch</li>
-      <li><strong>Bis zu 135 g/m&sup2; auf Anfrage</strong> &mdash; h&ouml;here Grammaturen f&uuml;r besondere Anwendungen</li>
-      <li><strong>Lieferzeit ca. 5&ndash;7 Wochen</strong> nach Auftragsbest&auml;tigung</li>
-      <li><strong>Pers&ouml;nliche Beratung</strong> &mdash; bei Papierauswahl, Ma&szlig;en und Druckdaten</li>
+    <ul class="pf-assure">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lieferzeit</b> ca. 5–7 Wochen nach Druckfreigabe</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Produktion</b> Erst nach deiner Freigabe</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Designservice</b> Kostenlos inklusive</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lagerung & Logistik</b> Auf Wunsch verfügbar</span></li>
     </ul>
   </div>
 </section>
 
-<!-- Buying guidance: factual statements sourced from this page's specification table. -->
-<section style="max-width:960px;margin:0 auto;padding:40px 24px;line-height:1.7;" class="buying-guide">
-    <h2>Einschlagpapier auswählen und anfragen</h2>
-    <p>Im Konfigurator stehen 400 × 300 mm und 400 × 500 mm zur Auswahl. Für einen individuellen Zuschnitt kannst du deine Wunschmaße angeben. Die Mindestbestellmenge beträgt 200 kg; die angezeigte Blattzahl ist eine Näherung und hängt von Format und Papier ab.</p>
-    <h3>Welches Papier brauche ich?</h3>
-    <p>Zur Auswahl stehen Standardpapier, fettabweisendes Papier und PE-beschichtetes Papier. Nenne uns bei der Anfrage, welche Speisen du verpackst und wie das Papier eingesetzt wird. So können wir die passende Ausführung mit dir abstimmen.</p>
-    <h3>Welche Angaben braucht ihr für das Angebot?</h3>
-    <p>Schicke uns das gewünschte Format, die Papierart, die Menge und dein Logo oder Druckmotiv. Die technische Spezifikation nennt Flexodruck mit 1 bis 3 Farben und einen Druckanteil von 30 %. Den konkreten Druckbereich klären wir anhand deines Motivs.</p>
-    <p>Für dein Take-away-Angebot findest du auch <a href="/produkte/burgerbox/">Burgerboxen mit Logo</a>, <a href="/produkte/doenertueten/">Dönertüten</a> und <a href="/produkte/tueten/">Papiertragetaschen</a>. Fragen zum Motiv beantwortet unser <a href="/designservice/">Designservice</a>.</p>
-</section>
-
-<!-- CONTACT -->
-<section class="contact">
-  <h2 class="contact-title">Bereit loszulegen?</h2>
-  <p class="contact-sub">Frag jetzt an &mdash; wir antworten innerhalb von 24 Stunden und k&uuml;mmern uns um alles Weitere.</p>
-  <div class="contact-btns">
-    <a id="contact-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20Einschlagpapier%20anfragen." target="_blank" class="cbtn-wa">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
-    <a href="tel:+491776990017" class="cbtn">Anrufen</a>
-    <a href="mailto:info@pack-factory.de" class="cbtn">E-Mail</a>
+<section class="pf-section pf-related" aria-labelledby="pf-related-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-related-h">Passt zu Einschlagpapier. <span>Alles im selben Look bestellen.</span></h2>
+    <div class="pf-rail">
+      <a class="pf-card" href="/produkte/burgerbox/"><span class="pf-card-img"><img src="/Bilder/web/burgerbox-v4-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Burgerbox</b><span>ab 11,50 ct</span></a>
+      <a class="pf-card" href="/produkte/doenertueten/"><span class="pf-card-img"><img src="/Bilder/web/doenertueten-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Dönertüten</b><span>ab 5,20 €/kg</span></a>
+      <a class="pf-card" href="/produkte/tueten/"><span class="pf-card-img"><img src="/Bilder/web/papiertueten-shop-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Papiertüten</b><span>ab 12,00 ct</span></a>
+      <a class="pf-card" href="/produkte/servietten/"><span class="pf-card-img"><img src="/Bilder/web/servietten-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Servietten mit Logo</b><span>ab 1,95 ct</span></a>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory">
+<section class="pf-section pf-service">
+  <div class="pf-wrap">
+    <h2 class="pf-h2">Wir kümmern uns um alles. <span>Von der Idee bis zur Lieferung.</span></h2>
+    <div class="pf-bento">
+      <div class="service-card">
+<div class="service-card-title">Design aus einer Hand</div>
+<div class="service-card-desc">Kein eigenes Design nötig. Schick uns dein Logo — wir gestalten das gesamte Druckbild professionell für dich. Keine Designkenntnisse, keine Druckdaten, kein Aufwand.</div>
+<span class="service-card-tag">Kostenlos inklusive</span>
+</div>
+<div class="service-card">
+<div class="service-card-title">Sonderformate jederzeit möglich</div>
+<div class="service-card-desc">Individuelle Formate und Sondergrößen sind kein Problem. Gib einfach deine Wunschmaße ein — wir berechnen Preis und Blattmenge automatisch für dich.</div>
+<span class="service-card-tag">Auf Anfrage</span>
+</div>
+<div class="service-card">
+<div class="service-card-title">Lagerung &amp; Logistik</div>
+<div class="service-card-desc">Auf Wunsch lagern wir dein Einschlagpapier ein und liefern es nach Bedarf aus. Kein eigener Lagerplatz nötig — wir übernehmen die Logistik für dich.</div>
+<span class="service-card-tag">Auf Anfrage verfügbar</span>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="pf-section pf-details" aria-label="Details">
+  <div class="pf-wrap pf-narrow">
+      <details class="pf-acc" open><summary>Preise im Überblick</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table pf-price-table"><thead><tr><th scope="col">Papierart</th><th scope="col">200 kg</th><th scope="col">400 kg</th><th scope="col">600 kg</th><th scope="col">800 kg</th></tr></thead><tbody>
+<tr><th scope="row">Standard</th><td><b>7,00 €/kg</b><small>1.400,00 €</small></td><td><b>6,00 €/kg</b><small>2.400,00 €</small></td><td><b>5,50 €/kg</b><small>3.300,00 €</small></td><td><b>5,20 €/kg</b><small>4.160,00 €</small></td></tr>
+<tr><th scope="row">Fettabweisendes Papier</th><td><b>7,50 €/kg</b><small>1.500,00 €</small></td><td><b>6,43 €/kg</b><small>2.572,00 €</small></td><td><b>5,89 €/kg</b><small>3.534,00 €</small></td><td><b>5,57 €/kg</b><small>4.456,00 €</small></td></tr>
+<tr><th scope="row">PE-coated Papier</th><td><b>7,60 €/kg</b><small>1.520,00 €</small></td><td><b>6,51 €/kg</b><small>2.604,00 €</small></td><td><b>5,97 €/kg</b><small>3.582,00 €</small></td><td><b>5,65 €/kg</b><small>4.520,00 €</small></td></tr>
+</tbody></table></div>
+<p class="pf-small">Stückpreis pro kg und Gesamtpreis, netto zzgl. MwSt., inkl. individuellem Druck &amp; Design.</p></div></details>
+      <details class="pf-acc"><summary>Technische Daten</summary><div class="pf-acc-body"><div class="pf-table-wrap"><table class="pf-table">
+<thead>
+<tr>
+<th>Eigenschaft</th>
+<th>Standard</th>
+<th>Fettabweisendes Papier</th>
+<th>PE-coated Papier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Länge × Breite</td>
+<td>400×300 mm (S)<br/>400×500 mm (M)<br/>Sondergröße auf Anfrage</td>
+<td>400×300 mm (S)<br/>400×500 mm (M)<br/>Sondergröße auf Anfrage</td>
+<td>400×300 mm (S)<br/>400×500 mm (M)<br/>Sondergröße auf Anfrage</td>
+</tr>
+<tr>
+<td>Farbe</td>
+<td>Weiß / Braun</td>
+<td>Weiß / Braun</td>
+<td>Weiß / Braun</td>
+</tr>
+<tr>
+<td>Material</td>
+<td>Kraftpapier</td>
+<td>Pergamentersatzpapier</td>
+<td>Papier + PE-Beschichtung</td>
+</tr>
+<tr>
+<td>Papiersstärke</td>
+<td>40 g/m²</td>
+<td>40 g/m²</td>
+<td>35 g/m² + 6 PE</td>
+</tr>
+<tr>
+<td>Druckmethode</td>
+<td>Flexodruck</td>
+<td>Flexodruck</td>
+<td>Flexodruck</td>
+</tr>
+<tr>
+<td>Anzahl Farben</td>
+<td>1 – 3 Farben</td>
+<td>1 – 3 Farben</td>
+<td>1 – 3 Farben</td>
+</tr>
+<tr>
+<td>Druckbereich</td>
+<td>30 % des Druckbereichs*</td>
+<td>30 % des Druckbereichs*</td>
+<td>30 % des Druckbereichs*</td>
+</tr>
+<tr>
+<td>Mindestbestellmenge</td>
+<td>200 kg</td>
+<td>200 kg</td>
+<td>200 kg</td>
+</tr>
+<tr>
+<td>Anzahl pro Box</td>
+<td>10 kg</td>
+<td>10 kg</td>
+<td>10 kg</td>
+</tr>
+<tr>
+<td>Max. pro Palette</td>
+<td>500 kg</td>
+<td>500 kg</td>
+<td>500 kg</td>
+</tr>
+</tbody>
+</table></div><div class="pf-small"><p>* Kalkulation basiert auf einer 30 % Druckfläche. 100 % Druckfläche (Volldruck) auf Anfrage möglich.</p>
+<p>** Einmalige Einrichtungskosten können anfallen. Diese fallen nur beim ersten Auftrag an — nicht bei Nachbestellungen.</p>
+<p>ⓘ Höhere Grammaturen bis zu <strong>135 g/m²</strong> sind auf Anfrage möglich.</p></div></div></details>
+      <details class="pf-acc"><summary>Auswahlhilfe</summary><div class="pf-acc-body pf-prose"><h2>Einschlagpapier auswählen und anfragen</h2>
+<p>Im Konfigurator stehen 400 × 300 mm und 400 × 500 mm zur Auswahl. Für einen individuellen Zuschnitt kannst du deine Wunschmaße angeben. Die Mindestbestellmenge beträgt 200 kg; die angezeigte Blattzahl ist eine Näherung und hängt von Format und Papier ab.</p>
+<h3>Welches Papier brauche ich?</h3>
+<p>Zur Auswahl stehen Standardpapier, fettabweisendes Papier und PE-beschichtetes Papier. Nenne uns bei der Anfrage, welche Speisen du verpackst und wie das Papier eingesetzt wird. So können wir die passende Ausführung mit dir abstimmen.</p>
+<h3>Welche Angaben braucht ihr für das Angebot?</h3>
+<p>Schicke uns das gewünschte Format, die Papierart, die Menge und dein Logo oder Druckmotiv. Die technische Spezifikation nennt Flexodruck mit 1 bis 3 Farben und einen Druckanteil von 30 %. Den konkreten Druckbereich klären wir anhand deines Motivs.</p>
+<p>Für dein Take-away-Angebot findest du auch <a href="/produkte/burgerbox/">Burgerboxen mit Logo</a>, <a href="/produkte/doenertueten/">Dönertüten</a> und <a href="/produkte/tueten/">Papiertragetaschen</a>. Fragen zum Motiv beantwortet unser <a href="/designservice/">Designservice</a>.</p></div></details>
+  </div>
+</section>
+
+<section class="pf-section pf-story">
+  <div class="pf-wrap pf-narrow pf-prose">
+    <h2>Einschlagpapier bedrucken lassen — Sondermaße, 3 Papierarten, ab 200 kg</h2>
+<p class="seo-lead">Bedrucktes Einschlagpapier ist die vielseitigste Verpackungsform für Gastronomie und Lebensmittelhandel: Es wickelt, unterlegt, serviert und wirbt gleichzeitig. PackFactory produziert Einschlagpapier in zwei Standardformaten sowie beliebigen Sondermaßen — in drei Papierqualitäten, ab 200 kg Mindestmenge, mit transparentem Kilogrammpreis direkt im Konfigurator.</p>
+<h3>Was ist Einschlagpapier und wofür wird es verwendet?</h3>
+<p>Einschlagpapier — auch als Wrappapier, Wickelpapier, Servierpapier, Tablettpapier oder Unterlagepapier bekannt — ist ein einseitig bedruckbares Papier im Bogenformat für den direkten Lebensmittelkontakt. Es wird eingesetzt zum Einwickeln von Speisen (Döner, Burger, Sandwich, Gyros, Fisch), zum Unterlegen von Tabletts, Servierkörben und Ablageflächen, zum Servieren von Pommes und Frittiergut sowie als Trennlage zwischen Lebensmitteln in Kühltheken und Verpackungen.</p>
+<p>Das Standardformat S (400 × 300 mm) eignet sich für Sandwiches, belegte Brötchen und kleinere Portionen. Das Format M (400 × 500 mm) deckt größere Portionen ab — Döner, Burrito, Gyros, Fried Chicken, XXL-Burger. Wer ein anderes Maß benötigt, gibt einfach Breite und Höhe in den Konfigurator ein — Blattanzahl und Preis werden sofort ohne versteckte Aufschläge berechnet.</p>
+<p>Gegenüber Tüten und Faltschachteln hat Einschlagpapier einen klaren betrieblichen Vorteil: Es ist das universellste Werkzeug in der Gastronomieverpackung. Ein einziger Artikel deckt zahlreiche Verwendungszwecke ab, lässt sich flach und platzsparend lagern und blitzschnell einsetzen — ohne umständliches Öffnen, Auffalten oder Zusammenbauen. Für Betriebe mit großem Durchsatz ist das ein entscheidender Effizienzfaktor.</p>
+<h3>Für welche Branchen eignet sich Einschlagpapier?</h3>
+<p>Einschlagpapier ist eine der meistverwendeten Verpackungsformen in der gesamten Lebensmittelbranche — kaum ein Segment, das es nicht nutzt:</p>
+<ul>
+<li>Dönerläden, Kebab-Shops, Durum- und Wrap-Restaurants</li>
+<li>Burger-Restaurants, Fast-Food-Ketten und Imbisse aller Art</li>
+<li>Fish &amp; Chips, Pommes-Stationen und Frittier-Imbisse</li>
+<li>Bäckereien, Konditoreien und Cafés mit Snack-Angebot</li>
+<li>Pizzerien und italienische Restaurants (z. B. Pizza al taglio)</li>
+<li>Griechische Restaurants: Gyros, Souvlaki, Pita</li>
+<li>Asiatische Imbisse, Wokstände und Sushi-Läden</li>
+<li>Marktstände, Wochenmärkte und Bauernmärkte</li>
+<li>Lebensmittelhandel und Delikatessengeschäfte mit Bedienungstheke</li>
+<li>Catering-Betriebe für Events, Festivals und Firmenveranstaltungen</li>
+<li>Schulkantinen, Betriebsrestaurants und Mensabetriebe</li>
+<li>Food Trucks und mobile Küchen jeder Art</li>
+</ul>
+<h3>Drei Papierarten — welche passt für Ihre Speisen?</h3>
+<p><strong>Standard (Kraftpapier, 40 g/m²)</strong> — Die günstigste und am breitesten einsetzbare Option. Kraftpapier ist robust, lebensmittelecht und saugfähig. Ideal für trockene oder leicht feuchte Speisen: Sandwiches, Brötchen, Gebäck, Pommes ohne Überschussöl, Tablett-Unterlagen und Trennlagen. Erhältlich in Weiß (sauber und modern) und Braun (natürlich und rustikal).</p>
+<p><strong>Fettabweisendes Papier (Pergamentersatzpapier, 40 g/m²)</strong> — Keine Beschichtung, keine Chemie — reine Natur. Pergamentersatzpapier entsteht durch intensive mechanische Verdichtung (Satinierung) der Zellulosefasern: Die Fasern werden so stark geformt und verfilzt, dass das fertige Papier von Natur aus fett- und ölabweisend ist — ohne Polyethylen, ohne Silikonbeschichtung, ohne Fluorcarbon-Verbindungen. Das bedeutet: vollständig biologisch abbaubar, recycelbar wie gewöhnliches Papier, lebensmittelecht nach EU-Verordnung 1935/2004. Für Döner, Kebab, Pommes, Fried Chicken, gebratene Snacks und alles, was öl- oder fetthaltig ist — die erste, nachhaltige Wahl.</p>
+<p><strong>PE-coated Papier (35 g/m² + 6 g/m² PE)</strong> — Die stärkste Feuchtigkeitsbarriere im Sortiment. Die aufgebrachte Polyethylenschicht macht das Papier vollständig wasserdicht — auch bei sehr saftigen Gerichten, reichlichen Soßen und Flüssigkeiten hält es zuverlässig dicht. Ideal für Gerichte mit viel Soße, mariniertes Fleisch, Gyros mit Tzatziki oder stark feuchte asiatische Gerichte. Das robusteste und feuchtigkeitsresistenteste Material im Sortiment.</p>
+<h3>Sondermaße — individuell, ohne Aufpreis</h3>
+<p>Nicht jedes Gericht, nicht jede Portion und nicht jede Betriebsanforderung passt in ein Standardformat. Ein großes Brathähnchen, ein überlanger Döner, ein besonders breiter Tabletteinsatz — für all das bietet PackFactory Einschlagpapier in beliebigen Sondermaßen ohne Aufpreis. Geben Sie Breite und Höhe in Zentimetern direkt in den Konfigurator ein: Preis und Blattanzahl werden sofort berechnet — vollständig transparent, ohne versteckte Kalkulation.</p>
+<p>Wichtig zu wissen: Einschlagpapier wird in Kilogramm kalkuliert und geliefert, nicht in Stück. Der Konfigurator berechnet automatisch, wie viele Blätter Sie bei einer bestimmten Menge und Größe erhalten — so können Sie genau planen, wann Sie neue Ware bestellen müssen.</p>
+<h3>Einschlagpapier als Marketinginstrument</h3>
+<p>Einschlagpapier hat einen entscheidenden Vorteil gegenüber klassischen Werbemedien: Es ist exakt dort, wo der Kunde ist — direkt in seinen Händen, während er isst. Keine Streuverluste, kein Zeitfenster, kein Skip-Button. Ihr Logo liegt wörtlich auf dem Tisch.</p>
+<p>In einer Zeit, in der Food-Fotos auf Instagram, TikTok und Google Maps täglich Millionen von Aufrufen erzeugen, ist eine optisch auffällige, markenkonforme Verpackung ein echter Wettbewerbsvorteil. Gäste fotografieren ihre Mahlzeiten — immer häufiger, immer öffentlicher. Wenn Ihre Verpackung auf diesem Foto zu sehen ist, erreichen Sie kostenfrei neue potenzielle Kunden, die sonst nie auf Ihren Betrieb gestoßen wären.</p>
+<p>Auch für die Kundenbindung ist professionelle Verpackung ein unterschätzter Faktor: Kunden, die wahrnehmen, dass ein Betrieb auf Details wie Verpackungsdesign achtet, übertragen diesen Qualitätsanspruch unbewusst auf das Essen selbst. Das ist Markenkommunikation — ohne ein einziges Wort zu sagen.</p>
+<h3>Warum PackFactory?</h3>
+<ul>
+<li><strong>Ab 200 kg Mindestbestellmenge</strong> — realisierbar für mittelgroße und große Betriebe</li>
+<li><strong>Einrichtungskosten nur beim ersten Auftrag</strong> — alle Nachbestellungen ohne erneute Setup-Gebühren</li>
+<li><strong>Flexodruck, 1–3 Farben</strong> — wirtschaftlich für große Auflagen</li>
+<li><strong>Sondermaße ohne Aufpreis</strong> — Konfigurator berechnet automatisch</li>
+<li><strong>Bis zu 135 g/m² auf Anfrage</strong> — höhere Grammaturen für besondere Anwendungen</li>
+<li><strong>Lieferzeit ca. 5–7 Wochen</strong> nach Auftragsbestätigung</li>
+<li><strong>Persönliche Beratung</strong> — bei Papierauswahl, Maßen und Druckdaten</li>
+</ul>
+  </div>
+</section>
+
+<section class="pf-section pf-recent" id="pf-recent" hidden aria-labelledby="pf-recent-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-recent-h">Zuletzt angesehen.</h2>
+    <div class="pf-rail" id="pf-recent-list"></div>
+  </div>
+</section>
+
+<section class="pf-cta-band">
+  <div class="pf-wrap">
+    <h2>Bereit für deine eigene Verpackung?</h2>
+    <p>Frag jetzt an. Wir antworten innerhalb von 24 Stunden und gestalten deinen Entwurf kostenlos.</p>
+    <div class="pf-cta-row">
+      <a class="pf-btn pf-btn-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20m%C3%B6chte%20Einschlagpapier%20anfragen." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+      <a class="pf-btn pf-btn-ghost" href="tel:+491776990017">Anrufen</a>
+      <a class="pf-btn pf-btn-ghost" href="mailto:info@pack-factory.de">E-Mail</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pf-footer">
+  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" width="900" height="637" loading="lazy">
   <div class="foot-links">
     <a href="/impressum/">Impressum</a>
     <a href="/datenschutz/">Datenschutz</a>
@@ -560,127 +336,18 @@
   <p>2025 PackFactory. Alle Rechte vorbehalten.</p>
 </footer>
 
-<script>
-  const PRICES = {
-    standard:      {200: 7.00, 400: 6.00, 600: 5.50, 800: 5.20},
-    fettabweisend: {200: 7.50, 400: 6.43, 600: 5.89, 800: 5.57},
-    pe:            {200: 7.60, 400: 6.51, 600: 5.97, 800: 5.65}
-  };
+<div class="pf-sticky" id="pf-sticky" aria-hidden="true">
+  <div class="pf-sticky-in">
+    <div class="pf-sticky-txt"><b id="pf-sticky-total">1.400,00 €</b><span id="pf-sticky-line">Einschlagpapier · 200 kg</span></div>
+    <a class="pf-btn pf-btn-wa pf-btn-icon" id="pf-sticky-wa" href="https://wa.me/491776990017?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Einschlagpapier%20(Format%3A%20S%20(400%20%C3%97%20300%20mm)%2C%20Papierart%3A%20Standard%2C%20200%20kg%2C%207%2C00%20%E2%82%AC%20pro%20kg%20netto%2C%20gesamt%201.400%2C00%20%E2%82%AC%20netto)%20und%20m%C3%B6chte%20ein%20Angebot%20anfragen." target="_blank" rel="noopener" aria-label="Per WhatsApp anfragen" tabindex="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <button type="button" class="pf-btn pf-btn-primary pf-btn-sm" onclick="addCurrentToCart()" tabindex="-1">In den Warenkorb</button>
+  </div>
+</div>
 
-  const sel = {size: 's', mat: 'standard', kg: 200, breite: 0, hoehe: 0};
-
-  function selectSize(val, btn) {
-    sel.size = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    document.getElementById('custom-size-wrap').classList.toggle('visible', val === 'custom');
-    updateAll();
-  }
-
-  function selectMat(val, btn) {
-    sel.mat = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    updateAll();
-  }
-
-  function selectKg(val, btn) {
-    sel.kg = val;
-    btn.closest('.opt-btns').querySelectorAll('.opt').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    updateAll();
-  }
-
-  function onCustomInput() {
-    sel.breite = parseInt(document.getElementById('input-breite').value) || 0;
-    sel.hoehe  = parseInt(document.getElementById('input-hoehe').value)  || 0;
-    updateAll();
-  }
-
-  function getBlattProKg() {
-    if (sel.size === 's') return 208.5;
-    if (sel.size === 'm') return 125;
-    if (sel.breite > 0 && sel.hoehe > 0) return 25000000 / (sel.breite * sel.hoehe);
-    return 0;
-  }
-
-  function updateAll() {
-    var priceKg  = PRICES[sel.mat][sel.kg];
-    var total    = sel.kg * priceKg;
-    var bpk      = getBlattProKg();
-    var blatt    = bpk > 0 ? Math.round(sel.kg * bpk) : 0;
-
-    // Badge
-    var dimMap = {s: '400 \u00D7 300 mm', m: '400 \u00D7 500 mm'};
-    var badgeSize = sel.size === 'custom' ? 'Sonder' : sel.size.toUpperCase();
-    var badgeDim  = sel.size === 'custom'
-      ? (sel.breite && sel.hoehe ? sel.breite + ' \u00D7 ' + sel.hoehe + ' mm' : 'Individuell')
-      : dimMap[sel.size];
-    document.getElementById('badge-size').textContent = badgeSize;
-    document.getElementById('badge-dim').textContent  = badgeDim;
-
-    // Dim hint
-    if (sel.size !== 'custom') {
-      document.getElementById('dim-hint').textContent = 'ca. ' + (sel.size === 's' ? '41.700' : '25.000') + ' Blatt / 200 kg';
-    } else {
-      document.getElementById('dim-hint').textContent = 'Individuelle Ma\u00DFe \u2014 Sondergr\u00F6\u00DFen jederzeit m\u00F6glich';
-    }
-
-    // Blatt hint
-    if (blatt > 0) {
-      document.getElementById('blatt-hint').textContent = 'ca. ' + blatt.toLocaleString('de-DE') + ' Blatt';
-    } else if (sel.size === 'custom') {
-      document.getElementById('blatt-hint').textContent = 'Bitte Breite und H\u00F6he eingeben';
-    } else {
-      document.getElementById('blatt-hint').textContent = '';
-    }
-
-    // Price
-    document.getElementById('price-display').textContent = 'EUR ' + fmt(total);
-    document.getElementById('price-per').textContent = priceKg.toFixed(2).replace('.', ',') + ' \u20AC / kg';
-
-    // Image pulse
-    var img = document.getElementById('product-img');
-    img.classList.remove('pulse');
-    void img.offsetWidth;
-    img.classList.add('pulse');
-
-    // WhatsApp
-    var matLabel = {standard: 'Standard', fettabweisend: 'Fettabweisendes Papier', pe: 'PE-coated Papier'}[sel.mat];
-    var sizeLabel = sel.size === 'custom'
-      ? 'Sondergr\u00F6\u00DFe ' + (sel.breite || '?') + '\u00D7' + (sel.hoehe || '?') + ' mm'
-      : sel.size.toUpperCase() + ' (' + dimMap[sel.size] + ')';
-    var msg = 'Hallo, ich interessiere mich f\u00FCr Einschlagpapier (' + sizeLabel + ', ' + matLabel + ', ' + sel.kg + ' kg) und m\u00F6chte ein Angebot anfragen.';
-    document.getElementById('wa-link').href = 'https://wa.me/491776990017?text=' + encodeURIComponent(msg);
-    document.getElementById('email-link').href = 'mailto:info@pack-factory.de?subject=Anfrage%20Einschlagpapier&body=' + encodeURIComponent('Format: ' + sizeLabel + '\nPapier: ' + matLabel + '\nMenge: ' + sel.kg + ' kg');
-    window.PF_ITEM = { title: 'Einschlagpapier', desc: msg, priceTotal: document.getElementById('price-display').textContent, url: location.pathname };
-  }
-
-  function fmt(n) {
-    return n.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  }
-
-  // Nav scroll shrink
-  var navWrapper = document.getElementById('navWrapper');
-  window.addEventListener('scroll', function() {
-    navWrapper.classList.toggle('scrolled', window.scrollY > 50);
-  }, {passive: true});
-
-  // Mobile menu
-  function toggleMenu() {
-    var m = document.getElementById('mobileMenu');
-    var h = document.querySelector('.hamburger');
-    m.classList.toggle('open'); h.classList.toggle('open');
-    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.querySelector('.hamburger').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  updateAll();
-</script>
+<script type="application/json" id="pf-data">{"product":{"slug":"einschlagpapier","url":"/produkte/einschlagpapier/","name":"Einschlagpapier mit Logo bedrucken","image":"/Bilder/web/tablettpapier-960.webp","unit":"kg","qtyKey":"kg","catalog":{"title":"Einschlagpapier","tags":["papier"],"price":"7,00","unit":"kg"},"related":["burgerbox","doenertueten","tueten","servietten"],"options":[{"key":"size","label":"Format","choices":[{"id":"s","label":"S","detail":"400 × 300 mm"},{"id":"m","label":"M","detail":"400 × 500 mm"},{"id":"custom","label":"Sondergröße","custom":true,"detail":"Breite und Höhe frei wählbar"}]},{"key":"mat","label":"Papierart","choices":[{"id":"standard","label":"Standard"},{"id":"fettabweisend","label":"Fettabweisendes Papier"},{"id":"pe","label":"PE-coated Papier"}]},{"key":"kg","label":"Menge","choices":[{"id":"200","label":"200 kg"},{"id":"400","label":"400 kg","tip":true},{"id":"600","label":"600 kg"},{"id":"800","label":"800 kg"}],"note":"Größere Mengen auf Anfrage möglich"}],"sheets":{"by":"size","perKg":{"s":208.5,"m":125},"customArea":25000000},"pricing":{"basis":"unit","by":["mat","kg"],"table":{"standard":{"200":70000,"400":60000,"600":55000,"800":52000},"fettabweisend":{"200":75000,"400":64300,"600":58900,"800":55700},"pe":{"200":76000,"400":65100,"600":59700,"800":56500}},"qty":{"by":"kg"}}},"catalog":[{"slug":"tueten","url":"/produkte/tueten/","title":"Papiertüten","img":"/Bilder/web/papiertueten-shop-480.webp","from":"ab 12,00 ct"},{"slug":"sleeves","url":"/produkte/sleeves/","title":"Kaffeebecher Sleeves","img":"/Bilder/web/sleeves-shop-480.webp","from":"ab 2,59 ct"},{"slug":"burgerbox","url":"/produkte/burgerbox/","title":"Burgerbox","img":"/Bilder/web/burgerbox-v4-480.webp","from":"ab 11,50 ct"},{"slug":"einschlagpapier","url":"/produkte/einschlagpapier/","title":"Einschlagpapier","img":"/Bilder/web/tablettpapier-480.webp","from":"ab 5,20 €/kg"},{"slug":"broetchentueten","url":"/produkte/broetchentueten/","title":"Brötchentüten","img":"/Bilder/web/broetchentueten-480.webp","from":"ab 4,68 €/kg"},{"slug":"doenertueten","url":"/produkte/doenertueten/","title":"Dönertüten","img":"/Bilder/web/doenertueten-480.webp","from":"ab 5,20 €/kg"},{"slug":"kuru-pasta","url":"/produkte/kuru-pasta/","title":"Kuru Pasta Kutusu","img":"/Bilder/web/kurupasta-480.webp","from":"ab 11,10 ct"},{"slug":"salatschalen","url":"/produkte/salatschalen/","title":"Salatschalen","img":"/Bilder/web/salatschalen-v4-480.webp","from":"ab 14,15 ct"},{"slug":"baklava-kutusu","url":"/produkte/baklava-kutusu/","title":"Baklava Kutusu","img":"/Bilder/web/baklava-480.webp","from":"ab 8,10 ct"},{"slug":"kuchenboxen","url":"/produkte/kuchenboxen/","title":"Kuchenboxen","img":"/Bilder/web/kuchenbox-480.webp","from":"ab 16,00 ct"},{"slug":"pommesschuetten","url":"/produkte/pommesschuetten/","title":"Pommeschütten","img":"/Bilder/web/pommes-480.webp","from":"ab 5,92 ct"},{"slug":"fc-box","url":"/produkte/fc-box/","title":"FC Box","img":"/Bilder/web/fcbox-480.webp","from":"ab 9,20 ct"},{"slug":"doenerboxen","url":"/produkte/doenerboxen/","title":"Dönerboxen","img":"/Bilder/web/doenerbox-480.webp","from":"ab 8,29 ct"},{"slug":"takeaway-boxen","url":"/produkte/takeaway-boxen/","title":"Take-away Boxen","img":"/Bilder/web/takeawaybox-480.webp","from":"ab 15,81 ct"},{"slug":"kaffeebecher-single-wall","url":"/produkte/kaffeebecher-single-wall/","title":"Kaffeebecher Single Wall","img":"/Bilder/web/kaffeebecher-sw-480.webp","from":"ab 6,67 ct"},{"slug":"kaffeebecher-double-wall","url":"/produkte/kaffeebecher-double-wall/","title":"Kaffeebecher Double Wall","img":"/Bilder/web/kaffeebecher-dw-480.webp","from":"ab 10,15 ct"},{"slug":"clear-cups","url":"/produkte/clear-cups/","title":"Clear Cups","img":"/Bilder/web/clear-cups-480.webp","from":"ab 13,50 ct"},{"slug":"bubble-tea-cups","url":"/produkte/bubble-tea-cups/","title":"Bubble Tea Cups","img":"/Bilder/web/bubble-tea-cups-480.webp","from":"ab 17,30 ct"},{"slug":"servietten","url":"/produkte/servietten/","title":"Servietten mit Logo","img":"/Bilder/web/servietten-480.webp","from":"ab 1,95 ct"},{"slug":"feuchttuecher","url":"/produkte/feuchttuecher/","title":"Feuchttücher","img":"/Bilder/web/feuchttuecher-480.webp","from":"ab 2,90 ct"}]}</script>
+<script src="/assets/pf-pricing.js"></script>
+<script src="/assets/pf-view.js"></script>
+<script src="/assets/pf-product.js"></script>
 <script src="/cart.js"></script>
 </body>
 </html>

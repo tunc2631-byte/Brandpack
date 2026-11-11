@@ -25,10 +25,21 @@
 - Check: spacing/padding, font size/weight/line-height, colors (exact hex), alignment, border-radius, shadows, image sizing
 
 ## Output Defaults
-- Single `index.html` file, all styles inline, unless user says otherwise
-- Tailwind CSS via CDN: `<script src="https://cdn.tailwindcss.com"></script>`
-- Placeholder images: `https://placehold.co/WIDTHxHEIGHT`
+- This is the live PackFactory site (static, GitHub Pages publishes `main`). Work inside the existing pages and shared files; do not start a new single-file Tailwind page.
+- No Tailwind CDN on the site. Shared code lives in `assets/`, `cart.js` and `data/`.
+- Placeholder images only for mockups, never on the live site.
 - Mobile-first responsive
+
+## PackFactory: Preise, Produkte, Bilder
+- **Redesign-Plan:** https://claude.ai/artifact/TY3XdANshBaC7fiRm71Tc2 (Schritte 1–5, Entscheidungen des Inhabers in Kapitel 11). Jeder Schritt als eigener Pull Request mit Netlify-Vorschau; live erst nach Freigabe.
+- **Produktdaten:** `data/products.json` ist die zentrale Quelle für Auswahl, Preise und Katalogkarten. `assets/pf-pricing.js` rechnet daraus Stück- und Gesamtpreise (ganze Zahlen: Stückpreise in 1/10.000 €, Gesamtpreise in Cent).
+- **Produktseiten nie von Hand ändern:** `produkte/*/index.html` wird von `node tools/build_site.js` erzeugt aus `data/products.json` (Auswahl, Preise, Hinweise, passende Produkte) und `content/produkte/<slug>.html` (Titel, Beschreibung, Texte, technische Daten, FAQ). Design: `assets/pf.css`, Verhalten: `assets/pf-product.js`, Texte für Preise und Anfragen: `assets/pf-view.js`.
+- **Preise ändern:** nur in `data/products.json`, dann `node tools/build_site.js`, `node tools/qa/price-snapshot.js` (zeigt genau die gewollten Änderungen) und danach `--update`, zuletzt `node --test tools/qa/*.test.js`.
+- **Neues Produkt:** Eintrag in `data/products.json` und Inhaltsdatei in `content/produkte/` anlegen, `node tools/build_site.js`, Sitemap ergänzen, `python tools/seo/build_catalog.py`.
+- **Vor jedem Pull Request:** `node tools/qa/price-snapshot.js` (ohne `--update`) muss "unverändert" melden, außer Preise sollten sich ändern. Dazu `python -m unittest discover -s tools/seo -p 'test_*.py'`.
+- **Katalogkarten:** Feld `catalog` in `data/products.json`, danach `python tools/seo/build_catalog.py`.
+- **Bilder:** Original (JPEG/PNG) nach `Bilder/` legen, auf der Seite `/Bilder/web/<name>-960.webp` mit `srcset` auf `-480.webp` verwenden (Logos: `/Bilder/logos/<name>-440.webp`), dann `python tools/build_images.py`. Keine großen PNGs direkt einbinden.
+- **Nie erfinden:** keine Bewertungen, Zahlen, Zertifikate, Lieferzeiten oder Hersteller auf der Seite. Einkaufspreise und Lieferanten bleiben intern.
 
 ## Brand Assets
 - Always check the `brand_assets/` folder before designing. It may contain logos, color guides, style guides, or images.
