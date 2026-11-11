@@ -78,14 +78,6 @@
     swap.pfTimer = setInterval(function () { if (!document.hidden) swap.pfNext(); }, 2600);
   }
 
-  // Dauerbewegungen (schwebende Produkte, Logo-Laufband) nur abspielen, solange sie im Bild sind
-  if ('IntersectionObserver' in window) {
-    var pause = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { en.target.classList.toggle('is-offscreen', !en.isIntersecting); });
-    });
-    ['.pf-hero', '.pf-logos'].forEach(function (sel) { var el = document.querySelector(sel); if (el) pause.observe(el); });
-  }
-
   // WhatsApp-Knopf ausblenden, solange Startbereich, Kontaktbereich oder Footer sichtbar sind
   var fab = document.querySelector('.pf-wa-float');
   if (fab && 'IntersectionObserver' in window) {
