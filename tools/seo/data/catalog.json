@@ -189,5 +189,16 @@
     "img": "/Bilder/servietten.jpeg",
     "url": "/produkte/servietten/",
     "note": "Preis bei 144.000 Stück, Größe S"
+  },
+  {
+    "title": "Feuchttücher",
+    "tags": [
+      "zubehör"
+    ],
+    "price": "0,029",
+    "unit": "Stück",
+    "img": "/Bilder/feuchttuecher.jpeg",
+    "url": "/produkte/feuchttuecher/",
+    "note": "Preis bei 50.000 Stück, Größe S"
   }
 ]
