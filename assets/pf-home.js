@@ -51,6 +51,18 @@
     });
   });
 
+  // WhatsApp-Knopf ausblenden, solange Kontaktbereich oder Footer sichtbar sind (dort gibt es WhatsApp schon)
+  var fab = document.querySelector('.pf-wa-float');
+  if (fab && 'IntersectionObserver' in window) {
+    var seen = new Set();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) seen.add(en.target); else seen.delete(en.target); });
+      fab.classList.toggle('is-hidden', seen.size > 0);
+    });
+    ['kontakt'].map(function (id) { return document.getElementById(id); }).concat([document.querySelector('.pf-footer')])
+      .forEach(function (el) { if (el) io.observe(el); });
+  }
+
   // Kontaktformular über Formspree
   var FORMSPREE_ID = 'mdabqjpq';
   var form = document.getElementById('kontakt-form');

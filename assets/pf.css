@@ -355,6 +355,9 @@ p { margin: 0; }
 .pf-wa-float svg { width: 28px; height: 28px; }
 .pf-wa-float:hover { transform: scale(1.06); }
 .pf-wa-float:active { transform: scale(.95); }
+.pf-wa-float { transition: transform .3s var(--spring), opacity .25s var(--ease); }
+.pf-wa-float.is-hidden { opacity: 0; transform: scale(.6); pointer-events: none; }
+.pf-wa-float:focus-visible { outline: 3px solid var(--pink-ink); outline-offset: 3px; }
 
 /* ── Über uns, Designservice, Rechtliches ── */
 .pf-photo { margin: var(--s6) auto 0; max-width: 1150px; border-radius: var(--r-l); overflow: hidden; aspect-ratio: 2 / 1; }
@@ -410,4 +413,113 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .pf-marquee { overflow-x: auto; }
+}
+
+/* ── Handy: kompakter, Produkte früher sichtbar, weniger Scrollen ── */
+@media (max-width: 600px) {
+  .pf-wrap { padding: 0 20px; }
+  .pf-section { padding: 48px 0; }
+  .pf-h2 { font-size: 26px; line-height: 1.15; margin-bottom: var(--s4); }
+  .pf-lead { font-size: 17px; }
+  .pf-btn:not(.pf-btn-icon) { min-height: 48px; font-size: 16px; padding: 0 20px; }
+
+  /* Startbereich */
+  .pf-site-main > .pf-hero:first-child { padding-top: calc(var(--nav-h) + 28px); }
+  .pf-new { margin-bottom: var(--s4); font-size: 13px; padding: 6px 12px; }
+  .pf-hero-title { font-size: 40px; letter-spacing: -.04em; line-height: 1.04; }
+  .pf-hero-sub { font-size: 17px; margin-top: var(--s4); padding: 0 4px; }
+  .pf-hero-cta { flex-direction: column; gap: var(--s3); margin-top: var(--s5); }
+  .pf-hero-cta .pf-btn { width: 100%; max-width: 340px; }
+  .pf-stage { margin: var(--s5) -6% 0; max-width: none; }
+  .pf-stage img { width: 36%; }
+  .pf-stage img:nth-child(2) { width: 44%; margin: 0 -5%; }
+  .pf-site-main > .pf-page-hero:first-child { padding-top: calc(var(--nav-h) + 32px); padding-bottom: 40px; }
+
+  /* Kundenlogos */
+  .pf-logos { padding: var(--s3) 0; }
+  .pf-logo { height: 52px; width: 116px; padding: 0 12px; }
+
+  /* Karten und Bestseller */
+  .pf-rail { grid-auto-columns: 46%; gap: var(--s3); }
+  .pf-card { padding: 10px; border-radius: var(--r-m); gap: 2px; }
+  .pf-card-img { margin-bottom: 6px; }
+  .pf-card b { font-size: 15px; line-height: 1.25; }
+  .pf-card .pf-price { font-size: 14px; }
+  .pf-card .pf-qty, .pf-card > span:last-child { font-size: 12px; }
+  .pf-badge { top: 16px; left: 16px; font-size: 10px; padding: 2px 7px; }
+  .pf-grid { gap: 10px; }
+
+  /* Warum PackFactory: zwei Spalten statt fünf hoher Kacheln */
+  .pf-bento-5 { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pf-bento-5 .pf-tile { grid-column: span 1; min-height: 0; padding: 18px 16px; border-radius: var(--r-m); justify-content: flex-start; }
+  .pf-bento-5 .pf-tile-a { grid-column: span 2; }
+  .pf-tile b { font-size: 19px; }
+  .pf-tile span { font-size: 13.5px; line-height: 1.45; }
+
+  /* Ablauf und Listen */
+  .pf-split { gap: var(--s5); }
+  .pf-steps li { grid-template-columns: 36px 1fr; padding: 14px 16px; gap: 2px 14px; }
+  .pf-steps li::before { width: 32px; height: 32px; font-size: 14px; }
+  .pf-steps b { font-size: 16px; }
+  .pf-steps span { font-size: 14px; }
+  .pf-steps-4 { grid-template-columns: 1fr; }
+  .pf-steps-4 li { grid-template-columns: 36px 1fr; }
+  .pf-steps-4 li::before { grid-row: span 2; margin-bottom: 0; }
+  .pf-checklist li { padding: 14px 16px; }
+  .pf-checklist b { font-size: 16px; }
+  .pf-checklist span { font-size: 14px; }
+
+  /* Filter als wischbare Zeile */
+  .pf-filter { flex-wrap: nowrap; overflow-x: auto; margin: 0 -20px var(--s4); padding: 0 20px 4px; scrollbar-width: none; }
+  .pf-filter::-webkit-scrollbar { display: none; }
+  .pf-chip { flex: none; padding: 10px 16px; font-size: 14px; }
+
+  /* FAQ und Kontakt */
+  .pf-faq-home .pf-faq summary { font-size: 16px; padding: 16px 36px 16px 0; }
+  .pf-faq-home .pf-faq p { font-size: 15px; }
+  .pf-contact-ways { flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s5); }
+  .pf-contact-ways .pf-btn { width: 100%; }
+  .pf-form { box-shadow: 0 1px 2px rgba(29, 29, 31, .06); }
+
+  /* WhatsApp-Knopf kleiner, verdeckt weniger */
+  .pf-wa-float { width: 50px; height: 50px; right: 14px; bottom: 14px; }
+  .pf-wa-float svg { width: 24px; height: 24px; }
+
+  /* Über uns, Designservice */
+  .pf-photo { margin-top: var(--s5); border-radius: var(--r-m); aspect-ratio: 4 / 3; }
+  .pf-founder { padding: var(--s5) 20px; border-radius: var(--r-m); }
+  .pf-founder h2 { font-size: 26px; }
+  .pf-founder p:not(.pf-role):not(.pf-founder-short) { font-size: 15.5px; line-height: 1.65; }
+  .pf-founder-short { font-size: 16.5px; }
+  .pf-timeline { gap: var(--s5); }
+  .pf-timeline h3 { font-size: 21px; }
+  .pf-timeline p:not(.pf-eyebrow) { font-size: 15.5px; line-height: 1.65; }
+  .pf-values, .pf-features { gap: 10px; }
+  .pf-bento .service-card, .pf-values .pf-tile, .pf-features .pf-tile { min-height: 0; padding: 18px; border-radius: var(--r-m); }
+  .pf-cta-band { padding: 56px 0; }
+  .pf-cta-band p { font-size: 16px; margin: var(--s3) auto var(--s5); }
+  .pf-cta-row { flex-direction: column; align-items: stretch; max-width: 340px; margin: 0 auto; }
+
+  /* Produktseite: Texte und Tabellen passend fürs Handy */
+  .pf-acc summary { font-size: 19px; padding: 18px 0; }
+  .pf-table { font-size: 13px; }
+  .pf-table th, .pf-table td { padding: 9px 8px; }
+  .pf-table thead th { font-size: 11px; white-space: normal; }
+  .pf-table small { font-size: 11px; }
+  .pf-price-table { min-width: 0; }
+  .pf-price-table td, .pf-price-table thead th { white-space: nowrap; }
+  .pf-table tr > :first-child { position: sticky; left: 0; z-index: 1; background: var(--paper); box-shadow: 1px 0 0 var(--line); }
+  .pf-table thead tr > :first-child { background: var(--mist); }
+  .pf-table-wrap { background: linear-gradient(90deg, var(--paper) 30%, transparent) left / 24px 100% no-repeat local, linear-gradient(270deg, var(--paper) 30%, transparent) right / 24px 100% no-repeat local, linear-gradient(90deg, rgba(29,29,31,.12), transparent) left / 10px 100% no-repeat scroll, linear-gradient(270deg, rgba(29,29,31,.12), transparent) right / 10px 100% no-repeat scroll; }
+  .pf-prose h2 { font-size: 24px; }
+  .pf-prose h3 { font-size: 18px; margin: var(--s5) 0 var(--s2); }
+  .pf-prose p, .pf-prose li { font-size: 15.5px; line-height: 1.65; }
+  .pf-prose .seo-lead { font-size: 17.5px; }
+  .pf-legal { padding: var(--s5) 0 var(--s6); }
+  .pf-legal p, .pf-legal li { font-size: 15px; }
+
+  /* Footer */
+  .pf-footer { padding: var(--s6) 0 var(--s5); }
+  .pf-foot-grid { gap: var(--s5) var(--s4); }
+  .pf-foot-brand img { height: 80px; margin: -20px 0 -12px -12px; }
 }
