@@ -24,6 +24,11 @@
         "file": "tuete-design-brudis",
         "name": "Brudis",
         "color": "#EC6A1F"
+      },
+      {
+        "file": "tuete-design-king-kebab",
+        "name": "King Kebab",
+        "color": "#B98A62"
       }
     ]
   },
