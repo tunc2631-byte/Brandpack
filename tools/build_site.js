@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /*
- * Erzeugt alle Produktseiten produkte/<slug>/index.html aus
- *   data/products.json         Auswahl, Preise, Hinweise, passende Produkte
- *   content/produkte/<slug>.html  Texte (Titel, Beschreibung, Abschnitte, FAQ)
+ * Erzeugt alle Seiten der Website:
+ *   produkte/<slug>/index.html  aus data/products.json (Auswahl, Preise, Hinweise,
+ *                               passende Produkte) und content/produkte/<slug>.html (Texte)
+ *   index.html, ueber-uns/, designservice/, impressum/, datenschutz/
+ *                               aus content/seiten/<name>.html und data/site.json
  *
  *   node tools/build_site.js           Seiten schreiben
  *   node tools/build_site.js --check   nur prüfen, ob die Seiten aktuell sind
@@ -22,6 +24,151 @@ const small = img => img.replace('-960.webp', '-480.webp');
 const WA_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
 const CART_ICON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>';
 const CHECK_ICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+
+const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site.json'), 'utf8'));
+const year = 2026;
+
+// Kopf der Seite mit Navigation
+function top(o) {
+  return `<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${o.title}</title>
+  <link rel="canonical" href="https://pack-factory.de${o.path}">
+  <meta name="description" content="${o.description}">
+  <link rel="icon" type="image/png" href="/Bilder/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/pf.css">${o.jsonld ? `
+  <script type="application/ld+json">
+${o.jsonld}
+  </script>` : ''}
+</head>
+<body class="pf-page">
+<!-- Erzeugt von tools/build_site.js aus ${o.source}. Nicht von Hand ändern. -->
+
+<div class="nav-wrapper" id="navWrapper">
+  <nav aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-home"><img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo" width="900" height="637"></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#produkte">Produkte</a>
+        <a href="/designservice/">Designservice</a>
+        <a href="/ueber-uns/">&Uuml;ber uns</a>
+        <a href="/#kontakt">Kontakt</a>
+      </div>
+      <div class="nav-right">
+        <a href="/#produkte" class="pf-btn pf-btn-primary pf-btn-sm nav-cta">Jetzt bestellen</a>
+        <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Men&uuml;" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#produkte" onclick="closeMenu()">Produkte</a>
+  <a href="/designservice/" onclick="closeMenu()">Designservice</a>
+  <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
+  <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
+</div>
+
+`;
+}
+
+function footer() {
+  const link = (href, text) => `<li><a href="${href}">${text}</a></li>`;
+  return `<footer class="pf-footer">
+  <div class="pf-wrap pf-foot-grid">
+    <div class="pf-foot-brand">
+      <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" width="900" height="637" loading="lazy">
+      <p>Individuelle Verpackungslösungen für Gastronomie und Foodservice.</p>
+      <p><a href="https://wa.me/491776990017" target="_blank" rel="noopener">WhatsApp</a> · <a href="tel:+491776990017">0177 6990017</a> · <a href="mailto:info@pack-factory.de">info@pack-factory.de</a></p>
+    </div>
+    <nav aria-label="Produkte"><h2>Produkte</h2><ul>
+      ${['tueten', 'burgerbox', 'salatschalen', 'kaffeebecher-single-wall', 'servietten', 'feuchttuecher'].map(s => link(bySlug[s].url, esc(bySlug[s].catalog.title))).join('\n      ')}
+      ${link('/#produkte', 'Alle Produkte')}
+    </ul></nav>
+    <nav aria-label="Unternehmen"><h2>Unternehmen</h2><ul>
+      ${link('/ueber-uns/', '&Uuml;ber uns')}
+      ${link('/designservice/', 'Designservice')}
+      ${link('/designservice/#druckdateien', 'Druckdateien')}
+      ${link('/#kontakt', 'Kontakt')}
+    </ul></nav>
+    <nav aria-label="Rechtliches"><h2>Rechtliches</h2><ul>
+      ${link('/impressum/', 'Impressum')}
+      ${link('/datenschutz/', 'Datenschutz')}
+    </ul></nav>
+  </div>
+  <p class="pf-wrap pf-foot-copy">&copy; ${year} PackFactory. Alle Rechte vorbehalten. Alle Preise netto zzgl. MwSt.</p>
+</footer>`;
+}
+
+function scripts(list) {
+  return ['/assets/pf-site.js'].concat(list, ['/cart.js']).map(s => `<script src="${s}"></script>`).join('\n') + '\n</body>\n</html>\n';
+}
+
+// "bei 40.000 Stück" für den niedrigsten Preis
+function lowestNote(p) {
+  return 'bei ' + V.qtyText(PF.lowest(p).quote.qty, p.unit);
+}
+
+function productCard(p, opts) {
+  const o = opts || {};
+  const badge = o.badge && p.badge ? `<i class="pf-badge${p.badge === 'Neu' ? ' pf-badge-new' : ''}">${esc(p.badge)}</i>` : '';
+  const attrs = o.filter ? ` data-cat="${esc(p.catalog.tags.join(' '))}" data-branchen="${esc(p.branchen.join(' '))}"` : '';
+  return `<a class="${o.cls || 'pf-card'}" href="${esc(p.url)}"${attrs}><span class="pf-card-img"><img src="${esc(small(p.image))}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 700px) 46vw, 280px" alt="${esc(p.catalog.title)}" loading="lazy" decoding="async" width="480" height="480"></span>${badge}<b>${esc(p.catalog.title)}</b><span class="pf-price">${esc(V.fromPrice(p))}</span><span class="pf-qty">${esc(lowestNote(p))}</span></a>`;
+}
+
+const LOGOS = [
+  ['design-ohne-titel-14', "Bull's Kitchen", ''], ['design-ohne-titel-15', '', ''], ['design-ohne-titel-16', '', ' pf-invert'],
+  ['9', 'Damn Dog', ''], ['10', 'Efendi Bey', ''], ['11', 'Express-Verpackung', ''], ['12', 'Essen City', ''], ['13', 'TUAI Rooms', ''], ['14', 'KY &amp; Son', ''],
+];
+
+function blocks() {
+  const logo = hidden => LOGOS.map(([f, alt, cls]) => `      <img class="pf-logo${cls}" src="/Bilder/logos/${f}-440.webp" alt="${hidden ? '' : alt}" width="440" height="311" loading="lazy" decoding="async">`).join('\n');
+  const branche = b => {
+    const list = products.filter(p => p.branchen.includes(b.id));
+    // Bilder: zuerst Produkte, die nicht in jede Branche passen, damit sich die Kacheln unterscheiden
+    const everywhere = p => site.branchen.every(x => p.branchen.includes(x.id));
+    const pics = list.filter(p => !everywhere(p)).concat(list.filter(everywhere)).slice(0, 3).map(p => `<img src="${esc(small(p.image))}" alt="" loading="lazy" decoding="async" width="480" height="480">`).join('');
+    return `      <button type="button" class="pf-branche" data-branche="${esc(b.id)}"><span class="pf-branche-pics">${pics}</span><b>${esc(b.label)}</b><span>${list.length} passende Produkte</span></button>`;
+  };
+  return {
+    logos: logo(false) + '\n      <span class="pf-logo-loop" aria-hidden="true">\n' + logo(true) + '\n      </span>',
+    bestseller: site.bestseller.map(s => '      ' + productCard(bySlug[s], { badge: true })).join('\n'),
+    branchen: site.branchen.map(branche).join('\n'),
+    filter: `      <button type="button" class="pf-chip active" data-cat="alle" aria-pressed="true">Alle</button>\n` +
+      site.categories.map(c => `      <button type="button" class="pf-chip" data-cat="${esc(c.id)}" aria-pressed="false">${esc(c.label)}</button>`).join('\n'),
+    catalog: '      <!-- catalog:start -->\n' + products.map(p => '      ' + productCard(p, { cls: 'pf-card pf-pcard', badge: true, filter: true })).join('\n') + '\n      <!-- catalog:end -->',
+    produktoptionen: products.map(p => `        <option>${esc(p.catalog.title)}</option>`).join('\n'),
+  };
+}
+
+function readPage(name) {
+  const raw = fs.readFileSync(path.join(ROOT, 'content/seiten', name + '.html'), 'utf8');
+  const parts = {};
+  raw.split(/<!-- part:(\w+) -->\n/).slice(1).reduce((key, val, i) => {
+    if (i % 2 === 0) return val;
+    parts[key] = val.replace(/\n$/, '');
+    return null;
+  }, null);
+  return parts;
+}
+
+function sitePage(name) {
+  const c = readPage(name);
+  const b = blocks();
+  let main = c.main.replace(/\{\{WA\}\}/g, WA_ICON).replace(/<!--pf:(\w+)-->/g, (m, k) => {
+    if (!(k in b)) throw new Error('Unbekannter Platzhalter ' + m + ' in ' + name);
+    return b[k];
+  });
+  return top({ title: c.title, description: c.description, path: c.path, jsonld: c.jsonld, source: 'content/seiten/' + name + '.html' }) +
+    `<main class="pf-site-main">\n${main}\n</main>\n\n${footer()}\n\n${scripts(c.scripts ? c.scripts.split(/\s+/) : [])}`;
+}
 
 function readContent(slug) {
   const raw = fs.readFileSync(path.join(ROOT, 'content/produkte', slug + '.html'), 'utf8');
@@ -101,10 +248,6 @@ function optionGroups(p, sel, custom) {
   }).join('');
 }
 
-function card(p, cls) {
-  return `<a class="${cls}" href="${esc(p.url)}"><span class="pf-card-img"><img src="${esc(small(p.image))}" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>${esc(p.catalog.title)}</b><span>${esc(V.fromPrice(p))}</span></a>`;
-}
-
 function page(p) {
   const c = readContent(p.slug);
   const sel = PF.defaults(p);
@@ -112,7 +255,7 @@ function page(p) {
   const msg = V.message(p, sel, null);
   const waHref = 'https://wa.me/491776990017?text=' + encodeURIComponent(msg);
   const mailHref = 'mailto:info@pack-factory.de?subject=' + encodeURIComponent('Anfrage ' + p.catalog.title) + '&body=' + encodeURIComponent(V.emailBody(p, sel, null));
-  const related = p.related.map(r => card(bySlug[r], 'pf-card')).join('\n      ');
+  const related = p.related.map(r => productCard(bySlug[r])).join('\n      ');
   const mini = products.map(o => ({ slug: o.slug, url: o.url, title: o.catalog.title, img: small(o.image), from: V.fromPrice(o) }));
   const data = JSON.stringify({ product: p, catalog: mini }).replace(/</g, '\\u003c');
   const details = [
@@ -122,52 +265,7 @@ function page(p) {
     c.guide ? `<details class="pf-acc"><summary>Auswahlhilfe</summary><div class="pf-acc-body pf-prose">${c.guide}</div></details>` : '',
   ].filter(Boolean).join('\n      ');
 
-  return `<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${c.title}</title>
-  <link rel="canonical" href="https://pack-factory.de${p.url}">
-  <meta name="description" content="${c.description}">
-  <link rel="icon" type="image/png" href="/Bilder/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/pf.css">
-  <script type="application/ld+json">
-${c.jsonld}
-  </script>
-</head>
-<body class="pf-page">
-<!-- Erzeugt von tools/build_site.js aus data/products.json und content/produkte/${p.slug}.html. Nicht von Hand ändern. -->
-
-<div class="nav-wrapper" id="navWrapper">
-  <nav aria-label="Hauptnavigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-home"><img src="/Bilder/packfactory-logo.webp" alt="PackFactory" class="nav-logo" width="900" height="637"></a>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/#produkte">Produkte</a>
-        <a href="/designservice/">Designservice</a>
-        <a href="/ueber-uns/">&Uuml;ber uns</a>
-        <a href="/#kontakt">Kontakt</a>
-      </div>
-      <div class="nav-right">
-        <a href="/#produkte" class="pf-btn pf-btn-primary pf-btn-sm nav-cta">Jetzt bestellen</a>
-        <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Men&uuml;" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-    </div>
-  </nav>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="/" onclick="closeMenu()">Home</a>
-  <a href="/#produkte" onclick="closeMenu()">Produkte</a>
-  <a href="/designservice/" onclick="closeMenu()">Designservice</a>
-  <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
-  <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
-</div>
-
+  return `${top({ title: c.title, description: c.description, path: p.url, jsonld: c.jsonld, source: 'data/products.json und content/produkte/' + p.slug + '.html' })}
 <main>
 <section class="pf-buy" aria-label="Produkt konfigurieren">
   <div class="pf-gallery">
@@ -257,15 +355,7 @@ ${c.service ? `
 </section>
 </main>
 
-<footer class="pf-footer">
-  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" width="900" height="637" loading="lazy">
-  <div class="foot-links">
-    <a href="/impressum/">Impressum</a>
-    <a href="/datenschutz/">Datenschutz</a>
-    <a href="/#kontakt">Kontakt</a>
-  </div>
-  <p>2025 PackFactory. Alle Rechte vorbehalten.</p>
-</footer>
+${footer()}
 
 <div class="pf-sticky" id="pf-sticky" aria-hidden="true">
   <div class="pf-sticky-in">
@@ -276,26 +366,24 @@ ${c.service ? `
 </div>
 
 <script type="application/json" id="pf-data">${data}</script>
-<script src="/assets/pf-pricing.js"></script>
-<script src="/assets/pf-view.js"></script>
-<script src="/assets/pf-product.js"></script>
-<script src="/cart.js"></script>
-</body>
-</html>
-`;
+${scripts(['/assets/pf-pricing.js', '/assets/pf-view.js', '/assets/pf-product.js'])}`;
 }
 
-let stale = [];
-for (const p of products) {
-  const file = path.join(ROOT, 'produkte', p.slug, 'index.html');
-  const html = page(p);
+const pages = products.map(p => [path.join('produkte', p.slug, 'index.html'), () => page(p)])
+  .concat([['index.html', 'start'], ['ueber-uns/index.html', 'ueber-uns'], ['designservice/index.html', 'designservice'],
+    ['impressum/index.html', 'impressum'], ['datenschutz/index.html', 'datenschutz']].map(([f, n]) => [f, () => sitePage(n)]));
+
+const stale = [];
+for (const [rel, render] of pages) {
+  const file = path.join(ROOT, rel);
+  const html = render();
   const old = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
   if (old === html) continue;
-  if (CHECK) stale.push(path.relative(ROOT, file));
-  else { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, html); console.log('geschrieben', path.relative(ROOT, file)); }
+  if (CHECK) stale.push(rel);
+  else { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, html); console.log('geschrieben', rel); }
 }
 if (CHECK && stale.length) {
   console.error('Nicht aktuell, bitte `node tools/build_site.js` ausführen:\n  ' + stale.join('\n  '));
   process.exit(1);
 }
-if (CHECK) console.log(`OK: ${products.length} Produktseiten aktuell.`);
+if (CHECK) console.log(`OK: ${pages.length} Seiten aktuell.`);

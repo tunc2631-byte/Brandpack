@@ -61,6 +61,7 @@
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
 </div>
 
+
 <main>
 <section class="pf-buy" aria-label="Produkt konfigurieren">
   <div class="pf-gallery">
@@ -132,10 +133,10 @@
   <div class="pf-wrap">
     <h2 class="pf-h2" id="pf-related-h">Passt zu Brötchentüten. <span>Alles im selben Look bestellen.</span></h2>
     <div class="pf-rail">
-      <a class="pf-card" href="/produkte/tueten/"><span class="pf-card-img"><img src="/Bilder/web/papiertueten-shop-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Papiertüten</b><span>ab 12,00 ct</span></a>
-      <a class="pf-card" href="/produkte/einschlagpapier/"><span class="pf-card-img"><img src="/Bilder/web/tablettpapier-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Einschlagpapier</b><span>ab 5,20 €/kg</span></a>
-      <a class="pf-card" href="/produkte/kuchenboxen/"><span class="pf-card-img"><img src="/Bilder/web/kuchenbox-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Kuchenboxen</b><span>ab 16,00 ct</span></a>
-      <a class="pf-card" href="/produkte/servietten/"><span class="pf-card-img"><img src="/Bilder/web/servietten-480.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><b>Servietten mit Logo</b><span>ab 1,95 ct</span></a>
+      <a class="pf-card" href="/produkte/tueten/"><span class="pf-card-img"><img src="/Bilder/web/papiertueten-shop-480.webp" srcset="/Bilder/web/papiertueten-shop-480.webp 480w, /Bilder/web/papiertueten-shop-960.webp 960w" sizes="(max-width: 700px) 46vw, 280px" alt="Papiertüten" loading="lazy" decoding="async" width="480" height="480"></span><b>Papiertüten</b><span class="pf-price">ab 12,00 ct</span><span class="pf-qty">bei 20.000 Stück</span></a>
+      <a class="pf-card" href="/produkte/einschlagpapier/"><span class="pf-card-img"><img src="/Bilder/web/tablettpapier-480.webp" srcset="/Bilder/web/tablettpapier-480.webp 480w, /Bilder/web/tablettpapier-960.webp 960w" sizes="(max-width: 700px) 46vw, 280px" alt="Einschlagpapier" loading="lazy" decoding="async" width="480" height="480"></span><b>Einschlagpapier</b><span class="pf-price">ab 5,20 €/kg</span><span class="pf-qty">bei 800 kg</span></a>
+      <a class="pf-card" href="/produkte/kuchenboxen/"><span class="pf-card-img"><img src="/Bilder/web/kuchenbox-480.webp" srcset="/Bilder/web/kuchenbox-480.webp 480w, /Bilder/web/kuchenbox-960.webp 960w" sizes="(max-width: 700px) 46vw, 280px" alt="Kuchenboxen" loading="lazy" decoding="async" width="480" height="480"></span><b>Kuchenboxen</b><span class="pf-price">ab 16,00 ct</span><span class="pf-qty">bei 10.000 Stück</span></a>
+      <a class="pf-card" href="/produkte/servietten/"><span class="pf-card-img"><img src="/Bilder/web/servietten-480.webp" srcset="/Bilder/web/servietten-480.webp 480w, /Bilder/web/servietten-960.webp 960w" sizes="(max-width: 700px) 46vw, 280px" alt="Servietten mit Logo" loading="lazy" decoding="async" width="480" height="480"></span><b>Servietten mit Logo</b><span class="pf-price">ab 1,95 ct</span><span class="pf-qty">bei 144.000 Stück</span></a>
     </div>
   </div>
 </section>
@@ -321,13 +322,33 @@
 </main>
 
 <footer class="pf-footer">
-  <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" width="900" height="637" loading="lazy">
-  <div class="foot-links">
-    <a href="/impressum/">Impressum</a>
-    <a href="/datenschutz/">Datenschutz</a>
-    <a href="/#kontakt">Kontakt</a>
+  <div class="pf-wrap pf-foot-grid">
+    <div class="pf-foot-brand">
+      <img src="/Bilder/packfactory-logo.webp" alt="PackFactory" width="900" height="637" loading="lazy">
+      <p>Individuelle Verpackungslösungen für Gastronomie und Foodservice.</p>
+      <p><a href="https://wa.me/491776990017" target="_blank" rel="noopener">WhatsApp</a> · <a href="tel:+491776990017">0177 6990017</a> · <a href="mailto:info@pack-factory.de">info@pack-factory.de</a></p>
+    </div>
+    <nav aria-label="Produkte"><h2>Produkte</h2><ul>
+      <li><a href="/produkte/tueten/">Papiertüten</a></li>
+      <li><a href="/produkte/burgerbox/">Burgerbox</a></li>
+      <li><a href="/produkte/salatschalen/">Salatschalen</a></li>
+      <li><a href="/produkte/kaffeebecher-single-wall/">Kaffeebecher Single Wall</a></li>
+      <li><a href="/produkte/servietten/">Servietten mit Logo</a></li>
+      <li><a href="/produkte/feuchttuecher/">Feuchttücher</a></li>
+      <li><a href="/#produkte">Alle Produkte</a></li>
+    </ul></nav>
+    <nav aria-label="Unternehmen"><h2>Unternehmen</h2><ul>
+      <li><a href="/ueber-uns/">&Uuml;ber uns</a></li>
+      <li><a href="/designservice/">Designservice</a></li>
+      <li><a href="/designservice/#druckdateien">Druckdateien</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
+    </ul></nav>
+    <nav aria-label="Rechtliches"><h2>Rechtliches</h2><ul>
+      <li><a href="/impressum/">Impressum</a></li>
+      <li><a href="/datenschutz/">Datenschutz</a></li>
+    </ul></nav>
   </div>
-  <p>2025 PackFactory. Alle Rechte vorbehalten.</p>
+  <p class="pf-wrap pf-foot-copy">&copy; 2026 PackFactory. Alle Rechte vorbehalten. Alle Preise netto zzgl. MwSt.</p>
 </footer>
 
 <div class="pf-sticky" id="pf-sticky" aria-hidden="true">
@@ -338,7 +359,8 @@
   </div>
 </div>
 
-<script type="application/json" id="pf-data">{"product":{"slug":"broetchentueten","url":"/produkte/broetchentueten/","name":"Brötchentüten","image":"/Bilder/web/broetchentueten-960.webp","unit":"kg","qtyKey":"kg","catalog":{"title":"Brötchentüten","tags":["papiertüten"],"price":"7,00","unit":"kg"},"related":["tueten","einschlagpapier","kuchenboxen","servietten"],"options":[{"key":"size","label":"Größe","choices":[{"id":"xs","label":"XS","detail":"120 × 50 × 250 mm"},{"id":"s","label":"S","detail":"150 × 60 × 250 mm"},{"id":"m","label":"M","detail":"150 × 55 × 290 mm"},{"id":"l","label":"L","detail":"200 × 70 × 340 mm"},{"id":"xl","label":"XL","detail":"200 × 105 × 430 mm"}]},{"key":"mat","label":"Papierart","choices":[{"id":"standard","label":"Standard"},{"id":"fettabweisend","label":"Fettabweisendes Papier"}]},{"key":"kg","label":"Menge","choices":[{"id":"200","label":"200 kg"},{"id":"400","label":"400 kg","tip":true},{"id":"600","label":"600 kg"},{"id":"800","label":"800 kg"}],"note":"Größere Mengen auf Anfrage möglich"}],"pieces":{"by":"size","per200kg":{"xs":68900,"s":55500,"m":48500,"l":31300,"xl":23000},"grams":{"xs":2.9,"s":3.6,"m":4.12,"l":6.39,"xl":8.69}},"pricing":{"basis":"unit","by":["mat","kg"],"table":{"standard":{"200":70000,"400":60000,"600":55000,"800":52000},"fettabweisend":{"200":75000,"400":64300,"600":58900,"800":55700}},"modifiers":[{"type":"factor","by":"size","per":1000,"round":100,"table":{"xs":1000,"s":1000,"m":1000,"l":1000,"xl":900}}],"qty":{"by":"kg"}}},"catalog":[{"slug":"tueten","url":"/produkte/tueten/","title":"Papiertüten","img":"/Bilder/web/papiertueten-shop-480.webp","from":"ab 12,00 ct"},{"slug":"sleeves","url":"/produkte/sleeves/","title":"Kaffeebecher Sleeves","img":"/Bilder/web/sleeves-shop-480.webp","from":"ab 2,59 ct"},{"slug":"burgerbox","url":"/produkte/burgerbox/","title":"Burgerbox","img":"/Bilder/web/burgerbox-v4-480.webp","from":"ab 11,50 ct"},{"slug":"einschlagpapier","url":"/produkte/einschlagpapier/","title":"Einschlagpapier","img":"/Bilder/web/tablettpapier-480.webp","from":"ab 5,20 €/kg"},{"slug":"broetchentueten","url":"/produkte/broetchentueten/","title":"Brötchentüten","img":"/Bilder/web/broetchentueten-480.webp","from":"ab 4,68 €/kg"},{"slug":"doenertueten","url":"/produkte/doenertueten/","title":"Dönertüten","img":"/Bilder/web/doenertueten-480.webp","from":"ab 5,20 €/kg"},{"slug":"kuru-pasta","url":"/produkte/kuru-pasta/","title":"Kuru Pasta Kutusu","img":"/Bilder/web/kurupasta-480.webp","from":"ab 11,10 ct"},{"slug":"salatschalen","url":"/produkte/salatschalen/","title":"Salatschalen","img":"/Bilder/web/salatschalen-v4-480.webp","from":"ab 14,15 ct"},{"slug":"baklava-kutusu","url":"/produkte/baklava-kutusu/","title":"Baklava Kutusu","img":"/Bilder/web/baklava-480.webp","from":"ab 8,10 ct"},{"slug":"kuchenboxen","url":"/produkte/kuchenboxen/","title":"Kuchenboxen","img":"/Bilder/web/kuchenbox-480.webp","from":"ab 16,00 ct"},{"slug":"pommesschuetten","url":"/produkte/pommesschuetten/","title":"Pommeschütten","img":"/Bilder/web/pommes-480.webp","from":"ab 5,92 ct"},{"slug":"fc-box","url":"/produkte/fc-box/","title":"FC Box","img":"/Bilder/web/fcbox-480.webp","from":"ab 9,20 ct"},{"slug":"doenerboxen","url":"/produkte/doenerboxen/","title":"Dönerboxen","img":"/Bilder/web/doenerbox-480.webp","from":"ab 8,29 ct"},{"slug":"takeaway-boxen","url":"/produkte/takeaway-boxen/","title":"Take-away Boxen","img":"/Bilder/web/takeawaybox-480.webp","from":"ab 15,81 ct"},{"slug":"kaffeebecher-single-wall","url":"/produkte/kaffeebecher-single-wall/","title":"Kaffeebecher Single Wall","img":"/Bilder/web/kaffeebecher-sw-480.webp","from":"ab 6,67 ct"},{"slug":"kaffeebecher-double-wall","url":"/produkte/kaffeebecher-double-wall/","title":"Kaffeebecher Double Wall","img":"/Bilder/web/kaffeebecher-dw-480.webp","from":"ab 10,15 ct"},{"slug":"clear-cups","url":"/produkte/clear-cups/","title":"Clear Cups","img":"/Bilder/web/clear-cups-480.webp","from":"ab 13,50 ct"},{"slug":"bubble-tea-cups","url":"/produkte/bubble-tea-cups/","title":"Bubble Tea Cups","img":"/Bilder/web/bubble-tea-cups-480.webp","from":"ab 17,30 ct"},{"slug":"servietten","url":"/produkte/servietten/","title":"Servietten mit Logo","img":"/Bilder/web/servietten-480.webp","from":"ab 1,95 ct"},{"slug":"feuchttuecher","url":"/produkte/feuchttuecher/","title":"Feuchttücher","img":"/Bilder/web/feuchttuecher-480.webp","from":"ab 2,90 ct"}]}</script>
+<script type="application/json" id="pf-data">{"product":{"slug":"broetchentueten","url":"/produkte/broetchentueten/","name":"Brötchentüten","image":"/Bilder/web/broetchentueten-960.webp","unit":"kg","qtyKey":"kg","catalog":{"title":"Brötchentüten","tags":["papiertüten"]},"branchen":["cafe"],"related":["tueten","einschlagpapier","kuchenboxen","servietten"],"options":[{"key":"size","label":"Größe","choices":[{"id":"xs","label":"XS","detail":"120 × 50 × 250 mm"},{"id":"s","label":"S","detail":"150 × 60 × 250 mm"},{"id":"m","label":"M","detail":"150 × 55 × 290 mm"},{"id":"l","label":"L","detail":"200 × 70 × 340 mm"},{"id":"xl","label":"XL","detail":"200 × 105 × 430 mm"}]},{"key":"mat","label":"Papierart","choices":[{"id":"standard","label":"Standard"},{"id":"fettabweisend","label":"Fettabweisendes Papier"}]},{"key":"kg","label":"Menge","choices":[{"id":"200","label":"200 kg"},{"id":"400","label":"400 kg","tip":true},{"id":"600","label":"600 kg"},{"id":"800","label":"800 kg"}],"note":"Größere Mengen auf Anfrage möglich"}],"pieces":{"by":"size","per200kg":{"xs":68900,"s":55500,"m":48500,"l":31300,"xl":23000},"grams":{"xs":2.9,"s":3.6,"m":4.12,"l":6.39,"xl":8.69}},"pricing":{"basis":"unit","by":["mat","kg"],"table":{"standard":{"200":70000,"400":60000,"600":55000,"800":52000},"fettabweisend":{"200":75000,"400":64300,"600":58900,"800":55700}},"modifiers":[{"type":"factor","by":"size","per":1000,"round":100,"table":{"xs":1000,"s":1000,"m":1000,"l":1000,"xl":900}}],"qty":{"by":"kg"}}},"catalog":[{"slug":"tueten","url":"/produkte/tueten/","title":"Papiertüten","img":"/Bilder/web/papiertueten-shop-480.webp","from":"ab 12,00 ct"},{"slug":"sleeves","url":"/produkte/sleeves/","title":"Kaffeebecher Sleeves","img":"/Bilder/web/sleeves-shop-480.webp","from":"ab 2,59 ct"},{"slug":"burgerbox","url":"/produkte/burgerbox/","title":"Burgerbox","img":"/Bilder/web/burgerbox-v4-480.webp","from":"ab 11,50 ct"},{"slug":"einschlagpapier","url":"/produkte/einschlagpapier/","title":"Einschlagpapier","img":"/Bilder/web/tablettpapier-480.webp","from":"ab 5,20 €/kg"},{"slug":"broetchentueten","url":"/produkte/broetchentueten/","title":"Brötchentüten","img":"/Bilder/web/broetchentueten-480.webp","from":"ab 4,68 €/kg"},{"slug":"doenertueten","url":"/produkte/doenertueten/","title":"Dönertüten","img":"/Bilder/web/doenertueten-480.webp","from":"ab 5,20 €/kg"},{"slug":"kuru-pasta","url":"/produkte/kuru-pasta/","title":"Kuru Pasta Kutusu","img":"/Bilder/web/kurupasta-480.webp","from":"ab 11,10 ct"},{"slug":"salatschalen","url":"/produkte/salatschalen/","title":"Salatschalen","img":"/Bilder/web/salatschalen-v4-480.webp","from":"ab 14,15 ct"},{"slug":"baklava-kutusu","url":"/produkte/baklava-kutusu/","title":"Baklava Kutusu","img":"/Bilder/web/baklava-480.webp","from":"ab 8,10 ct"},{"slug":"kuchenboxen","url":"/produkte/kuchenboxen/","title":"Kuchenboxen","img":"/Bilder/web/kuchenbox-480.webp","from":"ab 16,00 ct"},{"slug":"pommesschuetten","url":"/produkte/pommesschuetten/","title":"Pommeschütten","img":"/Bilder/web/pommes-480.webp","from":"ab 5,92 ct"},{"slug":"fc-box","url":"/produkte/fc-box/","title":"FC Box","img":"/Bilder/web/fcbox-480.webp","from":"ab 9,20 ct"},{"slug":"doenerboxen","url":"/produkte/doenerboxen/","title":"Dönerboxen","img":"/Bilder/web/doenerbox-480.webp","from":"ab 8,29 ct"},{"slug":"takeaway-boxen","url":"/produkte/takeaway-boxen/","title":"Take-away Boxen","img":"/Bilder/web/takeawaybox-480.webp","from":"ab 15,81 ct"},{"slug":"kaffeebecher-single-wall","url":"/produkte/kaffeebecher-single-wall/","title":"Kaffeebecher Single Wall","img":"/Bilder/web/kaffeebecher-sw-480.webp","from":"ab 6,67 ct"},{"slug":"kaffeebecher-double-wall","url":"/produkte/kaffeebecher-double-wall/","title":"Kaffeebecher Double Wall","img":"/Bilder/web/kaffeebecher-dw-480.webp","from":"ab 10,15 ct"},{"slug":"clear-cups","url":"/produkte/clear-cups/","title":"Clear Cups","img":"/Bilder/web/clear-cups-480.webp","from":"ab 13,50 ct"},{"slug":"bubble-tea-cups","url":"/produkte/bubble-tea-cups/","title":"Bubble Tea Cups","img":"/Bilder/web/bubble-tea-cups-480.webp","from":"ab 17,30 ct"},{"slug":"servietten","url":"/produkte/servietten/","title":"Servietten mit Logo","img":"/Bilder/web/servietten-480.webp","from":"ab 1,95 ct"},{"slug":"feuchttuecher","url":"/produkte/feuchttuecher/","title":"Feuchttücher","img":"/Bilder/web/feuchttuecher-480.webp","from":"ab 2,90 ct"}]}</script>
+<script src="/assets/pf-site.js"></script>
 <script src="/assets/pf-pricing.js"></script>
 <script src="/assets/pf-view.js"></script>
 <script src="/assets/pf-product.js"></script>

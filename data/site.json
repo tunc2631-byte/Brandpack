@@ -1,0 +1,62 @@
+{
+  "categories": [
+    {
+      "id": "papiertüten",
+      "label": "Tüten"
+    },
+    {
+      "id": "papierboxen",
+      "label": "Boxen"
+    },
+    {
+      "id": "pappbecher",
+      "label": "Becher"
+    },
+    {
+      "id": "pappschalen",
+      "label": "Schalen"
+    },
+    {
+      "id": "papier",
+      "label": "Papier"
+    },
+    {
+      "id": "zubehör",
+      "label": "Zubehör"
+    }
+  ],
+  "branchen": [
+    {
+      "id": "burger",
+      "label": "Burgerladen"
+    },
+    {
+      "id": "cafe",
+      "label": "Café & Bäckerei"
+    },
+    {
+      "id": "doener",
+      "label": "Döner & Imbiss"
+    },
+    {
+      "id": "bubbletea",
+      "label": "Bubble Tea & Drinks"
+    },
+    {
+      "id": "bowls",
+      "label": "Bowls & Lieferdienst"
+    },
+    {
+      "id": "suess",
+      "label": "Konditorei & Süßes"
+    }
+  ],
+  "bestseller": [
+    "tueten",
+    "salatschalen",
+    "burgerbox",
+    "feuchttuecher",
+    "servietten",
+    "bubble-tea-cups"
+  ]
+}

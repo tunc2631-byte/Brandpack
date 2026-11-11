@@ -10,10 +10,17 @@
       "title": "Papiertüten",
       "tags": [
         "papiertüten"
-      ],
-      "price": "0,1200",
-      "unit": "Stück"
+      ]
     },
+    "badge": "Bestseller",
+    "branchen": [
+      "burger",
+      "cafe",
+      "doener",
+      "bubbletea",
+      "bowls",
+      "suess"
+    ],
     "related": [
       "burgerbox",
       "servietten",
@@ -137,10 +144,11 @@
       "title": "Kaffeebecher Sleeves",
       "tags": [
         "pappbecher"
-      ],
-      "price": "0,0546",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "cafe"
+    ],
     "related": [
       "kaffeebecher-single-wall",
       "kaffeebecher-double-wall",
@@ -295,10 +303,12 @@
       "title": "Burgerbox",
       "tags": [
         "papierboxen"
-      ],
-      "price": "0,1150",
-      "unit": "Stück"
+      ]
     },
+    "badge": "Bestseller",
+    "branchen": [
+      "burger"
+    ],
     "related": [
       "tueten",
       "servietten",
@@ -425,10 +435,12 @@
       "title": "Einschlagpapier",
       "tags": [
         "papier"
-      ],
-      "price": "7,00",
-      "unit": "kg"
+      ]
     },
+    "branchen": [
+      "burger",
+      "doener"
+    ],
     "related": [
       "burgerbox",
       "doenertueten",
@@ -551,10 +563,11 @@
       "title": "Brötchentüten",
       "tags": [
         "papiertüten"
-      ],
-      "price": "7,00",
-      "unit": "kg"
+      ]
     },
+    "branchen": [
+      "cafe"
+    ],
     "related": [
       "tueten",
       "einschlagpapier",
@@ -700,10 +713,11 @@
       "title": "Dönertüten",
       "tags": [
         "papiertüten"
-      ],
-      "price": "7,00",
-      "unit": "kg"
+      ]
     },
+    "branchen": [
+      "doener"
+    ],
     "related": [
       "doenerboxen",
       "einschlagpapier",
@@ -800,10 +814,11 @@
       "title": "Kuru Pasta Kutusu",
       "tags": [
         "papierboxen"
-      ],
-      "price": "0,14",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "suess"
+    ],
     "related": [
       "baklava-kutusu",
       "kuchenboxen",
@@ -873,10 +888,12 @@
       "title": "Salatschalen",
       "tags": [
         "pappschalen"
-      ],
-      "price": "0,1415",
-      "unit": "Stück"
+      ]
     },
+    "badge": "Bestseller",
+    "branchen": [
+      "bowls"
+    ],
     "related": [
       "tueten",
       "servietten",
@@ -1085,10 +1102,11 @@
       "title": "Baklava Kutusu",
       "tags": [
         "papierboxen"
-      ],
-      "price": "0,1050",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "suess"
+    ],
     "related": [
       "kuru-pasta",
       "kuchenboxen",
@@ -1175,10 +1193,12 @@
       "title": "Kuchenboxen",
       "tags": [
         "papierboxen"
-      ],
-      "price": "0,41",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "cafe",
+      "suess"
+    ],
     "related": [
       "baklava-kutusu",
       "tueten",
@@ -1319,10 +1339,12 @@
       "title": "Pommeschütten",
       "tags": [
         "papierboxen"
-      ],
-      "price": "0,128",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "burger",
+      "doener"
+    ],
     "related": [
       "burgerbox",
       "fc-box",
@@ -1435,10 +1457,11 @@
       "title": "FC Box",
       "tags": [
         "papierboxen"
-      ],
-      "price": "0,092",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "burger"
+    ],
     "related": [
       "burgerbox",
       "pommesschuetten",
@@ -1530,10 +1553,11 @@
       "title": "Dönerboxen",
       "tags": [
         "papierboxen"
-      ],
-      "price": "0,108",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "doener"
+    ],
     "related": [
       "doenertueten",
       "einschlagpapier",
@@ -1649,10 +1673,11 @@
       "title": "Take-away Boxen",
       "tags": [
         "papierboxen"
-      ],
-      "price": "0,1581",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "bowls"
+    ],
     "related": [
       "tueten",
       "salatschalen",
@@ -1744,10 +1769,11 @@
       "title": "Kaffeebecher Single Wall",
       "tags": [
         "pappbecher"
-      ],
-      "price": "0,0943",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "cafe"
+    ],
     "related": [
       "sleeves",
       "servietten",
@@ -1832,10 +1858,11 @@
       "title": "Kaffeebecher Double Wall",
       "tags": [
         "pappbecher"
-      ],
-      "price": "0,1160",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "cafe"
+    ],
     "related": [
       "kaffeebecher-single-wall",
       "servietten",
@@ -1921,10 +1948,12 @@
       "title": "Clear Cups",
       "tags": [
         "pappbecher"
-      ],
-      "price": "0,135",
-      "unit": "Stück"
+      ]
     },
+    "branchen": [
+      "cafe",
+      "bubbletea"
+    ],
     "related": [
       "bubble-tea-cups",
       "servietten",
@@ -2085,10 +2114,12 @@
       "title": "Bubble Tea Cups",
       "tags": [
         "pappbecher"
-      ],
-      "price": "0,173",
-      "unit": "Stück"
+      ]
     },
+    "badge": "Neu",
+    "branchen": [
+      "bubbletea"
+    ],
     "related": [
       "clear-cups",
       "servietten",
@@ -2204,11 +2235,16 @@
       "title": "Servietten mit Logo",
       "tags": [
         "papier"
-      ],
-      "price": "0,0195",
-      "unit": "Stück",
-      "note": "Preis bei 144.000 Stück, Größe S"
+      ]
     },
+    "badge": "Neu",
+    "branchen": [
+      "burger",
+      "cafe",
+      "doener",
+      "bubbletea",
+      "bowls"
+    ],
     "related": [
       "feuchttuecher",
       "tueten",
@@ -2317,11 +2353,14 @@
       "title": "Feuchttücher",
       "tags": [
         "zubehör"
-      ],
-      "price": "0,029",
-      "unit": "Stück",
-      "note": "Preis bei 50.000 Stück, Größe S"
+      ]
     },
+    "badge": "Neu",
+    "branchen": [
+      "burger",
+      "doener",
+      "bowls"
+    ],
     "related": [
       "servietten",
       "tueten",
