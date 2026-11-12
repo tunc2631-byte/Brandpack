@@ -1109,6 +1109,21 @@
     "rechner": {
       "frage": "Wie viele Salate und Bowls verkaufst du am Tag?",
       "start": 60
+    },
+    "designs": {
+      "wort": "Schale",
+      "bilder": [
+        {
+          "file": "schale-design-mos-kebap",
+          "name": "Mos Kebap",
+          "color": "#1B1B1B"
+        },
+        {
+          "file": "schale-design-sorella-sorella",
+          "name": "Sorella Sorella",
+          "color": "#F2B630"
+        }
+      ]
     }
   },
   {

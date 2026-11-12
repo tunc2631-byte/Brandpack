@@ -111,10 +111,16 @@ function scripts(list) {
   return ['/assets/pf-site.js'].concat(list, ['/assets/pf-katalog.js', '/cart.js']).map(s => `<script src="${s}"></script>`).join('\n') + '\n</body>\n</html>\n';
 }
 
-// Echte Kundendesigns (data/site.json → hero.designs): wischen, ziehen oder Farbpunkt wählen.
-// Verhalten in assets/pf-site.js. Weißer Grund ohne Rahmen, damit die Tüte frei schwebt.
-function designPick(kind, sizes) {
-  const h = site.hero;
+// Echte Kundendesigns: wischen, ziehen oder Farbpunkt wählen. Verhalten in assets/pf-site.js.
+// Weißer Grund ohne Rahmen, damit das Produkt frei schwebt.
+// Quellen: Tüten aus data/site.json → hero.designs, andere Produkte aus products.json → designs { wort, bilder }.
+function designsOf(p) {
+  if (p.designs) return { name: p.name, wort: p.designs.wort, bilder: p.designs.bilder };
+  if (p.slug === site.hero.slug) return { name: site.hero.name, wort: 'Tüte', bilder: site.hero.designs };
+  return null;
+}
+function designPick(set, kind, sizes) {
+  const h = { name: set.name, designs: set.bilder };
   const img = (d, i) => `        <img class="pf-design${i ? '' : ' is-on'}" src="/Bilder/${kind}/${esc(d.file)}-960.webp" srcset="/Bilder/${kind}/${esc(d.file)}-480.webp 480w, /Bilder/${kind}/${esc(d.file)}-960.webp 960w" sizes="${sizes}" alt="${esc(h.name + ' im Design von ' + d.name)}" width="960" height="960" draggable="false"${i ? ' decoding="async"' : ' fetchpriority="high"'}>`;
   const swatch = (d, i) => `        <button type="button" class="pf-swatch${i ? '' : ' is-on'}" style="--c:${esc(d.color)}" data-name="${esc(d.name)}" aria-pressed="${i ? 'false' : 'true'}" aria-label="Design von ${esc(d.name)} zeigen"></button>`;
   return `      <div class="pf-design-pick" data-designs>
@@ -124,7 +130,7 @@ ${h.designs.map(img).join('\n')}
       <div class="pf-swatches" role="group" aria-label="Kundendesign wählen">
 ${h.designs.map(swatch).join('\n')}
       </div>
-      <p class="pf-design-cap">Beispiel aus unserer Produktion: <b data-design-name aria-live="polite">${esc(h.designs[0].name)}</b><span>Deine Tüte bekommt dein Logo in deinen Farben.</span></p>
+      <p class="pf-design-cap">Beispiel aus unserer Produktion: <b data-design-name aria-live="polite">${esc(h.designs[0].name)}</b><span>Deine ${esc(set.wort)} bekommt dein Logo in deinen Farben.</span></p>
       </div>`;
 }
 
@@ -160,7 +166,7 @@ function blocks() {
       </div>
     </div>
     <div class="pf-shop-stage">
-${designPick('web', '(max-width: 860px) 76vw, 480px')}
+${designPick(designsOf(hp), 'web', '(max-width: 860px) 76vw, 480px')}
     </div>
   </div>
 </section>`;
@@ -320,7 +326,7 @@ function page(p) {
 <section class="pf-buy" aria-label="Produkt konfigurieren">
   <div class="pf-gallery">
     <div class="pf-shot">
-${p.slug === site.hero.slug ? designPick('web', '(max-width: 980px) 90vw, 560px') : `      <img id="product-img" src="${esc(p.image)}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 980px) 90vw, 560px" alt="${esc(p.name)} mit Logo bedruckt" width="960" height="960" fetchpriority="high">`}
+${designsOf(p) ? designPick(designsOf(p), 'web', '(max-width: 980px) 90vw, 560px') : `      <img id="product-img" src="${esc(p.image)}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 980px) 90vw, 560px" alt="${esc(p.name)} mit Logo bedruckt" width="960" height="960" fetchpriority="high">`}
     </div>
   </div>
 
