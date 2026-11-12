@@ -281,6 +281,8 @@ p { margin: 0; }
 .pf-shop-price span { display: block; margin-top: 2px; font-size: 14px; color: var(--muted); }
 .pf-shop-hero .pf-hero-cta { justify-content: flex-start; }
 .pf-shop-stage { display: flex; flex-direction: column; align-items: center; }
+/* PC: Text etwas höher als die Bildmitte, damit unter der Kopfzeile weniger Leerraum bleibt (Bild unverändert) */
+@media (min-width: 861px) { .pf-shop-copy { align-self: start; padding-top: 40px; } }
 /* Kundendesigns: waagrechte Bildleiste mit Einrasten, zum Wischen (Verhalten: pf-site.js) */
 .pf-design-pick { display: flex; flex-direction: column; align-items: center; width: 100%; }
 .pf-designs { position: relative; width: min(100%, 500px); aspect-ratio: 1 / 1; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; border-radius: var(--r-m); transition: opacity .26s var(--ease); }
