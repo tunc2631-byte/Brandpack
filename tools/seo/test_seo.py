@@ -1,13 +1,17 @@
 import unittest
 import datetime as dt
 from pathlib import Path
+import json
 from bs4 import BeautifulSoup
 from seo import audit, parse_page, shift_months, ROOT
+
+# Anzahl folgt aus data/products.json: je Produkt eine Seite und eine Katalogkarte, dazu 5 weitere Seiten
+PRODUCTS = len(json.loads((Path(__file__).resolve().parents[2] / 'data/products.json').read_text(encoding='utf-8')))
 
 class SeoTests(unittest.TestCase):
     def test_regressions(self):
         report = audit()
-        self.assertEqual(len(report['pages']),25)
+        self.assertEqual(len(report['pages']),PRODUCTS+5)
         self.assertEqual(report['site_checks']['errors'],[])
         self.assertEqual([(p['url'],p['errors']) for p in report['pages'] if p['errors']],[])
 
@@ -16,8 +20,8 @@ class SeoTests(unittest.TestCase):
         rendered=text.split('<!-- catalog:start -->')[1].split('<!-- catalog:end -->')[0].strip()
         soup=BeautifulSoup(rendered,'html.parser')
         cards=soup.select('a.pf-pcard[data-cat]')
-        self.assertEqual(len(cards),20)
-        self.assertEqual(len({a['href'] for a in cards}),20)
+        self.assertEqual(len(cards),PRODUCTS)
+        self.assertEqual(len({a['href'] for a in cards}),PRODUCTS)
         self.assertTrue(all(a.find('img').get('alt') for a in cards))
 
     def test_parser_catches_invalid_json_and_multiple_canonicals(self):
