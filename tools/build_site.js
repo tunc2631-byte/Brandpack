@@ -10,6 +10,7 @@
  *   node tools/build_site.js --check   nur prüfen, ob die Seiten aktuell sind
  */
 const fs = require('fs');
+const crypto = require('crypto');
 const path = require('path');
 const PF = require('../assets/pf-pricing.js');
 const V = require('../assets/pf-view.js');
@@ -42,7 +43,7 @@ function top(o) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/pf.css">${o.jsonld ? `
+  <link rel="stylesheet" href="${asset('/assets/pf.css')}">${o.jsonld ? `
   <script type="application/ld+json">
 ${o.jsonld}
   </script>` : ''}
@@ -112,8 +113,14 @@ function footer() {
 </footer>`;
 }
 
+// CSS/JS mit Inhalts-Kennung (?v=…): nach jeder Änderung lädt der Browser die neue Datei,
+// statt eine alte aus dem Zwischenspeicher mit der neuen Seite zu mischen.
+function asset(url) {
+  const body = url === '/assets/pf-katalog.js' ? katalog() : fs.readFileSync(path.join(ROOT, url), 'utf8');
+  return url + '?v=' + crypto.createHash('sha1').update(body).digest('hex').slice(0, 8);
+}
 function scripts(list) {
-  return ['/assets/pf-site.js'].concat(list, ['/assets/pf-katalog.js', '/cart.js']).map(s => `<script src="${s}"></script>`).join('\n') + '\n</body>\n</html>\n';
+  return ['/assets/pf-site.js'].concat(list, ['/assets/pf-katalog.js', '/cart.js']).map(s => `<script src="${asset(s)}"></script>`).join('\n') + '\n</body>\n</html>\n';
 }
 
 // Echte Kundendesigns: wischen, ziehen oder Farbpunkt wählen. Verhalten in assets/pf-site.js.
