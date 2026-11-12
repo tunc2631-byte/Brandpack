@@ -123,7 +123,6 @@
       var act = t.getAttribute('data-act'), v = t.getAttribute('data-v');
       if (act === 'remove') removeItem(v);
       else if (act === 'add') addSlug(v);
-      else if (act === 'set') window.pfAddSet(v);
       else if (act === 'clear') { if (getCart().length && confirm('Warenkorb wirklich leeren?')) setCart([]); }
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer(); });
@@ -190,22 +189,14 @@
       }).join('') + '</ul></section>';
   }
 
-  function setsHtml() {
-    if (!KAT.sets.length) return '';
-    return '<section class="pf-cart-sets" aria-labelledby="pf-cart-sets-h"><h3 id="pf-cart-sets-h">Oder starte mit einem Set für deinen Betrieb</h3><p class="pf-cart-sets-note">In Standardauswahl, jederzeit auf der Produktseite anpassbar.</p><ul>'
-      + KAT.sets.map(function (s) {
-        var pics = s.items.slice(0, 3).map(function (slug) { var p = KAT.produkte[slug]; return p ? '<img src="' + esc(p.img) + '" alt="" width="40" height="40" loading="lazy" decoding="async">' : ''; }).join('');
-        return '<li><button type="button" class="pf-cart-set" data-act="set" data-v="' + esc(s.id) + '"><span class="pf-cart-set-pics">' + pics + '</span><span><b>' + esc(s.label) + '</b><small>' + s.items.length + ' Produkte</small></span><i aria-hidden="true">+</i></button></li>';
-      }).join('') + '</ul></section>';
-  }
-
   function render() {
     if (!drawer) return;
     var items = getCart();
     var body = drawer.querySelector('.pf-cart-body'), foot = drawer.querySelector('.pf-cart-foot');
     drawer.querySelector('#pf-cart-title').textContent = items.length ? 'Warenkorb (' + items.length + ')' : 'Warenkorb';
     if (!items.length) {
-      body.innerHTML = '<p class="pf-cart-empty">Dein Warenkorb ist noch leer. Stell dir auf einer Produktseite deine Verpackung zusammen und leg sie hier ab.</p>' + setsHtml();
+      body.innerHTML = '<p class="pf-cart-empty">Dein Warenkorb ist noch leer. Stell dir auf einer Produktseite deine Verpackung zusammen und leg sie hier ab.</p>'
+        + '<a class="pf-btn pf-btn-primary pf-cart-browse" href="/#produkte">Produkte ansehen</a>';
       foot.innerHTML = '';
       foot.hidden = true;
       return;
