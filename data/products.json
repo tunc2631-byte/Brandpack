@@ -3,7 +3,7 @@
     "slug": "tueten",
     "url": "/produkte/tueten/",
     "name": "Papiertüten",
-    "image": "/Bilder/web/papiertueten-shop-960.webp",
+    "image": "/Bilder/web/tueten-karte-960.webp",
     "unit": "Stück",
     "qtyKey": "menge",
     "catalog": {
@@ -897,7 +897,7 @@
     "slug": "salatschalen",
     "url": "/produkte/salatschalen/",
     "name": "Salatschalen",
-    "image": "/Bilder/web/salatschalen-v4-960.webp",
+    "image": "/Bilder/web/salatschalen-karte-960.webp",
     "unit": "Stück",
     "qtyKey": "menge",
     "catalog": {
