@@ -1114,6 +1114,11 @@
       "wort": "Schale",
       "bilder": [
         {
+          "file": "schale-design-bowlart-kitchen",
+          "name": "Bowlart Kitchen",
+          "color": "#4A4E52"
+        },
+        {
           "file": "schale-design-mos-kebap",
           "name": "Mos Kebap",
           "color": "#1B1B1B"
