@@ -39,6 +39,8 @@
         setText(pct, '−' + t.pct + ' %');
       });
     }
+    // Mengenrechner
+    calc();
     // Sondergröße
     var cf = $('[data-custom]');
     if (cf) cf.hidden = !V.isCustom(p, sel);
@@ -65,6 +67,53 @@
     setText($('#pf-sticky-total'), s.total);
     setText($('#pf-sticky-line'), p.catalog.title + ' · ' + (V.parts(p, sel, custom).slice(-1)[0] || ''));
     window.PF_ITEM = { title: p.catalog.title, desc: msg, priceTotal: s.total, url: location.pathname, img: p.image.replace('-960.webp', '-480.webp') };
+  }
+
+  // ── Mengenrechner: Verkäufe pro Tag → wie lange reicht jede Staffel ──
+  var calcBox = document.getElementById('pf-calc');
+  var calcDays = 7;
+  var nf0 = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 });
+  function reach(qty, perDay) {
+    var days = qty / (perDay * calcDays / 7);
+    if (days < 14) return 'ca. ' + Math.max(1, Math.round(days)) + ' Tage';
+    var weeks = days / 7;
+    if (weeks < 9) return 'ca. ' + Math.round(weeks) + ' Wochen';
+    var months = days / 30.44;
+    if (months < 24) return 'ca. ' + Math.round(months) + ' Monate';
+    return 'über 2 Jahre';
+  }
+  function calc() {
+    if (!calcBox) return;
+    var n = parseInt(document.getElementById('pf-perday-n').value, 10);
+    var res = document.getElementById('pf-calc-res');
+    if (!(n > 0)) { res.innerHTML = '<li class="pf-calc-empty">Bitte eine Zahl eingeben.</li>'; return; }
+    res.innerHTML = V.group(p, p.qtyKey).choices.map(function (c) {
+      var s = Object.assign({}, sel); s[p.qtyKey] = c.id;
+      var q = PF.quote(p, s);
+      if (q.onRequest) return '';
+      var t = V.tier(p, sel, c);
+      var on = sel[p.qtyKey] === c.id;
+      return '<li><button type="button" class="pf-calc-row' + (on ? ' active' : '') + '" data-pick="' + c.id + '" aria-pressed="' + on + '">'
+        + '<b>' + t.qty + '</b><span class="pf-calc-reach">reicht ' + reach(q.qty, n) + '</span>'
+        + '<span class="pf-calc-unit">' + t.line + (t.pct ? ' <em>−' + t.pct + ' %</em>' : '') + '</span></button></li>';
+    }).join('');
+  }
+  if (calcBox) {
+    calcBox.hidden = false;
+    var range = document.getElementById('pf-perday'), num = document.getElementById('pf-perday-n');
+    range.addEventListener('input', function () { num.value = range.value; calc(); });
+    num.addEventListener('input', function () { var v = parseInt(num.value, 10); if (v > 0) range.value = Math.min(1000, Math.max(10, v)); calc(); });
+    calcBox.addEventListener('click', function (e) {
+      var d = e.target.closest('[data-days]');
+      if (d) {
+        calcDays = +d.dataset.days;
+        $$('.pf-calc-day').forEach(function (b) { var on = b === d; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on)); });
+        calc();
+        return;
+      }
+      var r = e.target.closest('[data-pick]');
+      if (r) { sel[p.qtyKey] = r.dataset.pick; update(true); }
+    });
   }
 
   document.addEventListener('click', function (e) {

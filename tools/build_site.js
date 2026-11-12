@@ -240,6 +240,28 @@ function priceTable(p) {
 <p class="pf-small">Stückpreis${p.unit === 'kg' ? ' pro kg' : ''} und Gesamtpreis, netto zzgl. MwSt., inkl. individuellem Druck &amp; Design.</p>`;
 }
 
+// Mengenrechner: wie lange reicht welche Menge? Ergebnis rechnet assets/pf-product.js (Daten: products.json → rechner)
+function calculator(p) {
+  const r = p.rechner;
+  return `
+      <details class="pf-calc" id="pf-calc" hidden>
+        <summary><span class="pf-calc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2h5M12 2v3"/></svg></span><span><b>Wie lange reicht das?</b><small>Mengenrechner</small></span></summary>
+        <div class="pf-calc-body">
+          <label class="pf-calc-q" for="pf-perday">${esc(r.frage)}</label>
+          <div class="pf-calc-in">
+            <input type="range" id="pf-perday" min="10" max="1000" step="10" value="${r.start}" aria-describedby="pf-calc-note">
+            <input type="number" id="pf-perday-n" min="1" max="20000" inputmode="numeric" value="${r.start}" aria-label="Anzahl pro Tag">
+          </div>
+          <div class="pf-calc-days" role="group" aria-label="Verkaufstage pro Woche">
+            <button type="button" class="pf-calc-day" data-days="6" aria-pressed="false">6 Tage pro Woche</button>
+            <button type="button" class="pf-calc-day active" data-days="7" aria-pressed="true">7 Tage pro Woche</button>
+          </div>
+          <ul class="pf-calc-res" id="pf-calc-res" aria-live="polite"></ul>
+          <p class="pf-calc-note" id="pf-calc-note">Ein Stück pro Verkauf. Tippe auf eine Menge, um sie auszuwählen.</p>
+        </div>
+      </details>`;
+}
+
 function optionGroups(p, sel, custom) {
   const hints = V.hints(p, sel, custom);
   return p.options.map(g => {
@@ -267,7 +289,7 @@ function optionGroups(p, sel, custom) {
         ${buttons}
       </div>${customFields}
       <div class="pf-hints" data-hints="${esc(g.key)}" aria-live="polite">${groupHints}</div>${g.note ? `
-      <p class="pf-note">${esc(g.note)}</p>` : ''}
+      <p class="pf-note">${esc(g.note)}</p>` : ''}${isQty && p.rechner ? calculator(p) : ''}
     </div>`;
   }).join('');
 }

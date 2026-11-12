@@ -423,6 +423,46 @@ p { margin: 0; }
 .pf-legal p, .pf-legal li { font-size: 16px; }
 .pf-legal .subtitle { color: var(--muted); }
 
+/* ── Mengenrechner (Produktseite) ── */
+.pf-calc { margin-top: var(--s3); border-radius: var(--r-m); background: var(--mist); }
+.pf-calc > summary { list-style: none; display: flex; align-items: center; gap: 12px; padding: 12px 16px; cursor: pointer; border-radius: var(--r-m); -webkit-tap-highlight-color: transparent; }
+.pf-calc > summary::-webkit-details-marker { display: none; }
+.pf-calc > summary::after { content: ""; margin-left: auto; width: 9px; height: 9px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg) translate(-2px, -2px); transition: transform .3s var(--ease); }
+.pf-calc[open] > summary::after { transform: rotate(-135deg) translate(-2px, -2px); }
+.pf-calc > summary:hover b { color: var(--pink-ink); }
+.pf-calc > summary:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 2px; }
+.pf-calc-ico { width: 34px; height: 34px; flex: none; border-radius: 50%; background: var(--paper); display: flex; align-items: center; justify-content: center; color: var(--pink-ink); }
+.pf-calc > summary b { display: block; font-size: 15px; font-weight: 600; }
+.pf-calc > summary small { font-size: 12.5px; color: var(--muted); }
+.pf-calc-body { padding: 4px 16px 16px; display: grid; gap: var(--s3); }
+.pf-calc-q { font-size: 14.5px; font-weight: 600; }
+.pf-calc-in { display: grid; grid-template-columns: 1fr 92px; gap: var(--s3); align-items: center; }
+.pf-calc-in input[type=range] { width: 100%; accent-color: var(--pink-ink); height: 28px; }
+.pf-calc-in input[type=number] { font: inherit; font-size: 16px; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; padding: 8px 10px; border: 1.5px solid var(--line); border-radius: var(--r-s); background: var(--paper); color: var(--ink); }
+.pf-calc-in input[type=number]:focus-visible { outline: none; border-color: var(--pink-ink); }
+.pf-calc-days { display: flex; gap: 6px; }
+.pf-calc-day { font: inherit; font-size: 13px; padding: 7px 12px; border: 0; border-radius: 100px; background: var(--paper); color: var(--muted); cursor: pointer; transition: transform .25s var(--spring); }
+.pf-calc-day.active { background: var(--ink); color: #fff; }
+.pf-calc-day:active { transform: scale(.95); }
+.pf-calc-day:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 2px; }
+.pf-calc-res { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.pf-calc-row { width: 100%; display: grid; grid-template-columns: minmax(96px, auto) 1fr auto; gap: 4px 12px; align-items: baseline; padding: 10px 14px; border: 0; border-radius: var(--r-s); background: var(--paper); color: var(--ink); font: inherit; text-align: left; cursor: pointer; box-shadow: inset 0 0 0 1.5px transparent; transition: transform .25s var(--spring); }
+.pf-calc-row:hover { box-shadow: inset 0 0 0 1.5px var(--line); }
+.pf-calc-row:active { transform: scale(.98); }
+.pf-calc-row:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 2px; }
+.pf-calc-row.active { box-shadow: inset 0 0 0 2px var(--pink-ink); }
+.pf-calc-row b { font-size: 14.5px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.pf-calc-reach { font-size: 14.5px; font-weight: 600; color: var(--good); }
+.pf-calc-unit { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
+.pf-calc-unit em { font-style: normal; color: var(--good); font-weight: 600; }
+.pf-calc-empty { font-size: 14px; color: var(--muted); }
+.pf-calc-note { font-size: 12.5px; color: var(--muted); }
+@media (max-width: 600px) {
+  .pf-calc-row { grid-template-columns: 1fr auto; }
+  .pf-calc-reach { grid-column: 1 / -1; grid-row: 2; }
+  .pf-calc-unit { grid-row: 1; grid-column: 2; }
+}
+
 /* ── Warenkorb (cart.js) ── */
 .pf-cart-fab { position: relative; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 12px; background: none; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; transition: transform .25s var(--spring); }
 .pf-cart-fab svg { width: 21px; height: 21px; }
