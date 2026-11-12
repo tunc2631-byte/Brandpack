@@ -111,6 +111,23 @@ function scripts(list) {
   return ['/assets/pf-site.js'].concat(list, ['/assets/pf-katalog.js', '/cart.js']).map(s => `<script src="${s}"></script>`).join('\n') + '\n</body>\n</html>\n';
 }
 
+// Echte Kundendesigns (data/site.json → hero.designs): wischen, ziehen oder Farbpunkt wählen.
+// Verhalten in assets/pf-site.js. Weißer Grund ohne Rahmen, damit die Tüte frei schwebt.
+function designPick(kind, sizes) {
+  const h = site.hero;
+  const img = (d, i) => `        <img class="pf-design${i ? '' : ' is-on'}" src="/Bilder/${kind}/${esc(d.file)}-960.webp" srcset="/Bilder/${kind}/${esc(d.file)}-480.webp 480w, /Bilder/${kind}/${esc(d.file)}-960.webp 960w" sizes="${sizes}" alt="${esc(h.name + ' im Design von ' + d.name)}" width="960" height="960" draggable="false"${i ? ' decoding="async"' : ' fetchpriority="high"'}>`;
+  const swatch = (d, i) => `        <button type="button" class="pf-swatch${i ? '' : ' is-on'}" style="--c:${esc(d.color)}" data-name="${esc(d.name)}" aria-pressed="${i ? 'false' : 'true'}" aria-label="Design von ${esc(d.name)} zeigen"></button>`;
+  return `      <div class="pf-design-pick" data-designs>
+      <div class="pf-designs" tabindex="0" role="region" aria-roledescription="Bildergalerie" aria-label="Echte Kundendesigns, zum Wechseln wischen">
+${h.designs.map(img).join('\n')}
+      </div>
+      <div class="pf-swatches" role="group" aria-label="Kundendesign wählen">
+${h.designs.map(swatch).join('\n')}
+      </div>
+      <p class="pf-design-cap">Beispiel aus unserer Produktion: <b data-design-name aria-live="polite">${esc(h.designs[0].name)}</b><span>Deine Tüte bekommt dein Logo in deinen Farben.</span></p>
+      </div>`;
+}
+
 function productCard(p, opts) {
   const o = opts || {};
   const badge = o.badge && p.badge ? `<i class="pf-badge${p.badge === 'Neu' ? ' pf-badge-new' : ''}">${esc(p.badge)}</i>` : '';
@@ -129,8 +146,6 @@ function blocks() {
   };
   // Einstieg: ein Produkt groß wie bei Apple, mit echten Kundendesigns zum Durchschalten (data/site.json → hero)
   const h = site.hero, hp = bySlug[h.slug];
-  const design = (d, i) => `        <img class="pf-design${i ? '' : ' is-on'}" src="/Bilder/web/${esc(d.file)}-960.webp" srcset="/Bilder/web/${esc(d.file)}-480.webp 480w, /Bilder/web/${esc(d.file)}-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="${i ? '' : esc(h.name + ' im Design von ' + d.name)}" width="960" height="960"${i ? ' loading="lazy" decoding="async"' : ' fetchpriority="high"'}>`;
-  const swatch = (d, i) => `        <button type="button" class="pf-swatch${i ? '' : ' is-on'}" style="--c:${esc(d.color)}" data-name="${esc(d.name)}" aria-pressed="${i ? 'false' : 'true'}" aria-label="Design von ${esc(d.name)} zeigen"></button>`;
   const hero = `<section class="pf-hero pf-shop-hero" aria-labelledby="pf-hero-name">
   <div class="pf-wrap pf-shop-in">
     <div class="pf-shop-copy">
@@ -145,13 +160,7 @@ function blocks() {
       </div>
     </div>
     <div class="pf-shop-stage">
-      <div class="pf-designs">
-${h.designs.map(design).join('\n')}
-      </div>
-      <div class="pf-swatches" role="group" aria-label="Kundendesign wählen">
-${h.designs.map(swatch).join('\n')}
-      </div>
-      <p class="pf-design-cap">Echtes Kundendesign: <b id="pf-design-name" aria-live="polite">${esc(h.designs[0].name)}</b></p>
+${designPick('web', '(max-width: 860px) 76vw, 480px')}
     </div>
   </div>
 </section>`;
@@ -311,7 +320,7 @@ function page(p) {
 <section class="pf-buy" aria-label="Produkt konfigurieren">
   <div class="pf-gallery">
     <div class="pf-shot">
-      <img id="product-img" src="${esc(p.image)}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 980px) 90vw, 560px" alt="${esc(p.name)} mit Logo bedruckt" width="960" height="960" fetchpriority="high">
+${p.slug === site.hero.slug ? designPick('web', '(max-width: 980px) 90vw, 560px') : `      <img id="product-img" src="${esc(p.image)}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 980px) 90vw, 560px" alt="${esc(p.name)} mit Logo bedruckt" width="960" height="960" fetchpriority="high">`}
     </div>
   </div>
 

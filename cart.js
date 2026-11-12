@@ -50,7 +50,7 @@
     var items = getCart();
     var slug = slugOf({ url: it.url || location.pathname });
     items.push({ id: newId(), slug: slug, title: it.title, desc: cleanDesc(it.desc), priceTotal: it.priceTotal || '', url: it.url || location.pathname, img: it.img || '' });
-    var shot = document.getElementById('product-img');
+    var shot = document.getElementById('product-img') || document.querySelector('.pf-shot .pf-design.is-on');
     flyToCart(shot, function () { setCart(items); openDrawer(); });
   };
 
