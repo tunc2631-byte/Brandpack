@@ -127,7 +127,7 @@ function scripts(list) {
 // Weißer Grund ohne Rahmen, damit das Produkt frei schwebt.
 // Quelle: data/products.json → designs { wort, bilder: [{ file, name, color }] }.
 function designsOf(p) {
-  return p.designs ? { name: p.name, wort: p.designs.wort, bilder: p.designs.bilder } : null;
+  return p.designs ? { name: p.name, wort: p.designs.wort, bilder: p.designs.bilder, titel: p.designs.titel, artikel: p.designs.artikel } : null;
 }
 function designPick(set, kind, sizes) {
   const h = { name: set.name, designs: set.bilder };
@@ -140,7 +140,7 @@ ${h.designs.map(img).join('\n')}
       <div class="pf-swatches" role="group" aria-label="Kundendesign wählen">
 ${h.designs.map(swatch).join('\n')}
       </div>
-      <p class="pf-design-cap">Beispiel aus unserer Produktion: <b data-design-name aria-live="polite">${esc(h.designs[0].name)}</b><span>Deine ${esc(set.wort)} bekommt dein Logo in deinen Farben.</span></p>
+      <p class="pf-design-cap">${esc(set.titel || 'Beispiel aus unserer Produktion')}: <b data-design-name aria-live="polite">${esc(h.designs[0].name)}</b><span>${esc(set.artikel || 'Deine')} ${esc(set.wort)} bekommt dein Logo in deinen Farben.</span></p>
       </div>`;
 }
 
