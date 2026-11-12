@@ -62,32 +62,71 @@
     {
       "id": "burger",
       "label": "Burgerladen",
-      "bild": "burgerbox"
+      "bild": "burgerbox",
+      "set": [
+        "burgerbox",
+        "pommesschuetten",
+        "tueten",
+        "servietten",
+        "feuchttuecher"
+      ]
     },
     {
       "id": "cafe",
       "label": "Café & Bäckerei",
-      "bild": "kaffeebecher-single-wall"
+      "bild": "kaffeebecher-single-wall",
+      "set": [
+        "kaffeebecher-single-wall",
+        "sleeves",
+        "broetchentueten",
+        "servietten"
+      ]
     },
     {
       "id": "doener",
       "label": "Döner & Imbiss",
-      "bild": "doenerboxen"
+      "bild": "doenerboxen",
+      "set": [
+        "doenerboxen",
+        "doenertueten",
+        "einschlagpapier",
+        "servietten",
+        "feuchttuecher"
+      ]
     },
     {
       "id": "bubbletea",
       "label": "Bubble Tea & Drinks",
-      "bild": "bubble-tea-cups"
+      "bild": "bubble-tea-cups",
+      "set": [
+        "bubble-tea-cups",
+        "clear-cups",
+        "tueten",
+        "servietten"
+      ]
     },
     {
       "id": "bowls",
       "label": "Bowls & Lieferdienst",
-      "bild": "salatschalen"
+      "bild": "salatschalen",
+      "set": [
+        "salatschalen",
+        "takeaway-boxen",
+        "tueten",
+        "servietten",
+        "feuchttuecher"
+      ]
     },
     {
       "id": "suess",
       "label": "Konditorei & Süßes",
-      "bild": "kuchenboxen"
+      "bild": "kuchenboxen",
+      "set": [
+        "kuchenboxen",
+        "baklava-kutusu",
+        "kuru-pasta",
+        "tueten"
+      ]
     }
   ],
   "bestseller": [
