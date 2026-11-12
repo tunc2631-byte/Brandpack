@@ -135,6 +135,36 @@
     "rechner": {
       "frage": "Wie viele Bestellungen zum Mitnehmen hast du am Tag?",
       "start": 80
+    },
+    "designs": {
+      "wort": "Tüte",
+      "bilder": [
+        {
+          "file": "tuete-design-monkey-burger",
+          "name": "Monkey Burger",
+          "color": "#F2D52B"
+        },
+        {
+          "file": "tuete-design-red-hen",
+          "name": "Red Hen",
+          "color": "#D0393E"
+        },
+        {
+          "file": "tuete-design-mac-and-cheezy",
+          "name": "Mac and Cheezy",
+          "color": "#FFFFFF"
+        },
+        {
+          "file": "tuete-design-brudis",
+          "name": "Brudis",
+          "color": "#EC6A1F"
+        },
+        {
+          "file": "tuete-design-king-kebab",
+          "name": "King Kebab",
+          "color": "#B98A62"
+        }
+      ]
     }
   },
   {

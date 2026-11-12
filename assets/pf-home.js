@@ -65,12 +65,32 @@
   // Einstieg: Kundendesigns der Tüte blättern von selbst weiter, bis jemand wischt oder einen Farbpunkt wählt
   // (Wischen, Ziehen und Farbpunkte: assets/pf-site.js)
   var heroEl = document.querySelector('.pf-hero');
-  var pick = heroEl && heroEl.querySelector('[data-designs]');
-  if (pick && pick.pfNext && !calm) {
-    var auto = setInterval(function () {
-      if (pick.dataset.user) { clearInterval(auto); return; }
+  // Reiter: Papiertüten / Burgerboxen / Salatschalen (data/site.json → hero.produkte)
+  var tabs = $$('.pf-shop-tab');
+  function showTab(k, focus) {
+    tabs.forEach(function (t, i) {
+      var on = i === k;
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on && focus) t.focus();
+    });
+    $$('.pf-shop-panel, .pf-shop-pick').forEach(function (el) { el.hidden = +el.dataset.panel !== k; });
+    window.dispatchEvent(new Event('resize')); // Bildleiste des sichtbaren Produkts neu ausrichten
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { showTab(i); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      showTab((i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length, true);
+    });
+  });
+  if (heroEl && !calm) {
+    setInterval(function () {
       if (document.hidden || heroEl.classList.contains('is-offscreen')) return;
-      pick.pfNext();
+      var pick = heroEl.querySelector('.pf-shop-pick:not([hidden]) [data-designs]');
+      if (pick && pick.pfNext && !pick.dataset.user) pick.pfNext();
     }, 3400);
   }
 

@@ -74,6 +74,11 @@ ${o.jsonld}
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
+  <p class="mm-title">Beliebt</p>
+  <div class="mm-grid">
+${site.bestseller.slice(0, 4).map(s => `    <a href="${esc(bySlug[s].url)}" onclick="closeMenu()"><img src="${esc(small(bySlug[s].image))}" alt="" width="480" height="480" loading="lazy" decoding="async">${esc(bySlug[s].catalog.title)}</a>`).join('\n')}
+  </div>
+  <a class="pf-btn pf-btn-primary mm-cta" href="/#kontakt" onclick="closeMenu()">Kostenlos anfragen</a>
 </div>
 
 `;
@@ -113,11 +118,9 @@ function scripts(list) {
 
 // Echte Kundendesigns: wischen, ziehen oder Farbpunkt wählen. Verhalten in assets/pf-site.js.
 // Weißer Grund ohne Rahmen, damit das Produkt frei schwebt.
-// Quellen: Tüten aus data/site.json → hero.designs, andere Produkte aus products.json → designs { wort, bilder }.
+// Quelle: data/products.json → designs { wort, bilder: [{ file, name, color }] }.
 function designsOf(p) {
-  if (p.designs) return { name: p.name, wort: p.designs.wort, bilder: p.designs.bilder };
-  if (p.slug === site.hero.slug) return { name: site.hero.name, wort: 'Tüte', bilder: site.hero.designs };
-  return null;
+  return p.designs ? { name: p.name, wort: p.designs.wort, bilder: p.designs.bilder } : null;
 }
 function designPick(set, kind, sizes) {
   const h = { name: set.name, designs: set.bilder };
@@ -150,23 +153,37 @@ function blocks() {
     const n = products.filter(p => p.branchen.includes(b.id)).length;
     return `      <button type="button" class="pf-cat" data-branche="${esc(b.id)}" aria-pressed="false"><span class="pf-cat-img"><img src="${esc(small(bySlug[b.bild].image))}" alt="" width="480" height="480" loading="lazy" decoding="async"></span><b>${esc(b.label)}</b><span>${n} Produkte</span></button>`;
   };
-  // Einstieg: ein Produkt groß wie bei Apple, mit echten Kundendesigns zum Durchschalten (data/site.json → hero)
-  const h = site.hero, hp = bySlug[h.slug];
-  const hero = `<section class="pf-hero pf-shop-hero" aria-labelledby="pf-hero-name">
+  // Einstieg wie bei Apple: Reiter wählen ein Bestseller-Produkt, darunter echte Kundendesigns zum Wischen
+  // (data/site.json → hero.produkte; Umschalten in assets/pf-home.js, ohne JavaScript bleibt das erste sichtbar)
+  const h = site.hero;
+  const tab = (x, i) => `        <button type="button" class="pf-shop-tab${i ? '' : ' is-on'}" role="tab" id="pf-tab-${esc(x.slug)}" aria-controls="pf-panel-${esc(x.slug)}" aria-selected="${i ? 'false' : 'true'}"${i ? ' tabindex="-1"' : ''}>${esc(x.name)}</button>`;
+  const copy = (x, i) => {
+    const hp = bySlug[x.slug];
+    return `      <div class="pf-shop-panel" id="pf-panel-${esc(x.slug)}" role="tabpanel" aria-labelledby="pf-tab-${esc(x.slug)}" data-panel="${i}"${i ? ' hidden' : ''}>
+        <p class="pf-shop-kicker">${esc(h.kicker)}</p>
+        <h2 class="pf-shop-name">${esc(x.name)}</h2>
+        <p class="pf-shop-tag">${esc(x.tagline)}</p>
+        <p class="pf-shop-price"><b>${esc(V.fromPrice(hp))}</b> pro ${esc(hp.unit)}<span>Design kostenlos</span></p>
+        <div class="pf-hero-cta">
+          <a class="pf-btn pf-btn-primary" href="${esc(hp.url)}">Jetzt konfigurieren</a>
+          <a class="pf-link" href="#produkte">Alle Produkte</a>
+        </div>
+      </div>`;
+  };
+  const stage = (x, i) => `      <div class="pf-shop-pick" data-panel="${i}"${i ? ' hidden' : ''}>
+${designPick(designsOf(bySlug[x.slug]), 'web', '(max-width: 860px) 76vw, 480px')}
+      </div>`;
+  const hero = `<section class="pf-hero pf-shop-hero" aria-label="Bestseller">
   <div class="pf-wrap pf-shop-in">
     <div class="pf-shop-copy">
       <h1 class="pf-shop-claim">Deine Marke. Auf jeder Verpackung.</h1>
-      <p class="pf-shop-kicker">${esc(h.kicker)}</p>
-      <h2 class="pf-shop-name" id="pf-hero-name">${esc(h.name)}</h2>
-      <p class="pf-shop-tag">${esc(h.tagline)}</p>
-      <p class="pf-shop-price"><b>${esc(V.fromPrice(hp))}</b> pro ${esc(hp.unit)}<span>Design kostenlos</span></p>
-      <div class="pf-hero-cta">
-        <a class="pf-btn pf-btn-primary" href="${esc(hp.url)}">Jetzt konfigurieren</a>
-        <a class="pf-link" href="#produkte">Alle Produkte</a>
+      <div class="pf-shop-tabs" role="tablist" aria-label="Bestseller wählen">
+${h.produkte.map(tab).join('\n')}
       </div>
+${h.produkte.map(copy).join('\n')}
     </div>
     <div class="pf-shop-stage">
-${designPick(designsOf(hp), 'web', '(max-width: 860px) 76vw, 480px')}
+${h.produkte.map(stage).join('\n')}
     </div>
   </div>
 </section>`;

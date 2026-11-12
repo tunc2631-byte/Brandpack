@@ -49,23 +49,59 @@
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
+  <p class="mm-title">Beliebt</p>
+  <div class="mm-grid">
+    <a href="/produkte/tueten/" onclick="closeMenu()"><img src="/Bilder/web/tueten-karte-480.webp" alt="" width="480" height="480" loading="lazy" decoding="async">Papiertüten</a>
+    <a href="/produkte/salatschalen/" onclick="closeMenu()"><img src="/Bilder/web/salatschalen-karte-480.webp" alt="" width="480" height="480" loading="lazy" decoding="async">Salatschalen</a>
+    <a href="/produkte/burgerbox/" onclick="closeMenu()"><img src="/Bilder/web/burgerbox-karte-480.webp" alt="" width="480" height="480" loading="lazy" decoding="async">Burgerbox</a>
+    <a href="/produkte/feuchttuecher/" onclick="closeMenu()"><img src="/Bilder/web/feuchttuecher-480.webp" alt="" width="480" height="480" loading="lazy" decoding="async">Feuchttücher</a>
+  </div>
+  <a class="pf-btn pf-btn-primary mm-cta" href="/#kontakt" onclick="closeMenu()">Kostenlos anfragen</a>
 </div>
 
 <main class="pf-site-main">
-<section class="pf-hero pf-shop-hero" aria-labelledby="pf-hero-name">
+<section class="pf-hero pf-shop-hero" aria-label="Bestseller">
   <div class="pf-wrap pf-shop-in">
     <div class="pf-shop-copy">
       <h1 class="pf-shop-claim">Deine Marke. Auf jeder Verpackung.</h1>
-      <p class="pf-shop-kicker">Bestseller</p>
-      <h2 class="pf-shop-name" id="pf-hero-name">Papiertüten</h2>
-      <p class="pf-shop-tag">Dein Logo an jeder Hand.</p>
-      <p class="pf-shop-price"><b>ab 12,00 ct</b> pro Stück<span>Design kostenlos</span></p>
-      <div class="pf-hero-cta">
-        <a class="pf-btn pf-btn-primary" href="/produkte/tueten/">Jetzt konfigurieren</a>
-        <a class="pf-link" href="#produkte">Alle Produkte</a>
+      <div class="pf-shop-tabs" role="tablist" aria-label="Bestseller wählen">
+        <button type="button" class="pf-shop-tab is-on" role="tab" id="pf-tab-tueten" aria-controls="pf-panel-tueten" aria-selected="true">Papiertüten</button>
+        <button type="button" class="pf-shop-tab" role="tab" id="pf-tab-burgerbox" aria-controls="pf-panel-burgerbox" aria-selected="false" tabindex="-1">Burgerboxen</button>
+        <button type="button" class="pf-shop-tab" role="tab" id="pf-tab-salatschalen" aria-controls="pf-panel-salatschalen" aria-selected="false" tabindex="-1">Salatschalen</button>
+      </div>
+      <div class="pf-shop-panel" id="pf-panel-tueten" role="tabpanel" aria-labelledby="pf-tab-tueten" data-panel="0">
+        <p class="pf-shop-kicker">Bestseller</p>
+        <h2 class="pf-shop-name">Papiertüten</h2>
+        <p class="pf-shop-tag">Dein Logo an jeder Hand.</p>
+        <p class="pf-shop-price"><b>ab 12,00 ct</b> pro Stück<span>Design kostenlos</span></p>
+        <div class="pf-hero-cta">
+          <a class="pf-btn pf-btn-primary" href="/produkte/tueten/">Jetzt konfigurieren</a>
+          <a class="pf-link" href="#produkte">Alle Produkte</a>
+        </div>
+      </div>
+      <div class="pf-shop-panel" id="pf-panel-burgerbox" role="tabpanel" aria-labelledby="pf-tab-burgerbox" data-panel="1" hidden>
+        <p class="pf-shop-kicker">Bestseller</p>
+        <h2 class="pf-shop-name">Burgerboxen</h2>
+        <p class="pf-shop-tag">Dein Logo auf jedem Burger.</p>
+        <p class="pf-shop-price"><b>ab 11,50 ct</b> pro Stück<span>Design kostenlos</span></p>
+        <div class="pf-hero-cta">
+          <a class="pf-btn pf-btn-primary" href="/produkte/burgerbox/">Jetzt konfigurieren</a>
+          <a class="pf-link" href="#produkte">Alle Produkte</a>
+        </div>
+      </div>
+      <div class="pf-shop-panel" id="pf-panel-salatschalen" role="tabpanel" aria-labelledby="pf-tab-salatschalen" data-panel="2" hidden>
+        <p class="pf-shop-kicker">Bestseller</p>
+        <h2 class="pf-shop-name">Salatschalen</h2>
+        <p class="pf-shop-tag">Deine Bowl. Dein Look.</p>
+        <p class="pf-shop-price"><b>ab 14,15 ct</b> pro Stück<span>Design kostenlos</span></p>
+        <div class="pf-hero-cta">
+          <a class="pf-btn pf-btn-primary" href="/produkte/salatschalen/">Jetzt konfigurieren</a>
+          <a class="pf-link" href="#produkte">Alle Produkte</a>
+        </div>
       </div>
     </div>
     <div class="pf-shop-stage">
+      <div class="pf-shop-pick" data-panel="0">
       <div class="pf-design-pick" data-designs>
       <div class="pf-designs" tabindex="0" role="region" aria-roledescription="Bildergalerie" aria-label="Echte Kundendesigns, zum Wechseln wischen">
         <img class="pf-design is-on" src="/Bilder/web/tuete-design-monkey-burger-960.webp" srcset="/Bilder/web/tuete-design-monkey-burger-480.webp 480w, /Bilder/web/tuete-design-monkey-burger-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="Papiertüten im Design von Monkey Burger" width="960" height="960" draggable="false" fetchpriority="high">
@@ -82,6 +118,39 @@
         <button type="button" class="pf-swatch" style="--c:#B98A62" data-name="King Kebab" aria-pressed="false" aria-label="Design von King Kebab zeigen"></button>
       </div>
       <p class="pf-design-cap">Beispiel aus unserer Produktion: <b data-design-name aria-live="polite">Monkey Burger</b><span>Deine Tüte bekommt dein Logo in deinen Farben.</span></p>
+      </div>
+      </div>
+      <div class="pf-shop-pick" data-panel="1" hidden>
+      <div class="pf-design-pick" data-designs>
+      <div class="pf-designs" tabindex="0" role="region" aria-roledescription="Bildergalerie" aria-label="Echte Kundendesigns, zum Wechseln wischen">
+        <img class="pf-design is-on" src="/Bilder/web/burgerbox-design-kukidu-960.webp" srcset="/Bilder/web/burgerbox-design-kukidu-480.webp 480w, /Bilder/web/burgerbox-design-kukidu-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="Burgerbox im Design von Kukidu" width="960" height="960" draggable="false" fetchpriority="high">
+        <img class="pf-design" src="/Bilder/web/burgerbox-design-twilsons-960.webp" srcset="/Bilder/web/burgerbox-design-twilsons-480.webp 480w, /Bilder/web/burgerbox-design-twilsons-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="Burgerbox im Design von Twilsons" width="960" height="960" draggable="false" decoding="async">
+        <img class="pf-design" src="/Bilder/web/burgerbox-design-filo-dolio-960.webp" srcset="/Bilder/web/burgerbox-design-filo-dolio-480.webp 480w, /Bilder/web/burgerbox-design-filo-dolio-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="Burgerbox im Design von Filo d'Olio" width="960" height="960" draggable="false" decoding="async">
+      </div>
+      <div class="pf-swatches" role="group" aria-label="Kundendesign wählen">
+        <button type="button" class="pf-swatch is-on" style="--c:#D7262E" data-name="Kukidu" aria-pressed="true" aria-label="Design von Kukidu zeigen"></button>
+        <button type="button" class="pf-swatch" style="--c:#234B5C" data-name="Twilsons" aria-pressed="false" aria-label="Design von Twilsons zeigen"></button>
+        <button type="button" class="pf-swatch" style="--c:#5B5E3C" data-name="Filo d'Olio" aria-pressed="false" aria-label="Design von Filo d'Olio zeigen"></button>
+      </div>
+      <p class="pf-design-cap">Beispiel aus unserer Produktion: <b data-design-name aria-live="polite">Kukidu</b><span>Deine Box bekommt dein Logo in deinen Farben.</span></p>
+      </div>
+      </div>
+      <div class="pf-shop-pick" data-panel="2" hidden>
+      <div class="pf-design-pick" data-designs>
+      <div class="pf-designs" tabindex="0" role="region" aria-roledescription="Bildergalerie" aria-label="Echte Kundendesigns, zum Wechseln wischen">
+        <img class="pf-design is-on" src="/Bilder/web/schale-design-aboow-kebabwerk-960.webp" srcset="/Bilder/web/schale-design-aboow-kebabwerk-480.webp 480w, /Bilder/web/schale-design-aboow-kebabwerk-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="Salatschalen im Design von Aboow Kebabwerk" width="960" height="960" draggable="false" fetchpriority="high">
+        <img class="pf-design" src="/Bilder/web/schale-design-mos-kebap-960.webp" srcset="/Bilder/web/schale-design-mos-kebap-480.webp 480w, /Bilder/web/schale-design-mos-kebap-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="Salatschalen im Design von Mos Kebap" width="960" height="960" draggable="false" decoding="async">
+        <img class="pf-design" src="/Bilder/web/schale-design-sorella-sorella-960.webp" srcset="/Bilder/web/schale-design-sorella-sorella-480.webp 480w, /Bilder/web/schale-design-sorella-sorella-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="Salatschalen im Design von Sorella Sorella" width="960" height="960" draggable="false" decoding="async">
+        <img class="pf-design" src="/Bilder/web/schale-design-fresh-and-made-with-love-960.webp" srcset="/Bilder/web/schale-design-fresh-and-made-with-love-480.webp 480w, /Bilder/web/schale-design-fresh-and-made-with-love-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="Salatschalen im Design von Fresh and Made with Love" width="960" height="960" draggable="false" decoding="async">
+      </div>
+      <div class="pf-swatches" role="group" aria-label="Kundendesign wählen">
+        <button type="button" class="pf-swatch is-on" style="--c:#D42A2E" data-name="Aboow Kebabwerk" aria-pressed="true" aria-label="Design von Aboow Kebabwerk zeigen"></button>
+        <button type="button" class="pf-swatch" style="--c:#1B1B1B" data-name="Mos Kebap" aria-pressed="false" aria-label="Design von Mos Kebap zeigen"></button>
+        <button type="button" class="pf-swatch" style="--c:#F2B630" data-name="Sorella Sorella" aria-pressed="false" aria-label="Design von Sorella Sorella zeigen"></button>
+        <button type="button" class="pf-swatch" style="--c:#F1E6D2" data-name="Fresh and Made with Love" aria-pressed="false" aria-label="Design von Fresh and Made with Love zeigen"></button>
+      </div>
+      <p class="pf-design-cap">Beispiel aus unserer Produktion: <b data-design-name aria-live="polite">Aboow Kebabwerk</b><span>Deine Schale bekommt dein Logo in deinen Farben.</span></p>
+      </div>
       </div>
     </div>
   </div>

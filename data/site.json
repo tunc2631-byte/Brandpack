@@ -1,34 +1,21 @@
 {
   "hero": {
-    "slug": "tueten",
     "kicker": "Bestseller",
-    "name": "Papiertüten",
-    "tagline": "Dein Logo an jeder Hand.",
-    "designs": [
+    "produkte": [
       {
-        "file": "tuete-design-monkey-burger",
-        "name": "Monkey Burger",
-        "color": "#F2D52B"
+        "slug": "tueten",
+        "name": "Papiertüten",
+        "tagline": "Dein Logo an jeder Hand."
       },
       {
-        "file": "tuete-design-red-hen",
-        "name": "Red Hen",
-        "color": "#D0393E"
+        "slug": "burgerbox",
+        "name": "Burgerboxen",
+        "tagline": "Dein Logo auf jedem Burger."
       },
       {
-        "file": "tuete-design-mac-and-cheezy",
-        "name": "Mac and Cheezy",
-        "color": "#FFFFFF"
-      },
-      {
-        "file": "tuete-design-brudis",
-        "name": "Brudis",
-        "color": "#EC6A1F"
-      },
-      {
-        "file": "tuete-design-king-kebab",
-        "name": "King Kebab",
-        "color": "#B98A62"
+        "slug": "salatschalen",
+        "name": "Salatschalen",
+        "tagline": "Deine Bowl. Dein Look."
       }
     ]
   },
