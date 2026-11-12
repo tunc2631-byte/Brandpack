@@ -131,6 +131,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Bestellungen zum Mitnehmen hast du am Tag?",
+      "start": 80
     }
   },
   {
@@ -290,6 +294,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Kaffees zum Mitnehmen verkaufst du am Tag?",
+      "start": 100
     }
   },
   {
@@ -422,6 +430,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Burger verkaufst du am Tag?",
+      "start": 120
     }
   },
   {
@@ -875,6 +887,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Gebäckpackungen verkaufst du am Tag?",
+      "start": 30
     }
   },
   {
@@ -1089,6 +1105,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Salate und Bowls verkaufst du am Tag?",
+      "start": 60
     }
   },
   {
@@ -1180,6 +1200,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Baklava-Boxen verkaufst du am Tag?",
+      "start": 30
     }
   },
   {
@@ -1444,6 +1468,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Portionen Pommes verkaufst du am Tag?",
+      "start": 100
     }
   },
   {
@@ -1540,6 +1568,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Portionen verkaufst du am Tag?",
+      "start": 80
     }
   },
   {
@@ -1660,6 +1692,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Dönerboxen verkaufst du am Tag?",
+      "start": 80
     }
   },
   {
@@ -1845,6 +1881,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Kaffees zum Mitnehmen verkaufst du am Tag?",
+      "start": 120
     }
   },
   {
@@ -1935,6 +1975,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Kaffees zum Mitnehmen verkaufst du am Tag?",
+      "start": 120
     }
   },
   {
@@ -2101,6 +2145,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Kaltgetränke verkaufst du am Tag?",
+      "start": 80
     }
   },
   {
@@ -2222,6 +2270,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Bubble Teas verkaufst du am Tag?",
+      "start": 80
     }
   },
   {
@@ -2448,6 +2500,10 @@
       "qty": {
         "by": "menge"
       }
+    },
+    "rechner": {
+      "frage": "Wie viele Feuchttücher gibst du am Tag aus?",
+      "start": 100
     }
   }
 ]

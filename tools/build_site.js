@@ -111,16 +111,11 @@ function scripts(list) {
   return ['/assets/pf-site.js'].concat(list, ['/assets/pf-katalog.js', '/cart.js']).map(s => `<script src="${s}"></script>`).join('\n') + '\n</body>\n</html>\n';
 }
 
-// "bei 40.000 Stück" für den niedrigsten Preis
-function lowestNote(p) {
-  return 'bei ' + V.qtyText(PF.lowest(p).quote.qty, p.unit);
-}
-
 function productCard(p, opts) {
   const o = opts || {};
   const badge = o.badge && p.badge ? `<i class="pf-badge${p.badge === 'Neu' ? ' pf-badge-new' : ''}">${esc(p.badge)}</i>` : '';
   const attrs = o.filter ? ` data-cat="${esc(p.catalog.tags.join(' '))}" data-branchen="${esc(p.branchen.join(' '))}"` : '';
-  return `<a class="${o.cls || 'pf-card'}" href="${esc(p.url)}"${attrs}><span class="pf-card-img"><img src="${esc(small(p.image))}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 700px) 46vw, 280px" alt="${esc(p.catalog.title)}" loading="lazy" decoding="async" width="480" height="480"></span>${badge}<b>${esc(p.catalog.title)}</b><span class="pf-price">${esc(V.fromPrice(p))}</span><span class="pf-qty">${esc(lowestNote(p))}</span></a>`;
+  return `<a class="${o.cls || 'pf-card'}" href="${esc(p.url)}"${attrs}><span class="pf-card-img"><img src="${esc(small(p.image))}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 700px) 46vw, 280px" alt="${esc(p.catalog.title)}" loading="lazy" decoding="async" width="480" height="480"></span>${badge}<b>${esc(p.catalog.title)}</b><span class="pf-price">${esc(V.fromPrice(p))}</span></a>`;
 }
 
 
@@ -143,7 +138,7 @@ function blocks() {
       <p class="pf-shop-kicker">${esc(h.kicker)}</p>
       <h2 class="pf-shop-name" id="pf-hero-name">${esc(h.name)}</h2>
       <p class="pf-shop-tag">${esc(h.tagline)}</p>
-      <p class="pf-shop-price"><b>${esc(V.fromPrice(hp))}</b> pro ${esc(hp.unit)}<span>${esc(lowestNote(hp))} · Design kostenlos</span></p>
+      <p class="pf-shop-price"><b>${esc(V.fromPrice(hp))}</b> pro ${esc(hp.unit)}<span>Design kostenlos</span></p>
       <div class="pf-hero-cta">
         <a class="pf-btn pf-btn-primary" href="${esc(hp.url)}">Jetzt konfigurieren</a>
         <a class="pf-link" href="#produkte">Alle Produkte</a>
@@ -240,6 +235,28 @@ function priceTable(p) {
 <p class="pf-small">Stückpreis${p.unit === 'kg' ? ' pro kg' : ''} und Gesamtpreis, netto zzgl. MwSt., inkl. individuellem Druck &amp; Design.</p>`;
 }
 
+// Mengenrechner: wie lange reicht welche Menge? Ergebnis rechnet assets/pf-product.js (Daten: products.json → rechner)
+function calculator(p) {
+  const r = p.rechner;
+  return `
+      <details class="pf-calc" id="pf-calc" hidden>
+        <summary><span class="pf-calc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2h5M12 2v3"/></svg></span><span><b>Wie lange reicht das?</b><small>Mengenrechner</small></span></summary>
+        <div class="pf-calc-body">
+          <label class="pf-calc-q" for="pf-perday">${esc(r.frage)}</label>
+          <div class="pf-calc-in">
+            <input type="range" id="pf-perday" min="10" max="1000" step="10" value="${r.start}" aria-describedby="pf-calc-note">
+            <input type="number" id="pf-perday-n" min="1" max="20000" inputmode="numeric" value="${r.start}" aria-label="Anzahl pro Tag">
+          </div>
+          <div class="pf-calc-days" role="group" aria-label="Verkaufstage pro Woche">
+            <button type="button" class="pf-calc-day" data-days="6" aria-pressed="false">6 Tage pro Woche</button>
+            <button type="button" class="pf-calc-day active" data-days="7" aria-pressed="true">7 Tage pro Woche</button>
+          </div>
+          <ul class="pf-calc-res" id="pf-calc-res" aria-live="polite"></ul>
+          <p class="pf-calc-note" id="pf-calc-note">Ein Stück pro Verkauf. Tippe auf eine Menge, um sie auszuwählen.</p>
+        </div>
+      </details>`;
+}
+
 function optionGroups(p, sel, custom) {
   const hints = V.hints(p, sel, custom);
   return p.options.map(g => {
@@ -267,7 +284,7 @@ function optionGroups(p, sel, custom) {
         ${buttons}
       </div>${customFields}
       <div class="pf-hints" data-hints="${esc(g.key)}" aria-live="polite">${groupHints}</div>${g.note ? `
-      <p class="pf-note">${esc(g.note)}</p>` : ''}
+      <p class="pf-note">${esc(g.note)}</p>` : ''}${isQty && p.rechner ? calculator(p) : ''}
     </div>`;
   }).join('');
 }
@@ -283,7 +300,7 @@ function page(p) {
   const mini = products.map(o => ({ slug: o.slug, url: o.url, title: o.catalog.title, img: small(o.image), from: V.fromPrice(o) }));
   const data = JSON.stringify({ product: p, catalog: mini }).replace(/</g, '\\u003c');
   const details = [
-    `<details class="pf-acc" open><summary>Preise im Überblick</summary><div class="pf-acc-body">${priceTable(p)}</div></details>`,
+    `<details class="pf-acc"><summary>Preise im Überblick</summary><div class="pf-acc-body">${priceTable(p)}</div></details>`,
     c.tech || c.technotes ? `<details class="pf-acc"><summary>Technische Daten</summary><div class="pf-acc-body">${c.tech}${c.technotes ? `<div class="pf-small">${c.technotes}</div>` : ''}</div></details>` : '',
     c.faq ? `<details class="pf-acc"><summary>Häufige Fragen</summary><div class="pf-acc-body">${c.faq}</div></details>` : '',
     c.guide ? `<details class="pf-acc"><summary>Auswahlhilfe</summary><div class="pf-acc-body pf-prose">${c.guide}</div></details>` : '',
