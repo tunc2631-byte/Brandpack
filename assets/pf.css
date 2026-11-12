@@ -260,9 +260,18 @@ p { margin: 0; }
 .pf-shop-price span { display: block; margin-top: 2px; font-size: 14px; color: var(--muted); }
 .pf-shop-hero .pf-hero-cta { justify-content: flex-start; }
 .pf-shop-stage { display: flex; flex-direction: column; align-items: center; }
-.pf-designs { position: relative; width: min(100%, 500px); aspect-ratio: 1 / 1; }
-.pf-design { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transform: scale(.965); transition: opacity .55s var(--ease), transform .8s var(--ease); }
-.pf-design.is-on { opacity: 1; transform: none; }
+/* Kundendesigns: waagrechte Bildleiste mit Einrasten, zum Wischen (Verhalten: pf-site.js) */
+.pf-design-pick { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.pf-designs { position: relative; width: min(100%, 500px); aspect-ratio: 1 / 1; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; border-radius: var(--r-m); transition: opacity .26s var(--ease); }
+.pf-designs::-webkit-scrollbar { display: none; }
+.pf-designs.is-drag { scroll-snap-type: none; cursor: grabbing; }
+.pf-designs.is-fade { opacity: 0; }
+.pf-designs:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 4px; }
+.pf-design { flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; scroll-snap-stop: always; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; }
+/* Produktseite Tüten: Designauswahl in der grauen Produktfläche, Farbpunkte darunter */
+.pf-shot:has(.pf-design-pick) { overflow: visible; aspect-ratio: auto; background: none; display: block; }
+.pf-shot .pf-designs { width: 100%; aspect-ratio: 1 / 1; background: var(--mist); border-radius: var(--r-l); }
+.pf-shot .pf-designs .pf-design { width: 100%; height: 100%; padding: 6%; mix-blend-mode: normal; }
 .pf-swatches { display: flex; gap: 6px; margin-top: var(--s2); }
 .pf-swatch { position: relative; width: 40px; height: 40px; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 50%; -webkit-tap-highlight-color: transparent; transition: transform .25s var(--spring); }
 .pf-swatch::before { content: ""; position: absolute; inset: 8px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px rgba(29, 29, 31, .18); }
@@ -585,6 +594,7 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
   .pf-shop-hero .pf-hero-cta { flex-direction: row; gap: var(--s4); margin-top: var(--s4); }
   .pf-shop-hero .pf-hero-cta .pf-btn { width: auto; }
   .pf-designs { width: min(76vw, 320px); }
+  .pf-shot .pf-designs { width: 100%; aspect-ratio: 4 / 3; border-radius: var(--r-m); }
   .pf-cats { padding: var(--s4) 0; }
   .pf-cat b { font-size: 13px; }
   .pf-cat > span:last-child { font-size: 12px; }

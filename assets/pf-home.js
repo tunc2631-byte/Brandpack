@@ -62,23 +62,15 @@
 
   var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Einstieg: Kundendesigns der Tüte wechseln von selbst; ein Klick auf einen Farbpunkt wählt fest aus
+  // Einstieg: Kundendesigns der Tüte blättern von selbst weiter, bis jemand wischt oder einen Farbpunkt wählt
+  // (Wischen, Ziehen und Farbpunkte: assets/pf-site.js)
   var heroEl = document.querySelector('.pf-hero');
-  var designs = $$('.pf-design'), swatches = $$('.pf-swatch'), designName = document.getElementById('pf-design-name');
-  if (designs.length > 1) {
-    var current = 0, auto = null;
-    var show = function (i) {
-      current = i;
-      designs.forEach(function (im, k) { im.classList.toggle('is-on', k === i); });
-      swatches.forEach(function (sw, k) { sw.classList.toggle('is-on', k === i); sw.setAttribute('aria-pressed', String(k === i)); });
-      designName.textContent = swatches[i].dataset.name;
-    };
-    swatches.forEach(function (sw, k) {
-      sw.addEventListener('click', function () { clearInterval(auto); auto = null; show(k); });
-    });
-    if (!calm) auto = setInterval(function () {
+  var pick = heroEl && heroEl.querySelector('[data-designs]');
+  if (pick && pick.pfNext && !calm) {
+    var auto = setInterval(function () {
+      if (pick.dataset.user) { clearInterval(auto); return; }
       if (document.hidden || heroEl.classList.contains('is-offscreen')) return;
-      show((current + 1) % designs.length);
+      pick.pfNext();
     }, 3400);
   }
 
