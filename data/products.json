@@ -811,6 +811,11 @@
       "titel": "Gestaltungsbeispiel",
       "bilder": [
         {
+          "file": "pizzakarton-design-stapel-rot",
+          "name": "Weiß, 2-farbig",
+          "color": "#B8202E"
+        },
+        {
           "file": "pizzakarton-design-gelb-schwarz",
           "name": "Weiß, 2-farbig",
           "color": "#F2B630"
@@ -819,6 +824,11 @@
           "file": "pizzakarton-design-rot-offen",
           "name": "Rot, 1-farbig",
           "color": "#D9302C"
+        },
+        {
+          "file": "pizzakarton-design-kraft-rot",
+          "name": "Braun, 1-farbig",
+          "color": "#B88A5A"
         }
       ]
     }
