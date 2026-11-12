@@ -111,16 +111,11 @@ function scripts(list) {
   return ['/assets/pf-site.js'].concat(list, ['/assets/pf-katalog.js', '/cart.js']).map(s => `<script src="${s}"></script>`).join('\n') + '\n</body>\n</html>\n';
 }
 
-// "bei 40.000 Stück" für den niedrigsten Preis
-function lowestNote(p) {
-  return 'bei ' + V.qtyText(PF.lowest(p).quote.qty, p.unit);
-}
-
 function productCard(p, opts) {
   const o = opts || {};
   const badge = o.badge && p.badge ? `<i class="pf-badge${p.badge === 'Neu' ? ' pf-badge-new' : ''}">${esc(p.badge)}</i>` : '';
   const attrs = o.filter ? ` data-cat="${esc(p.catalog.tags.join(' '))}" data-branchen="${esc(p.branchen.join(' '))}"` : '';
-  return `<a class="${o.cls || 'pf-card'}" href="${esc(p.url)}"${attrs}><span class="pf-card-img"><img src="${esc(small(p.image))}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 700px) 46vw, 280px" alt="${esc(p.catalog.title)}" loading="lazy" decoding="async" width="480" height="480"></span>${badge}<b>${esc(p.catalog.title)}</b><span class="pf-price">${esc(V.fromPrice(p))}</span><span class="pf-qty">${esc(lowestNote(p))}</span></a>`;
+  return `<a class="${o.cls || 'pf-card'}" href="${esc(p.url)}"${attrs}><span class="pf-card-img"><img src="${esc(small(p.image))}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 700px) 46vw, 280px" alt="${esc(p.catalog.title)}" loading="lazy" decoding="async" width="480" height="480"></span>${badge}<b>${esc(p.catalog.title)}</b><span class="pf-price">${esc(V.fromPrice(p))}</span></a>`;
 }
 
 
@@ -143,7 +138,7 @@ function blocks() {
       <p class="pf-shop-kicker">${esc(h.kicker)}</p>
       <h2 class="pf-shop-name" id="pf-hero-name">${esc(h.name)}</h2>
       <p class="pf-shop-tag">${esc(h.tagline)}</p>
-      <p class="pf-shop-price"><b>${esc(V.fromPrice(hp))}</b> pro ${esc(hp.unit)}<span>${esc(lowestNote(hp))} · Design kostenlos</span></p>
+      <p class="pf-shop-price"><b>${esc(V.fromPrice(hp))}</b> pro ${esc(hp.unit)}<span>Design kostenlos</span></p>
       <div class="pf-hero-cta">
         <a class="pf-btn pf-btn-primary" href="${esc(hp.url)}">Jetzt konfigurieren</a>
         <a class="pf-link" href="#produkte">Alle Produkte</a>
@@ -305,7 +300,7 @@ function page(p) {
   const mini = products.map(o => ({ slug: o.slug, url: o.url, title: o.catalog.title, img: small(o.image), from: V.fromPrice(o) }));
   const data = JSON.stringify({ product: p, catalog: mini }).replace(/</g, '\\u003c');
   const details = [
-    `<details class="pf-acc" open><summary>Preise im Überblick</summary><div class="pf-acc-body">${priceTable(p)}</div></details>`,
+    `<details class="pf-acc"><summary>Preise im Überblick</summary><div class="pf-acc-body">${priceTable(p)}</div></details>`,
     c.tech || c.technotes ? `<details class="pf-acc"><summary>Technische Daten</summary><div class="pf-acc-body">${c.tech}${c.technotes ? `<div class="pf-small">${c.technotes}</div>` : ''}</div></details>` : '',
     c.faq ? `<details class="pf-acc"><summary>Häufige Fragen</summary><div class="pf-acc-body">${c.faq}</div></details>` : '',
     c.guide ? `<details class="pf-acc"><summary>Auswahlhilfe</summary><div class="pf-acc-body pf-prose">${c.guide}</div></details>` : '',

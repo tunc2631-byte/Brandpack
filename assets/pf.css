@@ -165,7 +165,6 @@ p { margin: 0; }
 .pf-card b { font-family: var(--font-display); font-size: 18px; letter-spacing: -.015em; }
 .pf-card { position: relative; }
 .pf-card .pf-price { font-size: 15px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
-.pf-card .pf-qty, .pf-card > span:last-child { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .pf-badge { position: absolute; top: 22px; left: 22px; font-style: normal; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; background: var(--ink); color: #fff; border-radius: 100px; padding: 3px 9px; }
 .pf-badge-new { background: var(--pink-ink); }
 .pf-recent .pf-card { background: var(--mist); }
@@ -604,7 +603,6 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
   .pf-card-img { margin-bottom: 6px; }
   .pf-card b { font-size: 15px; line-height: 1.25; }
   .pf-card .pf-price { font-size: 14px; }
-  .pf-card .pf-qty, .pf-card > span:last-child { font-size: 12px; }
   .pf-badge { top: 16px; left: 16px; font-size: 10px; padding: 2px 7px; }
   .pf-grid { gap: 10px; }
 
