@@ -811,24 +811,14 @@
       "titel": "Gestaltungsbeispiel",
       "bilder": [
         {
-          "file": "pizzakarton-design-weiss-rot",
-          "name": "Weiß, 1-farbig",
-          "color": "#D3322B"
-        },
-        {
-          "file": "pizzakarton-design-braun-schwarz",
-          "name": "Braun, 1-farbig",
-          "color": "#2B2B2B"
-        },
-        {
-          "file": "pizzakarton-design-weiss-rot-gruen",
+          "file": "pizzakarton-design-gelb-schwarz",
           "name": "Weiß, 2-farbig",
-          "color": "#2F6B3B"
+          "color": "#F2B630"
         },
         {
-          "file": "pizzakarton-design-braun-schwarz-rot",
-          "name": "Braun, 2-farbig",
-          "color": "#B88A5A"
+          "file": "pizzakarton-design-rot-offen",
+          "name": "Rot, 1-farbig",
+          "color": "#D9302C"
         }
       ]
     }
