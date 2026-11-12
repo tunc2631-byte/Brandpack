@@ -123,21 +123,45 @@ function productCard(p, opts) {
   return `<a class="${o.cls || 'pf-card'}" href="${esc(p.url)}"${attrs}><span class="pf-card-img"><img src="${esc(small(p.image))}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 700px) 46vw, 280px" alt="${esc(p.catalog.title)}" loading="lazy" decoding="async" width="480" height="480"></span>${badge}<b>${esc(p.catalog.title)}</b><span class="pf-price">${esc(V.fromPrice(p))}</span><span class="pf-qty">${esc(lowestNote(p))}</span></a>`;
 }
 
-const LOGOS = [
-  ['design-ohne-titel-14', "Bull's Kitchen", ''], ['design-ohne-titel-15', '', ''], ['design-ohne-titel-16', '', ' pf-invert'],
-  ['9', 'Damn Dog', ''], ['10', 'Efendi Bey', ''], ['11', 'Express-Verpackung', ''], ['12', 'Essen City', ''], ['13', 'TUAI Rooms', ''], ['14', 'KY &amp; Son', ''],
-];
 
 function blocks() {
-  const logo = hidden => LOGOS.map(([f, alt, cls]) => `      <img class="pf-logo${cls}" src="/Bilder/logos/${f}-440.webp" alt="${hidden ? '' : alt}" width="440" height="311" loading="lazy" decoding="async">`).join('\n');
+  // Kundenlogos aus data/site.json: einfarbig, optisch gleich groß (w/h in px)
+  const logo = hidden => site.kunden.map(k => `      <img class="pf-logo" src="/Bilder/logos/${esc(k.file)}-440.webp" alt="${hidden ? '' : esc(k.alt)}" width="${k.w}" height="${k.h}" style="--w:${k.w}px;--h:${k.h}px" loading="lazy" decoding="async">`).join('\n');
+  // Branchen-Leiste: ein Tipp filtert "Alle Produkte" nach Branche (Bild: branchen[].bild in data/site.json)
   const branche = b => {
-    const list = products.filter(p => p.branchen.includes(b.id));
-    // Bilder: zuerst Produkte, die nicht in jede Branche passen, damit sich die Kacheln unterscheiden
-    const everywhere = p => site.branchen.every(x => p.branchen.includes(x.id));
-    const pics = list.filter(p => !everywhere(p)).concat(list.filter(everywhere)).slice(0, 3).map(p => `<img src="${esc(small(p.image))}" alt="" loading="lazy" decoding="async" width="480" height="480">`).join('');
-    return `      <button type="button" class="pf-branche" data-branche="${esc(b.id)}"><span class="pf-branche-pics">${pics}</span><b>${esc(b.label)}</b><span>${list.length} passende Produkte</span></button>`;
+    const n = products.filter(p => p.branchen.includes(b.id)).length;
+    return `      <button type="button" class="pf-cat" data-branche="${esc(b.id)}" aria-pressed="false"><span class="pf-cat-img"><img src="${esc(small(bySlug[b.bild].image))}" alt="" width="480" height="480" loading="lazy" decoding="async"></span><b>${esc(b.label)}</b><span>${n} Produkte</span></button>`;
   };
+  // Einstieg: ein Produkt groß wie bei Apple, mit echten Kundendesigns zum Durchschalten (data/site.json → hero)
+  const h = site.hero, hp = bySlug[h.slug];
+  const design = (d, i) => `        <img class="pf-design${i ? '' : ' is-on'}" src="/Bilder/web/${esc(d.file)}-960.webp" srcset="/Bilder/web/${esc(d.file)}-480.webp 480w, /Bilder/web/${esc(d.file)}-960.webp 960w" sizes="(max-width: 860px) 76vw, 480px" alt="${i ? '' : esc(h.name + ' im Design von ' + d.name)}" width="960" height="960"${i ? ' loading="lazy" decoding="async"' : ' fetchpriority="high"'}>`;
+  const swatch = (d, i) => `        <button type="button" class="pf-swatch${i ? '' : ' is-on'}" style="--c:${esc(d.color)}" data-name="${esc(d.name)}" aria-pressed="${i ? 'false' : 'true'}" aria-label="Design von ${esc(d.name)} zeigen"></button>`;
+  const hero = `<section class="pf-hero pf-shop-hero" aria-labelledby="pf-hero-name">
+  <div class="pf-wrap pf-shop-in">
+    <div class="pf-shop-copy">
+      <h1 class="pf-shop-claim">Deine Marke. Auf jeder Verpackung.</h1>
+      <p class="pf-shop-kicker">${esc(h.kicker)}</p>
+      <h2 class="pf-shop-name" id="pf-hero-name">${esc(h.name)}</h2>
+      <p class="pf-shop-tag">${esc(h.tagline)}</p>
+      <p class="pf-shop-price"><b>${esc(V.fromPrice(hp))}</b> pro ${esc(hp.unit)}<span>${esc(lowestNote(hp))} · Design kostenlos</span></p>
+      <div class="pf-hero-cta">
+        <a class="pf-btn pf-btn-primary" href="${esc(hp.url)}">Jetzt konfigurieren</a>
+        <a class="pf-link" href="#produkte">Alle Produkte</a>
+      </div>
+    </div>
+    <div class="pf-shop-stage">
+      <div class="pf-designs">
+${h.designs.map(design).join('\n')}
+      </div>
+      <div class="pf-swatches" role="group" aria-label="Kundendesign wählen">
+${h.designs.map(swatch).join('\n')}
+      </div>
+      <p class="pf-design-cap">Echtes Kundendesign: <b id="pf-design-name" aria-live="polite">${esc(h.designs[0].name)}</b></p>
+    </div>
+  </div>
+</section>`;
   return {
+    hero,
     logos: logo(false) + '\n      <span class="pf-logo-loop" aria-hidden="true">\n' + logo(true) + '\n      </span>',
     bestseller: site.bestseller.map(s => '      ' + productCard(bySlug[s], { badge: true })).join('\n'),
     branchen: site.branchen.map(branche).join('\n'),

@@ -1,4 +1,37 @@
 {
+  "hero": {
+    "slug": "tueten",
+    "kicker": "Bestseller",
+    "name": "Papiertüten",
+    "tagline": "Dein Logo an jeder Hand.",
+    "designs": [
+      {
+        "file": "tuete-design-monkey-burger",
+        "name": "Monkey Burger",
+        "color": "#F2D52B"
+      },
+      {
+        "file": "tuete-design-red-hen",
+        "name": "Red Hen",
+        "color": "#D0393E"
+      },
+      {
+        "file": "tuete-design-mac-and-cheezy",
+        "name": "Mac and Cheezy",
+        "color": "#FFFFFF"
+      },
+      {
+        "file": "tuete-design-brudis",
+        "name": "Brudis",
+        "color": "#EC6A1F"
+      },
+      {
+        "file": "tuete-design-king-kebab",
+        "name": "King Kebab",
+        "color": "#B98A62"
+      }
+    ]
+  },
   "categories": [
     {
       "id": "papiertüten",
@@ -28,27 +61,33 @@
   "branchen": [
     {
       "id": "burger",
-      "label": "Burgerladen"
+      "label": "Burgerladen",
+      "bild": "burgerbox"
     },
     {
       "id": "cafe",
-      "label": "Café & Bäckerei"
+      "label": "Café & Bäckerei",
+      "bild": "kaffeebecher-single-wall"
     },
     {
       "id": "doener",
-      "label": "Döner & Imbiss"
+      "label": "Döner & Imbiss",
+      "bild": "doenerboxen"
     },
     {
       "id": "bubbletea",
-      "label": "Bubble Tea & Drinks"
+      "label": "Bubble Tea & Drinks",
+      "bild": "bubble-tea-cups"
     },
     {
       "id": "bowls",
-      "label": "Bowls & Lieferdienst"
+      "label": "Bowls & Lieferdienst",
+      "bild": "salatschalen"
     },
     {
       "id": "suess",
-      "label": "Konditorei & Süßes"
+      "label": "Konditorei & Süßes",
+      "bild": "kuchenboxen"
     }
   ],
   "bestseller": [
@@ -58,5 +97,115 @@
     "feuchttuecher",
     "servietten",
     "bubble-tea-cups"
+  ],
+  "kunden": [
+    {
+      "file": "kunde-aymo",
+      "alt": "Aymo Burger",
+      "w": 136,
+      "h": 60
+    },
+    {
+      "file": "kunde-the-coffee",
+      "alt": "The Coffee",
+      "w": 86,
+      "h": 76
+    },
+    {
+      "file": "kunde-red-hen",
+      "alt": "Red Hen",
+      "w": 94,
+      "h": 76
+    },
+    {
+      "file": "kunde-crunch-house",
+      "alt": "Crunch House",
+      "w": 76,
+      "h": 76
+    },
+    {
+      "file": "kunde-emmis",
+      "alt": "Emmi's Gemüsekebap",
+      "w": 153,
+      "h": 54
+    },
+    {
+      "file": "kunde-haloom",
+      "alt": "Haloom Kebab Kitchen",
+      "w": 126,
+      "h": 65
+    },
+    {
+      "file": "kunde-bulls-kitchen",
+      "alt": "Bull's Kitchen",
+      "w": 63,
+      "h": 76
+    },
+    {
+      "file": "kunde-big-one-bite",
+      "alt": "Big One Bite",
+      "w": 111,
+      "h": 74
+    },
+    {
+      "file": "kunde-egg-club",
+      "alt": "Egg Club Ingolstadt",
+      "w": 97,
+      "h": 76
+    },
+    {
+      "file": "kunde-brudis",
+      "alt": "Brudis Döner & Burger",
+      "w": 110,
+      "h": 75
+    },
+    {
+      "file": "kunde-flying-chicken",
+      "alt": "Flying Chicken",
+      "w": 77,
+      "h": 76
+    },
+    {
+      "file": "kunde-damn-dog",
+      "alt": "Damn Dog",
+      "w": 139,
+      "h": 59
+    },
+    {
+      "file": "kunde-foodbros",
+      "alt": "Foodbro's Rostock",
+      "w": 114,
+      "h": 72
+    },
+    {
+      "file": "kunde-efendi-bey",
+      "alt": "Efendi Bey",
+      "w": 98,
+      "h": 76
+    },
+    {
+      "file": "kunde-baguette-am-eck",
+      "alt": "Baguette am Eck",
+      "w": 147,
+      "h": 56
+    },
+    {
+      "file": "kunde-essen-city",
+      "alt": "Essen City",
+      "w": 77,
+      "h": 76
+    },
+    {
+      "file": "kunde-bowlbox",
+      "alt": "BowlBox",
+      "w": 119,
+      "h": 69
+    },
+    {
+      "file": "kunde-tuai",
+      "alt": "TUAI Rooms",
+      "w": 147,
+      "h": 56
+    }
   ]
 }

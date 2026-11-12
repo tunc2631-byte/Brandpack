@@ -4,7 +4,7 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var state = { cat: 'alle', branche: null };
   var labels = {};
-  $$('.pf-branche').forEach(function (b) { labels[b.dataset.branche] = b.querySelector('b').textContent; });
+  $$('[data-branche]').forEach(function (b) { labels[b.dataset.branche] = b.querySelector('b').textContent; });
 
   function apply() {
     var shown = 0;
@@ -19,7 +19,7 @@
       c.classList.toggle('active', on);
       c.setAttribute('aria-pressed', String(on));
     });
-    $$('.pf-branche').forEach(function (b) {
+    $$('[data-branche]').forEach(function (b) {
       var on = b.dataset.branche === state.branche;
       b.classList.toggle('active', on);
       b.setAttribute('aria-pressed', String(on));
@@ -41,7 +41,7 @@
   $$('.pf-chip').forEach(function (c) {
     c.addEventListener('click', function () { state.cat = c.dataset.cat; apply(); });
   });
-  $$('.pf-branche').forEach(function (b) {
+  $$('[data-branche]').forEach(function (b) {
     b.setAttribute('aria-pressed', 'false');
     b.addEventListener('click', function () {
       state.branche = state.branche === b.dataset.branche ? null : b.dataset.branche;
@@ -53,32 +53,27 @@
 
   var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Startbereich: Wort in der Überschrift rollt wie eine Walze (Tüte, Box, Schale …).
-  // Das alte Wort rollt nach oben hinaus, das neue gleichzeitig von unten hinein.
-  var swap = document.querySelector('.pf-swap');
-  var swapTo = function () {};
-  if (swap && !calm) {
-    var words = swap.dataset.words.split('|');
-    var cur = swap.querySelector('.pf-swap-word');
-    var nxt = cur.cloneNode(false);
-    nxt.classList.add('is-below');
-    swap.appendChild(nxt);
-    var idx = words.indexOf(cur.textContent);
-    swapTo = function (word) {
-      if (word === cur.textContent) return;
-      nxt.textContent = word;
-      nxt.className = 'pf-swap-word is-below';
-      void nxt.offsetWidth; // Startposition unterhalb übernehmen
-      nxt.className = 'pf-swap-word';
-      cur.className = 'pf-swap-word is-above';
-      var old = cur; cur = nxt; nxt = old;
-      idx = words.indexOf(word);
+  // Einstieg: Kundendesigns der Tüte wechseln von selbst; ein Klick auf einen Farbpunkt wählt fest aus
+  var heroEl = document.querySelector('.pf-hero');
+  var designs = $$('.pf-design'), swatches = $$('.pf-swatch'), designName = document.getElementById('pf-design-name');
+  if (designs.length > 1) {
+    var current = 0, auto = null;
+    var show = function (i) {
+      current = i;
+      designs.forEach(function (im, k) { im.classList.toggle('is-on', k === i); });
+      swatches.forEach(function (sw, k) { sw.classList.toggle('is-on', k === i); sw.setAttribute('aria-pressed', String(k === i)); });
+      designName.textContent = swatches[i].dataset.name;
     };
-    swap.pfNext = function () { swapTo(words[(idx + 1) % words.length]); };
-    swap.pfTimer = setInterval(function () { if (!document.hidden) swap.pfNext(); }, 2600);
+    swatches.forEach(function (sw, k) {
+      sw.addEventListener('click', function () { clearInterval(auto); auto = null; show(k); });
+    });
+    if (!calm) auto = setInterval(function () {
+      if (document.hidden || heroEl.classList.contains('is-offscreen')) return;
+      show((current + 1) % designs.length);
+    }, 3400);
   }
 
-  // Dauerbewegungen (schwebende Produkte, Logo-Laufband) nur abspielen, solange sie im Bild sind
+  // Dauerbewegungen (Designwechsel, Logo-Laufband) nur abspielen, solange sie im Bild sind
   if ('IntersectionObserver' in window) {
     var pause = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { en.target.classList.toggle('is-offscreen', !en.isIntersecting); });

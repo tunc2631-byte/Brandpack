@@ -246,66 +246,74 @@ p { margin: 0; }
 .pf-page-hero { padding-bottom: var(--s7); }
 .pf-site-main > .pf-hero:first-child, .pf-site-main > .pf-page-hero:first-child { margin-top: calc(-1 * var(--nav-h)); padding-top: calc(var(--nav-h) + var(--s7)); }
 .pf-site-main > .pf-hero:first-child { padding-top: calc(var(--nav-h) + var(--s6)); }
-.pf-new { display: inline-flex; gap: 8px; align-items: center; background: var(--paper); border-radius: 100px; padding: 7px 14px; font-size: 14px; color: var(--ink); text-decoration: none; margin-bottom: var(--s4); box-shadow: 0 1px 2px rgba(29,29,31,.06); transition: transform .25s var(--spring); }
-.pf-new b { color: var(--pink-ink); }
-.pf-new:hover { transform: translateY(-1px); }
-.pf-new:active { transform: scale(.98); }
-.pf-hero-title { font-size: clamp(42px, 6.2vw, 72px); font-weight: 700; letter-spacing: -.045em; line-height: 1.0; }
-.pf-hero-sub { font-size: clamp(18px, 2vw, 21px); line-height: 1.45; color: var(--muted); max-width: 640px; margin: var(--s4) auto 0; }
 .pf-hero-cta { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--s5); margin-top: var(--s5); }
-.pf-stage { display: flex; justify-content: center; align-items: flex-end; margin: var(--s4) auto 0; max-width: 1000px; }
-.pf-item { width: 31%; display: block; }
-/* Produkte gleiten beim Laden ein und schweben danach sanft. Nur transform, läuft auf der Grafikkarte. */
-.pf-item img { display: block; width: 100%; height: auto; will-change: transform; animation: pf-rise 1.1s var(--ease) both, pf-float 7s ease-in-out 1.4s infinite; }
-@keyframes pf-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-.pf-hero.is-offscreen .pf-item img, .pf-logos.is-offscreen .pf-marquee-track { animation-play-state: paused; }
-/* Beim Scrollen gehen die Produkte leicht auseinander: direkt an die Scrollposition gekoppelt, ohne Skript, ohne Verzögerung */
-@supports (animation-timeline: scroll()) {
-  .pf-item { animation: linear both; animation-timeline: scroll(root); animation-range: 0 70vh; will-change: transform; }
-  .pf-item:nth-child(1) { animation-name: pf-spread-l; }
-  .pf-item:nth-child(2) { animation-name: pf-spread-m; }
-  .pf-item:nth-child(3) { animation-name: pf-spread-r; }
-  @keyframes pf-spread-l { to { transform: translate3d(-14%, 5%, 0) rotate(-3deg); } }
-  @keyframes pf-spread-m { to { transform: translate3d(0, -6%, 0) scale(1.03); } }
-  @keyframes pf-spread-r { to { transform: translate3d(14%, 5%, 0) rotate(3deg); } }
-}
-.pf-item:nth-child(1) img { animation-delay: .1s, 1.3s; }
-.pf-item:nth-child(2) { width: 38%; margin: 0 -3%; position: relative; z-index: 1; }
-.pf-item:nth-child(2) img { animation-delay: .25s, 1.8s; animation-duration: 1.1s, 8s; }
-.pf-item:nth-child(3) img { animation-delay: .4s, 2.2s; animation-duration: 1.1s, 6.5s; }
+.pf-logos.is-offscreen .pf-marquee-track { animation-play-state: paused; }
 
-/* Startbereich: Farbschimmer und Papierstruktur hinter Text und Produkten */
+/* ── Einstieg: ein Produkt groß, echte Kundendesigns zum Durchschalten ── */
+.pf-shop-hero { background: var(--paper); text-align: left; padding-bottom: var(--s6); }
+.pf-shop-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: var(--s6); }
+.pf-shop-claim { font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--muted); margin-bottom: var(--s5); }
+.pf-shop-kicker { font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--pink-ink); margin-bottom: var(--s2); }
+.pf-shop-name { font-size: clamp(52px, 6.4vw, 88px); font-weight: 700; letter-spacing: -.045em; line-height: 1; }
+.pf-shop-tag { font-size: clamp(21px, 2.3vw, 28px); font-weight: 500; letter-spacing: -.015em; color: var(--ink); margin-top: var(--s3); }
+.pf-shop-price { margin-top: var(--s5); font-size: 17px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.pf-shop-price b { font-size: 24px; font-weight: 700; letter-spacing: -.02em; margin-right: 4px; }
+.pf-shop-price span { display: block; margin-top: 2px; font-size: 14px; color: var(--muted); }
+.pf-shop-hero .pf-hero-cta { justify-content: flex-start; }
+.pf-shop-stage { display: flex; flex-direction: column; align-items: center; }
+.pf-designs { position: relative; width: min(100%, 500px); aspect-ratio: 1 / 1; }
+.pf-design { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transform: scale(.965); transition: opacity .55s var(--ease), transform .8s var(--ease); }
+.pf-design.is-on { opacity: 1; transform: none; }
+.pf-swatches { display: flex; gap: 6px; margin-top: var(--s2); }
+.pf-swatch { position: relative; width: 40px; height: 40px; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 50%; -webkit-tap-highlight-color: transparent; transition: transform .25s var(--spring); }
+.pf-swatch::before { content: ""; position: absolute; inset: 8px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px rgba(29, 29, 31, .18); }
+.pf-swatch::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; border: 2px solid var(--ink); opacity: 0; transition: opacity .25s var(--ease); }
+.pf-swatch.is-on::after { opacity: 1; }
+.pf-swatch:hover { transform: scale(1.08); }
+.pf-swatch:active { transform: scale(.94); }
+.pf-swatch:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 2px; }
+.pf-design-cap { margin-top: var(--s2); font-size: 14px; color: var(--muted); }
+.pf-design-cap b { color: var(--ink); font-weight: 600; }
+
+/* ── Kategorien: direkter Weg in den Shop ── */
+.pf-cats { background: var(--mist); padding: var(--s5) 0; }
+.pf-cat-row { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--s4); }
+.pf-cats-title { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: var(--s4); }
+.pf-cat { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 0; border: 0; background: none; font: inherit; cursor: pointer; text-decoration: none; color: var(--ink); text-align: center; -webkit-tap-highlight-color: transparent; transition: transform .3s var(--spring); }
+.pf-cat.active .pf-cat-img { box-shadow: 0 0 0 2px var(--pink-ink); }
+.pf-cat-img { display: block; width: 100%; max-width: 132px; aspect-ratio: 1 / 1; background: #fff; border-radius: var(--r-m); overflow: hidden; margin-bottom: var(--s2); }
+.pf-cat-img img { width: 100%; height: 100%; object-fit: contain; }
+.pf-cat b { font-size: 15px; font-weight: 600; line-height: 1.25; }
+.pf-cat > span:last-child { font-size: 13px; color: var(--muted); }
+.pf-cat:hover { transform: translateY(-3px); }
+.pf-cat:active { transform: scale(.97); }
+.pf-cat:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 6px; border-radius: var(--r-m); }
+@media (max-width: 860px) {
+  .pf-shop-hero { text-align: center; padding-bottom: var(--s5); }
+  .pf-shop-in { grid-template-columns: 1fr; gap: var(--s4); }
+  .pf-shop-hero .pf-hero-cta { justify-content: center; }
+  .pf-cat-row { display: flex; gap: var(--s3); overflow-x: auto; margin: 0 -20px; padding: 0 20px 4px; scroll-snap-type: x proximity; scrollbar-width: none; }
+  .pf-cat-row::-webkit-scrollbar { display: none; }
+  .pf-cat { flex: none; width: 104px; scroll-snap-align: start; }
+  .pf-cat-row { padding-top: 3px; }
+}
+
 .pf-hero { position: relative; isolation: isolate; }
 .pf-hero > .pf-wrap { position: relative; }
-.pf-hero-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background:
-    radial-gradient(55% 40% at 50% 88%, rgba(255, 255, 255, .95), transparent 72%),
-    radial-gradient(40% 36% at 12% 16%, rgba(255, 255, 255, .7), transparent 70%),
-    var(--mist); }
 
-/* Wechselndes Wort in der Überschrift */
-.pf-swap { display: block; position: relative; overflow: hidden; height: 1.18em; margin-bottom: -.1em; }
-.pf-swap-word { position: absolute; left: 0; right: 0; top: 0; line-height: 1.18em; color: var(--pink-ink); transform: translateY(0); opacity: 1; transition: transform .7s cubic-bezier(.22, 1, .36, 1) .12s, opacity .45s ease .12s; }
-.pf-swap-word.is-below { transform: translateY(70%); opacity: 0; transition: none; }
-.pf-swap-word.is-above { transform: translateY(-60%); opacity: 0; transition: transform .45s cubic-bezier(.55, 0, .75, .2), opacity .25s ease; }
 
-/* Vorteile unter den Knöpfen */
-.pf-hero-points { list-style: none; margin: var(--s4) 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; font-size: 15px; font-weight: 500; color: var(--ink); }
-.pf-hero-points li { display: inline-flex; align-items: center; gap: 7px; }
-.pf-hero-points svg { color: var(--good); flex: none; }
 
 /* Kundenlogos: einheitlich grau im Laufband. Bewegung nur per transform (Grafikkarte),
    weiche Ränder per Farbverlauf darüber statt teurer Maske. */
-.pf-logos { padding: var(--s6) 0 var(--s5); border-bottom: 1px solid var(--line); overflow: hidden; }
+.pf-logos { padding: var(--s6) 0 var(--s5); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
 .pf-logos-title { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin-bottom: var(--s4); }
 .pf-marquee { position: relative; overflow: hidden; }
 .pf-marquee::before, .pf-marquee::after { content: ""; position: absolute; top: 0; bottom: 0; width: 12%; z-index: 1; pointer-events: none; }
 .pf-marquee::before { left: 0; background: linear-gradient(90deg, var(--paper), rgba(255, 255, 255, 0)); }
 .pf-marquee::after { right: 0; background: linear-gradient(270deg, var(--paper), rgba(255, 255, 255, 0)); }
-.pf-marquee-track { display: flex; align-items: center; width: max-content; will-change: transform; animation: pf-marquee 40s linear infinite; }
+.pf-marquee-track { display: flex; align-items: center; width: max-content; padding: 6px 0; will-change: transform; animation: pf-marquee 55s linear infinite; }
 .pf-logo-loop { display: contents; }
-.pf-logo { flex: none; height: 64px; width: 170px; padding: 0 24px; object-fit: contain; filter: grayscale(1); opacity: .55; }
-.pf-invert { filter: invert(1) grayscale(1); }
+.pf-logo { flex: none; width: var(--w); height: var(--h); margin: 0 34px; object-fit: contain; opacity: .9; }
 @keyframes pf-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 
 .pf-bento-5 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--s4); }
@@ -321,26 +329,6 @@ p { margin: 0; }
 .pf-bento-5 .pf-tile-a { grid-column: span 4; min-height: 240px; }
 @media (max-width: 860px) { .pf-bento-5 .pf-tile, .pf-bento-5 .pf-tile-a { grid-column: span 6; min-height: 0; } }
 
-.pf-branchen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); }
-.pf-branche { text-align: left; font: inherit; color: var(--ink); background: var(--mist); border: 0; border-radius: var(--r-l); padding: var(--s5); cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: transform .3s var(--spring); }
-.pf-branche:hover { transform: translateY(-3px); }
-.pf-branche:active { transform: scale(.98); }
-.pf-branche.active { box-shadow: inset 0 0 0 2px var(--pink-ink); }
-.pf-branche b { font-family: var(--font-display); font-size: 22px; letter-spacing: -.02em; }
-.pf-branche > span:last-child { font-size: 14px; color: var(--muted); }
-.pf-branche-pics { display: flex; margin-bottom: var(--s4); }
-.pf-branche-pics img { width: 76px; height: 76px; border-radius: 50%; background: var(--paper); object-fit: contain; padding: 4px; mix-blend-mode: normal; box-shadow: 0 0 0 3px var(--mist); }
-.pf-branche-pics img + img { margin-left: -16px; }
-@media (max-width: 860px) { .pf-branchen { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) {
-  .pf-branchen { grid-template-columns: 1fr; gap: var(--s3); }
-  .pf-branche { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: var(--s4); align-items: center; padding: var(--s4); }
-  .pf-branche-pics { grid-row: span 2; margin-bottom: 0; }
-  .pf-branche-pics img { width: 52px; height: 52px; }
-  .pf-branche-pics img + img { margin-left: -14px; }
-  .pf-branche b { font-size: 19px; align-self: end; }
-  .pf-branche > span:last-child { align-self: start; }
-}
 
 .pf-design-band { background: var(--mist); }
 .pf-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); align-items: start; }
@@ -470,23 +458,27 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
 
   /* Startbereich */
   .pf-site-main > .pf-hero:first-child { padding-top: calc(var(--nav-h) + 28px); }
-  .pf-new { margin-bottom: var(--s4); font-size: 13px; padding: 6px 12px; }
-  .pf-hero-title { font-size: 40px; letter-spacing: -.04em; line-height: 1.04; }
-  .pf-hero-sub { font-size: 17px; margin-top: var(--s4); padding: 0 4px; }
+  .pf-shop-claim { font-size: 13px; margin-bottom: var(--s3); }
+  .pf-shop-kicker { font-size: 12px; }
+  .pf-shop-name { font-size: 46px; }
+  .pf-shop-tag { font-size: 19px; margin-top: var(--s2); }
+  .pf-shop-price { margin-top: var(--s3); font-size: 15px; }
+  .pf-shop-price b { font-size: 21px; }
+  .pf-shop-price span { font-size: 13px; }
+  .pf-shop-hero .pf-hero-cta { flex-direction: row; gap: var(--s4); margin-top: var(--s4); }
+  .pf-shop-hero .pf-hero-cta .pf-btn { width: auto; }
+  .pf-designs { width: min(76vw, 320px); }
+  .pf-cats { padding: var(--s4) 0; }
+  .pf-cat b { font-size: 13px; }
+  .pf-cat > span:last-child { font-size: 12px; }
   .pf-hero-cta { flex-direction: column; gap: var(--s3); margin-top: var(--s5); }
   .pf-hero-cta .pf-btn { width: 100%; max-width: 340px; }
-  .pf-stage { margin: var(--s5) -6% 0; max-width: none; }
-  .pf-item { width: 36%; }
-  .pf-item:nth-child(2) { width: 44%; margin: 0 -5%; }
-  .pf-hero-points { font-size: 12.5px; gap: 6px 10px; margin-top: var(--s4); }
-  .pf-hero-points li { gap: 4px; white-space: nowrap; }
-  .pf-hero-points svg { width: 12px; height: 12px; }
   .pf-site-main > .pf-page-hero:first-child { padding-top: calc(var(--nav-h) + 32px); padding-bottom: 40px; }
 
   /* Kundenlogos */
   .pf-logos { padding: var(--s5) 0; }
   .pf-logos-title { margin-bottom: var(--s4); font-size: 12px; }
-  .pf-logo { height: 48px; width: 120px; padding: 0 14px; }
+  .pf-logo { width: calc(var(--w) * .72); height: calc(var(--h) * .72); margin: 0 20px; }
 
   /* Karten und Bestseller */
   .pf-rail { grid-auto-columns: 46%; gap: var(--s3); }
