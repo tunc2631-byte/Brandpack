@@ -112,7 +112,7 @@ function scripts(list) {
 }
 
 // Echte Kundendesigns (data/site.json → hero.designs): wischen, ziehen oder Farbpunkt wählen.
-// Verhalten in assets/pf-site.js. kind 'web' für weißen Grund, 'frei' (freigestellt) für die graue Produktfläche.
+// Verhalten in assets/pf-site.js. Weißer Grund ohne Rahmen, damit die Tüte frei schwebt.
 function designPick(kind, sizes) {
   const h = site.hero;
   const img = (d, i) => `        <img class="pf-design${i ? '' : ' is-on'}" src="/Bilder/${kind}/${esc(d.file)}-960.webp" srcset="/Bilder/${kind}/${esc(d.file)}-480.webp 480w, /Bilder/${kind}/${esc(d.file)}-960.webp 960w" sizes="${sizes}" alt="${esc(h.name + ' im Design von ' + d.name)}" width="960" height="960" draggable="false"${i ? ' decoding="async"' : ' fetchpriority="high"'}>`;
@@ -320,7 +320,7 @@ function page(p) {
 <section class="pf-buy" aria-label="Produkt konfigurieren">
   <div class="pf-gallery">
     <div class="pf-shot">
-${p.slug === site.hero.slug ? designPick('frei', '(max-width: 980px) 90vw, 560px') : `      <img id="product-img" src="${esc(p.image)}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 980px) 90vw, 560px" alt="${esc(p.name)} mit Logo bedruckt" width="960" height="960" fetchpriority="high">`}
+${p.slug === site.hero.slug ? designPick('web', '(max-width: 980px) 90vw, 560px') : `      <img id="product-img" src="${esc(p.image)}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 980px) 90vw, 560px" alt="${esc(p.name)} mit Logo bedruckt" width="960" height="960" fetchpriority="high">`}
     </div>
   </div>
 
