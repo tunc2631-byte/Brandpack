@@ -53,6 +53,21 @@
     track.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); stopAuto(); go(cur + (e.key === 'ArrowRight' ? 1 : -1)); }
     });
+    // Trackpad: schräges Runterscrollen über dem Bild scrollt die Seite (nicht das Bild);
+    // eine klar seitliche Wischbewegung blättert genau ein Bild weiter
+    var wheelAcc = 0, wheelLast = 0, wheelDone = false;
+    track.addEventListener('wheel', function (e) {
+      if (!e.deltaX) return; // normales Mausrad: Browser scrollt die Seite selbst
+      e.preventDefault();
+      var k = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? innerHeight : 1;
+      if (Math.abs(e.deltaY) >= Math.abs(e.deltaX)) { window.scrollBy(0, e.deltaY * k); return; }
+      var now = Date.now();
+      if (now - wheelLast > 200) { wheelAcc = 0; wheelDone = false; }
+      wheelLast = now;
+      if (wheelDone) return;
+      wheelAcc += e.deltaX * k;
+      if (Math.abs(wheelAcc) > 50) { stopAuto(); go(cur + (wheelAcc > 0 ? 1 : -1)); wheelDone = true; }
+    }, { passive: false });
     // Maus: ziehen wie mit dem Finger
     var drag = null;
     track.addEventListener('pointerdown', function (e) {

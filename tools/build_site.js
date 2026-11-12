@@ -124,7 +124,7 @@ ${h.designs.map(img).join('\n')}
       <div class="pf-swatches" role="group" aria-label="Kundendesign wählen">
 ${h.designs.map(swatch).join('\n')}
       </div>
-      <p class="pf-design-cap">Echtes Kundendesign: <b data-design-name aria-live="polite">${esc(h.designs[0].name)}</b></p>
+      <p class="pf-design-cap">Beispiel aus unserer Produktion: <b data-design-name aria-live="polite">${esc(h.designs[0].name)}</b><span>Deine Tüte bekommt dein Logo in deinen Farben.</span></p>
       </div>`;
 }
 
