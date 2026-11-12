@@ -304,7 +304,7 @@
     "slug": "burgerbox",
     "url": "/produkte/burgerbox/",
     "name": "Burgerbox",
-    "image": "/Bilder/web/burgerbox-v4-960.webp",
+    "image": "/Bilder/web/burgerbox-karte-960.webp",
     "unit": "Stück",
     "qtyKey": "menge",
     "catalog": {
@@ -434,6 +434,26 @@
     "rechner": {
       "frage": "Wie viele Burger verkaufst du am Tag?",
       "start": 120
+    },
+    "designs": {
+      "wort": "Box",
+      "bilder": [
+        {
+          "file": "burgerbox-design-kukidu",
+          "name": "Kukidu",
+          "color": "#D7262E"
+        },
+        {
+          "file": "burgerbox-design-twilsons",
+          "name": "Twilsons",
+          "color": "#234B5C"
+        },
+        {
+          "file": "burgerbox-design-filo-dolio",
+          "name": "Filo d'Olio",
+          "color": "#5B5E3C"
+        }
+      ]
     }
   },
   {
@@ -1603,7 +1623,7 @@
     "slug": "doenerboxen",
     "url": "/produkte/doenerboxen/",
     "name": "Dönerboxen / Asiaboxen",
-    "image": "/Bilder/web/doenerbox-960.webp",
+    "image": "/Bilder/web/doenerboxen-karte-960.webp",
     "unit": "Stück",
     "qtyKey": "menge",
     "catalog": {
@@ -1721,6 +1741,31 @@
     "rechner": {
       "frage": "Wie viele Dönerboxen verkaufst du am Tag?",
       "start": 80
+    },
+    "designs": {
+      "wort": "Box",
+      "bilder": [
+        {
+          "file": "doenerbox-design-gatsu-gatsu",
+          "name": "Gatsu Gatsu",
+          "color": "#1F2A44"
+        },
+        {
+          "file": "doenerbox-design-kartoffelbox",
+          "name": "Kartoffelbox",
+          "color": "#111111"
+        },
+        {
+          "file": "doenerbox-design-asia-to-go",
+          "name": "Asia to go",
+          "color": "#D9302C"
+        },
+        {
+          "file": "doenerbox-design-don-kebab",
+          "name": "Don Kebab",
+          "color": "#FFFFFF"
+        }
+      ]
     }
   },
   {
