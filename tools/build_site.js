@@ -108,7 +108,7 @@ function footer() {
 }
 
 function scripts(list) {
-  return ['/assets/pf-site.js'].concat(list, ['/cart.js']).map(s => `<script src="${s}"></script>`).join('\n') + '\n</body>\n</html>\n';
+  return ['/assets/pf-site.js'].concat(list, ['/assets/pf-katalog.js', '/cart.js']).map(s => `<script src="${s}"></script>`).join('\n') + '\n</body>\n</html>\n';
 }
 
 // "bei 40.000 Stück" für den niedrigsten Preis
@@ -393,7 +393,22 @@ ${footer()}
 ${scripts(['/assets/pf-pricing.js', '/assets/pf-view.js', '/assets/pf-product.js'])}`;
 }
 
-const pages = products.map(p => [path.join('produkte', p.slug, 'index.html'), () => page(p)])
+// Kleiner Katalog für den Warenkorb (Bilder, Vorschläge, Sets): erzeugt, nicht von Hand ändern.
+// std = Standardauswahl eines Produkts, genau wie "In den Warenkorb" ohne Änderung auf der Produktseite.
+function katalog() {
+  const strip = m => m.replace(/^Hallo, ich interessiere mich für\s*/, '').replace(/\s*und möchte ein Angebot anfragen\.$/, '');
+  const produkte = {};
+  for (const p of products) {
+    const sel = PF.defaults(p), s = V.summary(p, sel);
+    produkte[p.slug] = { title: p.catalog.title, url: p.url, img: small(p.image), ab: V.fromPrice(p), related: p.related,
+      std: { desc: strip(V.message(p, sel)), priceTotal: s.onRequest ? '' : s.total } };
+  }
+  const sets = site.branchen.map(b => ({ id: b.id, label: b.label, items: b.set }));
+  return '/* Erzeugt von tools/build_site.js aus data/products.json und data/site.json. Nicht von Hand ändern. */\n' +
+    'window.PF_KATALOG = ' + JSON.stringify({ produkte, sets }) + ';\n';
+}
+
+const pages = [['assets/pf-katalog.js', katalog]].concat(products.map(p => [path.join('produkte', p.slug, 'index.html'), () => page(p)]))
   .concat([['index.html', 'start'], ['ueber-uns/index.html', 'ueber-uns'], ['designservice/index.html', 'designservice'],
     ['impressum/index.html', 'impressum'], ['datenschutz/index.html', 'datenschutz']].map(([f, n]) => [f, () => sitePage(n)]));
 
@@ -410,4 +425,4 @@ if (CHECK && stale.length) {
   console.error('Nicht aktuell, bitte `node tools/build_site.js` ausführen:\n  ' + stale.join('\n  '));
   process.exit(1);
 }
-if (CHECK) console.log(`OK: ${pages.length} Seiten aktuell.`);
+if (CHECK) console.log(`OK: ${pages.length - 1} Seiten und Warenkorb-Katalog aktuell.`);

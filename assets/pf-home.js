@@ -31,6 +31,15 @@
       x.type = 'button'; x.className = 'pf-link-btn'; x.textContent = 'Alle Branchen zeigen';
       x.addEventListener('click', function () { state.branche = null; apply(); });
       info.appendChild(x);
+      // Passendes Set mit einem Klick in den Warenkorb (Inhalt: data/site.json → branchen[].set)
+      var b = state.branche;
+      if (window.pfAddSet && window.PF_KATALOG && window.PF_KATALOG.sets.some(function (s) { return s.id === b; })) {
+        var set = document.createElement('button');
+        set.type = 'button'; set.className = 'pf-btn pf-btn-primary pf-btn-sm pf-set-btn';
+        set.textContent = 'Set für ' + labels[b] + ' in den Warenkorb';
+        set.addEventListener('click', function () { window.pfAddSet(b); });
+        info.appendChild(set);
+      }
       info.hidden = false;
     } else {
       info.hidden = true;
