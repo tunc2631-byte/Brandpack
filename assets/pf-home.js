@@ -39,6 +39,13 @@
         set.textContent = 'Set für ' + labels[b] + ' in den Warenkorb';
         set.addEventListener('click', function () { window.pfAddSet(b); });
         info.appendChild(set);
+        var info2 = window.PF_KATALOG.sets.filter(function (s) { return s.id === b; })[0];
+        if (info2 && info2.url) {
+          var more = document.createElement('a');
+          more.className = 'pf-link-btn'; more.href = info2.url;
+          more.textContent = 'Mehr zur Branche';
+          info.insertBefore(more, set);
+        }
       }
       info.hidden = false;
     } else {

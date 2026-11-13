@@ -148,13 +148,20 @@ function footer() {
       <p><a href="https://wa.me/491776990017" target="_blank" rel="noopener">WhatsApp</a> · <a href="tel:+491776990017">0177 6990017</a> · <a href="mailto:info@pack-factory.de">info@pack-factory.de</a></p>
     </div>
     <nav aria-label="Produkte"><h2>Produkte</h2><ul>
-      ${['tueten', 'burgerbox', 'salatschalen', 'kaffeebecher-single-wall', 'servietten', 'feuchttuecher'].map(s => link(bySlug[s].url, esc(bySlug[s].catalog.title))).join('\n      ')}
+      ${site.categories.filter(c => c.seite).map(c => link(c.seite, esc(c.label))).join('\n      ')}
+      ${['salatschalen', 'einschlagpapier', 'servietten'].map(s => link(bySlug[s].url, esc(bySlug[s].catalog.title))).join('\n      ')}
+      ${link('/doenerpapier-bedrucken/', 'Dönerpapier')}
+      ${link('/burgerpapier-bedrucken/', 'Burgerpapier')}
       ${link('/#produkte', 'Alle Produkte')}
+    </ul></nav>
+    <nav aria-label="Branchen"><h2>Branchen</h2><ul>
+      ${branchen.map(b => link(b.url, esc(b.label))).join('\n      ')}
     </ul></nav>
     <nav aria-label="Unternehmen"><h2>Unternehmen</h2><ul>
       ${link('/ueber-uns/', '&Uuml;ber uns')}
       ${link('/designservice/', 'Designservice')}
       ${link('/designservice/#druckdateien', 'Druckdateien')}
+      ${link('/ratgeber/', 'Ratgeber')}
       ${link('/#kontakt', 'Kontakt')}
     </ul></nav>
     <nav aria-label="Rechtliches"><h2>Rechtliches</h2><ul>
@@ -381,6 +388,19 @@ function optionGroups(p, sel, custom) {
   }).join('');
 }
 
+// "Passend für": Links zu den Branchenseiten des Produkts (data/products.json → branchen)
+function branchLinks(p) {
+  const bs = branchen.filter(b => p.branchen.includes(b.id));
+  if (!bs.length) return '';
+  return `<nav class="pf-branch-links" aria-label="Passende Branchen"><span>Passend für</span>${bs.map(b => `<a class="pf-chip" href="${esc(b.url)}">${esc(b.label)}</a>`).join('')}</nav>`;
+}
+
+// Brotkrumen: Kategorie mit eigener Seite (data/site.json → categories[].seite), sonst "Produkte"
+function crumbCat(p) {
+  const c = site.categories.find(c => c.seite && p.catalog.tags.includes(c.id));
+  return c ? `<a href="${esc(c.seite)}">${esc(c.label)}</a>` : '<a href="/#produkte">Produkte</a>';
+}
+
 function page(p) {
   const c = readContent(p.slug);
   const sel = PF.defaults(p);
@@ -409,7 +429,7 @@ ${designsOf(p) ? designPick(designsOf(p), 'web', '(max-width: 980px) 90vw, 560px
   </div>
 
   <div class="pf-panel config-panel">
-    <nav class="pf-crumbs" aria-label="Brotkrumen"><a href="/">PackFactory</a><span aria-hidden="true">›</span><a href="/#produkte">Produkte</a><span aria-hidden="true">›</span><span>${esc(p.catalog.title)}</span></nav>
+    <nav class="pf-crumbs" aria-label="Brotkrumen"><a href="/">PackFactory</a><span aria-hidden="true">›</span>${crumbCat(p)}<span aria-hidden="true">›</span><span>${esc(p.catalog.title)}</span></nav>
     <h1 class="pf-title">${/logo/i.test(c.name) ? c.name : c.name + ' mit Logo'}</h1>
     ${c.subtitle ? `<p class="pf-sub">${c.subtitle}</p>` : ''}
     <p class="pf-from">${esc(V.fromPrice(p))}${p.unit === 'kg' ? '' : ' pro Stück'} · mit deinem Logo</p>
@@ -440,6 +460,7 @@ ${c.assure.split('\n').map(l => '      ' + l.replace('<li>', `<li>${CHECK_ICON}<
     <div class="pf-rail">
       ${related}
     </div>
+    ${branchLinks(p)}
   </div>
 </section>
 ${c.service ? `
@@ -513,9 +534,311 @@ function katalog() {
     produkte[p.slug] = { title: p.catalog.title, url: p.url, img: small(p.image), ab: V.fromPrice(p), related: p.related,
       std: { desc: strip(V.message(p, sel)), priceTotal: s.onRequest ? '' : s.total } };
   }
-  const sets = site.branchen.map(b => ({ id: b.id, label: b.label, items: b.set }));
+  const sets = branchen.map(b => ({ id: b.id, label: b.label, url: b.url, items: b.set }));
   return '/* Erzeugt von tools/build_site.js aus data/products.json und data/site.json. Nicht von Hand ändern. */\n' +
     'window.PF_KATALOG = ' + JSON.stringify({ produkte, sets }) + ';\n';
+}
+
+// Branchenseiten /branchen/<slug>/: Set und Produkte aus data/site.json und data/products.json,
+// Texte aus content/branchen/<id>.html. Mindestmengen, Preise und Lieferzeiten kommen aus den Daten.
+const readParts = file => {
+  const raw = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  const parts = {};
+  raw.split(/<!-- part:(\w+) -->\n/).slice(1).reduce((key, val, i) => {
+    if (i % 2 === 0) return val;
+    parts[key] = val.replace(/\n$/, '');
+    return null;
+  }, null);
+  return parts;
+};
+const branchen = site.branchen.map(b => Object.assign({}, b, readParts('content/branchen/' + b.id + '.html')));
+branchen.forEach(b => { b.url = '/branchen/' + b.slug + '/'; });
+const brancheUrl = id => branchen.find(b => b.id === id).url;
+
+function minQty(p) {
+  const g = p.qtyKey && p.options.find(o => o.key === p.qtyKey);
+  if (g) return g.choices[0].label;
+  const m = (p.notes || []).join(' ').match(/([\d.]+ Stück)/);
+  return m ? m[1] : null;
+}
+function lieferzeit(p) {
+  const m = readContent(p.slug).assure.match(/<b>Lieferzeit<\/b>\s*([^<]+)/);
+  return m ? m[1].trim() : null;
+}
+const list = a => a.length > 1 ? a.slice(0, -1).join(', ') + ' und ' + a[a.length - 1] : a[0];
+
+// Häufige Fragen aus den Daten: Mindestmengen, "ab"-Preise, Design, Lieferzeit
+function autoFaq(ps, lzText) {
+  return [
+    ['Ab welcher Menge kann ich bestellen?', list(ps.filter(minQty).map(p => p.catalog.title + ' ab ' + minQty(p))) + '.'],
+    ['Was kostet das?', list(ps.map(p => p.catalog.title + ' ' + V.fromPrice(p) + (p.unit === 'kg' ? '' : ' pro Stück'))) + '. Je mehr du bestellst, desto günstiger. Alle Preise netto zzgl. MwSt.'],
+    ['Bekomme ich alles im selben Design?', 'Ja. Unser Designservice gestaltet alle Produkte kostenlos passend zu deinem Logo. Produziert wird erst nach deiner Freigabe.'],
+    ['Wie lange dauert die Lieferung?', lzText.charAt(0).toUpperCase() + lzText.slice(1) + '.'],
+  ];
+}
+function lieferText(ps) {
+  const lzGroups = [];
+  ps.forEach(p => { const k = lieferzeit(p) || 'auf Anfrage'; const g = lzGroups.find(x => x.k === k); if (g) g.n.push(p.catalog.title); else lzGroups.push({ k, n: [p.catalog.title] }); });
+  return lzGroups.length === 1 ? lzGroups[0].k : lzGroups.map(g => list(g.n) + ': ' + g.k.charAt(0).toLowerCase() + g.k.slice(1)).join('. ');
+}
+
+// Themen- und Kategorieseiten /<url>/ aus content/themen/<url>.html (eyebrow, title, description, h1, sub, produkte, faq, seo):
+// Produkte, Vergleichstabelle und häufige Fragen kommen aus den Daten.
+const themen = fs.readdirSync(path.join(ROOT, 'content/themen')).filter(f => f.endsWith('.html')).sort()
+  .map(f => Object.assign({ id: f.replace(/\.html$/, '') }, readParts('content/themen/' + f)))
+  .map(t => Object.assign(t, { url: '/' + t.id + '/', produkte: t.produkte.split(/\s+/).filter(Boolean) }));
+function optText(p, keys) {
+  const g = p.options.find(o => keys.includes(o.key));
+  if (!g) return '–';
+  const l = g.choices.map(c => c.label);
+  if (l.length > 5) return l[0] + ' bis ' + l[l.length - 1] + ' (' + l.length + ' Größen)';
+  // kurze Maßangaben mitnehmen: "S (470 ml · 16 oz)"
+  return g.choices.map(c => c.detail && /\d/.test(c.detail) && c.detail.length <= 24 ? c.label + ' (' + c.detail + ')' : c.label).join(', ');
+}
+function themaPage(t) {
+  const ps = t.produkte.map(s => { if (!bySlug[s]) throw new Error('Unbekanntes Produkt ' + s + ' in content/themen/' + t.id + '.html'); return bySlug[s]; });
+  const faq = t.faq + '\n' + autoFaq(ps, lieferText(ps)).map(([q, a]) => `<details class="pf-faq"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n');
+  const table = ps.length > 1 ? `<div class="pf-table-wrap"><table class="pf-table">
+<thead><tr><th scope="col">Produkt</th><th scope="col">Größen</th><th scope="col">Material</th><th scope="col">Ab</th><th scope="col">Preis</th></tr></thead>
+<tbody>
+${ps.map(p => `<tr><td><a href="${esc(p.url)}">${esc(p.catalog.title)}</a></td><td>${esc(optText(p, ['size', 'groesse']))}</td><td>${esc(optText(p, ['material', 'mat']))}</td><td>${esc(minQty(p) || 'auf Anfrage')}</td><td>${esc(V.fromPrice(p))}</td></tr>`).join('\n')}
+</tbody></table></div>` : '';
+  const crumbs = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'PackFactory', item: ORIGIN + '/' },
+    { '@type': 'ListItem', position: 2, name: plain(t.eyebrow), item: ORIGIN + t.url }] }, null, 2);
+  const items = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: plain(t.h1),
+    itemListElement: ps.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: ORIGIN + p.url, name: p.catalog.title })) }, null, 2);
+  return top({ title: t.title, description: t.description, path: t.url, jsonld: crumbs, extraLd: [items, faqLd(faq)], image: ogImage(ps[0].image), source: 'content/themen/' + t.id + '.html' }) +
+`<main class="pf-site-main">
+<section class="pf-page-hero">
+  <div class="pf-wrap">
+    <p class="pf-eyebrow">${esc(t.eyebrow)}</p>
+    <h1 class="pf-hero-title">${t.h1}</h1>
+    <p class="pf-hero-sub">${t.sub}</p>
+    <div class="pf-hero-cta">
+      <a class="pf-btn pf-btn-primary" href="${esc(ps[0].url)}">${esc(ps[0].catalog.title)} konfigurieren</a>
+      <a class="pf-link" href="https://wa.me/491776990017" target="_blank" rel="noopener">Beratung per WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="pf-section" aria-labelledby="pf-th-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-th-h">${ps.length > 1 ? 'Alle Produkte.' : 'Das Produkt.'} <span>Mit deinem Logo, Design kostenlos.</span></h2>
+    <div class="pf-grid">
+      ${ps.map(p => productCard(p, { badge: true })).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<section class="pf-section pf-details" aria-label="Details">
+  <div class="pf-wrap pf-narrow">
+      ${table ? `<details class="pf-acc"><summary>Produkte im Vergleich</summary><div class="pf-acc-body">${table}<p class="pf-small">Alle Preise netto zzgl. MwSt. „Ab“-Preis bei der größten Menge.</p></div></details>` : ''}
+      <details class="pf-acc"><summary>Häufige Fragen</summary><div class="pf-acc-body">${faq}</div></details>
+  </div>
+</section>
+
+<section class="pf-section pf-story">
+  <div class="pf-wrap pf-narrow pf-prose">
+    ${t.seo}
+  </div>
+</section>
+
+<section class="pf-cta-band">
+  <div class="pf-wrap">
+    <h2>Bereit für deinen eigenen Look?</h2>
+    <p>Schick uns dein Logo — wir gestalten deine Verpackung kostenlos.</p>
+    <div class="pf-cta-row">
+      <a class="pf-btn pf-btn-primary" href="/#kontakt">Jetzt anfragen</a>
+      <a class="pf-btn pf-btn-wa" href="https://wa.me/491776990017" target="_blank" rel="noopener">${WA_ICON}WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+${footer()}
+
+${scripts([])}`;
+}
+
+function branchePage(b) {
+  const setP = b.set.map(s => bySlug[s]);
+  const more = products.filter(p => p.branchen.includes(b.id) && !b.set.includes(p.slug));
+  const names = setP.map(p => p.catalog.title);
+  // Lieferzeit je Produkt aus content/produkte (assure), gruppiert: "Papiertüten: ca. 5–7 Wochen … Auf Anfrage: Pizzakartons."
+  const lzText = lieferText(setP);
+  const auto = [['Welche Verpackungen brauche ich für ' + b.label + '?', 'Unser Set für ' + b.label + ': ' + list(names) + '. Alles mit deinem Logo und im selben Look.']]
+    .concat(autoFaq(setP, lzText)).map(([q, a]) => `<details class="pf-faq"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n');
+  const faq = b.faq + '\n' + auto;
+  const cats = branchen.map(o => `      <a class="pf-cat${o.id === b.id ? ' active' : ''}" href="${esc(o.url)}"${o.id === b.id ? ' aria-current="page"' : ''}><span class="pf-cat-img"><img src="${esc(small(bySlug[o.bild].image))}" alt="" width="480" height="480" loading="lazy" decoding="async"></span><b>${esc(o.label)}</b><span>${products.filter(p => p.branchen.includes(o.id)).length} Produkte</span></a>`).join('\n');
+  const crumbs = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'PackFactory', item: ORIGIN + '/' },
+    { '@type': 'ListItem', position: 2, name: plain(b.label), item: ORIGIN + b.url }] }, null, 2);
+  const wa = 'https://wa.me/491776990017?text=' + encodeURIComponent('Hallo, ich habe ' + (b.id === 'suess' ? 'eine Konditorei' : 'einen Betrieb (' + b.label + ')') + ' und interessiere mich für Verpackungen mit Logo.');
+  return top({ title: b.title, description: b.description, path: b.url, jsonld: crumbs, extraLd: [faqLd(faq)], image: ogImage(bySlug[b.bild].image), source: 'data/site.json und content/branchen/' + b.id + '.html' }) +
+`<main class="pf-site-main">
+<section class="pf-page-hero">
+  <div class="pf-wrap">
+    <p class="pf-eyebrow">${esc(b.label)}</p>
+    <h1 class="pf-hero-title">${b.h1}</h1>
+    <p class="pf-hero-sub">${b.sub}</p>
+    <div class="pf-hero-cta">
+      <button type="button" class="pf-btn pf-btn-primary" onclick="pfAddSet('${esc(b.id)}')">Set in den Warenkorb</button>
+      <a class="pf-link" href="${esc(wa)}" target="_blank" rel="noopener">Beratung per WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="pf-cats" aria-label="Branchen">
+  <div class="pf-wrap">
+    <div class="pf-cat-row">
+${cats}
+    </div>
+  </div>
+</section>
+
+<section class="pf-section" aria-labelledby="pf-set-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-set-h">Dein Set für ${esc(b.label)}. <span>Alles im selben Look.</span></h2>
+    <div class="pf-grid">
+      ${setP.map(p => productCard(p, { badge: true })).join('\n      ')}
+    </div>
+  </div>
+</section>
+${more.length ? `
+<section class="pf-section pf-related" aria-labelledby="pf-more-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-more-h">Passt auch dazu.</h2>
+    <div class="pf-grid">
+      ${more.map(p => productCard(p, { badge: true })).join('\n      ')}
+    </div>
+  </div>
+</section>
+` : ''}
+<section class="pf-section pf-details" aria-label="Details">
+  <div class="pf-wrap pf-narrow">
+      <details class="pf-acc"><summary>Häufige Fragen</summary><div class="pf-acc-body">${faq}</div></details>
+  </div>
+</section>
+
+<section class="pf-section pf-story">
+  <div class="pf-wrap pf-narrow pf-prose">
+    ${b.seo}
+  </div>
+</section>
+
+<section class="pf-cta-band">
+  <div class="pf-wrap">
+    <h2>Bereit für deinen eigenen Look?</h2>
+    <p>Schick uns dein Logo — wir gestalten deine Verpackungen kostenlos.</p>
+    <div class="pf-cta-row">
+      <a class="pf-btn pf-btn-primary" href="/#kontakt">Jetzt anfragen</a>
+      <a class="pf-btn pf-btn-wa" href="${esc(wa)}" target="_blank" rel="noopener">${WA_ICON}WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+${footer()}
+
+${scripts([])}`;
+}
+
+// Ratgeber /ratgeber/<datei>/ aus content/ratgeber/<datei>.html (title, description, h1, lead, datum, produkte, body),
+// Übersicht /ratgeber/. Neueste Artikel zuerst.
+const ratgeber = fs.readdirSync(path.join(ROOT, 'content/ratgeber')).filter(f => f.endsWith('.html')).sort()
+  .map(f => Object.assign({ id: f.replace(/\.html$/, '') }, readParts('content/ratgeber/' + f)))
+  .map(a => Object.assign(a, { url: '/ratgeber/' + a.id + '/', produkte: a.produkte.split(/\s+/).filter(Boolean) }))
+  .sort((a, b) => b.datum.localeCompare(a.datum) || a.id.localeCompare(b.id));
+const datumText = d => { const [y, m, t] = d.split('-'); return `${+t}. ${['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'][m - 1]} ${y}`; };
+
+function artikelPage(a) {
+  const prods = a.produkte.map(s => { if (!bySlug[s]) throw new Error('Unbekanntes Produkt ' + s + ' in content/ratgeber/' + a.id + '.html'); return bySlug[s]; });
+  const img = ogImage(prods[0].image);
+  const ld = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: plain(a.h1), description: plain(a.description),
+    image: [img], datePublished: a.datum, dateModified: a.datum, inLanguage: 'de-DE', mainEntityOfPage: ORIGIN + a.url,
+    author: { '@type': 'Organization', name: 'PackFactory', url: ORIGIN + '/' }, publisher: { '@id': ORIGIN + '/#organization' } }, null, 2);
+  const crumbs = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'PackFactory', item: ORIGIN + '/' },
+    { '@type': 'ListItem', position: 2, name: 'Ratgeber', item: ORIGIN + '/ratgeber/' },
+    { '@type': 'ListItem', position: 3, name: plain(a.h1), item: ORIGIN + a.url }] }, null, 2);
+  const others = ratgeber.filter(o => o.id !== a.id).slice(0, 3);
+  return top({ title: a.title, description: a.description, path: a.url, jsonld: ld, extraLd: [crumbs], image: img, source: 'content/ratgeber/' + a.id + '.html' }) +
+`<main class="pf-site-main">
+<section class="pf-page-hero">
+  <div class="pf-wrap">
+    <p class="pf-eyebrow"><a href="/ratgeber/">Ratgeber</a> · <time datetime="${esc(a.datum)}">${datumText(a.datum)}</time></p>
+    <h1 class="pf-hero-title">${a.h1}</h1>
+    <p class="pf-hero-sub">${a.lead}</p>
+  </div>
+</section>
+
+<article class="pf-section pf-story">
+  <div class="pf-wrap pf-narrow pf-prose">
+    ${a.body}
+  </div>
+</article>
+
+<section class="pf-section pf-related" aria-labelledby="pf-rel-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-rel-h">Passende Produkte. <span>Mit deinem Logo, Design kostenlos.</span></h2>
+    <div class="pf-grid">
+      ${prods.map(p => productCard(p, { badge: true })).join('\n      ')}
+    </div>
+  </div>
+</section>
+${others.length ? `
+<section class="pf-section" aria-labelledby="pf-more-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-more-h">Mehr aus dem Ratgeber.</h2>
+    <div class="pf-features pf-guides">
+      ${others.map(o => `<a class="pf-tile" href="${esc(o.url)}"><b>${o.h1}</b><span>${o.lead}</span></a>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+` : ''}
+<section class="pf-cta-band">
+  <div class="pf-wrap">
+    <h2>Fragen zu deiner Verpackung?</h2>
+    <p>Schreib uns — wir beraten dich kostenlos und gestalten dein Design.</p>
+    <div class="pf-cta-row">
+      <a class="pf-btn pf-btn-primary" href="/#kontakt">Jetzt anfragen</a>
+      <a class="pf-btn pf-btn-wa" href="https://wa.me/491776990017" target="_blank" rel="noopener">${WA_ICON}WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+${footer()}
+
+${scripts([])}`;
+}
+
+function ratgeberIndex() {
+  const ld = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Ratgeber', url: ORIGIN + '/ratgeber/', inLanguage: 'de-DE',
+    hasPart: ratgeber.map(a => ({ '@type': 'Article', headline: plain(a.h1), url: ORIGIN + a.url, datePublished: a.datum })) }, null, 2);
+  return top({ title: 'Ratgeber: Verpackungen mit Logo für die Gastronomie | PackFactory', description: 'Praktische Antworten rund um bedruckte Verpackungen: Papier, Größen, Druckverfahren und Mindestmengen für Gastronomie, Bäckerei und Imbiss.', path: '/ratgeber/', jsonld: ld, source: 'content/ratgeber/' }) +
+`<main class="pf-site-main">
+<section class="pf-page-hero">
+  <div class="pf-wrap">
+    <p class="pf-eyebrow">Ratgeber</p>
+    <h1 class="pf-hero-title">Wissen rund um deine Verpackung.</h1>
+    <p class="pf-hero-sub">Papier, Größen, Druck und Mindestmengen — kurz und verständlich erklärt.</p>
+  </div>
+</section>
+
+<section class="pf-section">
+  <div class="pf-wrap">
+    <div class="pf-features pf-guides">
+      ${ratgeber.map(a => `<a class="pf-tile" href="${esc(a.url)}"><b>${a.h1}</b><span>${a.lead}</span></a>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+</main>
+
+${footer()}
+
+${scripts([])}`;
 }
 
 // Häufige Fragen als Daten für Suchmaschinen: dieselben Fragen und Antworten wie sichtbar auf der Seite
@@ -529,15 +852,46 @@ function faqLd(faq) {
   }, null, 2);
 }
 
+// llms.txt: kurze Übersicht für KI-Assistenten (ChatGPT, Gemini, Perplexity …), nur Fakten aus den Daten
+function llms() {
+  const zeile = p => `- [${p.catalog.title}](${ORIGIN}${p.url}): Mindestmenge ${minQty(p) || 'auf Anfrage'}, Preis ${V.fromPrice(p)}${p.unit === 'kg' ? '' : ' pro Stück'} bei der größten Menge`;
+  return `# PackFactory
+
+> PackFactory (Hannover) liefert Verpackungen mit eigenem Logo für Gastronomie und Foodservice: Papiertüten, Boxen, Becher, Schalen, Einschlagpapier, Servietten und Feuchttücher. Der Designservice ist kostenlos, produziert wird erst nach Freigabe des Kunden. Preise stehen netto zzgl. MwSt. auf jeder Produktseite.
+
+Kontakt: WhatsApp und Telefon +49 177 6990017, E-Mail info@pack-factory.de, Industrieweg 1, 30419 Hannover.
+
+## Produkte
+${products.map(zeile).join('\n')}
+
+## Kategorien
+${themen.map(t => `- [${plain(t.h1)}](${ORIGIN}${t.url})`).join('\n')}
+
+## Branchen
+${branchen.map(b => `- [${b.label}](${ORIGIN}${b.url})`).join('\n')}
+
+## Ratgeber
+${ratgeber.map(a => `- [${plain(a.h1)}](${ORIGIN}${a.url})`).join('\n')}
+
+## Mehr
+- [Designservice](${ORIGIN}/designservice/)
+- [Über uns](${ORIGIN}/ueber-uns/)
+- [Impressum](${ORIGIN}/impressum/)
+`;
+}
+
 // Sitemap: alle Seiten, neue Produkte kommen automatisch dazu. Ohne lastmod, weil ein
 // von Hand gepflegtes Datum schnell veraltet und Google es dann ignoriert.
 function sitemap() {
-  const paths = ['/', '/ueber-uns/', '/designservice/'].concat(products.map(p => p.url), ['/impressum/', '/datenschutz/']);
+  const paths = ['/', '/ueber-uns/', '/designservice/'].concat(products.map(p => p.url), branchen.map(b => b.url), themen.map(t => t.url), ['/ratgeber/'], ratgeber.map(a => a.url), ['/impressum/', '/datenschutz/']);
   return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     paths.map(u => `  <url><loc>${ORIGIN}${u}</loc></url>`).join('\n') + '\n</urlset>\n';
 }
 
-const pages = [['assets/pf-katalog.js', katalog], ['sitemap.xml', sitemap]].concat(products.map(p => [path.join('produkte', p.slug, 'index.html'), () => page(p)]))
+const pages = [['assets/pf-katalog.js', katalog], ['sitemap.xml', sitemap], ['llms.txt', llms]].concat(products.map(p => [path.join('produkte', p.slug, 'index.html'), () => page(p)]))
+  .concat(branchen.map(b => [path.join('branchen', b.slug, 'index.html'), () => branchePage(b)]))
+  .concat(themen.map(t => [path.join(t.id, 'index.html'), () => themaPage(t)]))
+  .concat([['ratgeber/index.html', ratgeberIndex]], ratgeber.map(a => [path.join('ratgeber', a.id, 'index.html'), () => artikelPage(a)]))
   .concat([['index.html', 'start'], ['ueber-uns/index.html', 'ueber-uns'], ['designservice/index.html', 'designservice'],
     ['impressum/index.html', 'impressum'], ['datenschutz/index.html', 'datenschutz']].map(([f, n]) => [f, () => sitePage(n)]));
 
@@ -554,4 +908,4 @@ if (CHECK && stale.length) {
   console.error('Nicht aktuell, bitte `node tools/build_site.js` ausführen:\n  ' + stale.join('\n  '));
   process.exit(1);
 }
-if (CHECK) console.log(`OK: ${pages.length - 2} Seiten, Sitemap und Warenkorb-Katalog aktuell.`);
+if (CHECK) console.log(`OK: ${pages.length - 3} Seiten, Sitemap, llms.txt und Warenkorb-Katalog aktuell.`);
