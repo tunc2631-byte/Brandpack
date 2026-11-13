@@ -28,6 +28,49 @@ const CHECK_ICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" 
 
 const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site.json'), 'utf8'));
 const year = 2026;
+const ORIGIN = 'https://pack-factory.de';
+
+// Vorschaubild für WhatsApp, Facebook usw.: /Bilder/og/<name>-1200.jpg (1200 × 630, weißer Grund),
+// erzeugt von tools/build_images.py aus demselben Original wie /Bilder/web/<name>-960.webp
+const ogImage = img => ORIGIN + img.replace(/^\/Bilder\/web\/([a-z0-9-]+)-960\.webp$/, '/Bilder/og/$1-1200.jpg');
+const DEFAULT_OG = ogImage(products.find(p => p.slug === 'tueten').image);
+
+// "ab 12,00 ct" → "ab 12 ct" (für Titel)
+const shortPrice = p => V.fromPrice(p).replace(',00 ', ' ');
+
+// Texte aus den Inhaltsdateien (mit HTML-Zeichen wie &uuml;) als reiner Text für JSON-LD
+const ENT = { amp: '&', quot: '"', lt: '<', gt: '>', nbsp: ' ', auml: 'ä', ouml: 'ö', uuml: 'ü', Auml: 'Ä', Ouml: 'Ö', Uuml: 'Ü', szlig: 'ß', ndash: '–', mdash: '—', times: '×', shy: '', eacute: 'é', sup2: '²', sup3: '³', euro: '€', bdquo: '„', ldquo: '“', rdquo: '”', middot: '·' };
+const plain = s => String(s).replace(/<[^>]*>/g, '').replace(/&#(\d+);/g, (m, n) => String.fromCodePoint(+n)).replace(/&(\w+);/g, (m, k) => {
+  if (!(k in ENT)) throw new Error('Unbekanntes HTML-Zeichen ' + m);
+  return ENT[k];
+}).replace(/\s+/g, ' ').trim();
+
+// Produktdaten für Google: "ab"-Preis netto aus data/products.json, gültig ab der Menge, für die er gilt.
+// Keine Bewertungen und keine Verfügbarkeit, solange es dafür keine echten Angaben gibt.
+function productLd(p, c) {
+  const q = PF.lowest(p).quote;
+  const price = Number((q.unitFraction[0] / q.unitFraction[1]).toFixed(4));
+  const unitCode = q.per === 'kg' ? 'KGM' : 'H87';
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: plain(c.name).replace(/( mit Logo.*)?$/, ' mit Logo'),
+    description: plain(c.description),
+    image: [ORIGIN + p.image],
+    url: ORIGIN + p.url,
+    category: p.catalog.title,
+    offers: {
+      '@type': 'Offer',
+      url: ORIGIN + p.url,
+      priceCurrency: 'EUR',
+      price,
+      priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: 'EUR', valueAddedTaxIncluded: false,
+        referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode } },
+      eligibleQuantity: { '@type': 'QuantitativeValue', minValue: q.qty, unitCode },
+      seller: { '@id': ORIGIN + '/#organization' },
+    },
+  }, null, 2);
+}
 
 // Kopf der Seite mit Navigation
 function top(o) {
@@ -37,16 +80,26 @@ function top(o) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${o.title}</title>
-  <link rel="canonical" href="https://pack-factory.de${o.path}">
+  <link rel="canonical" href="${ORIGIN}${o.path}">
   <meta name="description" content="${o.description}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PackFactory">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:url" content="${ORIGIN}${o.path}">
+  <meta property="og:title" content="${o.title.replace(/ \| PackFactory$/, '')}">
+  <meta property="og:description" content="${o.description}">
+  <meta property="og:image" content="${o.image || DEFAULT_OG}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="/Bilder/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="${asset('/assets/pf.css')}">${o.jsonld ? `
+  <link rel="stylesheet" href="${asset('/assets/pf.css')}">${[o.jsonld].concat(o.extraLd || []).filter(Boolean).map(ld => `
   <script type="application/ld+json">
-${o.jsonld}
-  </script>` : ''}
+${ld}
+  </script>`).join('')}
 </head>
 <body class="pf-page">
 <!-- Erzeugt von tools/build_site.js aus ${o.source}. Nicht von Hand ändern. -->
@@ -183,7 +236,7 @@ ${designPick(designsOf(bySlug[x.slug]), 'web', '(max-width: 860px) 76vw, 480px')
   const hero = `<section class="pf-hero pf-shop-hero" aria-label="Bestseller">
   <div class="pf-wrap pf-shop-in">
     <div class="pf-shop-copy">
-      <h1 class="pf-shop-claim">Deine Marke. Auf jeder Verpackung.</h1>
+      <h1 class="pf-shop-claim">Verpackungen mit Logo für die Gastronomie<span>Deine Marke. Auf jeder Verpackung.</span></h1>
       <div class="pf-shop-tabs" role="tablist" aria-label="Bestseller wählen">
 ${h.produkte.map(tab).join('\n')}
       </div>
@@ -345,7 +398,8 @@ function page(p) {
     c.guide ? `<details class="pf-acc"><summary>Auswahlhilfe</summary><div class="pf-acc-body pf-prose">${c.guide}</div></details>` : '',
   ].filter(Boolean).join('\n      ');
 
-  return `${top({ title: c.title, description: c.description, path: p.url, jsonld: c.jsonld, source: 'data/products.json und content/produkte/' + p.slug + '.html' })}
+  const title = c.title.replace('{{ab}}', esc(shortPrice(p)));
+  return `${top({ title, description: c.description, path: p.url, jsonld: c.jsonld, extraLd: [productLd(p, c)], image: ogImage(p.image), source: 'data/products.json und content/produkte/' + p.slug + '.html' })}
 <main>
 <section class="pf-buy" aria-label="Produkt konfigurieren">
   <div class="pf-gallery">
@@ -356,7 +410,7 @@ ${designsOf(p) ? designPick(designsOf(p), 'web', '(max-width: 980px) 90vw, 560px
 
   <div class="pf-panel config-panel">
     <nav class="pf-crumbs" aria-label="Brotkrumen"><a href="/">PackFactory</a><span aria-hidden="true">›</span><a href="/#produkte">Produkte</a><span aria-hidden="true">›</span><span>${esc(p.catalog.title)}</span></nav>
-    <h1 class="pf-title">${c.name}</h1>
+    <h1 class="pf-title">${/logo/i.test(c.name) ? c.name : c.name + ' mit Logo'}</h1>
     ${c.subtitle ? `<p class="pf-sub">${c.subtitle}</p>` : ''}
     <p class="pf-from">${esc(V.fromPrice(p))}${p.unit === 'kg' ? '' : ' pro Stück'} · mit deinem Logo</p>
 ${(p.notes || []).map(n => `    <p class="pf-note pf-note-top">${esc(n)}</p>`).join('\n')}${optionGroups(p, sel, null)}
@@ -464,7 +518,15 @@ function katalog() {
     'window.PF_KATALOG = ' + JSON.stringify({ produkte, sets }) + ';\n';
 }
 
-const pages = [['assets/pf-katalog.js', katalog]].concat(products.map(p => [path.join('produkte', p.slug, 'index.html'), () => page(p)]))
+// Sitemap: alle Seiten, neue Produkte kommen automatisch dazu. Ohne lastmod, weil ein
+// von Hand gepflegtes Datum schnell veraltet und Google es dann ignoriert.
+function sitemap() {
+  const paths = ['/', '/ueber-uns/', '/designservice/'].concat(products.map(p => p.url), ['/impressum/', '/datenschutz/']);
+  return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    paths.map(u => `  <url><loc>${ORIGIN}${u}</loc></url>`).join('\n') + '\n</urlset>\n';
+}
+
+const pages = [['assets/pf-katalog.js', katalog], ['sitemap.xml', sitemap]].concat(products.map(p => [path.join('produkte', p.slug, 'index.html'), () => page(p)]))
   .concat([['index.html', 'start'], ['ueber-uns/index.html', 'ueber-uns'], ['designservice/index.html', 'designservice'],
     ['impressum/index.html', 'impressum'], ['datenschutz/index.html', 'datenschutz']].map(([f, n]) => [f, () => sitePage(n)]));
 
@@ -481,4 +543,4 @@ if (CHECK && stale.length) {
   console.error('Nicht aktuell, bitte `node tools/build_site.js` ausführen:\n  ' + stale.join('\n  '));
   process.exit(1);
 }
-if (CHECK) console.log(`OK: ${pages.length - 1} Seiten und Warenkorb-Katalog aktuell.`);
+if (CHECK) console.log(`OK: ${pages.length - 2} Seiten, Sitemap und Warenkorb-Katalog aktuell.`);
