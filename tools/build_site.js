@@ -399,7 +399,7 @@ function page(p) {
   ].filter(Boolean).join('\n      ');
 
   const title = c.title.replace('{{ab}}', esc(shortPrice(p)));
-  return `${top({ title, description: c.description, path: p.url, jsonld: c.jsonld, extraLd: [productLd(p, c)], image: ogImage(p.image), source: 'data/products.json und content/produkte/' + p.slug + '.html' })}
+  return `${top({ title, description: c.description, path: p.url, jsonld: c.jsonld, extraLd: [productLd(p, c), faqLd(c.faq)], image: ogImage(p.image), source: 'data/products.json und content/produkte/' + p.slug + '.html' })}
 <main>
 <section class="pf-buy" aria-label="Produkt konfigurieren">
   <div class="pf-gallery">
@@ -516,6 +516,17 @@ function katalog() {
   const sets = site.branchen.map(b => ({ id: b.id, label: b.label, items: b.set }));
   return '/* Erzeugt von tools/build_site.js aus data/products.json und data/site.json. Nicht von Hand ändern. */\n' +
     'window.PF_KATALOG = ' + JSON.stringify({ produkte, sets }) + ';\n';
+}
+
+// Häufige Fragen als Daten für Suchmaschinen: dieselben Fragen und Antworten wie sichtbar auf der Seite
+function faqLd(faq) {
+  const items = [...(faq || '').matchAll(/<details class="pf-faq"><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)];
+  if (!items.length) return null;
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map(m => ({ '@type': 'Question', name: plain(m[1]), acceptedAnswer: { '@type': 'Answer', text: plain(m[2]) } })),
+  }, null, 2);
 }
 
 // Sitemap: alle Seiten, neue Produkte kommen automatisch dazu. Ohne lastmod, weil ein
