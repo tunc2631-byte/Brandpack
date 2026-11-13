@@ -358,6 +358,15 @@ p { margin: 0; }
 .pf-tile b { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
 .pf-tile span { font-size: 15px; line-height: 1.55; color: var(--muted); }
 .pf-tile-a { background: var(--ink); color: #fff; }
+/* Ratgeber-Kacheln: ganze Kachel ist ein Link */
+.pf-guides .pf-tile { color: var(--ink); text-decoration: none; justify-content: flex-start; transition: transform .3s var(--spring); }
+.pf-guides .pf-tile b { font-size: clamp(20px, 2vw, 24px); }
+.pf-guides .pf-tile:hover { transform: translateY(-3px); }
+.pf-guides .pf-tile:active { transform: scale(.98); }
+.pf-guides .pf-tile:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 4px; }
+article.pf-story .pf-prose h2:not(:first-child) { margin-top: var(--s7); }
+.pf-page-hero .pf-eyebrow a { color: inherit; text-decoration: none; }
+.pf-page-hero .pf-eyebrow a:hover { text-decoration: underline; }
 .pf-tile-a span { color: rgba(255, 255, 255, .7); }
 .pf-tile-b { background: var(--pink); color: #fff; }
 .pf-tile-b span { color: rgba(255, 255, 255, .92); }

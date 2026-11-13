@@ -9,11 +9,13 @@ from seo import audit, parse_page, shift_months, ROOT
 PRODUCTS = len(json.loads((Path(__file__).resolve().parents[2] / 'data/products.json').read_text(encoding='utf-8')))
 # Branchenseiten aus data/site.json
 BRANCHEN = len(json.loads((Path(__file__).resolve().parents[2] / 'data/site.json').read_text(encoding='utf-8'))['branchen'])
+# Ratgeber: Übersicht plus ein Artikel je Datei in content/ratgeber
+RATGEBER = 1 + len(list((Path(__file__).resolve().parents[2] / 'content/ratgeber').glob('*.html')))
 
 class SeoTests(unittest.TestCase):
     def test_regressions(self):
         report = audit()
-        self.assertEqual(len(report['pages']),PRODUCTS+BRANCHEN+5)
+        self.assertEqual(len(report['pages']),PRODUCTS+BRANCHEN+RATGEBER+5)
         self.assertEqual(report['site_checks']['errors'],[])
         self.assertEqual([(p['url'],p['errors']) for p in report['pages'] if p['errors']],[])
 
