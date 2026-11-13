@@ -5,6 +5,7 @@ Jede Seite verweist auf Bilder der Form
     /Bilder/logos/<name>-<breite>.webp    (Kundenlogos, Transparenz bleibt)
     /Bilder/frei/<name>-<breite>.webp     (freigestellt: weißer Hintergrund wird durchsichtig,
                                            für Bilder auf farbigem Grund, z. B. im Startbereich)
+    /Bilder/og/<name>-1200.jpg            (Vorschaubild für WhatsApp & Co.: 1200 × 630, weißer Grund)
 Das Skript sucht dazu das Original <name>.(jpeg|jpg|png|webp) in Bilder/ oder
 im Projektordner (Groß-/Kleinschreibung und Leerzeichen egal) und schreibt die
 fehlenden oder veralteten Dateien.
@@ -17,9 +18,10 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-REF = re.compile(r'/Bilder/(web|logos|frei)/([a-z0-9-]+)-(\d+)\.webp')
+REF = re.compile(r'/Bilder/(web|logos|frei)/([a-z0-9-]+)-(\d+)\.webp|/Bilder/(og)/([a-z0-9-]+)-(1200)\.jpg')
 SOURCE_DIRS = [ROOT / 'Bilder', ROOT]
-QUALITY = {'web': 82, 'logos': 86, 'frei': 84}
+QUALITY = {'web': 82, 'logos': 86, 'frei': 84, 'og': 84}
+EXT = {'og': 'jpg'}
 
 
 def slug(name):
@@ -42,7 +44,7 @@ def references():
     for f in files:
         if f.resolve() == Path(__file__).resolve():
             continue
-        refs.update(REF.findall(f.read_text(encoding='utf-8', errors='ignore')))
+        refs.update(tuple(x for x in m if x) for m in REF.findall(f.read_text(encoding='utf-8', errors='ignore')))
     return sorted(refs)
 
 
@@ -64,6 +66,15 @@ def white_to_alpha(im):
 def render(src, kind, width, out):
     from PIL import Image  # nur zum Erzeugen nötig, nicht für --check
     im = Image.open(src)
+    if kind == 'og':
+        # Produkt mittig auf Weiß, mit Rand, damit WhatsApp beim Zuschneiden nichts abschneidet
+        im = im.convert('RGB')
+        im.thumbnail((560, 560), Image.LANCZOS)
+        canvas = Image.new('RGB', (1200, 630), (255, 255, 255))
+        canvas.paste(im, ((1200 - im.width) // 2, (630 - im.height) // 2))
+        out.parent.mkdir(parents=True, exist_ok=True)
+        canvas.save(out, 'JPEG', quality=QUALITY[kind], optimize=True, progressive=True)
+        return
     if kind == 'frei':
         im = white_to_alpha(im)
         if im.width > width:
@@ -83,7 +94,7 @@ def main(check=False):
     src_map = sources()
     problems, written = [], []
     for kind, name, width in references():
-        out = ROOT / 'Bilder' / kind / f'{name}-{width}.webp'
+        out = ROOT / 'Bilder' / kind / f'{name}-{width}.{EXT.get(kind, "webp")}'
         src = src_map.get(name)
         if src is None:
             problems.append(f'Kein Original für {out.relative_to(ROOT)} gefunden')

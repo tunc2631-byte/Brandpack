@@ -7,11 +7,33 @@ Verpackungen individuell mit deinem Logo bedrucken lassen &mdash; T&uuml;ten, Bo
 <!-- part:jsonld -->
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://pack-factory.de/#organization",
-  "name": "PackFactory",
-  "url": "https://pack-factory.de/",
-  "logo": "https://pack-factory.de/Bilder/neues%20logo.png"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pack-factory.de/#organization",
+      "name": "PackFactory",
+      "url": "https://pack-factory.de/",
+      "logo": "https://pack-factory.de/Bilder/neues%20logo.png",
+      "description": "Individuell bedruckte Verpackungen für Gastronomie und Foodservice: Papiertüten, Boxen, Becher, Schalen und Zubehör mit eigenem Logo.",
+      "email": "info@pack-factory.de",
+      "telephone": "+49 177 6990017",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Industrieweg 1",
+        "postalCode": "30419",
+        "addressLocality": "Hannover",
+        "addressCountry": "DE"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pack-factory.de/#website",
+      "name": "PackFactory",
+      "url": "https://pack-factory.de/",
+      "inLanguage": "de-DE",
+      "publisher": { "@id": "https://pack-factory.de/#organization" }
+    }
+  ]
 }
 <!-- part:scripts -->
 /assets/pf-home.js

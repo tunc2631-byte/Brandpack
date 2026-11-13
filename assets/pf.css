@@ -263,6 +263,7 @@ p { margin: 0; }
 .pf-shop-hero { background: var(--paper); text-align: left; padding-bottom: var(--s6); }
 .pf-shop-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: var(--s6); }
 .pf-shop-claim { font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--muted); margin-bottom: var(--s5); }
+.pf-shop-claim span { display: block; font-weight: 500; }
 /* Reiter im Einstieg (wie die Umschalter bei Apple) */
 .pf-shop-tabs { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: var(--s4); background: var(--mist); border-radius: 100px; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
 .pf-shop-tabs::-webkit-scrollbar { display: none; }
@@ -612,6 +613,7 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
   /* Startbereich */
   .pf-site-main > .pf-hero:first-child { padding-top: calc(var(--nav-h) + 28px); }
   .pf-shop-claim { font-size: 13px; margin-bottom: var(--s3); }
+  .pf-shop-claim span { display: none; }
   .pf-shop-kicker { font-size: 12px; }
   .pf-shop-name { font-size: 46px; }
   .pf-shop-tag { display: none; } /* Handy: kompakter Einstieg ohne Satz unter dem Namen */
