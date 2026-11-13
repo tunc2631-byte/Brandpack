@@ -75,7 +75,7 @@ function productLd(p, c) {
 // Kopf der Seite mit Navigation
 function top(o) {
   return `<!DOCTYPE html>
-<html lang="de">
+<html lang="${o.lang || 'de'}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,7 +84,7 @@ function top(o) {
   <meta name="description" content="${o.description}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PackFactory">
-  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale" content="${o.lang === 'tr' ? 'tr_TR' : 'de_DE'}">${altLinks(o.path)}
   <meta property="og:url" content="${ORIGIN}${o.path}">
   <meta property="og:title" content="${o.title.replace(/ \| PackFactory$/, '')}">
   <meta property="og:description" content="${o.description}">
@@ -172,6 +172,7 @@ function footer() {
       ${link('/designservice/#druckdateien', 'Druckdateien')}
       ${link('/muster/', 'Kostenlose Muster')}
       ${link('/ratgeber/', 'Ratgeber')}
+      ${link('/tr/', 'Türkçe')}
       ${link('/#kontakt', 'Kontakt')}
     </ul></nav>
     <nav aria-label="Rechtliches"><h2>Rechtliches</h2><ul>
@@ -852,6 +853,77 @@ ${footer()}
 ${scripts([])}`;
 }
 
+// Türkische Seiten /tr/… aus content/tr/<name>.html (url, de = deutsche Gegenstück-Seite, title, description, h1, sub,
+// produkte, faq, seo). Gegenseitige hreflang-Verweise (de ↔ tr) setzt altLinks().
+const trSeiten = fs.readdirSync(path.join(ROOT, 'content/tr')).filter(f => f.endsWith('.html')).sort()
+  .map(f => Object.assign({ id: f.replace(/\.html$/, '') }, readParts('content/tr/' + f)))
+  .map(t => Object.assign(t, { produkte: t.produkte.split(/\s+/).filter(Boolean) }));
+function altLinks(p) {
+  const t = trSeiten.find(x => x.url === p || x.de === p);
+  if (!t) return '';
+  return `\n  <link rel="alternate" hreflang="de" href="${ORIGIN}${t.de}">\n  <link rel="alternate" hreflang="tr" href="${ORIGIN}${t.url}">\n  <link rel="alternate" hreflang="x-default" href="${ORIGIN}${t.de}">`;
+}
+function trPage(t) {
+  const ps = t.produkte.map(s => { if (!bySlug[s]) throw new Error('Unbekanntes Produkt ' + s + ' in content/tr/' + t.id + '.html'); return bySlug[s]; });
+  const crumbs = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'PackFactory', item: ORIGIN + '/tr/' }].concat(t.url === '/tr/' ? [] : [
+    { '@type': 'ListItem', position: 2, name: plain(t.h1), item: ORIGIN + t.url }]) }, null, 2);
+  const others = trSeiten.filter(o => o.url !== t.url);
+  const wa = 'https://wa.me/491776990017?text=' + encodeURIComponent('Merhaba, logolu ambalaj hakkında bilgi almak istiyorum.');
+  return top({ lang: 'tr', title: t.title, description: t.description, path: t.url, jsonld: crumbs, extraLd: [faqLd(t.faq)], image: ogImage(ps[0].image), source: 'content/tr/' + t.id + '.html' }) +
+`<main class="pf-site-main" lang="tr">
+<section class="pf-page-hero">
+  <div class="pf-wrap">
+    <p class="pf-eyebrow">Türkçe · <a href="${esc(t.de)}" hreflang="de" lang="de">Deutsch</a></p>
+    <h1 class="pf-hero-title">${t.h1}</h1>
+    <p class="pf-hero-sub">${t.sub}</p>
+    <div class="pf-hero-cta">
+      <a class="pf-btn pf-btn-wa" href="${esc(wa)}" target="_blank" rel="noopener">${WA_ICON}WhatsApp ile yazın</a>
+      <a class="pf-link" href="/muster/">Ücretsiz numune</a>
+    </div>
+  </div>
+</section>
+
+<section class="pf-section" aria-labelledby="pf-tr-h">
+  <div class="pf-wrap">
+    <h2 class="pf-h2" id="pf-tr-h">Ürünler. <span>Logonuzla, tasarım ücretsiz.</span></h2>
+    <div class="pf-grid">
+      ${ps.map(p => productCard(p, { badge: false })).join('\n      ')}
+    </div>
+    <p class="pf-small">Fiyatlar net, KDV hariç. Ürün sayfaları Almancadır.</p>
+  </div>
+</section>
+
+<section class="pf-section pf-details" aria-label="Sık sorulan sorular">
+  <div class="pf-wrap pf-narrow">
+      <details class="pf-acc"><summary>Sık sorulan sorular</summary><div class="pf-acc-body">${t.faq}</div></details>
+  </div>
+</section>
+
+<section class="pf-section pf-story">
+  <div class="pf-wrap pf-narrow pf-prose">
+    ${t.seo}
+    ${others.length ? `<h3>Diğer sayfalar</h3>\n    <p>${others.map(o => `<a href="${esc(o.url)}">${plain(o.h1)}</a>`).join(' · ')}</p>` : ''}
+  </div>
+</section>
+
+<section class="pf-cta-band">
+  <div class="pf-wrap">
+    <h2>Logonuzu gönderin.</h2>
+    <p>Tasarımı ücretsiz hazırlıyoruz. Üretim onayınızdan sonra başlar.</p>
+    <div class="pf-cta-row">
+      <a class="pf-btn pf-btn-wa" href="${esc(wa)}" target="_blank" rel="noopener">${WA_ICON}WhatsApp</a>
+      <a class="pf-btn pf-btn-primary" href="/#kontakt">İletişim formu</a>
+    </div>
+  </div>
+</section>
+</main>
+
+${footer()}
+
+${scripts([])}`;
+}
+
 // Häufige Fragen als Daten für Suchmaschinen: dieselben Fragen und Antworten wie sichtbar auf der Seite
 function faqLd(faq) {
   const items = [...(faq || '').matchAll(/<details class="pf-faq"><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)];
@@ -884,6 +956,9 @@ ${branchen.map(b => `- [${b.label}](${ORIGIN}${b.url})`).join('\n')}
 ## Ratgeber
 ${ratgeber.map(a => `- [${plain(a.h1)}](${ORIGIN}${a.url})`).join('\n')}
 
+## Türkçe
+${trSeiten.map(t => `- [${plain(t.h1)}](${ORIGIN}${t.url})`).join('\n')}
+
 ## Mehr
 - [Designservice](${ORIGIN}/designservice/)
 - [Kostenlose Muster anfordern](${ORIGIN}/muster/)
@@ -895,7 +970,7 @@ ${ratgeber.map(a => `- [${plain(a.h1)}](${ORIGIN}${a.url})`).join('\n')}
 // Sitemap: alle Seiten, neue Produkte kommen automatisch dazu. Ohne lastmod, weil ein
 // von Hand gepflegtes Datum schnell veraltet und Google es dann ignoriert.
 function sitemap() {
-  const paths = ['/', '/ueber-uns/', '/designservice/', '/muster/'].concat(products.map(p => p.url), branchen.map(b => b.url), themen.map(t => t.url), ['/ratgeber/'], ratgeber.map(a => a.url), ['/impressum/', '/datenschutz/']);
+  const paths = ['/', '/ueber-uns/', '/designservice/', '/muster/'].concat(products.map(p => p.url), branchen.map(b => b.url), themen.map(t => t.url), ['/ratgeber/'], ratgeber.map(a => a.url), trSeiten.map(t => t.url), ['/impressum/', '/datenschutz/']);
   return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     paths.map(u => `  <url><loc>${ORIGIN}${u}</loc></url>`).join('\n') + '\n</urlset>\n';
 }
@@ -903,6 +978,7 @@ function sitemap() {
 const pages = [['assets/pf-katalog.js', katalog], ['sitemap.xml', sitemap], ['llms.txt', llms]].concat(products.map(p => [path.join('produkte', p.slug, 'index.html'), () => page(p)]))
   .concat(branchen.map(b => [path.join('branchen', b.slug, 'index.html'), () => branchePage(b)]))
   .concat(themen.map(t => [path.join(t.id, 'index.html'), () => themaPage(t)]))
+  .concat(trSeiten.map(t => [path.join(t.url.replace(/^\/|\/$/g, ''), 'index.html'), () => trPage(t)]))
   .concat([['ratgeber/index.html', ratgeberIndex]], ratgeber.map(a => [path.join('ratgeber', a.id, 'index.html'), () => artikelPage(a)]))
   .concat([['index.html', 'start'], ['ueber-uns/index.html', 'ueber-uns'], ['designservice/index.html', 'designservice'], ['muster/index.html', 'muster'],
     ['impressum/index.html', 'impressum'], ['datenschutz/index.html', 'datenschutz']].map(([f, n]) => [f, () => sitePage(n)]));
