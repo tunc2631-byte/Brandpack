@@ -397,6 +397,12 @@ article.pf-story .pf-prose h2:not(:first-child) { margin-top: var(--s7); }
 .pf-chip:hover { background: #ebebf0; }
 .pf-chip:active { transform: scale(.96); }
 .pf-chip.active { background: var(--ink); color: #fff; }
+.pf-branch-links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); margin-top: var(--s5); }
+.pf-branch-links > span { font-size: 15px; color: var(--muted); margin-right: var(--s1); }
+.pf-branch-links .pf-chip { background: #fff; text-decoration: none; font-size: 14px; padding: 8px 14px; }
+@media (max-width: 600px) { .pf-branch-links { gap: 6px; } .pf-branch-links > span { width: 100%; font-size: 14px; } .pf-branch-links .pf-chip { font-size: 13px; padding: 7px 12px; } }
+.pf-branch-links .pf-chip:hover { background: #fff; transform: translateY(-2px); }
+.pf-branch-links .pf-chip:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 2px; }
 .pf-filter-state { font-size: 15px; color: var(--muted); margin-bottom: var(--s4); display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
 .pf-filter-state .pf-set-btn { margin-left: auto; }
 @media (max-width: 600px) { .pf-filter-state .pf-set-btn { margin-left: 0; width: 100%; } }

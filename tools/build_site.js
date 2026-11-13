@@ -388,6 +388,13 @@ function optionGroups(p, sel, custom) {
   }).join('');
 }
 
+// "Passend für": Links zu den Branchenseiten des Produkts (data/products.json → branchen)
+function branchLinks(p) {
+  const bs = branchen.filter(b => p.branchen.includes(b.id));
+  if (!bs.length) return '';
+  return `<nav class="pf-branch-links" aria-label="Passende Branchen"><span>Passend für</span>${bs.map(b => `<a class="pf-chip" href="${esc(b.url)}">${esc(b.label)}</a>`).join('')}</nav>`;
+}
+
 // Brotkrumen: Kategorie mit eigener Seite (data/site.json → categories[].seite), sonst "Produkte"
 function crumbCat(p) {
   const c = site.categories.find(c => c.seite && p.catalog.tags.includes(c.id));
@@ -453,6 +460,7 @@ ${c.assure.split('\n').map(l => '      ' + l.replace('<li>', `<li>${CHECK_ICON}<
     <div class="pf-rail">
       ${related}
     </div>
+    ${branchLinks(p)}
   </div>
 </section>
 ${c.service ? `
