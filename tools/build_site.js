@@ -115,6 +115,8 @@ ${ld}
         <a href="/">Home</a>
         <a href="/#produkte">Produkte</a>
         <a href="/designservice/">Designservice</a>
+        <a href="/muster/">Muster</a>
+        <a href="/ratgeber/">Ratgeber</a>
         <a href="/ueber-uns/">&Uuml;ber uns</a>
         <a href="/#kontakt">Kontakt</a>
       </div>
@@ -129,6 +131,8 @@ ${ld}
   <a href="/" onclick="closeMenu()">Home</a>
   <a href="/#produkte" onclick="closeMenu()">Produkte</a>
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
+  <a href="/muster/" onclick="closeMenu()">Kostenlose Muster</a>
+  <a href="/ratgeber/" onclick="closeMenu()">Ratgeber</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
   <p class="mm-title">Beliebt</p>
@@ -212,7 +216,7 @@ function productCard(p, opts) {
   const o = opts || {};
   const badge = o.badge && p.badge ? `<i class="pf-badge${p.badge === 'Neu' ? ' pf-badge-new' : ''}">${esc(p.badge)}</i>` : '';
   const attrs = o.filter ? ` data-cat="${esc(p.catalog.tags.join(' '))}" data-branchen="${esc(p.branchen.join(' '))}"` : '';
-  return `<a class="${o.cls || 'pf-card'}" href="${esc(p.url)}"${attrs}><span class="pf-card-img"><img src="${esc(small(p.image))}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 700px) 46vw, 280px" alt="${esc(p.catalog.title)}" loading="lazy" decoding="async" width="480" height="480"></span>${badge}<b>${esc(p.catalog.title)}</b><span class="pf-price">${esc(V.fromPrice(p))}</span></a>`;
+  return `<a class="${o.cls || 'pf-card'}" href="${esc(p.url)}"${attrs}><span class="pf-card-img"><img src="${esc(small(p.image))}" srcset="${esc(small(p.image))} 480w, ${esc(p.image)} 960w" sizes="(max-width: 700px) 46vw, (min-width: 1600px) 360px, 280px" alt="${esc(p.catalog.title)}" loading="lazy" decoding="async" width="480" height="480"></span>${badge}<b>${esc(p.catalog.title)}</b><span class="pf-price">${esc(V.fromPrice(p))}</span></a>`;
 }
 
 
@@ -267,6 +271,7 @@ ${h.produkte.map(stage).join('\n')}
       site.categories.map(c => `      <button type="button" class="pf-chip" data-cat="${esc(c.id)}" aria-pressed="false">${esc(c.label)}</button>`).join('\n'),
     catalog: '      <!-- catalog:start -->\n' + products.map(p => '      ' + productCard(p, { cls: 'pf-card pf-pcard', badge: true, filter: true })).join('\n') + '\n      <!-- catalog:end -->',
     produktoptionen: products.map(p => `        <option>${esc(p.catalog.title)}</option>`).join('\n'),
+    ratgeber: ratgeber.slice(0, 3).map(a => `      <a class="pf-tile" href="${esc(a.url)}"><b>${a.h1}</b><span>${a.lead}</span></a>`).join('\n'),
   };
 }
 
