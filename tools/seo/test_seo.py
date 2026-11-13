@@ -5,7 +5,7 @@ import json
 from bs4 import BeautifulSoup
 from seo import audit, parse_page, shift_months, ROOT
 
-# Anzahl folgt aus data/products.json: je Produkt eine Seite und eine Katalogkarte, dazu 5 weitere Seiten
+# Anzahl folgt aus data/products.json: je Produkt eine Seite und eine Katalogkarte, dazu 6 weitere Seiten (Start, Über uns, Designservice, Muster, Impressum, Datenschutz)
 PRODUCTS = len(json.loads((Path(__file__).resolve().parents[2] / 'data/products.json').read_text(encoding='utf-8')))
 # Branchenseiten aus data/site.json
 BRANCHEN = len(json.loads((Path(__file__).resolve().parents[2] / 'data/site.json').read_text(encoding='utf-8'))['branchen'])
@@ -17,7 +17,7 @@ THEMEN = len(list((Path(__file__).resolve().parents[2] / 'content/themen').glob(
 class SeoTests(unittest.TestCase):
     def test_regressions(self):
         report = audit()
-        self.assertEqual(len(report['pages']),PRODUCTS+BRANCHEN+RATGEBER+THEMEN+5)
+        self.assertEqual(len(report['pages']),PRODUCTS+BRANCHEN+RATGEBER+THEMEN+6)
         self.assertEqual(report['site_checks']['errors'],[])
         self.assertEqual([(p['url'],p['errors']) for p in report['pages'] if p['errors']],[])
 

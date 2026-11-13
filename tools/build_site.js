@@ -161,6 +161,7 @@ function footer() {
       ${link('/ueber-uns/', '&Uuml;ber uns')}
       ${link('/designservice/', 'Designservice')}
       ${link('/designservice/#druckdateien', 'Druckdateien')}
+      ${link('/muster/', 'Muster anfordern')}
       ${link('/ratgeber/', 'Ratgeber')}
       ${link('/#kontakt', 'Kontakt')}
     </ul></nav>
@@ -875,6 +876,7 @@ ${ratgeber.map(a => `- [${plain(a.h1)}](${ORIGIN}${a.url})`).join('\n')}
 
 ## Mehr
 - [Designservice](${ORIGIN}/designservice/)
+- [Muster anfordern](${ORIGIN}/muster/)
 - [Über uns](${ORIGIN}/ueber-uns/)
 - [Impressum](${ORIGIN}/impressum/)
 `;
@@ -883,7 +885,7 @@ ${ratgeber.map(a => `- [${plain(a.h1)}](${ORIGIN}${a.url})`).join('\n')}
 // Sitemap: alle Seiten, neue Produkte kommen automatisch dazu. Ohne lastmod, weil ein
 // von Hand gepflegtes Datum schnell veraltet und Google es dann ignoriert.
 function sitemap() {
-  const paths = ['/', '/ueber-uns/', '/designservice/'].concat(products.map(p => p.url), branchen.map(b => b.url), themen.map(t => t.url), ['/ratgeber/'], ratgeber.map(a => a.url), ['/impressum/', '/datenschutz/']);
+  const paths = ['/', '/ueber-uns/', '/designservice/', '/muster/'].concat(products.map(p => p.url), branchen.map(b => b.url), themen.map(t => t.url), ['/ratgeber/'], ratgeber.map(a => a.url), ['/impressum/', '/datenschutz/']);
   return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     paths.map(u => `  <url><loc>${ORIGIN}${u}</loc></url>`).join('\n') + '\n</urlset>\n';
 }
@@ -892,7 +894,7 @@ const pages = [['assets/pf-katalog.js', katalog], ['sitemap.xml', sitemap], ['ll
   .concat(branchen.map(b => [path.join('branchen', b.slug, 'index.html'), () => branchePage(b)]))
   .concat(themen.map(t => [path.join(t.id, 'index.html'), () => themaPage(t)]))
   .concat([['ratgeber/index.html', ratgeberIndex]], ratgeber.map(a => [path.join('ratgeber', a.id, 'index.html'), () => artikelPage(a)]))
-  .concat([['index.html', 'start'], ['ueber-uns/index.html', 'ueber-uns'], ['designservice/index.html', 'designservice'],
+  .concat([['index.html', 'start'], ['ueber-uns/index.html', 'ueber-uns'], ['designservice/index.html', 'designservice'], ['muster/index.html', 'muster'],
     ['impressum/index.html', 'impressum'], ['datenschutz/index.html', 'datenschutz']].map(([f, n]) => [f, () => sitePage(n)]));
 
 const stale = [];
