@@ -450,6 +450,11 @@ article.pf-story .pf-prose h2:not(:first-child) { margin-top: var(--s7); }
 /* ── Über uns, Designservice, Rechtliches ── */
 .pf-photo { margin: var(--s6) auto 0; max-width: 1150px; border-radius: var(--r-l); overflow: hidden; aspect-ratio: 2 / 1; }
 .pf-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.pf-work { margin: var(--s6) auto 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--s3); }
+.pf-work figure { margin: 0; background: #fff; border-radius: var(--r-m); overflow: hidden; aspect-ratio: 1 / 1; box-shadow: 0 1px 2px rgba(29, 29, 31, .05); }
+.pf-work img { width: 100%; height: 100%; object-fit: contain; }
+.pf-work-cap { margin-top: var(--s3); font-size: 14px; color: var(--muted); }
+@media (max-width: 860px) { .pf-work { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: var(--s5); } }
 .pf-founders { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); }
 .pf-founder { background: var(--mist); border-radius: var(--r-l); padding: var(--s6) var(--s5); display: flex; flex-direction: column; gap: var(--s3); }
 .pf-founder h2 { font-size: 30px; font-weight: 700; letter-spacing: -.03em; }
