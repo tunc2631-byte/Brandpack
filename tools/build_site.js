@@ -159,6 +159,8 @@ function footer() {
       ${['salatschalen', 'einschlagpapier', 'servietten'].map(s => link(bySlug[s].url, esc(bySlug[s].catalog.title))).join('\n      ')}
       ${link('/doenerpapier-bedrucken/', 'Dönerpapier')}
       ${link('/burgerpapier-bedrucken/', 'Burgerpapier')}
+      ${link('/baeckertueten-bedrucken/', 'Bäckertüten')}
+      ${link('/asiaboxen-bedrucken/', 'Asiaboxen')}
       ${link('/#produkte', 'Alle Produkte')}
     </ul></nav>
     <nav aria-label="Branchen"><h2>Branchen</h2><ul>
