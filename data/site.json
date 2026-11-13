@@ -59,6 +59,17 @@
       ]
     },
     {
+      "id": "pizza",
+      "label": "Pizzeria",
+      "bild": "pizzakartons",
+      "set": [
+        "pizzakartons",
+        "tueten",
+        "servietten",
+        "feuchttuecher"
+      ]
+    },
+    {
       "id": "cafe",
       "label": "Café & Bäckerei",
       "bild": "kaffeebecher-single-wall",

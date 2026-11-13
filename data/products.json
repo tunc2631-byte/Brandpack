@@ -15,6 +15,7 @@
     "badge": "Bestseller",
     "branchen": [
       "burger",
+      "pizza",
       "cafe",
       "doener",
       "bubbletea",
@@ -502,6 +503,7 @@
     "badge": "Neu",
     "branchen": [
       "doener",
+      "pizza",
       "bowls"
     ],
     "related": [
@@ -2739,6 +2741,7 @@
     "badge": "Neu",
     "branchen": [
       "burger",
+      "pizza",
       "cafe",
       "doener",
       "bubbletea",
@@ -2857,6 +2860,7 @@
     "badge": "Neu",
     "branchen": [
       "burger",
+      "pizza",
       "doener",
       "bowls"
     ],
