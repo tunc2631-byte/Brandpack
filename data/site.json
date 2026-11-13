@@ -22,15 +22,18 @@
   "categories": [
     {
       "id": "papiertüten",
-      "label": "Tüten"
+      "label": "Tüten",
+      "seite": "/tueten-bedrucken/"
     },
     {
       "id": "papierboxen",
-      "label": "Boxen"
+      "label": "Boxen",
+      "seite": "/boxen-bedrucken/"
     },
     {
       "id": "pappbecher",
-      "label": "Becher"
+      "label": "Becher",
+      "seite": "/pappbecher-bedrucken/"
     },
     {
       "id": "pappschalen",
