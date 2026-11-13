@@ -161,7 +161,7 @@ function footer() {
       ${link('/ueber-uns/', '&Uuml;ber uns')}
       ${link('/designservice/', 'Designservice')}
       ${link('/designservice/#druckdateien', 'Druckdateien')}
-      ${link('/muster/', 'Muster anfordern')}
+      ${link('/muster/', 'Kostenlose Muster')}
       ${link('/ratgeber/', 'Ratgeber')}
       ${link('/#kontakt', 'Kontakt')}
     </ul></nav>
@@ -876,7 +876,7 @@ ${ratgeber.map(a => `- [${plain(a.h1)}](${ORIGIN}${a.url})`).join('\n')}
 
 ## Mehr
 - [Designservice](${ORIGIN}/designservice/)
-- [Muster anfordern](${ORIGIN}/muster/)
+- [Kostenlose Muster anfordern](${ORIGIN}/muster/)
 - [Über uns](${ORIGIN}/ueber-uns/)
 - [Impressum](${ORIGIN}/impressum/)
 `;
