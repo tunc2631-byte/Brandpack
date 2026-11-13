@@ -13,11 +13,13 @@ BRANCHEN = len(json.loads((Path(__file__).resolve().parents[2] / 'data/site.json
 RATGEBER = 1 + len(list((Path(__file__).resolve().parents[2] / 'content/ratgeber').glob('*.html')))
 # Themen- und Kategorieseiten in content/themen
 THEMEN = len(list((Path(__file__).resolve().parents[2] / 'content/themen').glob('*.html')))
+# Türkische Seiten in content/tr
+TR = len(list((Path(__file__).resolve().parents[2] / 'content/tr').glob('*.html')))
 
 class SeoTests(unittest.TestCase):
     def test_regressions(self):
         report = audit()
-        self.assertEqual(len(report['pages']),PRODUCTS+BRANCHEN+RATGEBER+THEMEN+6)
+        self.assertEqual(len(report['pages']),PRODUCTS+BRANCHEN+RATGEBER+THEMEN+TR+6)
         self.assertEqual(report['site_checks']['errors'],[])
         self.assertEqual([(p['url'],p['errors']) for p in report['pages'] if p['errors']],[])
 
