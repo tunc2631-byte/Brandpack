@@ -453,6 +453,7 @@ ${designsOf(p) ? designPick(designsOf(p), 'web', '(max-width: 980px) 90vw, 560px
     ${googleLine()}
 ${(p.notes || []).map(n => `    <p class="pf-note pf-note-top">${esc(n)}</p>`).join('\n')}${optionGroups(p, sel, null)}
 
+    <div class="pf-buybox">
     <div class="pf-sum" aria-live="polite">
       <span class="pf-total" id="price-display">${esc(s.total)}</span>
       <span class="pf-per" id="price-per">${esc(s.per)}</span>
@@ -464,8 +465,8 @@ ${(p.notes || []).map(n => `    <p class="pf-note pf-note-top">${esc(n)}</p>`).j
       <button type="button" class="pf-btn pf-btn-primary" id="pf-add" onclick="addCurrentToCart()">${CART_ICON}In den Warenkorb</button>
       <a id="wa-link" class="pf-btn pf-btn-wa" href="${esc(waHref)}" target="_blank" rel="noopener">${WA_ICON}Direkt per WhatsApp anfragen</a>
     </div>
-    <p class="pf-contact-line"><a href="tel:+491776990017">Anrufen: 0177 6990017</a><span aria-hidden="true">·</span><a id="email-link" href="${esc(mailHref)}">E-Mail schreiben</a></p>
-    <p class="pf-sample-line">Erst ansehen? <a href="/muster/">Kostenlose Muster anfordern</a></p>
+    <p class="pf-buy-links"><a href="tel:+491776990017" aria-label="Anrufen: 0177 6990017">Anrufen</a><span aria-hidden="true">·</span><a id="email-link" href="${esc(mailHref)}">E-Mail</a><span aria-hidden="true">·</span><a class="pf-buy-sample" href="/muster/">Kostenlose Muster</a></p>
+    </div>
 
     <ul class="pf-assure">
 ${c.assure.split('\n').map(l => '      ' + l.replace('<li>', `<li>${CHECK_ICON}<span>`).replace('</li>', '</span></li>')).join('\n')}
