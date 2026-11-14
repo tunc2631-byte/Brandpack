@@ -383,6 +383,8 @@ function optionGroups(p, sel, custom) {
         const t = V.tier(p, sel, c);
         return `<button ${attrs}>${c.tip ? '<i class="pf-tip">Unser Tipp</i>' : ''}<b data-qty>${esc(t.qty)}</b><span><span data-unit>${esc(t.line)}</span><em data-pct${t.pct ? '' : ' hidden'}>−${t.pct} %</em></span></button>`;
       }
+      const inHint = hints.find(h => h.after === g.key && h.choice === c.id);
+      if (inHint) return `<button ${attrs}><b>${esc(c.label)}</b><span data-detail>${esc(inHint.text)}</span></button>`;
       return `<button ${attrs}><b>${esc(c.label)}</b>${c.detail ? `<span>${esc(c.detail)}</span>` : ''}</button>`;
     }).join('\n        ');
     const customFields = g.choices.some(c => c.custom) ? `
@@ -390,7 +392,7 @@ function optionGroups(p, sel, custom) {
         <label>Breite (mm)<input type="number" inputmode="numeric" min="50" max="1000" id="pf-width" placeholder="z. B. 500"></label>
         <label>Höhe (mm)<input type="number" inputmode="numeric" min="50" max="1000" id="pf-height" placeholder="z. B. 400"></label>
       </div>` : '';
-    const groupHints = hints.filter(h => h.after === g.key).map(h => `<p class="pf-hint">${esc(h.text)}</p>`).join('');
+    const groupHints = hints.filter(h => h.after === g.key && !h.choice).map(h => `<p class="pf-hint">${esc(h.text)}</p>`).join('');
     const label = isQty ? `${esc(g.label)}<span class="pf-aside">Je mehr, desto günstiger</span>` : esc(g.label);
     return `
     <div class="pf-group" data-group="${esc(g.key)}">

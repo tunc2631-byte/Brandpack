@@ -55,7 +55,7 @@
     (p.hints || []).forEach(function (h) {
       var t = h.table;
       h.by.forEach(function (k) { t = t == null ? t : t[sel[k]]; });
-      if (t) out.push({ after: h.after, text: t });
+      if (t) out.push({ after: h.after, text: t, choice: h.choice });
     });
     var q = PF.quote(p, sel);
     if (p.pieces && !q.onRequest) {

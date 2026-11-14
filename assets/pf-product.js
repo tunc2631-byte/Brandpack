@@ -47,9 +47,14 @@
     // Hinweise
     var hints = V.hints(p, sel, custom);
     $$('[data-hints]').forEach(function (box) {
-      var html = hints.filter(function (h) { return h.after === box.dataset.hints; })
+      var html = hints.filter(function (h) { return h.after === box.dataset.hints && !h.choice; })
         .map(function (h) { var e = document.createElement('p'); e.className = 'pf-hint'; e.textContent = h.text; return e.outerHTML; }).join('');
       if (box.innerHTML !== html) box.innerHTML = html;
+    });
+    // Hinweise in einer Option (z. B. Aufpreis neben "Mit Deckel")
+    hints.filter(function (h) { return h.choice; }).forEach(function (h) {
+      var d = $('.pf-opt[data-key="' + h.after + '"][data-id="' + h.choice + '"] [data-detail]');
+      if (d) setText(d, h.text);
     });
     // Preis
     var s = V.summary(p, sel);
