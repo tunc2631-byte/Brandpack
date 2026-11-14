@@ -116,7 +116,6 @@ ${ld}
         <a href="/#produkte">Produkte</a>
         <a href="/designservice/">Designservice</a>
         <a href="/muster/">Muster</a>
-        <a href="/ratgeber/">Ratgeber</a>
         <a href="/ueber-uns/">&Uuml;ber uns</a>
         <a href="/#kontakt">Kontakt</a>
       </div>
@@ -132,7 +131,6 @@ ${ld}
   <a href="/#produkte" onclick="closeMenu()">Produkte</a>
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/muster/" onclick="closeMenu()">Kostenlose Muster</a>
-  <a href="/ratgeber/" onclick="closeMenu()">Ratgeber</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
   <p class="mm-title">Beliebt</p>
@@ -157,10 +155,6 @@ function footer() {
     <nav aria-label="Produkte"><h2>Produkte</h2><ul>
       ${site.categories.filter(c => c.seite).map(c => link(c.seite, esc(c.label))).join('\n      ')}
       ${['salatschalen', 'einschlagpapier', 'servietten'].map(s => link(bySlug[s].url, esc(bySlug[s].catalog.title))).join('\n      ')}
-      ${link('/doenerpapier-bedrucken/', 'Dönerpapier')}
-      ${link('/burgerpapier-bedrucken/', 'Burgerpapier')}
-      ${link('/baeckertueten-bedrucken/', 'Bäckertüten')}
-      ${link('/asiaboxen-bedrucken/', 'Asiaboxen')}
       ${link('/#produkte', 'Alle Produkte')}
     </ul></nav>
     <nav aria-label="Branchen"><h2>Branchen</h2><ul>
@@ -180,6 +174,7 @@ function footer() {
       ${link('/datenschutz/', 'Datenschutz')}
     </ul></nav>
   </div>
+  <p class="pf-wrap pf-foot-topics">Beliebt: ${themen.filter(t => !site.categories.some(c => c.seite === t.url)).map(t => `<a href="${esc(t.url)}">${esc(t.eyebrow)}</a>`).join(' · ')}</p>
   <p class="pf-wrap pf-foot-copy">&copy; ${year} PackFactory. Alle Rechte vorbehalten. Alle Preise netto zzgl. MwSt.</p>
 </footer>`;
 }
@@ -241,7 +236,7 @@ function blocks() {
         <p class="pf-shop-kicker">${esc(h.kicker)}</p>
         <h2 class="pf-shop-name">${esc(x.name)}</h2>
         <p class="pf-shop-tag">${esc(x.tagline)}</p>
-        <p class="pf-shop-price"><b>${esc(V.fromPrice(hp))}</b> pro ${esc(hp.unit)}<span>Design kostenlos</span></p>
+        <p class="pf-shop-price"><b>${esc(V.fromPrice(hp))}</b> pro ${esc(hp.unit)}<span>Design und Muster kostenlos</span></p>
         <div class="pf-hero-cta">
           <a class="pf-btn pf-btn-primary" href="${esc(hp.url)}">Jetzt konfigurieren</a>
           <a class="pf-link" href="#produkte">Alle Produkte</a>
@@ -428,6 +423,7 @@ function page(p) {
     c.tech || c.technotes ? `<details class="pf-acc"><summary>Technische Daten</summary><div class="pf-acc-body">${c.tech}${c.technotes ? `<div class="pf-small">${c.technotes}</div>` : ''}</div></details>` : '',
     c.faq ? `<details class="pf-acc"><summary>Häufige Fragen</summary><div class="pf-acc-body">${c.faq}</div></details>` : '',
     c.guide ? `<details class="pf-acc"><summary>Auswahlhilfe</summary><div class="pf-acc-body pf-prose">${c.guide}</div></details>` : '',
+    c.seo ? `<details class="pf-acc"><summary>Mehr über ${esc(p.catalog.title)}</summary><div class="pf-acc-body pf-prose">${c.seo}</div></details>` : '',
   ].filter(Boolean).join('\n      ');
 
   const title = c.title.replace('{{ab}}', esc(shortPrice(p)));
@@ -459,6 +455,7 @@ ${(p.notes || []).map(n => `    <p class="pf-note pf-note-top">${esc(n)}</p>`).j
       <a id="wa-link" class="pf-btn pf-btn-wa" href="${esc(waHref)}" target="_blank" rel="noopener">${WA_ICON}Direkt per WhatsApp anfragen</a>
     </div>
     <p class="pf-contact-line"><a href="tel:+491776990017">Anrufen: 0177 6990017</a><span aria-hidden="true">·</span><a id="email-link" href="${esc(mailHref)}">E-Mail schreiben</a></p>
+    <p class="pf-sample-line">Erst ansehen? <a href="/muster/">Kostenlose Muster anfordern</a></p>
 
     <ul class="pf-assure">
 ${c.assure.split('\n').map(l => '      ' + l.replace('<li>', `<li>${CHECK_ICON}<span>`).replace('</li>', '</span></li>')).join('\n')}
@@ -493,12 +490,6 @@ ${c.service ? `
 <section class="pf-section pf-details" aria-label="Details">
   <div class="pf-wrap pf-narrow">
       ${details}
-  </div>
-</section>
-
-<section class="pf-section pf-story">
-  <div class="pf-wrap pf-narrow pf-prose">
-    ${c.seo}
   </div>
 </section>
 
