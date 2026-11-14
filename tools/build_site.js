@@ -391,11 +391,14 @@ function optionGroups(p, sel, custom) {
         <label>Höhe (mm)<input type="number" inputmode="numeric" min="50" max="1000" id="pf-height" placeholder="z. B. 400"></label>
       </div>` : '';
     const groupHints = hints.filter(h => h.after === g.key).map(h => `<p class="pf-hint">${esc(h.text)}</p>`).join('');
+    // Variante C: kurze Auswahl als Umschalter (wie im Einstieg), lange als Liste
+    const short = g.choices.length <= 4 && !g.choices.some(c => c.custom) && g.choices.every(c => c.label.length <= 10) && g.choices.reduce((n, c) => n + c.label.length, 0) <= 26;
+    const layout = short ? 'pf-seg' + (g.choices.some(c => c.detail) ? ' pf-seg-d' : '') : 'pf-list';
     const label = isQty ? `${esc(g.label)}<span class="pf-aside">Je mehr, desto günstiger</span>` : esc(g.label);
     return `
     <div class="pf-group" data-group="${esc(g.key)}">
       <div class="pf-label" id="pf-l-${esc(g.key)}">${label}</div>
-      <div class="opt-btns ${isQty ? 'pf-tiers' : 'pf-chips'}" role="group" aria-labelledby="pf-l-${esc(g.key)}">
+      <div class="opt-btns ${isQty ? 'pf-tiers pf-list' : 'pf-chips ' + layout}" role="group" aria-labelledby="pf-l-${esc(g.key)}">
         ${buttons}
       </div>${customFields}
       <div class="pf-hints" data-hints="${esc(g.key)}" aria-live="polite">${groupHints}</div>${g.note ? `
