@@ -247,5 +247,11 @@
       "w": 147,
       "h": 56
     }
-  ]
+  ],
+  "google": {
+    "note": "Echte Zahlen aus dem Google-Unternehmensprofil, nur Bewertungen von Kunden (ohne eigene).",
+    "bewertung": "5,0",
+    "anzahl": 29,
+    "url": "https://maps.google.com/maps?cid=18151248603790209457"
+  }
 }

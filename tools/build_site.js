@@ -254,6 +254,7 @@ ${designPick(designsOf(bySlug[x.slug]), 'web', '(max-width: 860px) 76vw, 480px')
 ${h.produkte.map(tab).join('\n')}
       </div>
 ${h.produkte.map(copy).join('\n')}
+      ${googleLine('pf-rating-hero')}
     </div>
     <div class="pf-shop-stage">
 ${h.produkte.map(stage).join('\n')}
@@ -271,6 +272,14 @@ ${h.produkte.map(stage).join('\n')}
     produktoptionen: products.map(p => `        <option>${esc(p.catalog.title)}</option>`).join('\n'),
     ratgeber: ratgeber.slice(0, 3).map(a => `      <a class="pf-tile" href="${esc(a.url)}"><b>${a.h1}</b><span>${a.lead}</span></a>`).join('\n'),
   };
+}
+
+// Google-Bewertungen: echte Zahlen aus data/site.json → google (bei neuen Bewertungen dort anpassen).
+// Bewusst ohne AggregateRating im JSON-LD: Google erlaubt eigene Firmenbewertungen nicht als Sterne in der Suche.
+function googleLine(cls) {
+  const g = site.google;
+  if (!g) return '';
+  return `<a class="pf-rating${cls ? ' ' + cls : ''}" href="${esc(g.url)}" target="_blank" rel="noopener" aria-label="${esc(g.bewertung)} von 5 Sternen bei Google, ${g.anzahl} Bewertungen"><span class="pf-stars" aria-hidden="true">★★★★★</span><b>${esc(g.bewertung)}</b><span aria-hidden="true">·</span>${g.anzahl} Google-Bewertungen</a>`;
 }
 
 function readPage(name) {
@@ -441,6 +450,7 @@ ${designsOf(p) ? designPick(designsOf(p), 'web', '(max-width: 980px) 90vw, 560px
     <h1 class="pf-title">${/logo/i.test(c.name) ? c.name : c.name + ' mit Logo'}</h1>
     ${c.subtitle ? `<p class="pf-sub">${c.subtitle}</p>` : ''}
     <p class="pf-from">${esc(V.fromPrice(p))}${p.unit === 'kg' ? '' : ' pro Stück'} · mit deinem Logo</p>
+    ${googleLine()}
 ${(p.notes || []).map(n => `    <p class="pf-note pf-note-top">${esc(n)}</p>`).join('\n')}${optionGroups(p, sel, null)}
 
     <div class="pf-sum" aria-live="polite">
