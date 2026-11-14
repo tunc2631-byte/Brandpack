@@ -116,7 +116,6 @@ ${ld}
         <a href="/#produkte">Produkte</a>
         <a href="/designservice/">Designservice</a>
         <a href="/muster/">Muster</a>
-        <a href="/ratgeber/">Ratgeber</a>
         <a href="/ueber-uns/">&Uuml;ber uns</a>
         <a href="/#kontakt">Kontakt</a>
       </div>
@@ -132,7 +131,6 @@ ${ld}
   <a href="/#produkte" onclick="closeMenu()">Produkte</a>
   <a href="/designservice/" onclick="closeMenu()">Designservice</a>
   <a href="/muster/" onclick="closeMenu()">Kostenlose Muster</a>
-  <a href="/ratgeber/" onclick="closeMenu()">Ratgeber</a>
   <a href="/ueber-uns/" onclick="closeMenu()">&Uuml;ber uns</a>
   <a href="/#kontakt" onclick="closeMenu()">Kontakt</a>
   <p class="mm-title">Beliebt</p>
