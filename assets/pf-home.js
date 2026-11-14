@@ -6,33 +6,14 @@
   var labels = {};
   $$('[data-branche]').forEach(function (b) { labels[b.dataset.branche] = b.querySelector('b').textContent; });
 
-  // Ohne Filter zeigt der Katalog zuerst nur zwei Reihen (am Handy drei); "Alle … anzeigen" klappt den Rest auf.
-  // Alle Karten bleiben im HTML, Suchmaschinen sehen also weiterhin jedes Produkt.
-  var expanded = false;
-  var grid = document.getElementById('pf-grid');
-  var moreBtn = document.createElement('button');
-  moreBtn.type = 'button'; moreBtn.className = 'pf-btn pf-grid-more'; moreBtn.hidden = true;
-  moreBtn.addEventListener('click', function () { expanded = true; apply(); });
-  grid.parentNode.insertBefore(moreBtn, grid.nextSibling);
-  function limit() {
-    var cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-    return cols * (cols <= 3 ? 3 : 2);
-  }
-
   function apply() {
-    var shown = 0, matched = 0;
-    var collapse = !expanded && state.cat === 'alle' && !state.branche;
-    var lim = collapse ? limit() : Infinity;
+    var shown = 0;
     $$('.pf-pcard').forEach(function (card) {
       var okCat = state.cat === 'alle' || card.dataset.cat.split(' ').indexOf(state.cat) > -1;
       var okBranche = !state.branche || card.dataset.branchen.split(' ').indexOf(state.branche) > -1;
-      var ok = okCat && okBranche;
-      if (ok) matched++;
-      card.hidden = !ok || matched > lim;
+      card.hidden = !(okCat && okBranche);
       if (!card.hidden) shown++;
     });
-    moreBtn.hidden = !(collapse && matched > lim);
-    moreBtn.textContent = 'Alle ' + matched + ' Produkte anzeigen';
     $$('.pf-chip').forEach(function (c) {
       var on = c.dataset.cat === state.cat;
       c.classList.toggle('active', on);
@@ -76,8 +57,6 @@
   $$('.pf-chip').forEach(function (c) {
     c.addEventListener('click', function () { state.cat = c.dataset.cat; apply(); });
   });
-  apply();
-  var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { if (!expanded) apply(); }, 150); });
   $$('[data-branche]').forEach(function (b) {
     b.setAttribute('aria-pressed', 'false');
     b.addEventListener('click', function () {
