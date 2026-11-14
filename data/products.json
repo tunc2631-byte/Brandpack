@@ -1408,22 +1408,15 @@
     "hints": [
       {
         "by": [
-          "deckel",
           "groesse"
         ],
         "table": {
-          "ohne": {
-            "750ml": "Preis ohne Deckel",
-            "1000ml": "Preis ohne Deckel",
-            "1300ml": "Preis ohne Deckel"
-          },
-          "mit": {
-            "750ml": "Deckel +7,15 ct pro Stück",
-            "1000ml": "Deckel +7,15 ct pro Stück",
-            "1300ml": "Deckel +7,00 ct pro Stück"
-          }
+          "750ml": "+7,15 ct pro Stück",
+          "1000ml": "+7,15 ct pro Stück",
+          "1300ml": "+7,00 ct pro Stück"
         },
-        "after": "deckel"
+        "after": "deckel",
+        "choice": "mit"
       }
     ],
     "pricing": {
