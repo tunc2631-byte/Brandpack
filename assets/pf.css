@@ -130,6 +130,18 @@ p { margin: 0; }
 .pf-opt:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 2px; }
 .pf-opt em { font-style: normal; font-weight: 600; color: var(--good); margin-left: 6px; }
 .pf-tip { position: absolute; top: -9px; right: 10px; background: var(--ink); color: #fff; font-style: normal; font-size: 10.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 100px; }
+/* Variante B: Schritte als Fragen, jede Option eine Zeile mit Auswahlkreis */
+.pf-group > .pf-label { font-size: 21px; font-weight: 700; letter-spacing: -.02em; }
+.pf-group > .pf-label .pf-aside { letter-spacing: 0; }
+.pf-chips, .pf-tiers { grid-template-columns: 1fr; gap: 8px; }
+.pf-opt { flex-direction: row; align-items: center; gap: var(--s3); min-height: 56px; padding: 14px 16px 14px 46px; }
+.pf-opt::before { content: ""; position: absolute; left: 16px; top: 50%; width: 18px; height: 18px; margin-top: -9px; border-radius: 50%; border: 1.5px solid #a1a1a6; box-sizing: border-box; transition: border-width .2s var(--ease); }
+.pf-opt.active::before { border: 5.5px solid var(--ink); }
+.pf-opt b { order: 1; }
+.pf-opt .pf-tip { position: static; order: 2; margin-left: auto; background: var(--pink-soft); color: var(--pink-ink); }
+.pf-opt > span { order: 3; margin-left: auto; text-align: right; }
+.pf-opt .pf-tip + b + span { margin-left: 0; }
+@media (max-width: 520px) { .pf-chips { grid-template-columns: 1fr; } .pf-opt { padding: 13px 14px 13px 44px; } .pf-opt::before { left: 14px; } }
 .pf-hints:empty { display: none; }
 .pf-hint, .pf-note { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
 .pf-hint { color: var(--pink-ink); font-weight: 500; }
