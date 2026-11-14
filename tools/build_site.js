@@ -755,6 +755,24 @@ const ratgeber = fs.readdirSync(path.join(ROOT, 'content/ratgeber')).filter(f =>
   .sort((a, b) => b.datum.localeCompare(a.datum) || a.id.localeCompare(b.id));
 const datumText = d => { const [y, m, t] = d.split('-'); return `${+t}. ${['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'][m - 1]} ${y}`; };
 
+// Preise in Artikeln immer aus data/products.json, damit sie bei Preisänderungen stimmen:
+//   {{start:slug}}  Stückpreis der Standardauswahl (kleinste Menge)   {{ab:slug}}  günstigster Stückpreis
+//   {{startsumme:a+b+c}} / {{absumme:a+b+c}}  Summe mehrerer Produkte, {{startmenge:slug}} Menge der Standardauswahl
+function preisPlatzhalter(html, quelle) {
+  const ct = q => { const fr = q.unitFraction; return V.roundHalfUp(fr[0] * 10000, fr[1]) / 100; };
+  const fmt = n => n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ct';
+  const prod = slug => { const p = bySlug[slug]; if (!p || p.unit !== 'Stück') throw new Error('Preis-Platzhalter: kein Stück-Produkt ' + slug + ' in ' + quelle); return p; };
+  const start = slug => PF.quote(prod(slug), PF.defaults(prod(slug)));
+  const best = slug => PF.lowest(prod(slug)).quote;
+  return html.replace(/\{\{(start|ab|startsumme|absumme|startmenge):([a-z0-9+-]+)\}\}/g, (m, art, arg) => {
+    const slugs = arg.split('+');
+    if (art === 'start') return fmt(ct(start(arg)));
+    if (art === 'ab') return fmt(ct(best(arg)));
+    if (art === 'startmenge') return V.qtyText(start(arg).qty, 'Stück');
+    return fmt(slugs.reduce((sum, x) => sum + ct(art === 'startsumme' ? start(x) : best(x)), 0));
+  });
+}
+
 function artikelPage(a) {
   const prods = a.produkte.map(s => { if (!bySlug[s]) throw new Error('Unbekanntes Produkt ' + s + ' in content/ratgeber/' + a.id + '.html'); return bySlug[s]; });
   const img = ogImage(prods[0].image);
@@ -778,7 +796,7 @@ function artikelPage(a) {
 
 <article class="pf-section pf-story">
   <div class="pf-wrap pf-narrow pf-prose">
-    ${a.body}
+    ${preisPlatzhalter(a.body, 'content/ratgeber/' + a.id + '.html')}
   </div>
 </article>
 
