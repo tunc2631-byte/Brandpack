@@ -1359,14 +1359,8 @@
             "label": "Ohne Deckel"
           },
           {
-            "id": "pp",
-            "label": "PP-Deckel",
-            "detail": "für warme Speisen"
-          },
-          {
-            "id": "rpet",
-            "label": "rPET-Deckel",
-            "detail": "für kalte Speisen"
+            "id": "mit",
+            "label": "Mit Deckel"
           }
         ]
       },
@@ -1423,15 +1417,10 @@
             "1000ml": "Preis ohne Deckel",
             "1300ml": "Preis ohne Deckel"
           },
-          "pp": {
-            "750ml": "PP-Deckel +7,15 ct pro Stück · besser für wärmere Speisen (höhere Temperaturbeständigkeit)",
-            "1000ml": "PP-Deckel +7,15 ct pro Stück · besser für wärmere Speisen (höhere Temperaturbeständigkeit)",
-            "1300ml": "PP-Deckel +7,00 ct pro Stück · besser für wärmere Speisen (höhere Temperaturbeständigkeit)"
-          },
-          "rpet": {
-            "750ml": "rPET-Deckel +7,15 ct pro Stück · insbesondere für kalte Speisen geeignet",
-            "1000ml": "rPET-Deckel +7,15 ct pro Stück · insbesondere für kalte Speisen geeignet",
-            "1300ml": "rPET-Deckel +7,00 ct pro Stück · insbesondere für kalte Speisen geeignet"
+          "mit": {
+            "750ml": "Deckel +7,15 ct pro Stück",
+            "1000ml": "Deckel +7,15 ct pro Stück",
+            "1300ml": "Deckel +7,00 ct pro Stück"
           }
         },
         "after": "deckel"
@@ -1488,12 +1477,7 @@
               "1000ml": 0,
               "1300ml": 0
             },
-            "pp": {
-              "750ml": 715,
-              "1000ml": 715,
-              "1300ml": 700
-            },
-            "rpet": {
+            "mit": {
               "750ml": 715,
               "1000ml": 715,
               "1300ml": 700
