@@ -59,11 +59,15 @@ function productLd(p, c) {
     image: [ORIGIN + p.image],
     url: ORIGIN + p.url,
     category: p.catalog.title,
+    // Marke = Hersteller PackFactory (bedruckt wird mit dem Logo des Kunden; eine GTIN gibt es dafür nicht)
+    brand: { '@type': 'Brand', name: 'PackFactory' },
     offers: {
       '@type': 'Offer',
       url: ORIGIN + p.url,
       priceCurrency: 'EUR',
       price,
+      // jede Bestellung wird individuell bedruckt und erst nach Freigabe produziert
+      availability: 'https://schema.org/MadeToOrder',
       priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: 'EUR', valueAddedTaxIncluded: false,
         referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode } },
       eligibleQuantity: { '@type': 'QuantitativeValue', minValue: q.qty, unitCode },
