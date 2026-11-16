@@ -68,6 +68,13 @@ function productLd(p, c) {
       price,
       // jede Bestellung wird individuell bedruckt und erst nach Freigabe produziert
       availability: 'https://schema.org/MadeToOrder',
+      // Versand kostenlos innerhalb Deutschlands (Angabe des Inhabers, 15.11.2026)
+      shippingDetails: { '@type': 'OfferShippingDetails',
+        shippingRate: { '@type': 'MonetaryAmount', value: 0, currency: 'EUR' },
+        shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'DE' } },
+      // individuell bedruckte Ware: Rückgabe ausgeschlossen (Angabe des Inhabers, 15.11.2026)
+      hasMerchantReturnPolicy: { '@type': 'MerchantReturnPolicy', applicableCountry: 'DE',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted' },
       priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: 'EUR', valueAddedTaxIncluded: false,
         referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode } },
       eligibleQuantity: { '@type': 'QuantitativeValue', minValue: q.qty, unitCode },
