@@ -55,11 +55,33 @@
   ],
   "url": "https://pack-factory.de/produkte/broetchentueten/",
   "category": "Brötchentüten",
+  "brand": {
+    "@type": "Brand",
+    "name": "PackFactory"
+  },
   "offers": {
     "@type": "Offer",
     "url": "https://pack-factory.de/produkte/broetchentueten/",
     "priceCurrency": "EUR",
     "price": 4.68,
+    "availability": "https://schema.org/MadeToOrder",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": 0,
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "DE",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+    },
     "priceSpecification": {
       "@type": "UnitPriceSpecification",
       "price": 4.68,

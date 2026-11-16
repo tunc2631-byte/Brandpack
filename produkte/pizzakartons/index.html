@@ -55,11 +55,33 @@
   ],
   "url": "https://pack-factory.de/produkte/pizzakartons/",
   "category": "Pizzakartons",
+  "brand": {
+    "@type": "Brand",
+    "name": "PackFactory"
+  },
   "offers": {
     "@type": "Offer",
     "url": "https://pack-factory.de/produkte/pizzakartons/",
     "priceCurrency": "EUR",
     "price": 0.221,
+    "availability": "https://schema.org/MadeToOrder",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": 0,
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "DE",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+    },
     "priceSpecification": {
       "@type": "UnitPriceSpecification",
       "price": 0.221,
