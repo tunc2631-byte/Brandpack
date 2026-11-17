@@ -39,6 +39,19 @@
     return p.options.some(function (g) { var c = choice(p, g.key, sel[g.key]); return c && c.custom; });
   }
 
+  // Ungefähre Stückzahl bei Ware nach Gewicht (Tüten: pieces, Papier: sheets), gerundet auf 100; 0 = unbekannt
+  function pieceCount(p, sel, kg, custom) {
+    var n = 0;
+    if (p.pieces) n = (typeof p.pieces.per200kg === 'number' ? p.pieces.per200kg : p.pieces.per200kg[sel[p.pieces.by]]) * kg / 200;
+    if (p.sheets) {
+      var perKg = 0;
+      if (isCustom(p, sel)) { if (custom && custom.width > 0 && custom.height > 0) perKg = p.sheets.customArea / (custom.width * custom.height); }
+      else perKg = p.sheets.perKg[sel[p.sheets.by]];
+      n = perKg * kg;
+    }
+    return n > 0 ? Math.round(n / 100) * 100 : 0;
+  }
+
   // Mengen-Karte: Menge, Stückpreis und Ersparnis gegenüber der kleinsten Menge
   function tier(p, sel, c) {
     var s = Object.assign({}, sel);
@@ -47,7 +60,8 @@
     if (q.onRequest) return { qty: c.label, line: 'Preis auf Anfrage', pct: 0 };
     var q0 = PF.quote(p, firstQty(p, s));
     var pct = Math.round((1 - q.unit / q0.unit) * 100);
-    return { qty: qtyText(q.qty, p.unit), line: unitShort(q), pct: pct > 0 ? pct : 0 };
+    var n = q.per === 'kg' ? pieceCount(p, s, q.qty, null) : 0;
+    return { qty: qtyText(q.qty, p.unit), line: unitShort(q), pct: pct > 0 ? pct : 0, pieces: n ? 'ca. ' + nf0.format(n) + ' Stück' : '' };
   }
 
   function hints(p, sel, custom) {
@@ -61,17 +75,11 @@
     if (p.pieces && !q.onRequest) {
       var per200 = typeof p.pieces.per200kg === 'number' ? p.pieces.per200kg : p.pieces.per200kg[sel[p.pieces.by]];
       var grams = typeof p.pieces.grams === 'number' ? p.pieces.grams : p.pieces.grams[sel[p.pieces.by]];
-      var pieces = Math.round(per200 * q.qty / 200);
-      out.push({ after: p.qtyKey, text: 'ca. ' + nf0.format(pieces) + ' Stück · ' + nf2.format(q.unit * grams / 10) + ' ct pro Stück' });
+      out.push({ after: p.qtyKey, text: 'ca. ' + nf0.format(pieceCount(p, sel, q.qty, custom)) + ' Stück · ' + nf2.format(q.unit * grams / 10) + ' ct pro Stück' });
     }
     if (p.sheets && !q.onRequest) {
-      var perKg = 0;
-      if (isCustom(p, sel)) {
-        if (custom && custom.width > 0 && custom.height > 0) perKg = p.sheets.customArea / (custom.width * custom.height);
-      } else {
-        perKg = p.sheets.perKg[sel[p.sheets.by]];
-      }
-      out.push({ after: p.qtyKey, text: perKg > 0 ? 'ca. ' + nf0.format(Math.round(q.qty * perKg)) + ' Blatt' : 'Bitte Breite und Höhe eingeben' });
+      var sh = pieceCount(p, sel, q.qty, custom);
+      out.push({ after: p.qtyKey, text: sh > 0 ? 'ca. ' + nf0.format(sh) + ' Stück' : 'Bitte Breite und Höhe eingeben' });
     }
     return out;
   }

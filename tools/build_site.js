@@ -392,7 +392,7 @@ function optionGroups(p, sel, custom) {
       const attrs = `type="button" class="pf-opt${isQty ? ' pf-tier' : ''}${on ? ' active' : ''}" aria-pressed="${on}" data-key="${esc(g.key)}" data-id="${esc(c.id)}"`;
       if (isQty) {
         const t = V.tier(p, sel, c);
-        return `<button ${attrs}>${c.tip ? '<i class="pf-tip">Unser Tipp</i>' : ''}<b data-qty>${esc(t.qty)}</b><span><span data-unit>${esc(t.line)}</span><em data-pct${t.pct ? '' : ' hidden'}>−${t.pct} %</em></span></button>`;
+        return `<button ${attrs}>${c.tip ? '<i class="pf-tip">Unser Tipp</i>' : ''}<b data-qty>${esc(t.qty)}</b><span><span data-unit>${esc(t.line)}</span><em data-pct${t.pct ? '' : ' hidden'}>−${t.pct} %</em></span><small data-pieces${t.pieces ? '' : ' hidden'}>${esc(t.pieces)}</small></button>`;
       }
       const inHint = hints.find(h => h.after === g.key && h.choice === c.id);
       if (inHint) return `<button ${attrs}><b>${esc(c.label)}</b><span data-detail>${esc(inHint.text)}</span></button>`;
