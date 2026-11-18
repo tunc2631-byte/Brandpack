@@ -120,7 +120,7 @@ p { margin: 0; }
 .pf-label { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3); font-size: 15px; font-weight: 600; }
 .pf-aside { font-size: 13px; font-weight: 400; color: var(--muted); }
 .pf-chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-.pf-tier small { display: block; font-size: 12.5px; line-height: 1.35; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pf-tier small { display: block; white-space: pre-line; font-size: 12.5px; line-height: 1.35; color: var(--muted); font-variant-numeric: tabular-nums; }
 .pf-tier small[hidden] { display: none; }
 .pf-tiers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .pf-opt { position: relative; text-align: left; display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; min-height: 54px; justify-content: center; background: var(--paper); color: var(--ink); border: 1.5px solid var(--line); border-radius: var(--r-s); font: inherit; cursor: pointer; transition: transform .25s var(--spring); }
