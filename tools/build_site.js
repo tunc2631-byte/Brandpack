@@ -154,6 +154,20 @@ ${site.bestseller.slice(0, 4).map(s => `    <a href="${esc(bySlug[s].url)}" oncl
 `;
 }
 
+// Footer-Zeile „Beliebt“ aus site.beliebt: Themen-URL ("/…/"), Produkt-Slug oder { slug, label }.
+function beliebt() {
+  return site.beliebt.map(e => {
+    if (typeof e === 'string' && e.startsWith('/')) {
+      const t = themen.find(x => x.url === e);
+      if (!t) throw new Error('Unbekannte Themenseite ' + e + ' in data/site.json → beliebt');
+      return { url: t.url, label: t.eyebrow };
+    }
+    const slug = typeof e === 'string' ? e : e.slug, p = bySlug[slug];
+    if (!p) throw new Error('Unbekanntes Produkt ' + slug + ' in data/site.json → beliebt');
+    return { url: p.url, label: (typeof e === 'object' && e.label) || p.catalog.title };
+  });
+}
+
 function footer() {
   const link = (href, text) => `<li><a href="${href}">${text}</a></li>`;
   return `<footer class="pf-footer">
@@ -185,7 +199,7 @@ function footer() {
       ${link('/datenschutz/', 'Datenschutz')}
     </ul></nav>
   </div>
-  <p class="pf-wrap pf-foot-topics">Beliebt: ${themen.filter(t => !site.categories.some(c => c.seite === t.url)).map(t => `<a href="${esc(t.url)}">${esc(t.eyebrow)}</a>`).join(' · ')}</p>
+  <p class="pf-wrap pf-foot-topics">Beliebt: ${beliebt().map(b => `<a href="${esc(b.url)}">${esc(b.label)}</a>`).join(' · ')}</p>
   <p class="pf-wrap pf-foot-copy">&copy; ${year} PackFactory. Alle Rechte vorbehalten. Alle Preise netto zzgl. MwSt.</p>
 </footer>`;
 }
