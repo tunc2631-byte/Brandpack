@@ -323,6 +323,7 @@ function readContent(slug) {
     parts[key] = val.replace(/\n$/, '');
     return null;
   }, null);
+  for (const k of ['seo', 'guide', 'faq']) if (parts[k]) parts[k] = preisPlatzhalter(parts[k], 'content/produkte/' + slug + '.html');
   return parts;
 }
 
