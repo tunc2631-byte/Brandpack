@@ -52,6 +52,21 @@
     return n > 0 ? Math.round(n / 100) * 100 : 0;
   }
 
+  // Preis pro Stück in ct bei Ware nach Gewicht (q.unit = € pro kg); 0 = unbekannt
+  function pieceCents(p, sel, q, custom) {
+    if (p.pieces) {
+      var grams = typeof p.pieces.grams === 'number' ? p.pieces.grams : p.pieces.grams[sel[p.pieces.by]];
+      return q.unit * grams / 10;
+    }
+    if (p.sheets) {
+      var perKg = 0;
+      if (isCustom(p, sel)) { if (custom && custom.width > 0 && custom.height > 0) perKg = p.sheets.customArea / (custom.width * custom.height); }
+      else perKg = p.sheets.perKg[sel[p.sheets.by]];
+      return perKg > 0 ? q.unit * 100 / perKg : 0;
+    }
+    return 0;
+  }
+
   // Mengen-Karte: Menge, Stückpreis und Ersparnis gegenüber der kleinsten Menge
   function tier(p, sel, c) {
     var s = Object.assign({}, sel);
@@ -61,7 +76,7 @@
     var q0 = PF.quote(p, firstQty(p, s));
     var pct = Math.round((1 - q.unit / q0.unit) * 100);
     var n = q.per === 'kg' ? pieceCount(p, s, q.qty, null) : 0;
-    return { qty: qtyText(q.qty, p.unit), line: unitShort(q), pct: pct > 0 ? pct : 0, pieces: n ? 'ca. ' + nf0.format(n) + ' Stück' : '' };
+    return { qty: qtyText(q.qty, p.unit), line: unitShort(q), pct: pct > 0 ? pct : 0, pieces: n ? 'ca. ' + nf0.format(n) + ' Stück\n' + nf2.format(pieceCents(p, s, q, null)) + ' ct pro Stück' : '' };
   }
 
   function hints(p, sel, custom) {
@@ -74,12 +89,11 @@
     var q = PF.quote(p, sel);
     if (p.pieces && !q.onRequest) {
       var per200 = typeof p.pieces.per200kg === 'number' ? p.pieces.per200kg : p.pieces.per200kg[sel[p.pieces.by]];
-      var grams = typeof p.pieces.grams === 'number' ? p.pieces.grams : p.pieces.grams[sel[p.pieces.by]];
-      out.push({ after: p.qtyKey, text: 'ca. ' + nf0.format(pieceCount(p, sel, q.qty, custom)) + ' Stück · ' + nf2.format(q.unit * grams / 10) + ' ct pro Stück' });
+      out.push({ after: p.qtyKey, text: 'ca. ' + nf0.format(pieceCount(p, sel, q.qty, custom)) + ' Stück · ' + nf2.format(pieceCents(p, sel, q, custom)) + ' ct pro Stück' });
     }
     if (p.sheets && !q.onRequest) {
       var sh = pieceCount(p, sel, q.qty, custom);
-      out.push({ after: p.qtyKey, text: sh > 0 ? 'ca. ' + nf0.format(sh) + ' Stück' : 'Bitte Breite und Höhe eingeben' });
+      out.push({ after: p.qtyKey, text: sh > 0 ? 'ca. ' + nf0.format(sh) + ' Stück · ' + nf2.format(pieceCents(p, sel, q, custom)) + ' ct pro Stück' : 'Bitte Breite und Höhe eingeben' });
     }
     return out;
   }
