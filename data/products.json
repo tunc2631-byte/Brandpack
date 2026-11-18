@@ -864,14 +864,24 @@
         "label": "Format",
         "choices": [
           {
+            "id": "xs",
+            "label": "20×30 cm",
+            "detail": "ca. 83.300 Stück"
+          },
+          {
+            "id": "xs2",
+            "label": "25×35 cm",
+            "detail": "ca. 57.100 Stück"
+          },
+          {
             "id": "s",
-            "label": "S",
-            "detail": "400 × 300 mm"
+            "label": "30×40 cm",
+            "detail": "ca. 41.700 Stück"
           },
           {
             "id": "m",
-            "label": "M",
-            "detail": "400 × 500 mm"
+            "label": "40×50 cm",
+            "detail": "ca. 25.000 Stück"
           },
           {
             "id": "custom",
@@ -879,7 +889,8 @@
             "custom": true,
             "detail": "Breite und Höhe frei wählbar"
           }
-        ]
+        ],
+        "note": "Stückzahl je 200 kg, gerechnet mit 40 g/m²"
       },
       {
         "key": "mat",
@@ -927,6 +938,8 @@
     "sheets": {
       "by": "size",
       "perKg": {
+        "xs": 416.67,
+        "xs2": 285.71,
         "s": 208.5,
         "m": 125
       },

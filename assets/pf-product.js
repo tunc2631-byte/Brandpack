@@ -37,6 +37,8 @@
         var pct = $('[data-pct]', b);
         pct.hidden = !t.pct;
         setText(pct, '−' + t.pct + ' %');
+        var pc = $('[data-pieces]', b);
+        if (pc) { pc.hidden = !t.pieces; setText(pc, t.pieces); }
       });
     }
     // Mengenrechner
