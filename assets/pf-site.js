@@ -53,20 +53,47 @@
     track.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); stopAuto(); go(cur + (e.key === 'ArrowRight' ? 1 : -1)); }
     });
-    // Trackpad: schräges Runterscrollen über dem Bild scrollt die Seite (nicht das Bild);
-    // eine klar seitliche Wischbewegung blättert genau ein Bild weiter
-    var wheelAcc = 0, wheelLast = 0, wheelDone = false;
+    // Trackpad: Pro Geste entscheidet die erste Bewegung. Hoch/runter scrollt die Seite
+    // (mit dem Schwung des Trackpads); eine seitliche Wischbewegung zieht das Bild mit den
+    // Fingern mit und rastet dann auf dem nächsten oder demselben Bild ein.
+    var wg = null;
+    function wheelEnd() {
+      if (!wg) return;
+      var g = wg; wg = null; clearTimeout(g.timer);
+      if (g.axis !== 'x') return;
+      var w = Math.max(1, track.clientWidth), off = track.scrollLeft - g.start * w;
+      track.classList.remove('is-wheel');
+      go(Math.abs(off) > w * 0.15 ? g.start + (off > 0 ? 1 : -1) : g.start);
+    }
     track.addEventListener('wheel', function (e) {
-      if (!e.deltaX) return; // normales Mausrad: Browser scrollt die Seite selbst
-      e.preventDefault();
       var k = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? innerHeight : 1;
-      if (Math.abs(e.deltaY) >= Math.abs(e.deltaX)) { window.scrollBy(0, e.deltaY * k); return; }
-      var now = Date.now();
-      if (now - wheelLast > 200) { wheelAcc = 0; wheelDone = false; }
-      wheelLast = now;
-      if (wheelDone) return;
-      wheelAcc += e.deltaX * k;
-      if (Math.abs(wheelAcc) > 50) { stopAuto(); go(cur + (wheelAcc > 0 ? 1 : -1)); wheelDone = true; }
+      var dx = e.deltaX * k, dy = e.deltaY * k, now = Date.now();
+      if (!wg || now - wg.last > 180) {
+        if (wg) wheelEnd();
+        wg = { axis: Math.abs(dx) > Math.abs(dy) ? 'x' : 'y', start: cur, last: now, timer: 0 };
+      }
+      wg.last = now;
+      if (wg.axis === 'y') {
+        // Chrome gibt schräge Trackpad-Bewegungen über dem Bild nicht an die Seite weiter:
+        // dann selbst scrollen, aber sofort (nicht „smooth“, sonst ruckelt es)
+        if (dx) { e.preventDefault(); window.scrollBy({ top: dy, left: 0, behavior: 'instant' }); }
+        return;
+      }
+      e.preventDefault();
+      clearTimeout(wg.timer);
+      wg.timer = setTimeout(wheelEnd, 180);
+      if (wg.axis === 'done') return; // Restschwung der Geste nach dem Einrasten schlucken
+      stopAuto();
+      track.classList.add('is-wheel');
+      var w = Math.max(1, track.clientWidth);
+      var lo = Math.max(0, (wg.start - 1) * w), hi = Math.min((imgs.length - 1) * w, (wg.start + 1) * w);
+      track.scrollLeft = Math.max(lo, Math.min(hi, track.scrollLeft + dx));
+      var off = track.scrollLeft - wg.start * w;
+      if (Math.abs(off) > w * 0.4) {
+        track.classList.remove('is-wheel');
+        go(wg.start + (off > 0 ? 1 : -1));
+        wg.axis = 'done';
+      }
     }, { passive: false });
     // Maus: ziehen wie mit dem Finger
     var drag = null;

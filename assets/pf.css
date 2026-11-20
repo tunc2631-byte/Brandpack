@@ -316,6 +316,7 @@ p { margin: 0; }
 /* Maus und Trackpad: kein seitliches Mitscrollen beim normalen Runterscrollen; gewechselt wird per Ziehen, Pfeiltaste oder Farbpunkt */
 @media (hover: hover) and (pointer: fine) { .pf-designs { overflow-x: hidden; } }
 .pf-designs.is-drag { scroll-snap-type: none; cursor: grabbing; }
+.pf-designs.is-wheel { scroll-snap-type: none; }
 .pf-designs.is-fade { opacity: 0; }
 .pf-designs:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 4px; }
 .pf-design { flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; scroll-snap-stop: always; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; }
