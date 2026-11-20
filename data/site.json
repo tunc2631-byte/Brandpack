@@ -138,6 +138,32 @@
     "servietten",
     "bubble-tea-cups"
   ],
+  "beliebt": [
+    "/burgerpapier-bedrucken/",
+    "/doenerpapier-bedrucken/",
+    {
+      "slug": "einschlagpapier",
+      "label": "Tablettpapier"
+    },
+    "burgerbox",
+    "tueten",
+    "doenertueten",
+    "doenerboxen",
+    "pommesschuetten",
+    "pizzakartons",
+    "takeaway-boxen",
+    "/asiaboxen-bedrucken/",
+    "/baeckertueten-bedrucken/",
+    {
+      "slug": "kaffeebecher-single-wall",
+      "label": "Kaffeebecher"
+    },
+    "bubble-tea-cups",
+    {
+      "slug": "servietten",
+      "label": "Servietten"
+    }
+  ],
   "kunden": [
     {
       "file": "kunde-aymo",
