@@ -16,6 +16,14 @@
   window.closeMenu = function () { setOpen(false); };
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) setOpen(false); });
 
+  // WhatsApp-Knopf unten rechts: Nachricht nennt die Seite, von der aus geschrieben wird
+  var wa = document.querySelector('[data-wa-float]');
+  var h1 = document.querySelector('h1');
+  if (wa && h1 && location.pathname !== '/') {
+    var topic = h1.textContent.replace(/\s+/g, ' ').trim();
+    if (topic) wa.href = 'https://wa.me/491776990017?text=' + encodeURIComponent('Hallo PackFactory, ich habe eine Frage zu: ' + topic);
+  }
+
   // Kundendesigns (Startseite und Tüten-Seite): zur Seite wischen, mit der Maus ziehen,
   // Pfeiltasten oder Farbpunkt. Startseite blättert zusätzlich selbst weiter (pf-home.js).
   var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

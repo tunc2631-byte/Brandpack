@@ -168,7 +168,7 @@ function beliebt() {
   });
 }
 
-function footer() {
+function footer({ wa = true } = {}) {
   const link = (href, text) => `<li><a href="${href}">${text}</a></li>`;
   return `<footer class="pf-footer">
   <div class="pf-wrap pf-foot-grid">
@@ -201,7 +201,8 @@ function footer() {
   </div>
   <p class="pf-wrap pf-foot-topics">Beliebt: ${beliebt().map(b => `<a href="${esc(b.url)}">${esc(b.label)}</a>`).join(' · ')}</p>
   <p class="pf-wrap pf-foot-copy">&copy; ${year} PackFactory. Alle Rechte vorbehalten. Alle Preise netto zzgl. MwSt.</p>
-</footer>`;
+</footer>${wa ? `
+<a class="pf-wa-float" href="https://wa.me/491776990017" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben" data-wa-float>${WA_ICON}<span>WhatsApp</span></a>` : ''}`;
 }
 
 // CSS/JS mit Inhalts-Kennung (?v=…): nach jeder Änderung lädt der Browser die neue Datei,
@@ -552,7 +553,7 @@ ${c.service ? `
 </section>
 </main>
 
-${footer()}
+${footer({ wa: false })}
 
 <div class="pf-sticky" id="pf-sticky" aria-hidden="true">
   <div class="pf-sticky-in">
