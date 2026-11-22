@@ -465,13 +465,12 @@ article.pf-story .pf-prose h2:not(:first-child) { margin-top: var(--s7); }
 .pf-form-status.is-error { color: var(--pink-ink); font-weight: 600; }
 @media (max-width: 520px) { .pf-form-row { grid-template-columns: 1fr; } .pf-form { padding: var(--s4); } }
 
-.pf-wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 140; width: 58px; height: 58px; border-radius: 50%; background: var(--wa); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(37, 211, 102, .35), 0 2px 6px rgba(29,29,31,.12); transition: transform .3s var(--spring); }
-.pf-wa-float svg { width: 28px; height: 28px; }
-.pf-wa-float:hover { transform: scale(1.06); }
-.pf-wa-float:active { transform: scale(.95); }
-.pf-wa-float { transition: transform .3s var(--spring), opacity .25s var(--ease); }
-.pf-wa-float.is-hidden { opacity: 0; transform: scale(.6); pointer-events: none; }
+.pf-wa-float { position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 140; display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 22px 0 18px; border-radius: 100px; background: var(--wa); color: #fff; font-family: var(--font-body); font-size: 16px; font-weight: 600; letter-spacing: -.01em; text-decoration: none; -webkit-tap-highlight-color: transparent; box-shadow: 0 10px 28px rgba(37, 211, 102, .32), 0 2px 6px rgba(29, 29, 31, .14); transition: transform .3s var(--spring); }
+.pf-wa-float svg { width: 24px; height: 24px; flex: none; }
+.pf-wa-float:hover { background: var(--wa-press); transform: translateY(-2px); box-shadow: 0 14px 32px rgba(37, 211, 102, .38), 0 3px 8px rgba(29, 29, 31, .16); }
+.pf-wa-float:active { background: var(--wa-press); transform: scale(.94); transition-duration: .08s; box-shadow: 0 4px 12px rgba(37, 211, 102, .3), 0 1px 3px rgba(29, 29, 31, .14); }
 .pf-wa-float:focus-visible { outline: 3px solid var(--pink-ink); outline-offset: 3px; }
+.pf-footer:has(+ .pf-wa-float) .pf-foot-copy { padding-bottom: 72px; }
 
 /* ── Über uns, Designservice, Rechtliches ── */
 .pf-photo { margin: var(--s6) auto 0; max-width: 1150px; border-radius: var(--r-l); overflow: hidden; aspect-ratio: 2 / 1; }
@@ -728,9 +727,9 @@ body.pf-sticky-on .pf-footer { padding-bottom: 110px; }
   .pf-contact-ways .pf-btn { width: 100%; }
   .pf-form { box-shadow: 0 1px 2px rgba(29, 29, 31, .06); }
 
-  /* WhatsApp-Knopf kleiner, verdeckt weniger */
-  .pf-wa-float { width: 50px; height: 50px; right: 14px; bottom: 14px; }
-  .pf-wa-float svg { width: 24px; height: 24px; }
+  /* WhatsApp-Knopf etwas kompakter, bleibt gut zu treffen */
+  .pf-wa-float { height: 50px; right: 14px; bottom: calc(14px + env(safe-area-inset-bottom)); padding: 0 18px 0 15px; font-size: 15px; gap: 8px; }
+  .pf-wa-float svg { width: 22px; height: 22px; }
 
   /* Über uns, Designservice */
   .pf-photo { margin-top: var(--s5); border-radius: var(--r-m); aspect-ratio: 4 / 3; }
