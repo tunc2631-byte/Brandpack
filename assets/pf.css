@@ -136,6 +136,7 @@ p { margin: 0; }
 .pf-opt { border-color: transparent; background: var(--mist); }
 .pf-opt:hover { border-color: transparent; background: #ececf0; }
 .pf-opt.active, .pf-opt.active:hover { background: var(--paper); border-color: var(--ink); }
+.pf-opt:disabled, .pf-opt:disabled:hover { opacity: .38; cursor: not-allowed; background: var(--mist); border-color: transparent; transform: none; }
 .pf-tip { background: var(--pink-ink); }
 .pf-hints:empty { display: none; }
 .pf-hint, .pf-note { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
