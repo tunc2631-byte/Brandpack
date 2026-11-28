@@ -27,6 +27,7 @@
       var on = sel[b.dataset.key] === b.dataset.id;
       b.classList.toggle('active', on);
       b.setAttribute('aria-pressed', String(on));
+      b.disabled = PF.blocked(p, b.dataset.key, b.dataset.id, sel);
     });
     // Mengen-Karten
     if (p.qtyKey) {
@@ -125,8 +126,16 @@
 
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('.pf-opt');
-    if (!b) return;
+    if (!b || b.disabled) return;
     sel[b.dataset.key] = b.dataset.id;
+    // Passt eine andere Auswahl nicht mehr (z. B. Papierdeckel bei 4 oz), auf die erste mögliche Option wechseln
+    p.options.forEach(function (g) {
+      if (g.key === b.dataset.key || PF.available(p, sel)) return;
+      for (var i = 0; i < g.choices.length; i++) {
+        var t = Object.assign({}, sel); t[g.key] = g.choices[i].id;
+        if (PF.available(p, t)) { sel[g.key] = g.choices[i].id; break; }
+      }
+    });
     update(true);
   });
   ['pf-width', 'pf-height'].forEach(function (id) {

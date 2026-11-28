@@ -349,7 +349,9 @@ function priceGroups(p) {
 }
 
 function priceTable(p) {
-  const rowsGroups = priceGroups(p);
+  // priceTable.without: Gruppen, die in der Tabelle nicht als eigene Zeilen erscheinen (z. B. Deckel als fester Aufpreis)
+  const without = (p.priceTable && p.priceTable.without) || [];
+  const rowsGroups = priceGroups(p).filter(g => !without.includes(g.key));
   const qtyGroup = p.qtyKey ? V.group(p, p.qtyKey) : null;
   const cols = qtyGroup ? qtyGroup.choices : [null];
   let rows = [{}];
@@ -357,6 +359,7 @@ function priceTable(p) {
     rows = rows.flatMap(r => g.choices.filter(c => !c.onRequest).map(c => Object.assign({}, r, { [g.key]: c.id })));
   });
   const base = PF.defaults(p);
+  rows = rows.filter(r => PF.available(p, Object.assign({}, base, r)));
   const qtyDependsOnRow = p.pricing.qty.table != null;
   const head = rowsGroups.map(g => `<th scope="col">${esc(g.label)}</th>`).join('') +
     cols.map(c => `<th scope="col">${c ? esc(qtyDependsOnRow ? c.label : V.qtyText(PF.quote(p, Object.assign({}, base, { [p.qtyKey]: c.id })).qty, p.unit)) : 'Preis'}</th>`).join('');
@@ -374,7 +377,7 @@ function priceTable(p) {
     return `<tr>${label}${cells}</tr>`;
   }).join('\n');
   return `<div class="pf-table-wrap"><table class="pf-table pf-price-table"><thead><tr>${head}</tr></thead><tbody>\n${body}\n</tbody></table></div>
-<p class="pf-small">Stückpreis${p.unit === 'kg' ? ' pro kg' : ''} und Gesamtpreis, netto zzgl. MwSt., inkl. individuellem Druck &amp; Design.</p>`;
+<p class="pf-small">Stückpreis${p.unit === 'kg' ? ' pro kg' : ''} und Gesamtpreis, netto zzgl. MwSt., inkl. individuellem Druck &amp; Design.${p.priceTable && p.priceTable.note ? ' ' + esc(p.priceTable.note) : ''}</p>`;
 }
 
 // Mengenrechner: wie lange reicht welche Menge? Ergebnis rechnet assets/pf-product.js (Daten: products.json → rechner)
@@ -405,7 +408,8 @@ function optionGroups(p, sel, custom) {
     const isQty = g.key === p.qtyKey;
     const buttons = g.choices.map(c => {
       const on = sel[g.key] === c.id;
-      const attrs = `type="button" class="pf-opt${isQty ? ' pf-tier' : ''}${on ? ' active' : ''}" aria-pressed="${on}" data-key="${esc(g.key)}" data-id="${esc(c.id)}"`;
+      const off = PF.blocked(p, g.key, c.id, sel);
+      const attrs = `type="button" class="pf-opt${isQty ? ' pf-tier' : ''}${on ? ' active' : ''}" aria-pressed="${on}" data-key="${esc(g.key)}" data-id="${esc(c.id)}"${off ? ' disabled' : ''}`;
       if (isQty) {
         const t = V.tier(p, sel, c);
         return `<button ${attrs}>${c.tip ? '<i class="pf-tip">Unser Tipp</i>' : ''}<b data-qty>${esc(t.qty)}</b><span><span data-unit>${esc(t.line)}</span><em data-pct${t.pct ? '' : ' hidden'}>−${t.pct} %</em></span><small data-pieces${t.pieces ? '' : ' hidden'}>${esc(t.pieces)}</small></button>`;
