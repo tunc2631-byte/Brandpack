@@ -34,6 +34,27 @@
     return choice;
   }
 
+  // Eine Auswahl ist nicht möglich, wenn eine gewählte Option "notWith" hat,
+  // z. B. { "groesse": ["4"] } = gibt es nicht bei 4 oz.
+  function available(product, sel) {
+    for (var i = 0; i < product.options.length; i++) {
+      var g = product.options[i];
+      var c = g.choices.filter(function (x) { return x.id === sel[g.key]; })[0];
+      if (!c || !c.notWith) continue;
+      for (var k in c.notWith) if (c.notWith[k].indexOf(sel[k]) >= 0) return false;
+    }
+    return true;
+  }
+
+  // Ist die Option key = id bei der aktuellen Auswahl gesperrt (eigene notWith-Regel)?
+  function blocked(product, key, id, sel) {
+    var g = product.options.filter(function (x) { return x.key === key; })[0];
+    var c = g && g.choices.filter(function (x) { return x.id === id; })[0];
+    if (!c || !c.notWith) return false;
+    for (var k in c.notWith) if (c.notWith[k].indexOf(sel[k]) >= 0) return true;
+    return false;
+  }
+
   function quantity(product, sel) {
     var q = product.pricing.qty;
     if (q.fixed != null) return q.fixed;
@@ -94,7 +115,7 @@
       });
       out = next;
     });
-    return out;
+    return out.filter(function (sel) { return available(product, sel); });
   }
 
   function defaults(product) {
@@ -113,5 +134,5 @@
     return best;
   }
 
-  return { quote: quote, combinations: combinations, defaults: defaults, lowest: lowest };
+  return { quote: quote, combinations: combinations, defaults: defaults, lowest: lowest, available: available, blocked: blocked };
 });

@@ -83,9 +83,11 @@ async function snapshotPage(page, base, slug) {
   for (let n = 0; n < total; n++) {
     let r = n;
     for (let g = groupCount - 1; g >= 0; g--) { idx[g] = r % sizes[g]; r = Math.floor(r / sizes[g]); }
-    for (let g = 0; g < groupCount; g++) {
-      await page.evaluate(([g, i]) => window.__pfGroups()[g].querySelectorAll('button')[i].click(), [g, idx[g]]);
+    let possible = true;
+    for (let g = 0; g < groupCount && possible; g++) {
+      possible = await page.evaluate(([g, i]) => { const b = window.__pfGroups()[g].querySelectorAll('button')[i]; if (b.disabled) return false; b.click(); return true; }, [g, idx[g]]);
     }
+    if (!possible) continue; // Kombination gibt es nicht (Knopf gesperrt)
     const labels = await page.evaluate(() => window.__pfGroups().map(g => {
       const a = g.querySelector('button.active') || g.querySelector('button[aria-pressed="true"]');
       return a ? a.textContent.replace(/\s+/g, ' ').trim() : '?';
